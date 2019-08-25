@@ -1,7 +1,6 @@
 " Plugin manager ( https://github.com/junegunn/vim-plug )
 call plug#begin('~/.vim/plugged')
 
-Plug 'jiangmiao/auto-pairs'
 " "Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 " "Plug 'majutsushi/tagbar'
@@ -54,7 +53,7 @@ set wrap
 syntax on
 colorscheme ron
 " highlight line under cursor
-set cursorline
+"set cursorline
 " highlight trailing spaces
 au BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
 
