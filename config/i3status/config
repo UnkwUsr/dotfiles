@@ -21,7 +21,7 @@ order += "tztime local"
 
 
 tztime local {
-    format = "%d.%m %a %I:%M%P"
+    format = "%d.%m %a %H:%M"
 }
 
 cpu_usage {
@@ -35,7 +35,7 @@ volume master_sink_default {
 }
 
 volume capture_source_default {
-    format = ": %volume%"
+    format = ": %volume"
     format_muted = ": muted (%volume)"
     device = "pulse:source"
 }
