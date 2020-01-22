@@ -6,6 +6,7 @@ Plug 'scrooloose/nerdtree'
 " "Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/spacehi.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
