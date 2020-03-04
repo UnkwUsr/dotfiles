@@ -36,8 +36,6 @@ let g:airline#extensions#tabline#tab_min_count = 0
 let g:airline#extensions#tabline#show_close_button = 0
 
 
-" draw relative line number for fast jumping using j, k
-set relativenumber
 " draw current number instead '0' by 'relativenumber'
 set number
 
