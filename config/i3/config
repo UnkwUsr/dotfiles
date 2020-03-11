@@ -185,11 +185,11 @@ bar {
         status_command i3status
 
         position top
-        tray_padding -4
         colors {
                 background #000000
                 statusline #10FF10
         }
+        tray_padding 0
 
         # disable scrollings workspaces on mouse wheel
         bindsym button4 nop
