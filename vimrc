@@ -38,6 +38,10 @@ let g:airline#extensions#tabline#show_close_button = 0
 
 " draw current number instead '0' by 'relativenumber'
 set number
+" enable printing current pressed keys in normal mode in bottom right panel
+" (for example: typing "d" will print "d" in this panel and then we need to
+" press next keys for finish command)
+set showcmd
 
 " search settings
 " hightlight search
@@ -51,8 +55,6 @@ set wrap
 " enable syntax highlight
 syntax on
 colorscheme ron
-" highlight line under cursor
-"set cursorline
 " highlight trailing spaces
 au BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
 
