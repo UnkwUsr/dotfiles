@@ -24,15 +24,10 @@ export LESS=-R
 
 export EDITOR=vim
 
-# save current working directory before exit
-trap 'echo "$PWD" > ~/.lwd' EXIT
-# restore previous working directory
-test -f ~/.lwd && export OLDPWD=`head -1 ~/.lwd`
 
+# fix bug not setting current working directory when its need for creating new terminal emulator window (like Ctrl+Shift+t in Termite)
+. /etc/profile.d/vte.sh
 
-#PS1='[\[\033[32;1m\]\u\[\033[m\]@\[\033[36m\]\h\[\033[m\] \[\033[34;1m\]\w\[\033[m\] ]\[\033[33;1m\]\$ \[\033[m\]'
-#PS1='[ \[\033[34;1m\]\w\[\033[m\] ]\[\033[33;1m\]\$ \[\033[m\]'
-#PS1='[\[\033[32;1m\]\u\[\033[m\] \[\033[34;1m\]\w\[\033[m\] ]\[\033[33;1m\]\$ \[\033[m\]'
 
 if [ "$EUID" -ne 0 ]; then
     # not root
