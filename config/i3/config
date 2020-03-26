@@ -31,9 +31,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -199,7 +199,7 @@ bar {
 
 
 
-# some other stuff
+# All User(me) addef stuff:
 
 focus_follows_mouse no
 
@@ -244,7 +244,9 @@ bindsym ctrl+$alt+KP_Left exec "xrandr --output HDMI-A-0 --mode 640x480", [class
 bindsym ctrl+$alt+KP_Begin exec "xrandr --output HDMI-A-0 --mode 1920x1080", [class="^hl_linux$"] fullscreen disable
 
 # open dmenu, which after 'enter' will put all text in clipboard
-bindsym $mod+Shift+d exec echo Type text and press enter to copy | dmenu -fn 'Hack-11' | xclip -selection clipboard
+bindsym $alt+d exec echo Type text and press enter to copy | dmenu -fn 'Hack-11' | xclip -selection clipboard
+# open menu-calc (realization of bc with dmenu)
+bindsym $alt+Shift+d exec = -fn 'Hack-11'
 
 
 # windows settings
