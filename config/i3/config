@@ -246,7 +246,7 @@ bindsym ctrl+$alt+KP_Begin exec "xrandr --output HDMI-A-0 --mode 1920x1080", [cl
 # open dmenu, which after 'enter' will put all text in clipboard
 bindsym $alt+d exec echo Type text and press enter to copy | dmenu -fn 'Hack-11' | xclip -selection clipboard
 # open menu-calc (realization of bc with dmenu)
-bindsym $alt+Shift+d exec = -fn 'Hack-11'
+bindsym $alt+Shift+d exec = -- -fn 'Hack-11'
 
 
 # windows settings
