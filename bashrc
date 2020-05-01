@@ -8,12 +8,14 @@
 
 alias sudo='sudo '
 
-alias ls='ls --color=always'
+alias ls='ls --color=auto'
 alias la='ls -A'
 alias ll='ls -lA'
-alias grep='grep --color=always'
-alias pacman='pacman --color=always'
-alias dmesg='dmesg --color=always'
+alias l1='ls -1'
+alias lk='ls -ld $(ls --color=never)'
+alias grep='grep --color=auto'
+alias pacman='pacman --color=auto'
+alias dmesg='dmesg --color=auto'
 
 alias cp='cp -v'
 alias mv='mv -v'
@@ -31,8 +33,11 @@ export EDITOR=vim
 
 if [ "$EUID" -ne 0 ]; then
     # not root
-    PS1='[ \[\033[34;1m\]\w\[\033[m\] ]\[\033[33;1m\]\$ \[\033[m\]'
+    PS1='\D{%I:%M:%S} [ \[\e[34;1m\]\w\[\e[m\] ]\[\e[33;1m\]\$\[\e[m\] '
 else
     # root
-    PS1='[\[\033[31;1m\]\u\[\033[m\]@\[\033[36m\]\h\[\033[m\] \[\033[34;1m\]\w\[\033[m\] ]\[\033[31;1m\]\$ \[\033[m\]'
+    PS1='\[\e[1;30;40m\]\D{%I:%M:%S}\[\e[m\] [\[\e[31;1m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \[\e[34;1m\]\w\[\e[m\] ]\[\e[31;1m\]\$ \[\e[m\]'
 fi
+
+
+export PATH="$HOME/.emacs.d/bin:$PATH"
