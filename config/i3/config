@@ -203,6 +203,7 @@ bar {
 
 focus_follows_mouse no
 
+# HELP: Find key names: xev
 
 # bind for screenshot
 bindsym Print exec "flameshot gui"
@@ -218,24 +219,26 @@ bindsym $mod+p move absolute position center
 set $alt Mod1
 
 
-# binds for control sink (output (headphones))
-#toggle mute
+#headphone toggle mute/unmute
 bindsym ctrl+KP_Insert exec "ponymix --sink toggle"
-#decrese/increse by 5
+#headphone dedecrese/increse by 5
 bindsym ctrl+KP_End exec "ponymix --sink decrease 5"
 bindsym ctrl+KP_Down exec "ponymix --sink increase 5"
-#decrese/increse by 1
+#headphone decrese/increse by 1
 bindsym ctrl+KP_Left exec "ponymix --sink decrease 1"
 bindsym ctrl+KP_Begin exec "ponymix --sink increase 1"
+
 # binds for control source (input (microphone))
-#toggle mute
-bindsym $alt+KP_Insert exec "ponymix --source toggle"
-#decrese/increse by 5
+#microphone mute/unmute
+bindsym $alt+KP_Insert exec "ponymix --source mute"
+bindsym $alt+KP_Delete exec "ponymix --source unmute"
+#microphone volume decrese/increse by 5
 bindsym $alt+KP_End exec "ponymix --source decrease 5"
 bindsym $alt+KP_Down exec "ponymix --source increase 5"
-#decrese/increse by 1
+#microphone volume decrese/increse by 1
 bindsym $alt+KP_Left exec "ponymix --source decrease 1"
 bindsym $alt+KP_Begin exec "ponymix --source increase 1"
+
 
 # binds change resolution
 #bindsym ctrl+$alt+KP_Left exec "xrandr --output default --mode 640x480"
@@ -256,14 +259,21 @@ default_border normal
 # P.S. for finding this criteria - use 'xprop'
 assign [class="^firefox$"] 1
 for_window [class="^firefox$"] border none
+for_window [class="^VirtualBox Machine$"] move container to workspace 4
+for_window [class="^VirtualBox Manager$"] move container to workspace 4
+for_window [class="^feh$"] floating enable
+for_window [class="^Peek$"] floating enable, resize set 640 480, move absolute position center
+# social, messengers
+for_window [class="^discord$"] move container to workspace 10
+for_window [class="^TelegramDesktop$"] move container to workspace 10
+# games
 for_window [class="^Steam$"] floating enable, resize set 640 480, move container to workspace 9
 for_window [title="^Steam$"] move container to workspace 9
 for_window [class="^hl_linux$"] floating enable, move container to workspace 5
-for_window [class="^VirtualBox Machine$"] move container to workspace 4
-for_window [class="^VirtualBox Manager$"] move container to workspace 4
-for_window [class="^TelegramDesktop$"] move container to workspace 10
-for_window [class="^feh$"] floating enable
-for_window [class="^Peek$"] floating enable, resize set 640 480, move absolute position center
+for_window [class="^Minecraft"] floating enable, move container to workspace 5, resize set 640 480
+for_window [class="^ru-turikhay-tlauncher-bootstrap-Bootstrap$"] floating enable, move container to workspace 5
+#
+for_window [title="^Pyxel$"] floating enable
 
 
 # autostart
