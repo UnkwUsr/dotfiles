@@ -36,6 +36,10 @@ let g:airline#extensions#tabline#tab_min_count = 0
 let g:airline#extensions#tabline#show_close_button = 0
 
 
+
+" enable showing autocomplete when press tab in mode ':'
+set wildmenu
+
 " draw current number instead '0' by 'relativenumber'
 set number
 " enable printing current pressed keys in normal mode in bottom right panel

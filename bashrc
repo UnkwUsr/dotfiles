@@ -30,6 +30,9 @@ export EDITOR=vim
 # fix bug not setting current working directory when its need for creating new terminal emulator window (like Ctrl+Shift+t in Termite)
 . /etc/profile.d/vte.sh
 
+# fix forward history search for C-s (C-r for reverse search)
+stty -ixon
+
 
 if [ "$EUID" -ne 0 ]; then
     # not root
