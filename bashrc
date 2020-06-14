@@ -46,4 +46,7 @@ else
 fi
 
 
-export PATH="$HOME/.emacs.d/bin:$PATH"
+# ALT-C for fuzzy-cd
+# CTRL-R for fuzzy-history
+# CTRL-T for fuzzy-completion
+source /usr/share/fzf/key-bindings.bash
