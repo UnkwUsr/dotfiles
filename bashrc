@@ -36,6 +36,14 @@ export EDITOR=vim
 # fix forward history search for C-s (C-r for reverse search)
 stty -ixon
 
+# history settings
+# append immediately
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+# infinity history
+HISTSIZE=-1
+HISTFILESIZE=-1
+
 
 if [ "$EUID" -ne 0 ]; then
     # not root
