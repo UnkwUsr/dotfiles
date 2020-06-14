@@ -8,21 +8,24 @@
 
 alias sudo='sudo '
 
-alias ls='ls --color=auto'
-alias la='ls -A'
-alias ll='ls -lA'
-alias l1='ls -1'
-alias lk='ls -ld $(ls --color=never)'
+# make some colored and human-readable
+alias ls='ls --color=auto -h'
+alias du='du -h'
 alias grep='grep --color=auto'
 alias pacman='pacman --color=auto'
 alias dmesg='dmesg --color=auto'
+alias diff='diff --color=auto'
+export LESS=-R
 
+# ls aliases
+alias ll='ls -l'
+alias la='ls -lA'
+
+# make verbose
 alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'
 alias chmod='chmod -v'
-
-export LESS=-R
 
 export EDITOR=vim
 
