@@ -1,22 +1,29 @@
 " Plugin manager ( https://github.com/junegunn/vim-plug )
 call plug#begin('~/.vim/plugged')
 
-" "Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree'
-" "Plug 'majutsushi/tagbar'
-Plug 'vim-scripts/spacehi.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'preservim/nerdcommenter'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
+"Plug 'majutsushi/tagbar'
 
 call plug#end()
 
-" auto open NERDTree
-" autocmd vimenter * NERDTree
-" bind for toggle NERDTree
-nnoremap <F2> :NERDTreeToggle<CR>
 
-" setup Ctrl as key-modifier for moving lines
-let g:move_key_modifier = 'C'
+" lightline
+let g:lightline = {
+            \ 'colorscheme': 'wombat'
+            \ }
+let g:lightline.active = {
+            \ 'right': [ [ 'lineinfo' ],
+            \            [ 'percent' ],
+            \            [ 'filetype' ] ] }
+set laststatus=2
+
+
+" fzf
+"anything?
+
 
 " toggle tagbar
 "nmap <F8> :TagbarToggle<CR>
@@ -25,19 +32,24 @@ let g:tagbar_sort = 0
 " replace default icons for hide/unhide
 let g:tagbar_iconchars = ['+', '-']
 
-" airline
-" print unique name file if its double
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-" enable manage tabs from airline
-let g:airline#extensions#tabline#enabled = 1
-" draw tabline always
-let g:airline#extensions#tabline#tab_min_count = 0
-" disable X mouse-button for close tab
-let g:airline#extensions#tabline#show_close_button = 0
 
+" bit of emacs bindings in cmdline
+" start/end of line
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+" back/forward one character
+cnoremap <C-B> <Left>
+cnoremap <C-F> <Right>
+" back/forward one word (why <Esc> in cmdline stands for meta(alt) key?)
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+" delete character under cursor
+cnoremap <C-D> <Del>
 
+" set history limit
+set history=1000
 
-" enable showing autocomplete when press tab in mode ':'
+" show completions in command-line
 set wildmenu
 
 " draw current number instead '0' by 'relativenumber'
@@ -53,14 +65,18 @@ set hlsearch
 " search immediatle by typing
 set incsearch
 set ignorecase
-" wrap very long lines
+set smartcase
+"set nowrapscan
+
+" wrap long lines
 set wrap
 
 " enable syntax highlight
 syntax on
 colorscheme ron
-" highlight trailing spaces
+" highlight all trailing spaces
 au BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
+" for matching only non-escaped use this regex: '[\\]\@<!\s\+$'
 
 " indent settings
 set tabstop=4
@@ -73,7 +89,11 @@ set autoindent
 set smartindent
 
 " replace tab to something printable and viewable
-" P.S. possible char for tab: •, →
+" P.S. possible chars for tab: •, →
 set list
-set listchars=tab:▸·
+set listchars=tab:▸\ 
 
+" add colors for tty session
+if !has('gui_running')
+    set t_Co=256
+endif
