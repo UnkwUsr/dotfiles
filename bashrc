@@ -58,3 +58,7 @@ fi
 # CTRL-R for fuzzy-history
 # CTRL-T for fuzzy-completion
 source /usr/share/fzf/key-bindings.bash
+# more speed with fd instead of find or tree(for ALT_C)
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type d"
