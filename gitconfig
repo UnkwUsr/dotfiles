@@ -1,3 +1,6 @@
 [user]
 	email = ktoto2707043@gmail.com
 	name = UnkwUsr
+
+[commit]
+	verbose = true
