@@ -20,5 +20,7 @@ flameshot &
 # start clipboard tracking
 gpaste-client start &
 
-safeeyes &
+#safeeyes &
+python ~/Projects/usefulB/src/main.py &
 
+redshift-gtk &
