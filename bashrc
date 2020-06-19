@@ -9,7 +9,7 @@
 alias sudo='sudo '
 
 # make some colored and human-readable
-alias ls='ls --color=auto -h'
+alias ls='ls --color=auto -h --group-directories-first'
 alias du='du -h'
 alias grep='grep --color=auto'
 alias pacman='pacman --color=auto'
