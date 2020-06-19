@@ -6,24 +6,38 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 "Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
 
 " lightline
-let g:lightline = {
-            \ 'colorscheme': 'wombat'
-            \ }
-let g:lightline.active = {
-            \ 'right': [ [ 'lineinfo' ],
-            \            [ 'percent' ],
-            \            [ 'filetype' ] ] }
 set laststatus=2
-
+" disable show mode in cmdline, because now we have it on statusline
+set noshowmode
+let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ 'active': {
+            \   'left': [
+            \       [ 'mode', 'paste' ],
+            \       [ 'readonly', 'filename', 'modified' ]
+            \   ],
+            \   'right': [
+            \       [ 'lineinfo' ],
+            \       [ 'percent' ],
+            \       [ 'filetype' ]
+            \   ]
+            \ }
+            \}
 
 " fzf
 "anything?
 
+" gitgutter
+" update git diff when saving file
+autocmd BufWritePost * GitGutter
+" fix losting SignColumn highlight on change colorscheme
+autocmd ColorScheme * highlight! link SignColumn LineNr
 
 " toggle tagbar
 "nmap <F8> :TagbarToggle<CR>
@@ -46,23 +60,30 @@ cnoremap <Esc>f <S-Right>
 " delete character under cursor
 cnoremap <C-D> <Del>
 
+" allow switch buffers without saving changes (can save when return)
+set hidden
+
 " set history limit
 set history=1000
 
 " show completions in command-line
 set wildmenu
 
-" draw current number instead '0' by 'relativenumber'
+" print line numbers
 set number
+
 " enable printing current pressed keys in normal mode in bottom right panel
-" (for example: typing "d" will print "d" in this panel and then we need to
+" (for example: typing 'd' will print 'd' in this panel and then we need to
 " press next keys for finish command)
 set showcmd
 
+" disable key code delay (like when in insert mode and pressing <Esc>O )
+set ttimeoutlen=0
+
 " search settings
-" hightlight search
+" highlight search
 set hlsearch
-" search immediatle by typing
+" search immediately by typing
 set incsearch
 set ignorecase
 set smartcase
@@ -71,9 +92,9 @@ set smartcase
 " wrap long lines
 set wrap
 
-" enable syntax highlight
-syntax on
-colorscheme ron
+" set vertical split by right by default(instead of left)
+set splitright
+
 " highlight all trailing spaces
 au BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
 " for matching only non-escaped use this regex: '[\\]\@<!\s\+$'
@@ -82,7 +103,7 @@ au BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
 set tabstop=4
 set shiftwidth=4
 set smarttab
-" convert tab symbol to spaces in 'instert' mode
+" convert tab symbol to spaces in 'insert' mode
 set expandtab
 " copy indent from previous line
 set autoindent
@@ -93,7 +114,6 @@ set smartindent
 set list
 set listchars=tab:▸\ 
 
-" add colors for tty session
-if !has('gui_running')
-    set t_Co=256
-endif
+" enable syntax highlight and theme
+syntax on
+colorscheme ron
