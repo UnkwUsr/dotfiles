@@ -11,16 +11,16 @@ url_wp=$(cat ~/.config/i3/url_wp)
 set_wp="feh --no-fehbg --bg-scale $(realpath ~/.config/i3/wp.jpg)"
 [ -f ~/.config/i3/wp.jpg ] && ($set_wp &) || ((echo "Downloading wallpaper" && wget -O ~/.config/i3/wp.jpg $url_wp && $set_wp) &)
 
-# notifications
+# notifications daemon
 dunst &
 
-# screenshots
+# screenshots tool
 flameshot &
 
-# start clipboard tracking
-gpaste-client start &
+# start clipboard daemon
+greenclip daemon > /dev/null &
 
-#safeeyes &
+# break reminder
 python ~/Projects/usefulB/src/main.py &
 
 redshift-gtk &

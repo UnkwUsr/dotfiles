@@ -220,7 +220,7 @@ bindsym Shift+Print exec "peek"
 # bind for lock screen
 bindsym $mod+i exec "i3lock -c 000000"
 # bind for open clipboard manager
-bindsym $mod+o exec "gpaste-client ui"
+bindsym $mod+o exec "~/.config/i3/greenclip_fzf_picker.sh"
 # bind for move floating container to the center
 bindsym $mod+p move absolute position center
 
@@ -282,6 +282,8 @@ for_window [class="^Minecraft"] floating enable, move container to workspace 5, 
 for_window [class="^ru-turikhay-tlauncher-bootstrap-Bootstrap$"] floating enable, move container to workspace 5
 #
 for_window [title="^Pyxel$"] floating enable
+# clipboard manager
+for_window [class="^greenclip_fzf_picker$"] floating enable, border none
 
 
 # autostart
