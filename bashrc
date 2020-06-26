@@ -27,6 +27,9 @@ alias mv='mv -v'
 alias rm='rm -v'
 alias chmod='chmod -v'
 
+# set rg case-sens method 'smart' for default
+alias rg='rg -S'
+
 export EDITOR=vim
 
 
