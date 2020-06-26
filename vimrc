@@ -5,8 +5,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-"Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
+Plug 'svermeulen/vim-subversive'
+Plug 'mbbill/undotree'
 
 call plug#end()
 
@@ -31,7 +32,13 @@ let g:lightline = {
             \}
 
 " fzf
-"anything?
+nmap <leader>ff :Files<CR>
+nmap <leader>fb :Buffers<CR>
+nmap <leader>fg :Rg 
+nmap <leader>f/ :Rg <C-r>/
+nmap <leader>ft :BTags<CR>
+nmap <leader>fT :Tags<CR>
+nmap <leader>fh :History<CR>
 
 " gitgutter
 " update git diff when saving file
@@ -39,12 +46,17 @@ autocmd BufWritePost * GitGutter
 " fix losting SignColumn highlight on change colorscheme
 autocmd ColorScheme * highlight! link SignColumn LineNr
 
-" toggle tagbar
-"nmap <F8> :TagbarToggle<CR>
-" sort tags by original order, not by name
-let g:tagbar_sort = 0
-" replace default icons for hide/unhide
-let g:tagbar_iconchars = ['+', '-']
+" subversive
+" Replace text-object with content register
+" Usage: ["register]s{motion}
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
+
+" undotree
+nnoremap <F5> :UndotreeToggle<cr>
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_WindowLayout = 2
 
 
 " bit of emacs bindings in cmdline
@@ -91,6 +103,9 @@ set smartcase
 
 " wrap long lines
 set wrap
+" wrap whole word, instead of one half of word on one line, and other - on
+" other line
+set linebreak
 
 " set vertical split by right by default(instead of left)
 set splitright
