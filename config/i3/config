@@ -190,12 +190,20 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        font pango:Hack, FontAwesome 11
+        status_command i3status-rs ~/.config/i3/status.toml
 
         position top
         colors {
-                background #000000
-                statusline #10FF10
+            background #000000
+            separator #666666
+            # background #222222
+            statusline #dddddd
+            # statusline #10FF10
+            # focused_workspace #0088CC #0088CC #ffffff
+            # active_workspace #333333 #333333 #ffffff
+            # inactive_workspace #333333 #333333 #888888
+            # urgent_workspace #2f343a #900000 #ffffff
         }
         tray_padding 0
 
@@ -206,26 +214,21 @@ bar {
 
 
 
-
 # All User(me) addef stuff:
 
 focus_follows_mouse no
+set $alt Mod1
 
 # P.S. for find key names use xev tool
 
-# bind for screenshot
+# make screenshot
 bindsym Print exec "flameshot gui"
-# bind for gif recorder
-bindsym Shift+Print exec "peek"
-# bind for lock screen
+# lock screen
 bindsym $mod+i exec "i3lock -c 000000"
-# bind for open clipboard manager
+# open clipboard manager
 bindsym $mod+o exec "~/.config/i3/greenclip_fzf_picker.sh"
-# bind for move floating container to the center
+# move floating container to the center
 bindsym $mod+p move absolute position center
-
-set $alt Mod1
-
 
 #headphone toggle mute/unmute
 bindsym ctrl+KP_Insert exec "ponymix --sink toggle"
@@ -236,7 +239,6 @@ bindsym ctrl+KP_Down exec "ponymix --sink increase 5"
 bindsym ctrl+KP_Left exec "ponymix --sink decrease 1"
 bindsym ctrl+KP_Begin exec "ponymix --sink increase 1"
 
-# binds for control source (input (microphone))
 #microphone mute/unmute
 bindsym $alt+KP_Insert exec "ponymix --source mute"
 bindsym $alt+KP_Delete exec "ponymix --source unmute"
@@ -247,14 +249,13 @@ bindsym $alt+KP_Down exec "ponymix --source increase 5"
 bindsym $alt+KP_Left exec "ponymix --source decrease 1"
 bindsym $alt+KP_Begin exec "ponymix --source increase 1"
 
-
 # binds change resolution
 #bindsym ctrl+$alt+KP_Left exec "xrandr --output default --mode 640x480"
 bindsym ctrl+$alt+KP_Left exec "xrandr --output HDMI-A-0 --mode 640x480", [class="^hl_linux$"] fullscreen enable
 #bindsym ctrl+$alt+KP_Begin exec "xrandr --output default --mode 1920x1080"
 bindsym ctrl+$alt+KP_Begin exec "xrandr --output HDMI-A-0 --mode 1920x1080", [class="^hl_linux$"] fullscreen disable
 
-# open dmenu, which after 'enter' will put all text in clipboard
+# open dmenu, which after 'enter' will put all text to clipboard
 bindsym $alt+d exec echo Type text and press enter to copy | dmenu -fn 'Hack-11' | xclip -selection clipboard
 # open menu-calc (realization of bc with dmenu)
 bindsym $alt+Shift+d exec = -- -fn 'Hack-11'
@@ -282,6 +283,7 @@ for_window [class="^Minecraft"] floating enable, move container to workspace 5, 
 for_window [class="^ru-turikhay-tlauncher-bootstrap-Bootstrap$"] floating enable, move container to workspace 5
 #
 for_window [title="^Pyxel$"] floating enable
+for_window [class="^asos$"] floating enable
 # clipboard manager
 for_window [class="^greenclip_fzf_picker$"] floating enable, border none
 
