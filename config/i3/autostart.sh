@@ -17,10 +17,11 @@ dunst &
 # screenshots tool
 flameshot &
 
-# start clipboard daemon
+# clipboard daemon
 greenclip daemon > /dev/null &
 
 # break reminder
-python ~/Projects/usefulB/src/main.py &
+python ~/Projects/github/usefulB/src/main.py &
 
-redshift-gtk &
+# redshift
+systemctl --user start redshift-gtk &
