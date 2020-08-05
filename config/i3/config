@@ -52,7 +52,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'Hack-11'
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Hack-11'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -219,46 +219,42 @@ bar {
 focus_follows_mouse no
 set $alt Mod1
 
+# binds
 # P.S. for find key names use xev tool
 
-# make screenshot
-bindsym Print exec "flameshot gui"
-# lock screen
-bindsym $mod+i exec "i3lock -c 000000"
-# open clipboard manager
-bindsym $mod+o exec "~/.config/i3/greenclip_fzf_picker.sh"
 # move floating container to the center
 bindsym $mod+p move absolute position center
+# make screenshot
+bindsym Print exec --no-startup-id "flameshot gui"
+# lock screen
+bindsym $mod+i exec --no-startup-id "i3lock -c 000000 && playerctl stop"
+# open clipboard manager
+bindsym $mod+o exec "~/.config/i3/greenclip_fzf_picker.sh"
+# open prompt to write notes, that will be copied to clipboard after enter
+bindsym $mod+n exec --no-startup-id echo -n | dmenu -fn 'Hack-11' -p "Type text and press enter to copy" | xargs --no-run-if-empty -I '{}' sh -c "echo {} | xclip -selection clipboard"
+# open rofi calc
+bindsym $mod+c exec "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
 
-#headphone toggle mute/unmute
-bindsym ctrl+KP_Insert exec "ponymix --sink toggle"
-#headphone dedecrese/increse by 5
-bindsym ctrl+KP_End exec "ponymix --sink decrease 5"
-bindsym ctrl+KP_Down exec "ponymix --sink increase 5"
-#headphone decrese/increse by 1
-bindsym ctrl+KP_Left exec "ponymix --sink decrease 1"
-bindsym ctrl+KP_Begin exec "ponymix --sink increase 1"
+# media playback and volume binds
+# playerctl
+bindsym ctrl+KP_Insert exec --no-startup-id "playerctl play-pause && ponymix --sink unmute > /dev/null"
+bindsym ctrl+KP_Delete exec --no-startup-id "playerctl next"
+bindsym ctrl+KP_Next exec --no-startup-id "playerctl previous"
+# headphones
+bindsym ctrl+KP_Enter exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl stop"
+bindsym ctrl+KP_End exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
+bindsym ctrl+KP_Down exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
+# microphone
+bindsym $alt+KP_Insert exec --no-startup-id "ponymix --source mute > /dev/null"
+bindsym $alt+KP_Delete exec --no-startup-id "ponymix --source unmute > /dev/null"
+bindsym $alt+KP_End exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
+bindsym $alt+KP_Down exec --no-startup-id "ponymix --source increase 5 > /dev/null"
 
-#microphone mute/unmute
-bindsym $alt+KP_Insert exec "ponymix --source mute"
-bindsym $alt+KP_Delete exec "ponymix --source unmute"
-#microphone volume decrese/increse by 5
-bindsym $alt+KP_End exec "ponymix --source decrease 5"
-bindsym $alt+KP_Down exec "ponymix --source increase 5"
-#microphone volume decrese/increse by 1
-bindsym $alt+KP_Left exec "ponymix --source decrease 1"
-bindsym $alt+KP_Begin exec "ponymix --source increase 1"
-
-# binds change resolution
-#bindsym ctrl+$alt+KP_Left exec "xrandr --output default --mode 640x480"
-bindsym ctrl+$alt+KP_Left exec "xrandr --output HDMI-A-0 --mode 640x480", [class="^hl_linux$"] fullscreen enable
-#bindsym ctrl+$alt+KP_Begin exec "xrandr --output default --mode 1920x1080"
-bindsym ctrl+$alt+KP_Begin exec "xrandr --output HDMI-A-0 --mode 1920x1080", [class="^hl_linux$"] fullscreen disable
-
-# open dmenu, which after 'enter' will put all text to clipboard
-bindsym $alt+d exec echo Type text and press enter to copy | dmenu -fn 'Hack-11' | xclip -selection clipboard
-# open menu-calc (realization of bc with dmenu)
-bindsym $alt+Shift+d exec = -- -fn 'Hack-11'
+# change resolution
+#bindsym ctrl+$alt+KP_Left exec --no-startup-id "xrandr --output default --mode 640x480"
+bindsym ctrl+$alt+KP_Left exec --no-startup-id "xrandr --output HDMI-A-0 --mode 640x480", [class="^hl_linux$"] fullscreen enable
+#bindsym ctrl+$alt+KP_Begin exec --no-startup-id "xrandr --output default --mode 1920x1080"
+bindsym ctrl+$alt+KP_Begin exec --no-startup-id "xrandr --output HDMI-A-0 --mode 1920x1080", [class="^hl_linux$"] fullscreen disable
 
 
 # windows settings
