@@ -1,4 +1,4 @@
-icons = "awesome"
+icons = "awesome5"
 
 [theme]
 name = "plain"
@@ -33,6 +33,16 @@ device_kind = "sink"
 [[block]]
 block = "sound"
 device_kind = "source"
+
+[[block]]
+block = "temperature"
+collapsed = false
+
+[[block]]
+block = "battery"
+format = "{percentage}% {time}"
+driver = "upower"
+device = "DisplayDevice"
 
 [[block]]
 block = "time"

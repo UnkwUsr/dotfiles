@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Hack 11
+font pango:Hack 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -52,7 +52,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Hack-11'
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Hack-14'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -190,7 +190,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        font pango:Hack, FontAwesome 11
+        font pango:Hack, FontAwesome 14
         status_command i3status-rs ~/.config/i3/status.toml
 
         position top
@@ -231,7 +231,7 @@ bindsym $mod+i exec --no-startup-id "i3lock -c 000000 && playerctl stop"
 # open clipboard manager
 bindsym $mod+o exec "~/.config/i3/greenclip_fzf_picker.sh"
 # open prompt to write notes, that will be copied to clipboard after enter
-bindsym $mod+n exec --no-startup-id echo -n | dmenu -fn 'Hack-11' -p "Type text and press enter to copy" | xargs --no-run-if-empty -I '{}' sh -c "echo {} | xclip -selection clipboard"
+bindsym $mod+n exec --no-startup-id echo -n | dmenu -fn 'Hack-14' -p "Type text and press enter to copy" | xargs --no-run-if-empty -I '{}' sh -c "echo {} | xclip -selection clipboard"
 # open rofi calc
 bindsym $mod+c exec "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
 
@@ -249,12 +249,6 @@ bindsym $alt+KP_Insert exec --no-startup-id "ponymix --source mute > /dev/null"
 bindsym $alt+KP_Delete exec --no-startup-id "ponymix --source unmute > /dev/null"
 bindsym $alt+KP_End exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
 bindsym $alt+KP_Down exec --no-startup-id "ponymix --source increase 5 > /dev/null"
-
-# change resolution
-#bindsym ctrl+$alt+KP_Left exec --no-startup-id "xrandr --output default --mode 640x480"
-bindsym ctrl+$alt+KP_Left exec --no-startup-id "xrandr --output HDMI-A-0 --mode 640x480", [class="^hl_linux$"] fullscreen enable
-#bindsym ctrl+$alt+KP_Begin exec --no-startup-id "xrandr --output default --mode 1920x1080"
-bindsym ctrl+$alt+KP_Begin exec --no-startup-id "xrandr --output HDMI-A-0 --mode 1920x1080", [class="^hl_linux$"] fullscreen disable
 
 
 # windows settings
@@ -274,7 +268,7 @@ for_window [class="^TelegramDesktop$"] move container to workspace 10
 # games
 for_window [class="^Steam$"] floating enable, resize set 640 480, move container to workspace 9
 for_window [title="^Steam$"] move container to workspace 9
-for_window [class="^hl_linux$"] floating enable, move container to workspace 5
+for_window [class="^hl_linux$"] move container to workspace 5
 for_window [class="^Minecraft"] floating enable, move container to workspace 5, resize set 640 480
 for_window [class="^ru-turikhay-tlauncher-bootstrap-Bootstrap$"] floating enable, move container to workspace 5
 #
