@@ -6,8 +6,14 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'svermeulen/vim-subversive'
-Plug 'mbbill/undotree'
+Plug 'simnalamburt/vim-mundo'
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
+Plug 'dense-analysis/ale'
+Plug 'maximbaz/lightline-ale'
+Plug 'henrik/vim-indexed-search'
 
 call plug#end()
 
@@ -21,13 +27,16 @@ let g:lightline = {
             \ 'active': {
             \   'left': [
             \       [ 'mode', 'paste' ],
-            \       [ 'readonly', 'filename', 'modified' ]
+            \       [ 'gitstatus', 'readonly', 'filename', 'modified' ]
             \   ],
             \   'right': [
             \       [ 'lineinfo' ],
             \       [ 'percent' ],
-            \       [ 'filetype' ]
+            \       [ 'filetype', 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]
             \   ]
+            \ },
+            \ 'component_function': {
+            \   'gitstatus': 'GitStatus'
             \ }
             \}
 
@@ -39,12 +48,22 @@ nmap <leader>f/ :Rg <C-r>/
 nmap <leader>ft :BTags<CR>
 nmap <leader>fT :Tags<CR>
 nmap <leader>fh :History<CR>
+" search references to tag under cursor
+nmap <leader>fj g*<C-o>:Rg <C-r>/<CR>
+
+" commentary
 
 " gitgutter
-" update git diff when saving file
+" update diff hunks when saving file
 autocmd BufWritePost * GitGutter
 " fix losting SignColumn highlight on change colorscheme
 autocmd ColorScheme * highlight! link SignColumn LineNr
+function! GitStatus()
+    let [a,m,r] = GitGutterGetHunkSummary()
+    return printf('+%d ~%d -%d', a, m, r)
+endfunction
+
+" fugitive
 
 " subversive
 " Replace text-object with content register
@@ -53,10 +72,75 @@ nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
 nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
-" undotree
-nnoremap <F5> :UndotreeToggle<cr>
-let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_WindowLayout = 2
+" mundo
+nnoremap <F5> :MundoToggle<CR>
+let g:mundo_width = 35
+let g:mundo_preview_bottom=1
+" enable persistent undo
+set undofile
+
+" rust-lang
+function! s:find_cargo_root()
+    let cargo_file = findfile('Cargo.toml', '.;')
+    return !empty(cargo_file) ? fnamemodify(cargo_file, ':p:h') : ''
+endfunction
+" set tags file for cargo project
+function! s:set_cargo_tags_file()
+    let cargo_folder = s:find_cargo_root()
+    let &l:tags = cargo_folder . '/tags'
+endfunction
+autocmd BufRead *.rs call s:set_cargo_tags_file()
+" generate tags for cargo project
+function! s:generate_cargo_rust_tags()
+    let cargo_folder = s:find_cargo_root()
+    if !empty(cargo_folder)
+        let cmd =  "!ctags -R -o " . cargo_folder . '/tags ' . cargo_folder . '/src &'
+        :silent! exec cmd | redraw!
+    endif
+endfunction
+autocmd BufWritePost *.rs call s:generate_cargo_rust_tags()
+
+" vim-toml
+
+" ale
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" lint only on save file
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+" open list with errors when has
+let g:ale_open_list = 1
+" quickfix instead of loclist
+" (loclist show errors only from current file,
+" quickfix show errors from all opened buffers)
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+" rust lang settings
+let g:ale_rust_cargo_use_clippy = 1
+
+" ale-lightline
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_infos': 'lightline#ale#infos',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'right',
+      \     'linter_infos': 'right',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'right',
+      \ }
+
+" indexed-search
+" limits for perfomance with large files
+let g:indexed_search_max_lines = 1000
+let g:indexed_search_max_hits = 100
+" show format
+let g:indexed_search_shortmess = 1
+let g:indexed_search_numbered_only = 1
 
 
 " bit of emacs bindings in cmdline
@@ -106,6 +190,9 @@ set wrap
 " wrap whole word, instead of one half of word on one line, and other - on
 " other line
 set linebreak
+
+" do not allow cursor to be on edges of screen
+set scrolloff=15
 
 " set vertical split by right by default(instead of left)
 set splitright
