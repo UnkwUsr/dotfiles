@@ -1,9 +1,18 @@
 # About
 This is Half-Life 1 config files.
-Originally writed for openag mod, but also work with pure 'valve' game.
+`my.cfg` originally written for openag mod, but also work with pure 'valve' game.
+`kz.cfg` is for kreedz-mod servers (cs1.6 works too)
 
 # Installation
-Copy \*.cfg files to your mod directory ('ag' for OpenAg mod, 'valve' for pure hl1)
+Create cfg symlinks in the game directory:
 
-# TODO
-Setup managing this config with rcm (generally: use symlinks)
+`ln -sfi $(realpath *.cfg) -t /path/to/Half-Life/mod_folder/`
+
+Example:
+
+`ln -sfi $(realpath *.cfg) -t ~/.steam/steam/steamapps/common/Half-Life/ag/`
+
+
+Also due to git not support file permissions, you need manually set bit of unwritable for all cfg files(in this folder, not in mod folder with symlinks):
+
+`chmod -w *.cfg`
