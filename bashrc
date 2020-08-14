@@ -46,15 +46,20 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # infinity history
 HISTSIZE=-1
 HISTFILESIZE=-1
+# disable histchars
+# (now can use '!' for excluding pathes in rg search)
+set +H
 
 
-if [ "$EUID" -ne 0 ]; then
-    # not root
-    PS1='\D{%I:%M:%S} [ \[\e[34;1m\]\w\[\e[m\] ]\[\e[33;1m\]\$\[\e[m\] '
-else
-    # root
-    PS1='\[\e[1;30;40m\]\D{%I:%M:%S}\[\e[m\] [\[\e[31;1m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \[\e[34;1m\]\w\[\e[m\] ]\[\e[31;1m\]\$ \[\e[m\]'
-fi
+eval "$(starship init bash)"
+# if [ "$EUID" -ne 0 ]; then
+#     # not root
+#     PS1='\D{%I:%M:%S} [ \[\e[34;1m\]\w\[\e[m\] ]\[\e[33;1m\]\$\[\e[m\] '
+# else
+#     # root
+#     PS1='\[\e[1;30;40m\]\D{%I:%M:%S}\[\e[m\] [\[\e[31;1m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \[\e[34;1m\]\w\[\e[m\] ]\[\e[31;1m\]\$ \[\e[m\]'
+# fi
+
 
 
 # ALT-C for fuzzy-cd
@@ -65,3 +70,6 @@ source /usr/share/fzf/key-bindings.bash
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
+
+export PATH=$PATH:~/.cargo/bin
+
