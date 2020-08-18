@@ -1,0 +1,15 @@
+#command
+^D  quit
+
+#line-edit
+^P  up
+^N  down
+^W  word-backspace
+\ed word-delete
+\ef word-right
+^A  home
+^E  end
+^D  abort
+
+#env
+LESS = -Ri
