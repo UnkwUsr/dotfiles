@@ -62,16 +62,15 @@ source ~/.zsh_plugins.sh
 # ALT-C for fuzzy-cd
 # CTRL-R for fuzzy-history
 # CTRL-T for fuzzy-completion
+# ALT-T for fuzzy-file-select
 source /usr/share/fzf/key-bindings.zsh
 # more speed with fd
 export FZF_DEFAULT_COMMAND='fd --type file'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
-# (using plugin Aloxaf/fzf-tab)
-# bind plugin-provided fzf-completion to CTRL+T
-# and restore default completion on <TAB>
 bindkey "^T" fzf-tab-complete
 bindkey "^I" complete-word
+bindkey "^[t" fzf-file-widget
 
 # shell prompt
 eval "$(starship init zsh)"
