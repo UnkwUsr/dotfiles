@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# keyboard layout
-#setxkbmap -layout "us,ru" -model pc104 -variant "winkeys" -option "grp:caps_toggle,grp_scroll:caps,terminate:ctrl_alt_bksp" &
-setxkbmap -layout "us,ru" -model pc104 -variant "winkeys" -option "grp_led:scroll,grp:caps_toggle,terminate:ctrl_alt_bksp" &
 # set repeat rate
 xset r rate 400 50 &
 
@@ -24,4 +21,7 @@ greenclip daemon > /dev/null &
 python ~/Projects/github/usefulB/src/main.py &
 
 # redshift
-systemctl --user start redshift-gtk &
+redshift-gtk &
+
+# set initial monitor brightness
+light -S 40
