@@ -156,6 +156,10 @@ cnoremap <Esc>f <S-Right>
 " delete character under cursor
 cnoremap <C-D> <Del>
 
+" command for write changes with sudo. Now no need to run vim with sudo.
+" Thanks to https://vi.stackexchange.com/a/3566
+command! -nargs=0 Sw w !sudo tee % > /dev/null
+
 " allow switch buffers without saving changes (can save when return)
 set hidden
 
