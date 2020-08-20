@@ -1,0 +1,17 @@
+xkb_keymap {
+    xkb_keycodes  { include "evdev+aliases(qwerty)" };
+    xkb_types     { include "complete"  };
+    xkb_compat    { include "complete"  };
+    xkb_geometry  { include "pc(pc104)" };
+
+    xkb_symbols   {
+        include "pc+us+ru:2+inet(evdev)+capslock(escape)+terminate(ctrl_alt_bksp)"
+
+        key <RALT> {
+            [ ISO_First_Group ]
+        };
+        key <MENU> {
+            [ ISO_Last_Group ]
+        };
+    };
+};
