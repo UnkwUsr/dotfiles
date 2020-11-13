@@ -6,7 +6,6 @@ prompt_order = [
     "git_commit",
     "git_state",
     "git_status",
-    "cmd_duration",
     "line_break",
     "jobs",
     "time",
@@ -18,11 +17,6 @@ truncate_to_repo = false
 truncation_length = 3
 fish_style_pwd_dir_length = 1
 style = "blue bold"
-
-[cmd_duration]
-show_milliseconds = true
-min_time = 10_000
-style = "yellow"
 
 [time]
 disabled = false
