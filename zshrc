@@ -11,14 +11,13 @@ alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'
 alias chmod='chmod -v'
+# set rg case-sensitivity method 'smart'
+alias rg='rg -S'
 # useful aliases
 # (for detail see parameters descriptions in man pages of each program)
 alias ll='ls -l'
 alias la='ls -lA'
 alias da='du -sc'
-# set programs default parameters
-# set rg case-sensitivity method 'smart'
-alias rg='rg -S'
 
 # exports
 # editor
@@ -33,20 +32,20 @@ HISTSIZE=1000
 SAVEHIST=100000
 # append history entries immediately
 # (also immediately import new commands from history file)
-setopt SHARE_HISTORY
+# setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
 
-# TODO: WHAT IS IT? (added automatically by zsh-newuser-install)
+# emacs-like navigation in prompt line
 bindkey -e
-
-# TODO: not tested yet
-# pipe stdin to program less if not set manually
-# READNULLCMD=less
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/menuser/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# rehash before each completion
+zstyle ':completion:*' rehash true
 
 # disable treating `!` character
 # (so now can use '!' for excluding in globs)
@@ -61,6 +60,7 @@ source ~/.zsh_plugins.sh
 # fzf stuff
 # ALT-C for fuzzy-cd
 # CTRL-R for fuzzy-history
+# ALT-R for fuzzy-all-history
 # CTRL-T for fuzzy-completion
 # ALT-T for fuzzy-file-select
 source /usr/share/fzf/key-bindings.zsh
@@ -68,9 +68,25 @@ source /usr/share/fzf/key-bindings.zsh
 export FZF_DEFAULT_COMMAND='fd --type file'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
+
 bindkey "^T" fzf-tab-complete
 bindkey "^I" complete-word
 bindkey "^[t" fzf-file-widget
+
+fzf-all-history-widget() {
+    _HISTFILE=$HISTFILE
+    fc -p
+    ORIG_HIST_SIZE=HISTSIZE
+    HISTSIZE=1000000000000
+    fc -R $_HISTFILE
+
+    zle fzf-history-widget
+
+    HISTSIZE=ORIG_HIST_SIZE
+    fc -P
+}
+zle     -N   fzf-all-history-widget
+bindkey '^[r' fzf-all-history-widget
 
 # shell prompt
 eval "$(starship init zsh)"
