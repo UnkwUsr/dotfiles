@@ -200,33 +200,38 @@ set $alt Mod1
 # binds
 # P.S. for find key names use xev tool
 
-# move floating container to the center
-bindsym $mod+p move absolute position center
 # make screenshot
 bindsym Print exec --no-startup-id "flameshot gui"
 # open clipboard manager
 bindsym $mod+o exec "rofi -dpi 1 -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 # open prompt to write notes, that will be copied to clipboard after enter
-bindsym $mod+n exec --no-startup-id echo -n | dmenu -fn 'Hack-11' -p "Type text and press enter to copy" | xargs --no-run-if-empty -I '{}' sh -c "echo {} | xclip -selection clipboard"
+bindsym $mod+n exec --no-startup-id echo -n | dmenu -fn 'Hack-11' -p "Type text and press enter to copy" | head -c -1 | xclip -selection clipboard
 # open rofi calc
-bindsym $mod+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort > /dev/null"
+bindsym $mod+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -no-history -hint-welcome '' | xclip -selection clipboard"
+bindsym $mod+$alt+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -hint-welcome '' | xclip -selection clipboard"
+# open password picker
+bindsym $mod+p exec "lpasd > /dev/null"
+
+# send stop to dstatus
+bindsym KP_Enter exec "dstatus stop"
 
 # Fn keys
 # lock screen
-bindsym XF86Display exec --no-startup-id "i3lock -c 000000 && playerctl stop"
+bindsym XF86Display exec --no-startup-id "i3lock -c 000000 && playerctl -a stop"
+bindsym ctrl+XF86Display exec --no-startup-id "i3lock -c 000000"
 # control brightness
 # note: I think buttons to control brightness is shuffled. Don't know why
 bindsym XF86MonBrightnessDown exec --no-startup-id "light -A 20"
 bindsym XF86MonBrightnessUp exec --no-startup-id "light -U 20"
 # media playback (using playerctl)
 bindsym XF86AudioPlay exec --no-startup-id "playerctl play && ponymix --sink unmute > /dev/null"
-bindsym XF86AudioStop exec --no-startup-id "playerctl pause"
+bindsym XF86AudioStop exec --no-startup-id "playerctl -a pause"
 bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
 # volume control
 # speaker
 # stop media playback on mute. We no need keep media playback in background when speaker is muted
-bindsym XF86AudioMute exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl stop"
+bindsym XF86AudioMute exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a stop"
 # (but can unmute and play media by one bind)
 bindsym ctrl+XF86AudioMute exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
 bindsym XF86AudioLowerVolume exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
@@ -235,8 +240,24 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "ponymix --sink increase 5 > /
 # has different mute/unmute binds for microphone for more safety when change between states
 bindsym $alt+XF86AudioMute exec --no-startup-id "ponymix --source mute > /dev/null"
 bindsym $alt+shift+XF86AudioMute exec --no-startup-id "ponymix --source unmute > /dev/null"
+# TODO: warning! not work when num lock pressed. keycodes changes
+bindsym KP_Insert exec --no-startup-id "ponymix --source mute > /dev/null"
+bindsym KP_Delete exec --no-startup-id "ponymix --source unmute > /dev/null"
 bindsym $alt+XF86AudioLowerVolume exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
 bindsym $alt+XF86AudioRaiseVolume exec --no-startup-id "ponymix --source increase 5 > /dev/null"
+# dbvolume control
+bindsym KP_Home exec --no-startup-id "dbvolume default"
+bindsym KP_Up exec --no-startup-id "cat ~/.dbvolume_level | dmenu | xargs dbvolume"
+bindsym KP_Begin mode "dbvolume!"
+
+mode "dbvolume!" {
+    bindsym KP_Prior exec --no-startup-id "dbvolume file"
+    bindsym KP_Left exec --no-startup-id "dbvolume -10"
+    bindsym KP_Right exec --no-startup-id "dbvolume +10"
+
+    bindsym Escape mode "default"
+    bindsym KP_Begin mode "default"
+}
 
 
 # windows settings
@@ -245,10 +266,9 @@ default_border normal
 # Note: to search windows criterias use xprop
 assign [class="^firefox$"] 1
 for_window [class="^firefox$"] border none
-for_window [class="^VirtualBox Machine$"] move container to workspace 4
-for_window [class="^VirtualBox Manager$"] move container to workspace 4
 for_window [class="^feh$"] floating enable
 for_window [class="^Peek$"] floating enable, resize set 640 480, move absolute position center
+for_window [class="^Spotify$"] move container to workspace 8
 # social, messengers
 for_window [class="^discord$"] move container to workspace 10
 for_window [class="^TelegramDesktop$"] move container to workspace 10
@@ -258,6 +278,7 @@ for_window [title="^Steam$"] move container to workspace 9
 for_window [class="^hl_linux$"] move container to workspace 5
 for_window [class="^Minecraft"] floating enable, move container to workspace 5
 for_window [class="^ru-turikhay-tlauncher-bootstrap-Bootstrap$"] floating enable, move container to workspace 5
+for_window [class="^csgo_linux64$"] move container to workspace 5
 #
 for_window [title="^Pyxel$"] floating enable
 for_window [class="^asos$"] floating enable
