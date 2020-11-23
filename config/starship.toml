@@ -8,7 +8,6 @@ prompt_order = [
     "git_status",
     "line_break",
     "jobs",
-    "time",
     "character",
 ]
 
@@ -18,6 +17,3 @@ truncation_length = 3
 fish_style_pwd_dir_length = 1
 style = "blue bold"
 
-[time]
-disabled = false
-style = ""
