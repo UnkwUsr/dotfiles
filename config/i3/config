@@ -210,7 +210,9 @@ bindsym $mod+n exec --no-startup-id echo -n | dmenu -fn 'Hack-11' -p "Type text 
 bindsym $mod+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -no-history -hint-welcome '' | xclip -selection clipboard"
 bindsym $mod+$alt+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -hint-welcome '' | xclip -selection clipboard"
 # open password picker
-bindsym $mod+p exec "lpasd > /dev/null"
+bindsym $mod+p exec "dlpass > /dev/null"
+# open uni stuff script
+bindsym $mod+u exec "uni"
 
 # send stop to dstatus
 bindsym KP_Enter exec "dstatus stop"
@@ -265,7 +267,9 @@ focus_wrapping no
 default_border normal
 # Note: to search windows criterias use xprop
 assign [class="^firefox$"] 1
+assign [class="^qutebrowser$"] 1
 for_window [class="^firefox$"] border none
+for_window [class="^qutebrowser$"] border none
 for_window [class="^feh$"] floating enable
 for_window [class="^Peek$"] floating enable, resize set 640 480, move absolute position center
 for_window [class="^Spotify$"] move container to workspace 8

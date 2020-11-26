@@ -15,3 +15,6 @@ dbvolume - control specific sink-input (aka application) volume level
 
 # srec
 record sound output (not microphone)
+
+# uni
+fast open university stuff

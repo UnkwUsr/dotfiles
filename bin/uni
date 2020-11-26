@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat ~/uni/spiso4ek_pari_prepodi_ssilki | \
+    dmenu -i -l 10 | awk '{print $3}' | xargs -r qutebrowser
+
