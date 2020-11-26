@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if echo "$1" | grep -qE '^[0-9]+$'; then
+    while true
+    do
+        sleep $1
+
+        dstatus set "*remind to blink*"
+        dstatus wait
+    done
+else
+    echo "Usage: $0 [seconds]"
+fi

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -n "$1" ]; then
+    filename=$1.mp3
+else
+    filename=$(date +%Y_%m_%d_%H-%m_%N)
+    filename+=.mp3
+fi
+
+parec -d @DEFAULT_MONITOR@ | ffmpeg -hide_banner -ac 2 -f s16le -i - $filename

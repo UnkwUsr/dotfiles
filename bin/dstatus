@@ -1,0 +1,32 @@
+#!/bin/bash
+
+case $1 in
+    set)
+        if [ -n "$2" ]; then
+            text=${@:2}
+            dbus-send --print-reply --dest=i3.status.rs /dstatus_text i3.status.rs.SetStatus string:"$text" > /dev/null
+            exit
+        fi
+        echo "Please pass argument"
+        ;;
+    stop)
+        dbus-send --print-reply --dest=i3.status.rs /dstatus_text i3.status.rs.SetStatus string: > /dev/null
+        ;;
+    wait)
+        dbus-monitor sender=i3.status.rs path=/dstatus_text | while :
+        do
+            read ln
+            # echo $ln | rg "string \"\"" > /dev/null && kill -INT $(ps | rg dbus-monitor | awk '{print $1}') && echo asdf && break
+            if ( echo $ln | rg "string \"\"" > /dev/null ) then
+                kill -TERM $(ps | rg dbus-monitor | awk '{print $1}')
+                exit 0
+                break
+            fi
+        done
+        ;;
+    *)
+        echo "Example: dstatus [set [text]|wait|stop]"
+        exit 1
+        ;;
+esac
+

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 [number]{s|m|h|d}"
+    echo "for more info see 'man sleep'"
+    exit 1
+fi
+
+sleep $1
+mpv "$(cat ~/.alarma)" &
+pid=$!
+
+dstatus set "ALARMA!!!"
+dstatus wait
+kill -INT $pid
+
