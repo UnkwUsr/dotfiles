@@ -5,7 +5,9 @@ xkb_keymap {
     xkb_geometry  { include "pc(pc104)" };
 
     xkb_symbols   {
-        include "pc+us+ru:2+inet(evdev)+capslock(escape)+terminate(ctrl_alt_bksp)"
+        include "pc+us+ru:2+inet(evdev)"
+        include "capslock(escape)"
+        include "compose(rctrl)"
 
         key <RALT> {
             [ ISO_First_Group ]
@@ -13,5 +15,12 @@ xkb_keymap {
         key <MENU> {
             [ ISO_Last_Group ]
         };
+        key <RTSH> {
+            [ ISO_Group_Latch ]
+        };
+
+        // same keybind for different layouts (first and second)
+        // useful in ticktick-web, when typing on russian and need set tag (symbol #)
+        key <AE03> {	[	  3,	numbersign	], [	  3,	numbersign	]	};
     };
 };
