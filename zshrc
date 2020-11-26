@@ -19,12 +19,6 @@ alias ll='ls -l'
 alias la='ls -lA'
 alias da='du -sc'
 
-# exports
-# editor
-export EDITOR=vim
-# path to cargo(rust) local installed programs
-export PATH=$PATH:~/.cargo/bin
-
 
 # history settings
 HISTFILE=~/.zsh_history
@@ -39,7 +33,7 @@ setopt INC_APPEND_HISTORY
 bindkey -e
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/menuser/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
