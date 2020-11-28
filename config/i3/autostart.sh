@@ -17,11 +17,11 @@ flameshot &
 # clipboard daemon
 greenclip daemon > /dev/null &
 
-# break reminder
-python ~/Projects/github/usefulB/src/main.py &
-
 # redshift
 redshift-gtk &
 
 # set initial monitor brightness
-light -S 40
+light -S 40 &
+
+# reminder for blink
+dblink 600 &
