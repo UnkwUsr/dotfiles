@@ -28,6 +28,8 @@ SAVEHIST=100000
 # (also immediately import new commands from history file)
 # setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
+# ignore duplicates
+setopt HIST_IGNORE_ALL_DUPS
 
 # emacs-like navigation in prompt line
 bindkey -e
