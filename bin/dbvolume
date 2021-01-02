@@ -1,27 +1,33 @@
 #!/bin/bash
 
+FILE_DBVOL_LEVEL=/tmp/dbvolume_level
+
 shopt -s extglob
 case $1 in
     default)
         NEW_VOL="100"
+        echo $NEW_VOL > $FILE_DBVOL_LEVEL
         ;;
     file)
-        NEW_VOL=$(cat ~/.dbvolume_level)
+        NEW_VOL=$(cat $FILE_DBVOL_LEVEL)
         ;;
     +*)
         ;&
     -*)
         OPER=$(echo $1 | head -c 1)
         NUM=$(echo $1 | tail -c +2)
-        PREV_VOL=$(cat ~/.dbvolume_level)
+        PREV_VOL="100"
+        if [ -f $FILE_DBVOL_LEVEL ]; then
+            PREV_VOL=$(cat $FILE_DBVOL_LEVEL)
+        fi
         NEW_VOL=$(echo $PREV_VOL $OPER $NUM | bc)
 
-        echo $NEW_VOL > ~/.dbvolume_level
+        echo $NEW_VOL > $FILE_DBVOL_LEVEL
         ;;
     +([0-9]))
         NEW_VOL=$1
 
-        echo $NEW_VOL > ~/.dbvolume_level
+        echo $NEW_VOL > $FILE_DBVOL_LEVEL
         ;;
     *)
         echo "Example: dbvolume [+/-]200"
@@ -29,15 +35,14 @@ case $1 in
         ;;
 esac
 
-if [ -n "$NEW_VOL" ]; then
-    NEW_VOL=$NEW_VOL%
+# add '%' to the end of string
+NEW_VOL=$NEW_VOL%
 
-    pactl list sink-inputs short | awk '{print $1}' | while :
-    do
-        read id
-        [ -z "${id}" ] && exit 0
+pactl list sink-inputs short | awk '{print $1}' | while :
+do
+    read id
+    [ -z "${id}" ] && exit 0
 
-        echo set $NEW_VOL volume for id $id
-        pactl set-sink-input-volume $id $NEW_VOL
-    done
-fi
+    echo set $NEW_VOL volume for id $id
+    pactl set-sink-input-volume $id $NEW_VOL
+done

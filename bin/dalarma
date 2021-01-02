@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
 fi
 
 sleep $1
-mpv "$(cat ~/.alarma)" &
+mpv "$(cat ~/.alarma)" > /dev/null &
 pid=$!
 
 dstatus set "ALARMA!!!"
