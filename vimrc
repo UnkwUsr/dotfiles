@@ -14,6 +14,7 @@ Plug 'cespare/vim-toml'
 Plug 'dense-analysis/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'henrik/vim-indexed-search'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -48,8 +49,20 @@ nmap <leader>f/ :Rg <C-r>/
 nmap <leader>ft :BTags<CR>
 nmap <leader>fT :Tags<CR>
 nmap <leader>fh :History<CR>
-" search references to tag under cursor
+" search references to word under cursor
 nmap <leader>fj g*<C-o>:Rg <C-r>/<CR>
+" open list mappings (for what?)
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+imap <leader><tab> <plug>(fzf-maps-i)
+" complete word from dictionary
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+" complete path ('fd' instead of 'find')
+" imap <c-x><c-f> <plug>(fzf-complete-path)
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
+" complete line
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " commentary
 
@@ -108,6 +121,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " lint only on save file
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
 " open list with errors when has
 let g:ale_open_list = 1
 " quickfix instead of loclist
@@ -115,6 +129,9 @@ let g:ale_open_list = 1
 " quickfix show errors from all opened buffers)
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
+" enable only rust linter
+let g:ale_linters_explicit = 1
+let g:ale_linters = {'rust': ['cargo']}
 " rust lang settings
 let g:ale_rust_cargo_use_clippy = 1
 
@@ -142,6 +159,11 @@ let g:indexed_search_max_hits = 100
 let g:indexed_search_shortmess = 1
 let g:indexed_search_numbered_only = 1
 
+" vim-surround
+
+
+
+" Pure vim settings
 
 " bit of emacs bindings in cmdline
 " start/end of line
@@ -163,13 +185,30 @@ command! -nargs=0 Sw w !sudo tee % > /dev/null
 " allow switch buffers without saving changes (can save when return)
 set hidden
 
+" allow to change layout keyboard in insert mode
+set keymap=russian-jcuken
+" ^ (command above) changes iminsert, so we restore it to default
+set iminsert=0
+" map for switching layout
+map! <C-s> <C-^>
+" restore layout when return to normal mode
+inoremap <ESC> <ESC>:set iminsert=0<CR>
+
+" set dictionary complete only for words from spelling
+set dictionary=spell
+" add russian language to spelling
+set spelllang+=ru
+" use spell dictionary for complete when spelling is on
+set complete+=k
+
 " set history limit
 set history=1000
 
 " show completions in command-line
 set wildmenu
+set wildmode=longest:full,full
 
-" print line numbers
+" enable line numbers
 set number
 
 " enable printing current pressed keys in normal mode in bottom right panel
@@ -215,6 +254,9 @@ set expandtab
 set autoindent
 set smartindent
 
+" allow to set cursor to non-symbol place in visual block mode
+set virtualedit=block
+
 " replace tab to something printable and viewable
 " P.S. possible chars for tab: •, →
 set list
@@ -222,4 +264,5 @@ set listchars=tab:▸\
 
 " enable syntax highlight and theme
 syntax on
+set background=dark
 colorscheme ron
