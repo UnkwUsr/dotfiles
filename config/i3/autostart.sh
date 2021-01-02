@@ -15,7 +15,7 @@ dunst &
 flameshot &
 
 # clipboard daemon
-greenclip daemon > /dev/null &
+# greenclip daemon > /dev/null &
 
 # redshift
 redshift-gtk &
@@ -24,4 +24,4 @@ redshift-gtk &
 light -S 40 &
 
 # reminder for blink
-dblink 600 &
+# dblink 600 &

@@ -203,7 +203,7 @@ set $alt Mod1
 # make screenshot
 bindsym Print exec --no-startup-id "flameshot gui"
 # open clipboard manager
-bindsym $mod+o exec "rofi -dpi 1 -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+bindsym $mod+o exec "alacritty --class=,fzf_window -e sh -c 'rclip_pick'"
 # open prompt to write notes, that will be copied to clipboard after enter
 bindsym $mod+n exec --no-startup-id echo -n | dmenu -fn 'Hack-11' -p "Type text and press enter to copy" | head -c -1 | xclip -selection clipboard
 # open rofi calc
@@ -236,6 +236,8 @@ bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
 bindsym XF86AudioMute exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a stop"
 # (but can unmute and play media by one bind)
 bindsym ctrl+XF86AudioMute exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
+# (also can toggle without stop music (useful for some spotify ad))
+bindsym shift+XF86AudioMute exec --no-startup-id "ponymix --sink toggle > /dev/null"
 bindsym XF86AudioLowerVolume exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
 # microphone
@@ -249,7 +251,7 @@ bindsym $alt+XF86AudioLowerVolume exec --no-startup-id "ponymix --source decreas
 bindsym $alt+XF86AudioRaiseVolume exec --no-startup-id "ponymix --source increase 5 > /dev/null"
 # dbvolume control
 bindsym KP_Home exec --no-startup-id "dbvolume default"
-bindsym KP_Up exec --no-startup-id "cat ~/.dbvolume_level | dmenu | xargs dbvolume"
+bindsym KP_Up exec --no-startup-id "cat /tmp/dbvolume_level | dmenu | xargs dbvolume"
 bindsym KP_Begin mode "dbvolume!"
 
 mode "dbvolume!" {
@@ -268,9 +270,12 @@ default_border normal
 # Note: to search windows criterias use xprop
 assign [class="^firefox$"] 1
 assign [class="^qutebrowser$"] 1
+assign [class="^Chromium$"] 1
 for_window [class="^firefox$"] border none
 for_window [class="^qutebrowser$"] border none
+for_window [class="^Chromium$"] border none
 for_window [class="^feh$"] floating enable
+for_window [class="^fzf_window$"] floating enable, border pixel 2
 for_window [class="^Peek$"] floating enable, resize set 640 480, move absolute position center
 for_window [class="^Spotify$"] move container to workspace 8
 # social, messengers
