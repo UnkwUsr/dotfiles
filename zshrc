@@ -85,4 +85,4 @@ zle     -N   fzf-all-history-widget
 bindkey '^[r' fzf-all-history-widget
 
 # shell prompt
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
