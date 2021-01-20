@@ -9,3 +9,12 @@ My dotfiles managed with rcm
 ## Zsh
 * Install plugin manager [antibody](https://aur.archlinux.org/packages/antibody) (aur package)
 * Install plugins: `antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh`
+### Other programs
+Can be installed via pacman
+
+* `diff-so-fancy` - diff pager for git
+* `gvim` - same vim but with x clipboard support
+* `i3-gaps i3lock i3status-rust` - i3 window manager and related programs
+* `otf-font-awesome` - awesome font (used in i3status-rust)
+* `ttf-hack` - hack font (used in i3)
+
