@@ -12,9 +12,18 @@ My dotfiles managed with rcm
 ### Other programs
 Can be installed via pacman
 
-* `diff-so-fancy` - diff pager for git
-* `gvim` - same vim but with x clipboard support
 * `i3-gaps i3lock i3status-rust` - i3 window manager and related programs
+* `dmenu` - program launcher
+* `qutebrowser` - browser
+* `gvim` - same vim but with x clipboard support
 * `otf-font-awesome` - awesome font (used in i3status-rust)
 * `ttf-hack` - hack font (used in i3)
+* `diff-so-fancy` - diff pager for git
+* `rofi-calc` - modal calculator
+* `xclip` - easy interact with X clipboards
+* `nethogs` - monitor net bandwith per process
+
+Can be installed from aur
+
+* `redshift-minimal` - adjust screen temperature depending on time of day
 
