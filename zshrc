@@ -34,6 +34,11 @@ setopt HIST_IGNORE_ALL_DUPS
 # emacs-like navigation in prompt line
 bindkey -e
 
+# open editor with current command by pressing Ctrl+x Ctrl+e
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
@@ -85,4 +90,5 @@ zle     -N   fzf-all-history-widget
 bindkey '^[r' fzf-all-history-widget
 
 # shell prompt
-# eval "$(starship init zsh)"
+PS1="%# "
+RPS1="%(?..[%?%1v])"
