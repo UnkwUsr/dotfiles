@@ -9,6 +9,8 @@ My dotfiles managed with rcm
 ## Zsh
 * Install plugin manager [antibody](https://aur.archlinux.org/packages/antibody) (aur package)
 * Install plugins: `antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh`
+## Suckless programs
+* See README.md in `suckless` folder
 ### Other programs
 Can be installed via pacman
 
@@ -22,6 +24,7 @@ Can be installed via pacman
 * `rofi-calc` - modal calculator
 * `xclip` - easy interact with X clipboards
 * `nethogs` - monitor net bandwith per process
+* `mdp` - command-line markdown presentation tool
 
 Can be installed from aur
 
