@@ -9,9 +9,9 @@ name = "awesome5"
 music = ""
 
 
-[[block]]
-block = "custom_dbus"
-name = "dstatus_text"
+# [[block]]
+# block = "custom_dbus"
+# name = "dstatus_text"
 
 [[block]]
 block = "music"
@@ -28,7 +28,12 @@ dynamic_width = true
 block = "memory"
 display_type = "memory"
 format_mem = "{Mug}GiB"
-format_swap = "{SUg}%"
+[[block]]
+block = "memory"
+display_type = "swap"
+format_swap = "{SUg}GiB"
+warning_swap = 1
+critical_swap = 10
 
 [[block]]
 block = "cpu"
