@@ -3,9 +3,10 @@ My dotfiles managed with rcm
 # Installation (WIP)
 * Symlink all config files with rcm: `rcup -v`
 * Make binary config for less pager: `lesskey`
-## Vim
-* Install plugin manager [vim-plug](https://aur.archlinux.org/packages/vim-plug/) (aur package)
+## Neovim
+* Install vim-plug plugin manager for neovim: [neovim-plug](https://aur.archlinux.org/packages/neovim-plug/) (aur package)
 * Install plugins: type `:PlugInstall` in vim
+* Install [neovim-symlinks](https://aur.archlinux.org/packages/neovim-plug/) (aur package) to use command `vim` instead of `nvim`
 ## Zsh
 * Install plugin manager [antibody](https://aur.archlinux.org/packages/antibody) (aur package)
 * Install plugins: `antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh`

@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'itchyny/lightline.vim'
+" TODO: use galaxyline instead of lightline. (after release neovim 0.5)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
@@ -9,12 +10,29 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'svermeulen/vim-subversive'
 Plug 'simnalamburt/vim-mundo'
-Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
-Plug 'dense-analysis/ale'
-Plug 'maximbaz/lightline-ale'
 Plug 'henrik/vim-indexed-search'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'lambdalisue/suda.vim'
+Plug 'cohama/lexima.vim'
+
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'srcery-colors/srcery-vim'
+Plug 'kaicataldo/material.vim', {'branch': 'main'}
+Plug 'mhartington/oceanic-next'
+
+" langs specific plugins
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'norcalli/snippets.nvim'
+Plug 'hrsh7th/nvim-compe'
 
 call plug#end()
 
@@ -64,11 +82,33 @@ inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
 " complete line
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
+function! PInsert2(item)
+	let @z=a:item
+	norm "zp
+	call feedkeys('a')
+endfunction
+
+function! CompleteInf()
+	let nl=[]
+	let l=complete_info()
+	for k in l['items']
+		call add(nl, k['word']. ' : ' .k['info'] . ' '. k['menu'] )
+	endfor 
+	call fzf#vim#complete(fzf#wrap({ 'source': nl,'reducer': { lines -> split(lines[0], '\zs :')[0] },'sink':function('PInsert2')}))
+endfunction 
+
+" open fzf with current completion list
+imap <C-v> <CMD>:call CompleteInf()<CR>
+
 " commentary
 
 " gitgutter
 " update diff hunks when saving file
 autocmd BufWritePost * GitGutter
+" add command alias to fast run gutter after vim start or to use when don't
+" want save file but want to see diff chunks
+command! -nargs=0 GG GitGutter
+command! -nargs=0 Gg GitGutter
 " fix losting SignColumn highlight on change colorscheme
 autocmd ColorScheme * highlight! link SignColumn LineNr
 function! GitStatus()
@@ -115,42 +155,6 @@ autocmd BufWritePost *.rs call s:generate_cargo_rust_tags()
 
 " vim-toml
 
-" ale
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-" lint only on save file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_enter = 0
-" open list with errors when has
-let g:ale_open_list = 1
-" quickfix instead of loclist
-" (loclist show errors only from current file,
-" quickfix show errors from all opened buffers)
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-" enable only rust linter
-let g:ale_linters_explicit = 1
-let g:ale_linters = {'rust': ['cargo']}
-" rust lang settings
-let g:ale_rust_cargo_use_clippy = 1
-
-" ale-lightline
-let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_infos': 'lightline#ale#infos',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \ }
-let g:lightline.component_type = {
-      \     'linter_checking': 'right',
-      \     'linter_infos': 'right',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     'linter_ok': 'right',
-      \ }
-
 " indexed-search
 " limits for perfomance with large files
 let g:indexed_search_max_lines = 1000
@@ -161,6 +165,53 @@ let g:indexed_search_numbered_only = 1
 
 " vim-surround
 
+" vim-repeat
+
+" dart-vim-plugin
+
+" nvim-lspconfig
+" see ~/.config/nvim/lspconfig.lua
+
+" suda
+command! -nargs=0 Sw SudaWrite checktime
+
+" lexima
+" fix for work with compe
+let g:lexima_no_default_rules = v:true
+call lexima#set_default_rules()
+
+" compe
+lua << EOF
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+
+  source = {
+    path = true;
+    buffer = true;
+    nvim_lsp = true;
+    snippets_nvim = true;
+  };
+}
+EOF
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm(lexima#expand('<LT>CR>', 'i'))
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+" snippets
 
 
 " Pure vim settings
@@ -177,10 +228,6 @@ cnoremap <Esc>b <S-Left>
 cnoremap <Esc>f <S-Right>
 " delete character under cursor
 cnoremap <C-D> <Del>
-
-" command for write changes with sudo. Now no need to run vim with sudo.
-" Thanks to https://vi.stackexchange.com/a/3566
-command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 " allow switch buffers without saving changes (can save when return)
 set hidden
@@ -200,6 +247,10 @@ set dictionary=spell
 set spelllang+=ru
 " use spell dictionary for complete when spelling is on
 set complete+=k
+
+set completeopt=menuone,noselect
+" hide completion messages in statusline
+set shortmess+=c
 
 " set history limit
 set history=1000
@@ -262,7 +313,19 @@ set virtualedit=block
 set list
 set listchars=tab:▸\ 
 
+" set title of window terminal to name and path of the current file
+set title
+let &titleold=$TERM
+
 " enable syntax highlight and theme
 syntax on
 set background=dark
-colorscheme ron
+" colorscheme ron
+
+" set termguicolors
+" colorscheme solarized
+" colorscheme molokai
+
+" colorscheme srcery
+colorscheme material
+
