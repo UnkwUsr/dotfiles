@@ -223,9 +223,9 @@ cnoremap <C-E> <End>
 " back/forward one character
 cnoremap <C-B> <Left>
 cnoremap <C-F> <Right>
-" back/forward one word (why <Esc> in cmdline stands for meta(alt) key?)
-cnoremap <Esc>b <S-Left>
-cnoremap <Esc>f <S-Right>
+" back/forward one word
+cnoremap <A-b> <S-Left>
+cnoremap <A-f> <S-Right>
 " delete character under cursor
 cnoremap <C-D> <Del>
 
@@ -247,6 +247,9 @@ set dictionary=spell
 set spelllang+=ru
 " use spell dictionary for complete when spelling is on
 set complete+=k
+
+" map to fast toggle spell on and off
+map <leader>s :set spell!<CR>
 
 set completeopt=menuone,noselect
 " hide completion messages in statusline
@@ -326,6 +329,8 @@ set background=dark
 " colorscheme solarized
 " colorscheme molokai
 
-" colorscheme srcery
-colorscheme material
+colorscheme srcery
+hi SpellBad ctermfg=3
+
+" colorscheme material
 
