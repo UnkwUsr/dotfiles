@@ -14,7 +14,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'lambdalisue/suda.vim'
-Plug 'cohama/lexima.vim'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
@@ -175,10 +175,7 @@ let g:indexed_search_numbered_only = 1
 " suda
 command! -nargs=0 Sw SudaWrite checktime
 
-" lexima
-" fix for work with compe
-let g:lexima_no_default_rules = v:true
-call lexima#set_default_rules()
+" auto-pairs
 
 " compe
 lua << EOF
@@ -206,7 +203,7 @@ require'compe'.setup {
 EOF
 
 inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm(lexima#expand('<LT>CR>', 'i'))
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
