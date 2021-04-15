@@ -9,7 +9,7 @@ c.url.start_pages = "about:blank"
 
 c.content.autoplay = False
 c.content.geolocation = False
-c.content.notifications = False
+c.content.notifications.enabled = False
 c.content.cookies.accept = "no-unknown-3rdparty"
 c.content.blocking.method = "adblock"
 c.content.blocking.adblock.lists.append("https://easylist-downloads.adblockplus.org/advblock.txt")
@@ -59,6 +59,5 @@ config.bind("<Ctrl+w>", "rl-backward-kill-word", mode='command')
 config.bind("<Alt+Backspace>", "rl-unix-word-rubout", mode='command')
 config.unbind('<Ctrl-v>', mode='normal')
 
-config.bind("T", "set-cmd-text -s :tab-focus")
 config.bind("<ESC>", "clear-keychain ;; search ;; fullscreen --leave ;; clear-messages")
 
