@@ -2,9 +2,9 @@
 # make colored and human-readable
 alias ls='ls --color=auto -h --group-directories-first'
 alias du='du -h'
+alias df='df -h'
 alias pacman='pacman --color=auto'
 alias dmesg='dmesg --color=auto'
-alias diff='diff --color=auto'
 alias diff='diff --color=auto'
 # make verbose
 alias cp='cp -v'
@@ -17,7 +17,6 @@ alias rg='rg -S'
 # (for detail see parameters descriptions in man pages of each program)
 alias ll='ls -l'
 alias la='ls -lA'
-alias da='du -sc'
 
 
 # history settings
@@ -39,6 +38,7 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
+fpath+=~/.zfunc
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
@@ -64,6 +64,7 @@ source ~/.zsh_plugins.sh
 # ALT-R for fuzzy-all-history
 # CTRL-T for fuzzy-completion
 # ALT-T for fuzzy-file-select
+# ALT-F for fuzzy-projects
 source /usr/share/fzf/key-bindings.zsh
 # more speed with fd
 export FZF_DEFAULT_COMMAND='fd --type file'
@@ -88,6 +89,13 @@ fzf-all-history-widget() {
 }
 zle     -N   fzf-all-history-widget
 bindkey '^[r' fzf-all-history-widget
+
+fzf-projects-wdiget() {
+    cd ~/Projects
+    zle fzf-cd-widget
+}
+zle     -N   fzf-projects-wdiget
+bindkey '^[f' fzf-projects-wdiget
 
 # shell prompt
 PS1="%# "
