@@ -203,9 +203,13 @@ set $alt Mod1
 # make screenshot
 bindsym Print exec --no-startup-id "flameshot gui"
 # open clipboard manager
-bindsym $mod+o exec "alacritty --class=,fzf_window -e sh -c 'rclip_pick'"
-# open prompt to write notes, that will be copied to clipboard after enter
-bindsym $mod+n exec --no-startup-id echo -n | dmenu -fn 'Hack-11' -p "Type text and press enter to copy" | head -c -1 | xclip -selection clipboard
+bindsym $mod+o exec "st -c st_win -e zsh -c 'rclip_pick'"
+# open vim to write note and then copy to clipboard
+bindsym $mod+n exec st -c st_win -e zsh -c '\
+            vim +set\ shortmess+=I +set\ binary +set\ noeol /tmp/text_to_copy && \
+            [ -s /tmp/text_to_copy ] && \
+            (nohup xclip -sel c /tmp/text_to_copy > /dev/null 2> /dev/null && \
+             rm /tmp/text_to_copy)'
 # open rofi calc
 bindsym $mod+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -no-history -hint-welcome '' | xclip -selection clipboard"
 bindsym $mod+$alt+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -hint-welcome '' | xclip -selection clipboard"
@@ -222,9 +226,8 @@ bindsym KP_Enter exec "dstatus stop"
 bindsym XF86Display exec --no-startup-id "i3lock -c 000000 && playerctl -a stop"
 bindsym ctrl+XF86Display exec --no-startup-id "i3lock -c 000000"
 # control brightness
-# note: I think buttons to control brightness is shuffled. Don't know why
-bindsym XF86MonBrightnessDown exec --no-startup-id "light -A 20"
-bindsym XF86MonBrightnessUp exec --no-startup-id "light -U 20"
+bindsym XF86MonBrightnessUp  exec --no-startup-id "light -A 10"
+bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
 # media playback (using playerctl)
 bindsym XF86AudioPlay exec --no-startup-id "playerctl play && ponymix --sink unmute > /dev/null"
 bindsym XF86AudioStop exec --no-startup-id "playerctl -a pause"
@@ -276,11 +279,12 @@ for_window [class="^qutebrowser$"] border none
 for_window [class="^Chromium$"] border none
 for_window [class="^feh$"] floating enable
 for_window [class="^fzf_window$"] floating enable, border pixel 2
+for_window [class="^st_win$"] floating enable, resize set 640 480, move absolute position center, border pixel 3
 for_window [class="^Peek$"] floating enable, resize set 640 480, move absolute position center
-for_window [class="^Spotify$"] move container to workspace 8
 # social, messengers
 for_window [class="^discord$"] move container to workspace 10
 for_window [class="^TelegramDesktop$"] move container to workspace 10
+for_window [class="^Spotify$"] move container to workspace 8
 # games
 for_window [class="^Steam$"] floating enable, move container to workspace 9
 for_window [title="^Steam$"] move container to workspace 9
