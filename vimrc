@@ -173,7 +173,7 @@ let g:indexed_search_numbered_only = 1
 " see ~/.config/nvim/lspconfig.lua
 
 " suda
-command! -nargs=0 Sw SudaWrite checktime
+command! -nargs=0 Sw SudaWrite
 
 " auto-pairs
 
@@ -236,7 +236,7 @@ set iminsert=0
 " map for switching layout
 map! <C-s> <C-^>
 " restore layout when return to normal mode
-inoremap <ESC> <ESC>:set iminsert=0<CR>
+inoremap <ESC> <ESC>:silent! set iminsert=0<CR>
 
 " set dictionary complete only for words from spelling
 set dictionary=spell
