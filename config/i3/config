@@ -202,8 +202,9 @@ set $alt Mod1
 
 # make screenshot
 bindsym Print exec --no-startup-id "flameshot gui"
-# open clipboard manager
-bindsym $mod+o exec "st -c st_win -e zsh -c 'rclip_pick'"
+# clipboard manager
+bindsym $mod+o exec st -c st_win -e zsh -c 'rclip_copy'
+bindsym $mod+shift+o exec st -c st_win -e zsh -c 'rclip_rm'
 # open vim to write note and then copy to clipboard
 bindsym $mod+n exec st -c st_win -e zsh -c '\
             vim +set\ shortmess+=I +set\ binary +set\ noeol /tmp/text_to_copy && \
@@ -214,9 +215,7 @@ bindsym $mod+n exec st -c st_win -e zsh -c '\
 bindsym $mod+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -no-history -hint-welcome '' | xclip -selection clipboard"
 bindsym $mod+$alt+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -hint-welcome '' | xclip -selection clipboard"
 # open password picker
-bindsym $mod+p exec "dlpass > /dev/null"
-# open uni stuff script
-bindsym $mod+u exec "uni"
+bindsym $mod+p exec "passmenu"
 
 # send stop to dstatus
 bindsym KP_Enter exec "dstatus stop"
