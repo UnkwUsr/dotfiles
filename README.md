@@ -26,6 +26,7 @@ Can be installed via pacman
 * `xclip` - easy interact with X clipboards
 * `nethogs` - monitor net bandwith per process
 * `mdp` - command-line markdown presentation tool
+* `rclip` - clipboard manager written in Rust. ([github](https://github.com/UnkwUsr/rclip))
 
 Can be installed from aur
 
