@@ -18,7 +18,6 @@ Can be installed via pacman
 * `i3-gaps i3lock i3status-rust` - i3 window manager and related programs
 * `dmenu` - program launcher
 * `qutebrowser` - browser
-* `gvim` - same vim but with x clipboard support
 * `otf-font-awesome` - awesome font (used in i3status-rust)
 * `ttf-hack` - hack font (used in i3)
 * `diff-so-fancy` - diff pager for git
@@ -26,9 +25,19 @@ Can be installed via pacman
 * `xclip` - easy interact with X clipboards
 * `nethogs` - monitor net bandwith per process
 * `mdp` - command-line markdown presentation tool
-* `rclip` - clipboard manager written in Rust. ([github](https://github.com/UnkwUsr/rclip))
+* `ncdu` - interactive ncurses disk usage viewer
+* `playerctl` - interactive ncurses disk usage viewer
+* `flameshot` - screenshot maker
+* `ponymix` - cli volume level control
+* `feh` - images viewer and background setter
+* `fzf` - fuzzy-finder
+* `dunst` - notification-daemon
 
 Can be installed from aur
 
 * `redshift-minimal` - adjust screen temperature depending on time of day
+* `neovim-symlinks` - neovim symlinks for default vim commands
 
+Not in repositories
+
+* `rclip` - clipboard manager written in Rust. ([github](https://github.com/UnkwUsr/rclip))
