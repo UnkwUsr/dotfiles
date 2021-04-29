@@ -184,7 +184,7 @@ bar {
         }
         tray_padding 0
 
-        # disable scrollings workspaces on mouse wheel
+        # Disable scrollings workspaces on mouse wheel
         bindsym button4 nop
         bindsym button5 nop
 }
@@ -194,7 +194,8 @@ bar {
 # All User(me) addef stuff:
 
 focus_follows_mouse no
-# that is alias for easy to use alt in future bindings
+
+# That is alias for easy to use alt in future bindings
 set $alt Mod1
 
 # binds
@@ -205,53 +206,54 @@ bindsym Print exec --no-startup-id "flameshot gui"
 # clipboard manager
 bindsym $mod+o exec st -c st_win -e zsh -c 'rclip_copy'
 bindsym $mod+shift+o exec st -c st_win -e zsh -c 'rclip_rm'
-# open vim to write note and then copy to clipboard
+# note taker
 bindsym $mod+n exec --no-startup-id set -o pipefail && echo -n | dmenu -fn "Hack-11" -p "Type your note text" | head -c -1 > /tmp/text_to_copy && \
             st -c st_win -e zsh -c '\
             vim +set\ shortmess+=I +set\ binary +set\ noeol /tmp/text_to_copy && \
             [ -s /tmp/text_to_copy ] && \
             (nohup xclip -sel c /tmp/text_to_copy > /dev/null 2> /dev/null && \
              rm /tmp/text_to_copy)'
-# open rofi calc
+# rofi calc
 bindsym $mod+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -no-history -hint-welcome '' | xclip -selection clipboard"
 bindsym $mod+$alt+c exec "rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -hint-welcome '' | xclip -selection clipboard"
-# open password picker
+# password picker
 bindsym $mod+p exec "passmenu"
 
-# send stop to dstatus
-bindsym KP_Enter exec "dstatus stop"
-
-# Fn keys
 # lock screen
-bindsym XF86Display exec --no-startup-id "i3lock -c 000000 && playerctl -a stop"
-bindsym ctrl+XF86Display exec --no-startup-id "i3lock -c 000000"
+bindsym $mod+i exec --no-startup-id "sleep 0.25 && xset dpms force suspend && playerctl -a stop"
+bindsym $mod+shift+i exec --no-startup-id "sleep 0.25 && systemctl suspend"
+
+# fn keys
 # control brightness
 bindsym XF86MonBrightnessUp  exec --no-startup-id "light -A 10"
 bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
+
 # media playback (using playerctl)
-bindsym XF86AudioPlay exec --no-startup-id "playerctl play && ponymix --sink unmute > /dev/null"
-bindsym XF86AudioStop exec --no-startup-id "playerctl -a pause"
 bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
+# My current laptop keyboard have one key for play and pause simultaneously
+bindsym XF86AudioPlay exec --no-startup-id "playerctl -a pause"
+bindsym ctrl+F10 exec --no-startup-id "playerctl play && ponymix --sink unmute > /dev/null"
+
 # volume control
 # speaker
-# stop media playback on mute. We no need keep media playback in background when speaker is muted
-bindsym XF86AudioMute exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a stop"
-# (but can unmute and play media by one bind)
-bindsym ctrl+XF86AudioMute exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
-# (also can toggle without stop music (useful for some spotify ad))
-bindsym shift+XF86AudioMute exec --no-startup-id "ponymix --sink toggle > /dev/null"
 bindsym XF86AudioLowerVolume exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
+# Stop media playback on mute. Also pause current media playing stuff
+bindsym XF86AudioMute exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a pause"
+
 # microphone
-# has different mute/unmute binds for microphone for more safety when change between states
-bindsym $alt+XF86AudioMute exec --no-startup-id "ponymix --source mute > /dev/null"
-bindsym $alt+shift+XF86AudioMute exec --no-startup-id "ponymix --source unmute > /dev/null"
-# TODO: warning! not work when num lock pressed. keycodes changes
+bindsym $alt+KP_Insert exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
+bindsym $alt+KP_Delete exec --no-startup-id "ponymix --source increase 5 > /dev/null"
+# Different mute/unmute binds for microphone for more safety when switch between states
 bindsym KP_Insert exec --no-startup-id "ponymix --source mute > /dev/null"
 bindsym KP_Delete exec --no-startup-id "ponymix --source unmute > /dev/null"
-bindsym $alt+XF86AudioLowerVolume exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
-bindsym $alt+XF86AudioRaiseVolume exec --no-startup-id "ponymix --source increase 5 > /dev/null"
+# Fix different num lock on/off (all the same bindings above but for enabled num lock)
+bindsym Mod2+KP_0 exec --no-startup-id "ponymix --source mute > /dev/null"
+bindsym Mod2+KP_Decimal exec --no-startup-id "ponymix --source unmute > /dev/null"
+bindsym Mod2+$alt+KP_0 exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
+bindsym Mod2+$alt+KP_Decimal exec --no-startup-id "ponymix --source increase 5 > /dev/null"
+
 # dbvolume control
 bindsym KP_Home exec --no-startup-id "dbvolume default"
 bindsym KP_Up exec --no-startup-id "cat /tmp/dbvolume_level | dmenu | xargs dbvolume"
