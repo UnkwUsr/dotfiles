@@ -206,7 +206,8 @@ bindsym Print exec --no-startup-id "flameshot gui"
 bindsym $mod+o exec st -c st_win -e zsh -c 'rclip_copy'
 bindsym $mod+shift+o exec st -c st_win -e zsh -c 'rclip_rm'
 # open vim to write note and then copy to clipboard
-bindsym $mod+n exec st -c st_win -e zsh -c '\
+bindsym $mod+n exec --no-startup-id set -o pipefail && echo -n | dmenu -fn "Hack-11" -p "Type your note text" | head -c -1 > /tmp/text_to_copy && \
+            st -c st_win -e zsh -c '\
             vim +set\ shortmess+=I +set\ binary +set\ noeol /tmp/text_to_copy && \
             [ -s /tmp/text_to_copy ] && \
             (nohup xclip -sel c /tmp/text_to_copy > /dev/null 2> /dev/null && \
