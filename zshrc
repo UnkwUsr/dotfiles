@@ -67,7 +67,7 @@ source ~/.zsh_plugins.sh
 # ALT-F for fuzzy-projects
 source /usr/share/fzf/key-bindings.zsh
 # more speed with fd
-export FZF_DEFAULT_COMMAND='fd --type file'
+export FZF_DEFAULT_COMMAND='fd --type file --type symlink'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
 
@@ -95,7 +95,8 @@ fzf-projects-wdiget() {
     zle fzf-cd-widget
 }
 zle     -N   fzf-projects-wdiget
-bindkey '^[f' fzf-projects-wdiget
+# TODO: change this binding key due to alt+f is used as emacs bind
+# bindkey '^[f' fzf-projects-wdiget
 
 # shell prompt
 PS1="%# "
