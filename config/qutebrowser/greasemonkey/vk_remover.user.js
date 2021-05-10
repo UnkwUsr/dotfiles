@@ -23,8 +23,7 @@ document.getElementById("l_fr").remove()
 // box with prompt to verify phone number
 t = document.getElementsByClassName("box_title")
 if ( t.length != 0 && t[0].innerHTML == "Keep your account secure") {
-    document.getElementById("box_layer_bg").remove()
-    document.getElementById("box_layer_wrap").remove()
+    document.getElementsByClassName("box_x_button")[0].click()
 }
 
 
