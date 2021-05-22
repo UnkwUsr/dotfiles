@@ -27,11 +27,11 @@ dynamic_width = true
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mug}GiB"
+format_mem = "{mem_used;G}"
 [[block]]
 block = "memory"
 display_type = "swap"
-format_swap = "{SUg}GiB"
+format_swap = "{swap_used;G}"
 warning_swap = 1
 critical_swap = 10
 
