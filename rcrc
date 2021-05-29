@@ -1,1 +1,1 @@
-EXCLUDES="README.md config/hl1_configs suckless"
+EXCLUDES="README.md LICENSE config/hl1_configs suckless"
