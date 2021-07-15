@@ -16,11 +16,11 @@ Plug 'tpope/vim-repeat'
 Plug 'lambdalisue/suda.vim'
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'tomasr/molokai'
 Plug 'srcery-colors/srcery-vim'
-Plug 'kaicataldo/material.vim', {'branch': 'main'}
-Plug 'mhartington/oceanic-next'
+" Plug 'kaicataldo/material.vim', {'branch': 'main'}
+" Plug 'mhartington/oceanic-next'
 
 " langs specific plugins
 Plug 'rust-lang/rust.vim'
@@ -31,7 +31,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'norcalli/snippets.nvim'
 Plug 'hrsh7th/nvim-compe'
 
 call plug#end()
@@ -198,7 +197,6 @@ require'compe'.setup {
     path = true;
     buffer = true;
     nvim_lsp = true;
-    snippets_nvim = true;
   };
 }
 EOF
@@ -208,8 +206,6 @@ inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-
-" snippets
 
 
 " Pure vim settings
@@ -226,6 +222,9 @@ cnoremap <A-b> <S-Left>
 cnoremap <A-f> <S-Right>
 " delete character under cursor
 cnoremap <C-D> <Del>
+
+" copy from default yank register to global clipboard
+map <leader>yy :let @+=@"<CR>
 
 " allow switch buffers without saving changes (can save when return)
 set hidden
