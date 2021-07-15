@@ -1,6 +1,6 @@
 My dotfiles managed with rcm
 
-# Installation (WIP)
+# Installation
 * Symlink all config files with rcm: `rcup -v`
 * Make binary config for less pager: `lesskey`
 ## Neovim
@@ -16,7 +16,7 @@ My dotfiles managed with rcm
 Can be installed via pacman
 
 * `i3-gaps i3lock i3status-rust` - i3 window manager and related programs
-* `dmenu` - program launcher
+* `dmenu` - dynamic menu used as program launcher and so on
 * `qutebrowser` - browser
 * `otf-font-awesome` - awesome font (used in i3status-rust)
 * `ttf-hack` - hack font (used in i3)
@@ -26,7 +26,7 @@ Can be installed via pacman
 * `nethogs` - monitor net bandwith per process
 * `mdp` - command-line markdown presentation tool
 * `ncdu` - interactive ncurses disk usage viewer
-* `playerctl` - interactive ncurses disk usage viewer
+* `playerctl` - media players controller via MPRIS protocol
 * `flameshot` - screenshot maker
 * `ponymix` - cli volume level control
 * `feh` - images viewer and background setter
