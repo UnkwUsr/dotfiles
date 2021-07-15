@@ -1,0 +1,7 @@
+#!/bin/bash
+
+RECORD_FILE=/tmp/mictest.wav
+
+echo recording to $RECORD_FILE
+parecord -v -d @DEFAULT_SOURCE@ $RECORD_FILE
+
