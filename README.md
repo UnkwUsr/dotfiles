@@ -15,7 +15,7 @@ My dotfiles managed with rcm
 ### Other programs
 Can be installed via pacman
 
-* `i3-gaps i3lock i3status-rust` - i3 window manager and related programs
+* `i3-wm i3lock i3status-rust` - i3 window manager and related programs
 * `dmenu` - dynamic menu used as program launcher and so on
 * `qutebrowser` - browser
 * `otf-font-awesome` - awesome font (used in i3status-rust)
