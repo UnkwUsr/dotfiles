@@ -11,9 +11,6 @@ set_wp="feh --no-fehbg --bg-scale $(realpath ~/.config/i3/wp.jpg)"
 # notifications daemon
 dunst &
 
-# screenshots tool
-flameshot &
-
 # clipboard daemon
 rclip daemon > /dev/null &
 
