@@ -2,15 +2,13 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'itchyny/lightline.vim'
-" TODO: use galaxyline instead of lightline. (after release neovim 0.5)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'svermeulen/vim-subversive'
-Plug 'simnalamburt/vim-mundo'
-Plug 'henrik/vim-indexed-search'
+Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'lambdalisue/suda.vim'
@@ -19,16 +17,16 @@ Plug 'jiangmiao/auto-pairs'
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'tomasr/molokai'
 Plug 'srcery-colors/srcery-vim'
-" Plug 'kaicataldo/material.vim', {'branch': 'main'}
+" Plug 'kaicataldo/material.vim'
 " Plug 'mhartington/oceanic-next'
 
 " langs specific plugins
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'yuezk/vim-js'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
+" Plug 'dart-lang/dart-vim-plugin'
+" Plug 'yuezk/vim-js'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'MaxMEllon/vim-jsx-pretty'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
@@ -45,18 +43,31 @@ let g:lightline = {
             \ 'active': {
             \   'left': [
             \       [ 'mode', 'paste' ],
-            \       [ 'gitstatus', 'readonly', 'filename', 'modified' ]
+            \       [ 'readonly', 'relativepath', 'modified' ]
             \   ],
             \   'right': [
             \       [ 'lineinfo' ],
             \       [ 'percent' ],
-            \       [ 'filetype', 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]
+            \       [ 'lsp_status', 'filetype' ]
             \   ]
             \ },
             \ 'component_function': {
-            \   'gitstatus': 'GitStatus'
+            \   'lsp_status': 'LspStatus'
             \ }
             \}
+function! LspStatus() abort
+    let sl = ''
+    if luaeval('not vim.tbl_isempty(vim.lsp.buf_get_clients(0))')
+        let sl.='E:'
+        let sl.=luaeval("vim.lsp.diagnostic.get_count(0, [[Error]])")
+        let sl.=' '
+        let sl.='W:'
+        let sl.=luaeval("vim.lsp.diagnostic.get_count(0, [[Warning]])")
+    else
+        let sl.=''
+    endif
+    return sl
+endfunction
 
 " fzf
 nmap <leader>ff :Files<CR>
@@ -93,28 +104,29 @@ function! CompleteInf()
 	let l=complete_info()
 	for k in l['items']
 		call add(nl, k['word']. ' : ' .k['info'] . ' '. k['menu'] )
-	endfor 
+	endfor
 	call fzf#vim#complete(fzf#wrap({ 'source': nl,'reducer': { lines -> split(lines[0], '\zs :')[0] },'sink':function('PInsert2')}))
-endfunction 
+endfunction
 
 " open fzf with current completion list
 imap <C-v> <CMD>:call CompleteInf()<CR>
 
 " commentary
 
-" gitgutter
-" update diff hunks when saving file
-autocmd BufWritePost * GitGutter
-" add command alias to fast run gutter after vim start or to use when don't
-" want save file but want to see diff chunks
-command! -nargs=0 GG GitGutter
-command! -nargs=0 Gg GitGutter
+" gitsigns
+lua << EOF
+require('gitsigns').setup {
+    signs = {
+        add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+        change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+        delete       = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        changedelete = {hl = 'GitSignsChange', text = '~_', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+        },
+    }
+EOF
 " fix losting SignColumn highlight on change colorscheme
 autocmd ColorScheme * highlight! link SignColumn LineNr
-function! GitStatus()
-    let [a,m,r] = GitGutterGetHunkSummary()
-    return printf('+%d ~%d -%d', a, m, r)
-endfunction
 
 " fugitive
 
@@ -125,12 +137,7 @@ nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
 nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
-" mundo
-nnoremap <F5> :MundoToggle<CR>
-let g:mundo_width = 35
-let g:mundo_preview_bottom=1
-" enable persistent undo
-set undofile
+" undotree
 
 " rust-lang
 function! s:find_cargo_root()
@@ -153,29 +160,19 @@ function! s:generate_cargo_rust_tags()
 endfunction
 autocmd BufWritePost *.rs call s:generate_cargo_rust_tags()
 
-" vim-toml
-
-" indexed-search
-" limits for perfomance with large files
-let g:indexed_search_max_lines = 1000
-let g:indexed_search_max_hits = 100
-" show format
-let g:indexed_search_shortmess = 1
-let g:indexed_search_numbered_only = 1
-
 " vim-surround
 
 " vim-repeat
 
 " dart-vim-plugin
 
-" nvim-lspconfig
-" see ~/.config/nvim/lspconfig.lua
-
 " suda
 command! -nargs=0 Sw SudaWrite
 
-" auto-pairs
+" nvim-lspconfig
+" see ~/.config/nvim/lspconfig.lua
+" alias for :LspStart
+command! -nargs=0 LS LspStart
 
 " compe
 lua << EOF
@@ -269,6 +266,12 @@ set showcmd
 
 " disable key code delay (like when in insert mode and pressing <Esc>O )
 set ttimeoutlen=0
+
+" save swap files to /tmp (RAM)
+set directory=/tmp/.vim_swap
+
+" enable persistent undo
+set undofile
 
 " search settings
 " highlight search
