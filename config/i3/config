@@ -246,7 +246,7 @@ bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
 # My current laptop keyboard have one key for play and pause simultaneously
 bindsym XF86AudioPlay exec --no-startup-id "playerctl -a pause"
-bindsym ctrl+F10 exec --no-startup-id "playerctl play && ponymix --sink unmute > /dev/null"
+bindsym ctrl+F10 exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
 
 # volume control
 # speaker
