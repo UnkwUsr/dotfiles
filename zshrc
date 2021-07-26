@@ -64,7 +64,6 @@ source ~/.zsh_plugins.sh
 # ALT-R for fuzzy-all-history
 # CTRL-T for fuzzy-completion
 # ALT-T for fuzzy-file-select
-# ALT-F for fuzzy-projects
 source /usr/share/fzf/key-bindings.zsh
 # more speed with fd
 export FZF_DEFAULT_COMMAND='fd --type file --type symlink'
@@ -90,13 +89,6 @@ fzf-all-history-widget() {
 zle     -N   fzf-all-history-widget
 bindkey '^[r' fzf-all-history-widget
 
-fzf-projects-wdiget() {
-    cd ~/Projects
-    zle fzf-cd-widget
-}
-zle     -N   fzf-projects-wdiget
-# TODO: change this binding key due to alt+f is used as emacs bind
-# bindkey '^[f' fzf-projects-wdiget
 
 # shell prompt
 PS1="%# "
