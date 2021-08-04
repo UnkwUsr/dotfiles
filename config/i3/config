@@ -202,36 +202,43 @@ bar {
 focus_follows_mouse no
 
 # binds
-# P.S. for find key names use xev tool
+# Note: for find key names use xev tool
 
 # helper for run st window with command
 set $st_win_with st -c st_win -e zsh -c
 
 # make screenshot
 bindsym Print exec --no-startup-id "flameshot gui -g && sleep 60 && pkill flameshot"
+
 # clipboard manager
 bindsym $mod+o exec $st_win_with 'rclip_copy'
 bindsym $mod+shift+o exec $st_win_with 'rclip_rm'
-# note taker in dmenu
+
+# note taker
+## dmenu
 bindsym $mod+n exec --no-startup-id set -o pipefail && echo -n | dmenu -fn "Hack-11" -p "Note:" | head -c -1 > /tmp/text_to_copy && \
             [ -s /tmp/text_to_copy ] && \
             (xclip -sel c /tmp/text_to_copy && \
              rm /tmp/text_to_copy)
-# note taker in vim
+## vim
 bindsym $mod+shift+n exec --no-startup-id $st_win_with 'vim +set\ shortmess+=I +set\ binary +set\ noeol /tmp/text_to_copy' && \
             [ -s /tmp/text_to_copy ] && \
             (xclip -sel c /tmp/text_to_copy && \
              rm /tmp/text_to_copy)
+
 # rofi calc
 bindsym $mod+c exec rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -no-history -hint-welcome '' | awk '{printf $NF}' | xclip -selection clipboard
 bindsym $mod+$alt+c exec rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -hint-welcome '' | awk '{printf $NF}' | xclip -selection clipboard
+
 # password picker
 bindsym $mod+p exec "passmenu"
+
 # translate tool
 bindsym $mod+t exec echo -n | dmenu -fn "Hack-11" -p "en-ru:" > /tmp/trans_res && \
             st -c st_win -e zsh -c 'cat /tmp/trans_res | trans -j en:ru | less'
 bindsym $mod+shift+t exec echo -n | dmenu -fn "Hack-11" -p "ru-en:" > /tmp/trans_res && \
             st -c st_win -e zsh -c 'cat /tmp/trans_res | trans -j ru:en | less'
+
 # run htop
 bindsym $mod+m exec $st_win_with 'TERM=xterm htop'
 
@@ -240,6 +247,7 @@ bindsym $mod+i exec --no-startup-id "sleep 0.25 && xset dpms force suspend && pl
 bindsym $mod+shift+i exec --no-startup-id "sleep 0.25 && systemctl suspend"
 
 # fn keys
+
 # control brightness
 bindsym XF86MonBrightnessUp  exec --no-startup-id "light -A 10"
 bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
@@ -247,24 +255,25 @@ bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
 # media playback (using playerctl)
 bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
-# My current laptop keyboard have one key for play and pause simultaneously
+## My current laptop keyboard have one key for play and pause simultaneously
 bindsym XF86AudioPlay exec --no-startup-id "playerctl -a pause"
 bindsym ctrl+F10 exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
 
 # volume control
+
 # speaker
 bindsym XF86AudioLowerVolume exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
-# Stop media playback on mute. Also pause current media playing stuff
+## Stop media playback on mute. Also pause current media playing stuff
 bindsym XF86AudioMute exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a pause"
 
 # microphone
 bindsym $alt+KP_Insert exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
 bindsym $alt+KP_Delete exec --no-startup-id "ponymix --source increase 5 > /dev/null"
-# Different mute/unmute binds for microphone for more safety when switch between states
+## Different mute/unmute binds for microphone for more safety when switch between states
 bindsym KP_Insert exec --no-startup-id "ponymix --source mute > /dev/null"
 bindsym KP_Delete exec --no-startup-id "ponymix --source unmute > /dev/null"
-# Fix different num lock on/off (all the same bindings above but for enabled num lock)
+## Fix different num lock on/off (all the same bindings above but for enabled num lock)
 bindsym Mod2+KP_0 exec --no-startup-id "ponymix --source mute > /dev/null"
 bindsym Mod2+KP_Decimal exec --no-startup-id "ponymix --source unmute > /dev/null"
 bindsym Mod2+$alt+KP_0 exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
@@ -297,7 +306,7 @@ for_window [class="^Brave-browser$"] border none
 for_window [class="^feh$"] floating enable, move absolute position center
 for_window [class="^st_win$"] floating enable, sticky enable, resize set 640 480, move absolute position center, border pixel 3
 for_window [class="^Peek$"] floating enable, resize set 640 480, move absolute position center
-# games
+## games
 assign [class="^hl_linux$"] 5
 assign [class="^csgo_linux64$"] 5
 for_window [class="^Steam$"] floating enable, move container to workspace 9
