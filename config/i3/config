@@ -204,18 +204,21 @@ focus_follows_mouse no
 # binds
 # P.S. for find key names use xev tool
 
+# helper for run st window with command
+set $st_win_with st -c st_win -e zsh -c
+
 # make screenshot
 bindsym Print exec --no-startup-id "flameshot gui -g && sleep 60 && pkill flameshot"
 # clipboard manager
-bindsym $mod+o exec st -c st_win -e zsh -c 'rclip_copy'
-bindsym $mod+shift+o exec st -c st_win -e zsh -c 'rclip_rm'
+bindsym $mod+o exec $st_win_with 'rclip_copy'
+bindsym $mod+shift+o exec $st_win_with 'rclip_rm'
 # note taker in dmenu
 bindsym $mod+n exec --no-startup-id set -o pipefail && echo -n | dmenu -fn "Hack-11" -p "Note:" | head -c -1 > /tmp/text_to_copy && \
             [ -s /tmp/text_to_copy ] && \
             (xclip -sel c /tmp/text_to_copy && \
              rm /tmp/text_to_copy)
 # note taker in vim
-bindsym $mod+shift+n exec --no-startup-id st -c st_win -e zsh -c 'vim +set\ shortmess+=I +set\ binary +set\ noeol /tmp/text_to_copy' && \
+bindsym $mod+shift+n exec --no-startup-id $st_win_with 'vim +set\ shortmess+=I +set\ binary +set\ noeol /tmp/text_to_copy' && \
             [ -s /tmp/text_to_copy ] && \
             (xclip -sel c /tmp/text_to_copy && \
              rm /tmp/text_to_copy)
@@ -230,7 +233,7 @@ bindsym $mod+t exec echo -n | dmenu -fn "Hack-11" -p "en-ru:" > /tmp/trans_res &
 bindsym $mod+shift+t exec echo -n | dmenu -fn "Hack-11" -p "ru-en:" > /tmp/trans_res && \
             st -c st_win -e zsh -c 'cat /tmp/trans_res | trans -j ru:en | less'
 # run htop
-bindsym $mod+m exec st -c st_win -e zsh -c 'TERM=xterm htop'
+bindsym $mod+m exec $st_win_with 'TERM=xterm htop'
 
 # lock screen
 bindsym $mod+i exec --no-startup-id "sleep 0.25 && xset dpms force suspend && playerctl -a stop"
