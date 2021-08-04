@@ -205,7 +205,7 @@ focus_follows_mouse no
 # P.S. for find key names use xev tool
 
 # make screenshot
-bindsym Print exec --no-startup-id "flameshot gui -r | xclip -sel c -t image/png && pkill flameshot"
+bindsym Print exec --no-startup-id "flameshot gui -g && sleep 60 && pkill flameshot"
 # clipboard manager
 bindsym $mod+o exec st -c st_win -e zsh -c 'rclip_copy'
 bindsym $mod+shift+o exec st -c st_win -e zsh -c 'rclip_rm'
