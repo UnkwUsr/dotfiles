@@ -1,9 +1,8 @@
-[user]
-	email = ktoto2707043@gmail.com
-	name = UnkwUsr
-
 [commit]
 	verbose = true
+[alias]
+    s = status
+    l = log
 [core]
 	pager = diff-so-fancy | less --tabs=4 -R
 	excludesfile = ~/.globalgitignore
