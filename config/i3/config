@@ -213,6 +213,7 @@ bindsym Print exec --no-startup-id "flameshot gui -g && sleep 60 && pkill flames
 # clipboard manager
 bindsym $mod+o exec $st_win_with 'rclip_copy'
 bindsym $mod+shift+o exec $st_win_with 'rclip_rm'
+bindsym $mod+ctrl+o exec rclip_copy image
 
 # note taker
 ## dmenu
@@ -221,7 +222,7 @@ bindsym $mod+n exec --no-startup-id set -o pipefail && echo -n | dmenu -fn "Hack
             (xclip -sel c /tmp/text_to_copy && \
              rm /tmp/text_to_copy)
 ## vim
-bindsym $mod+shift+n exec --no-startup-id $st_win_with 'vim +set\ shortmess+=I +set\ binary +set\ noeol /tmp/text_to_copy' && \
+bindsym $mod+shift+n exec --no-startup-id $st_win_with 'vim +set\ shortmess+=I +set\ binary +set\ noeol +set\ spell /tmp/text_to_copy' && \
             [ -s /tmp/text_to_copy ] && \
             (xclip -sel c /tmp/text_to_copy && \
              rm /tmp/text_to_copy)
@@ -247,7 +248,7 @@ set $trans_get_primary xclip -o -sel primary > /tmp/trans_text
 bindsym $mod+ctrl+t exec $trans_get_primary && $st_win_with '$trans_run en:ru'
 bindsym $mod+ctrl+shift+t exec $trans_get_primary && $st_win_with '$trans_run ru:en'
 ## edit previous translated text with vim
-bindsym $mod+$alt+t exec $st_win_with 'vim +set\ shortmess+=I +set\ binary +set\ noeol /tmp/trans_text'
+bindsym $mod+$alt+t exec $st_win_with 'vim +set\ shortmess+=I +set\ binary +set\ noeol +set\ spell /tmp/trans_text'
 
 # run htop
 bindsym $mod+m exec $st_win_with 'TERM=xterm htop'
