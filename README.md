@@ -34,6 +34,7 @@ Can be installed via pacman
 * `feh` - images viewer and background setter
 * `fzf` - fuzzy-finder
 * `dunst` - notification-daemon
+* `translate-shell` - cli program to do translations
 
 Can be installed from aur
 
