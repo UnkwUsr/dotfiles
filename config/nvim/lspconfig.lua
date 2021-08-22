@@ -55,11 +55,11 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  }
+    properties = {
+        'documentation',
+        'detail',
+        'additionalTextEdits',
+    }
 }
 
 
@@ -68,6 +68,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 local servers = { "rust_analyzer", "dartls", "tsserver" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
+        autostart = false,
         capabilities = capabilities,
         on_attach = on_attach,
     }

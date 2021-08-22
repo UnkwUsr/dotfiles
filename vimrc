@@ -12,7 +12,7 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'lambdalisue/suda.vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'tomasr/molokai'
@@ -30,6 +30,10 @@ Plug 'cespare/vim-toml'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+
+" dependencies
+" gitsigns
+Plug 'nvim-lua/plenary.nvim'
 
 call plug#end()
 
@@ -164,10 +168,11 @@ autocmd BufWritePost *.rs call s:generate_cargo_rust_tags()
 
 " vim-repeat
 
-" dart-vim-plugin
-
 " suda
 command! -nargs=0 Sw SudaWrite
+
+" nvim-autopairs
+lua require('nvim-autopairs').setup()
 
 " nvim-lspconfig
 " see ~/.config/nvim/lspconfig.lua
@@ -178,7 +183,7 @@ command! -nargs=0 LS LspStart
 lua << EOF
 require'compe'.setup {
   enabled = true;
-  autocomplete = true;
+  autocomplete = false;
   debug = false;
   min_length = 1;
   preselect = 'enable';
@@ -192,7 +197,7 @@ require'compe'.setup {
 
   source = {
     path = true;
-    buffer = true;
+    -- buffer = true;
     nvim_lsp = true;
   };
 }
@@ -248,6 +253,9 @@ map <leader>s :set spell!<CR>
 set completeopt=menuone,noselect
 " hide completion messages in statusline
 set shortmess+=c
+
+" don't show intro on start with empty buffer
+set shortmess+=I
 
 " set history limit
 set history=1000
