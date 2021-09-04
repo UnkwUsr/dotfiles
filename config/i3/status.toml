@@ -9,10 +9,6 @@ name = "awesome5"
 music = ""
 
 
-# [[block]]
-# block = "custom_dbus"
-# name = "dstatus_text"
-
 [[block]]
 block = "music"
 player = "spotify"
@@ -50,7 +46,8 @@ device_kind = "source"
 [[block]]
 block = "temperature"
 collapsed = false
-interval = 10
+interval = 5
+format = "{max} max"
 
 [[block]]
 block = "battery"
