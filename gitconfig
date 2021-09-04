@@ -3,6 +3,9 @@
 [alias]
     s = status
     l = log
+    lp = log -p
+    d = diff
+    ds = diff --staged
 [core]
 	pager = diff-so-fancy | less --tabs=4 -R
 	excludesfile = ~/.globalgitignore
