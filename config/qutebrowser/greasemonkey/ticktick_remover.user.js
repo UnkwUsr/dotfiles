@@ -10,13 +10,14 @@
 // ==/UserScript==
 
 c = 0
-a = document.getElementsByClassName("desc-wrapper")
 b = document.getElementsByClassName("pop-tip tip-transition clearfix")
 
 intervalid = setInterval(() => {
     // alert()
-    if ( a.length != 0 && a[0].children[0].innerHTML.startsWith("Sorry, you've reached")) {
-        a[0].remove()
+    a = document.getElementById("left-bottom-view")
+    if ( a !== null && a.children[0].children[0].children[0].children[0].innerHTML.startsWith("Sorry, you've reached")) {
+        a.remove()
+        document.getElementsByClassName("lists")[0].style["padding-bottom"] = ""
 
         c++
     }

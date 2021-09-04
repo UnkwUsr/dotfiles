@@ -9,4 +9,13 @@
 // @grant       none
 // ==/UserScript==
 
-document.getElementsByClassName("ytp-gradient-bottom")[0].remove()
+let main = new MutationObserver(() => {
+    if(document.querySelector(".html5-video-player").isFullscreen()) {
+        document.getElementsByClassName("ytp-gradient-bottom")[0].style["background-image"] = "linear-gradient(transparent, white)";
+        document.getElementsByClassName("ytp-gradient-top")[0].style["background-image"] = "linear-gradient(white, transparent)";
+    } else {
+        document.getElementsByClassName("ytp-gradient-bottom")[0].style["background-image"] = "linear-gradient(transparent, black)";
+    }
+})
+
+main.observe(document.querySelector('.html5-video-player'), {attributes: true, characterData: true, childList: true})
