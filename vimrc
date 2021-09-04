@@ -303,8 +303,11 @@ set scrolloff=15
 set splitright
 
 " highlight all trailing spaces
-au BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
+autocmd BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
 " for matching only non-escaped use this regex: '[\\]\@<!\s\+$'
+
+" auto enable spell in git-commit
+autocmd FileType gitcommit setlocal spell
 
 " indent settings
 set tabstop=4
