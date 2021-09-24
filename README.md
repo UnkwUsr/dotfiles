@@ -2,7 +2,6 @@ My dotfiles managed with rcm
 
 # Installation
 * Symlink all config files with rcm: `rcup -v`
-* Make binary config for less pager: `lesskey`
 ## Neovim
 * Install vim-plug plugin manager for neovim: [neovim-plug](https://aur.archlinux.org/packages/neovim-plug/) (aur package)
 * Install plugins: type `:PlugInstall` in vim
@@ -12,6 +11,7 @@ My dotfiles managed with rcm
 * Install plugins: `antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh`
 ## Qutebrowser
 * Set as default browser: `xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop`
+* Install dictionaries: `/usr/share/qutebrowser/scripts/dictcli.py install en-US ru-RU`
 ## Suckless programs
 * See README.md in `suckless` folder
 ### Other programs
@@ -26,21 +26,25 @@ Can be installed via pacman
 * `rofi-calc` - modal calculator
 * `xclip` - easy interact with X clipboards
 * `nethogs` - monitor net bandwith per process
+* `htop` - system status monitor
 * `mdp` - command-line markdown presentation tool // TODO: mdp is not good enough. Change it
 * `ncdu` - interactive ncurses disk usage viewer
 * `playerctl` - media players controller via MPRIS protocol
 * `flameshot` - screenshot maker
-* `ponymix` - cli volume level control
+* `peek` - lightweight screen recorder
+* `mpv` - video viewer
 * `feh` - images viewer and background setter
 * `fzf` - fuzzy-finder
+* `ripgrep` - faster `grep` replacement
+* `fd` - faster `find` replacement
 * `dunst` - notification-daemon
 * `translate-shell` - cli program to do translations
+* `tmux` - terminal multiplexor
+* `progress` - show status of copying (or simillar) process
 
 Can be installed from aur
 
 * `redshift-minimal` - adjust screen temperature depending on time of day
 * `neovim-symlinks` - neovim symlinks for default vim commands
-
-Not in repositories
-
-* `rclip` - clipboard manager written in Rust. ([github](https://github.com/UnkwUsr/rclip))
+* `ponymix` - cli volume level control
+* `rclip` - clipboard manager written in Rust. (also [github](https://github.com/UnkwUsr/rclip))
