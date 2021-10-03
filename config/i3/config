@@ -179,14 +179,6 @@ bar {
         position top
         colors {
             background #000000
-            separator #666666
-            # background #222222
-            statusline #dddddd
-            # statusline #10FF10
-            # focused_workspace #0088CC #0088CC #ffffff
-            # active_workspace #333333 #333333 #ffffff
-            # inactive_workspace #333333 #333333 #888888
-            # urgent_workspace #2f343a #900000 #ffffff
         }
         tray_padding 0
 
@@ -228,8 +220,8 @@ bindsym $mod+shift+n exec --no-startup-id $st_win_with 'vim +set\ shortmess+=I +
              rm /tmp/text_to_copy)
 
 # rofi calc
-bindsym $mod+c exec rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -no-history -hint-welcome '' | awk '{printf $NF}' | xclip -selection clipboard
-bindsym $mod+$alt+c exec rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -hint-welcome '' | awk '{printf $NF}' | xclip -selection clipboard
+bindsym $mod+c exec rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -no-history -hint-welcome '' | awk -F "= " '{printf $NF}' | xclip -selection clipboard
+bindsym $mod+$alt+c exec rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -hint-welcome '' | awk -F "= " '{printf $NF}' | xclip -selection clipboard
 
 # password picker
 bindsym $mod+p exec "passmenu"
@@ -314,9 +306,9 @@ assign [class="^discord$"] 9
 assign [class="^TelegramDesktop$"] 10
 for_window [class="^qutebrowser$"] border none
 for_window [class="^Brave-browser$"] border none
-for_window [class="^feh$"] floating enable, move absolute position center
-for_window [class="^st_win$"] floating enable, sticky enable, resize set 640 480, move absolute position center, border pixel 3
-for_window [class="^Peek$"] floating enable, resize set 640 480, move absolute position center
+for_window [class="^feh$"] floating enable, move position center
+for_window [class="^st_win$"] floating enable, sticky enable, resize set 640 480, move position center, border pixel 3
+for_window [class="^Peek$"] floating enable, resize set 640 480, move position center
 ## games
 assign [class="^hl_linux$"] 5
 assign [class="^csgo_linux64$"] 5
