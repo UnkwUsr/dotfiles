@@ -51,6 +51,14 @@ local on_attach = function(client, bufnr)
     end
 end
 
+-- workaround: prevent loading lsp servers under folder .cargo/registry
+local before_init = function(initialize_params, config)
+    if string.find(config.root_dir, ".cargo/registry") then
+        -- hack: prevent lsp server loading
+        initialize_params.rootUri = ""
+    end
+end
+
 -- enable snippets support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -62,15 +70,15 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     }
 }
 
-
 -- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
-local servers = { "rust_analyzer", "dartls", "tsserver" }
+local servers = { "rust_analyzer", "ccls", "pyright", "tsserver", "html", "cssls", "dartls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         autostart = false,
         capabilities = capabilities,
         on_attach = on_attach,
+        before_init = before_init,
     }
 end
 
