@@ -1,5 +1,5 @@
 [commit]
-	verbose = true
+    verbose = true
 [alias]
     s = status
     l = log
@@ -7,19 +7,19 @@
     d = diff
     ds = diff --staged
 [core]
-	pager = diff-so-fancy | less --tabs=4 -R
-	excludesfile = ~/.globalgitignore
+    pager = diff-so-fancy | less --tabs=4 -R
+    excludesfile = ~/.globalgitignore
 [color]
-	ui = true
+    ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [color "diff"]
-	meta = 11
-	frag = magenta bold
-	commit = cyan bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+    meta = 11
+    frag = magenta bold
+    commit = cyan bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse

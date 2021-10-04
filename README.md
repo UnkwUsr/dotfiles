@@ -1,4 +1,4 @@
-My dotfiles managed with rcm
+My dotfiles managed with [rcm](https://github.com/thoughtbot/rcm)
 
 # Installation
 * Symlink all config files with rcm: `rcup -v`
@@ -13,38 +13,39 @@ My dotfiles managed with rcm
 * Set as default browser: `xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop`
 * Install dictionaries: `/usr/share/qutebrowser/scripts/dictcli.py install en-US ru-RU`
 ## Suckless programs
-* See README.md in `suckless` folder
+* See [suckless/README.md](suckless/README.md)
 ### Other programs
 Can be installed via pacman
 
+#### console
+* `ripgrep` - faster `grep` replacement
+* `fzf` - fuzzy-finder
+* `fd` - faster `find` replacement
+* `diff-so-fancy` - diff pager for git
+* `htop` - system status monitor
+* `tmux` - terminal multiplexor
+* `ncdu` - interactive ncurses disk usage viewer
+* `nethogs` - monitor net bandwidth per process
+* `progress` - show status of copying(or similar) process
+* `translate-shell` - cli program to do translations
+
+#### graphical
 * `i3-wm i3lock i3status-rust` - window manager and related programs
 * `dmenu` - dynamic menu used as program launcher and so on
 * `qutebrowser` - browser
+* `rofi-calc` - modal calculator
+* `feh` - images viewer and background setter
+* `mpv` - video viewer
+* `flameshot` - screenshot maker
+* `xclip` - easy interact with X clipboards
+* `dunst` - notification-daemon
+* `playerctl` - media players controller via MPRIS protocol
+* `peek` - lightweight screen recorder
 * `otf-font-awesome` - icons font (used in i3status-rust)
 * `ttf-hack` - hack font (used in i3)
-* `diff-so-fancy` - diff pager for git
-* `rofi-calc` - modal calculator
-* `xclip` - easy interact with X clipboards
-* `nethogs` - monitor net bandwith per process
-* `htop` - system status monitor
-* `mdp` - command-line markdown presentation tool // TODO: mdp is not good enough. Change it
-* `ncdu` - interactive ncurses disk usage viewer
-* `playerctl` - media players controller via MPRIS protocol
-* `flameshot` - screenshot maker
-* `peek` - lightweight screen recorder
-* `mpv` - video viewer
-* `feh` - images viewer and background setter
-* `fzf` - fuzzy-finder
-* `ripgrep` - faster `grep` replacement
-* `fd` - faster `find` replacement
-* `dunst` - notification-daemon
-* `translate-shell` - cli program to do translations
-* `tmux` - terminal multiplexor
-* `progress` - show status of copying (or simillar) process
 
 Can be installed from aur
 
 * `redshift-minimal` - adjust screen temperature depending on time of day
-* `neovim-symlinks` - neovim symlinks for default vim commands
 * `ponymix` - cli volume level control
 * `rclip` - clipboard manager written in Rust. (also [github](https://github.com/UnkwUsr/rclip))
