@@ -3,6 +3,7 @@
 [alias]
     s = status
     l = log
+    c = checkout
     lp = log -p
     d = diff
     ds = diff --staged
