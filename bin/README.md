@@ -5,7 +5,8 @@ record microphone to file
 record output sound (not microphone)
 
 ## dalarma
-just simple alarm clock that execute bash script after timeout
+~~(maybe not so simple, but useful)~~ alarm clock that will block your screen
+with alarm text
 
 ## dbvolume
 dbvolume - control specific sink-input (aka application) volume level

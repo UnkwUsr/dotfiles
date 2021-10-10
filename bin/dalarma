@@ -1,11 +1,58 @@
 #!/bin/bash
 
+SUCCESS_EXIT_CODE=42
+WIN_CLASS="dalarma_win"
+
+
+TERMINAL_SCRIPT_KEYWORD=IS_TERMINAL_SCRIPT
+if [ "$1" = "$TERMINAL_SCRIPT_KEYWORD" ]; then
+    ponymix is-muted
+    IS_WAS_MUTED=$?
+    ponymix mute > /dev/null
+
+    i3-msg -t subscribe '[ "window" ]' -m | while read -r line; do i3-msg "[class=$WIN_CLASS] fullscreen enable"; done > /dev/null &
+    PID_I3MSG=$!
+
+    echo Type \'$MSG\'
+    read uinp
+    while [ ! "$uinp" = "$MSG" ]; do
+        clear
+        echo \'$uinp\' wrong input
+        echo Type \'$MSG\'
+        read uinp
+    done
+
+    kill $PID_I3MSG
+    test $IS_WAS_MUTED -ne 0 && ponymix unmute
+    dunstctl close-all
+    exit $SUCCESS_EXIT_CODE
+fi
+
+
+
 if [ -z "$1" ]; then
-    echo "Usage: $0 [number]{s|m|h|d}"
-    echo "for more info see 'man sleep'"
+    echo "Usage: $0 number[s|m|h|d] [text]"
+    echo "More info about [s|m|h|d] see in 'man sleep'"
+    notify-send -u critical "can't start dalarma ('$MSG')"
     exit 1
 fi
 
-sleep $1
-bash ~/.dalarma "${@:2}" > /dev/null &
+notify-send -t 1000 "dalarma started with '$MSG'"
 
+sleep $1
+
+MSG="${@:2}"
+if [[ -z $MSG ]]; then
+    MSG=""
+fi
+export MSG
+
+notify-send -u critical "$MSG"
+while true; do
+    EXIT_STRING=$(st -c "$WIN_CLASS" -f "Hack:pixelsize=50:antialias=true:autohint=true" \
+        -e zsh -c "dalarma $TERMINAL_SCRIPT_KEYWORD" 2>&1)
+
+    if [ "$EXIT_STRING" = "child exited with status $SUCCESS_EXIT_CODE" ]; then
+        exit 0
+    fi
+done
