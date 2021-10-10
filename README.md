@@ -13,7 +13,7 @@ My dotfiles managed with [rcm](https://github.com/thoughtbot/rcm)
 * Set as default browser: `xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop`
 * Install dictionaries: `/usr/share/qutebrowser/scripts/dictcli.py install en-US ru-RU`
 ## Suckless programs
-* See [suckless/README.md](suckless/README.md)
+See [suckless/README.md](suckless/README.md)
 
 ## Other programs
 Can be installed via pacman
@@ -47,3 +47,6 @@ Can be installed from aur
 * `redshift-minimal` - adjust screen temperature depending on time of day
 * `ponymix` - cli volume level control
 * `rclip-git` - clipboard manager written in Rust. (also [github](https://github.com/UnkwUsr/rclip))
+
+# Scripts
+See [bin/README.md](bin/README.md)
