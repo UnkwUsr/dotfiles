@@ -93,7 +93,7 @@ bindsym $mod+$alt+space sticky toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -244,6 +244,9 @@ bindsym $mod+$alt+t exec $st_win_with 'vim +set\ shortmess+=I +set\ binary +set\
 
 # run htop
 bindsym $mod+m exec $st_win_with 'TERM=xterm htop'
+
+# open list of running dalarma's
+bindsym $mod+a exec $st_win_with 'TERM=xterm htop -F dalarma -s PID'
 
 # lock screen
 bindsym $mod+i exec --no-startup-id "sleep 0.25 && xset dpms force suspend && playerctl -a stop"
