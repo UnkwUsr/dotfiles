@@ -300,6 +300,7 @@ mode "dbvolume!" {
 # windows settings
 focus_wrapping no
 default_border normal
+hide_edge_borders smart
 # Note: to search windows criterias use xprop
 assign [class="^qutebrowser$"] 1
 assign [class="^discord$"] 9
