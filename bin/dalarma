@@ -9,6 +9,7 @@ if [ "$1" = "$TERMINAL_SCRIPT_KEYWORD" ]; then
     ponymix is-muted
     IS_WAS_MUTED=$?
     ponymix mute > /dev/null
+    playerctl -a pause
 
     i3-msg -t subscribe '[ "window" ]' -m | while read -r line; do i3-msg "[class=$WIN_CLASS] fullscreen enable"; done > /dev/null &
     PID_I3MSG=$!
