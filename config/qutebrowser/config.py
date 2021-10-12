@@ -12,6 +12,7 @@ config.set('content.autoplay', True, 'vk.com')
 c.content.geolocation = False
 c.content.notifications.enabled = False
 c.content.cookies.accept = "no-unknown-3rdparty"
+c.content.register_protocol_handler = False
 
 c.content.blocking.method = "both"
 c.content.blocking.adblock.lists.append("https://easylist-downloads.adblockplus.org/advblock.txt")
