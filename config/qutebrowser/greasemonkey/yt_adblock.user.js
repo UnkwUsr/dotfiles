@@ -96,14 +96,14 @@ let sideintervalId = setInterval(function(){
     }
 },100)
 
-setTimeout(function() {
-    let vida = document.getElementsByClassName("video-stream html5-main-video")[0];
-    vid.muted = true;
-    vida.play();
-    setTimeout(function() {
-        let vida = document.getElementsByClassName("video-stream html5-main-video")[0];
-        vid.muted = false;
-        vida.pause();
-    }, 200)
-}, 1000);
+// setTimeout(function() {
+//     let vida = document.getElementsByClassName("video-stream html5-main-video")[0];
+//     vid.muted = true;
+//     vida.play();
+//     setTimeout(function() {
+//         let vida = document.getElementsByClassName("video-stream html5-main-video")[0];
+//         vid.muted = false;
+//         vida.pause();
+//     }, 200)
+// }, 1000);
 

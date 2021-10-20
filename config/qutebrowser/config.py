@@ -19,6 +19,8 @@ c.content.blocking.adblock.lists.append("https://easylist-downloads.adblockplus.
 c.content.blocking.adblock.lists.append("https://easylist-downloads.adblockplus.org/cntblock.txt")
 c.content.blocking.hosts.lists.append("https://ewpratten.retrylife.ca/youtube_ad_blocklist/hosts.ipv4.txt")
 
+c.content.user_stylesheets.append("~/.config/qutebrowser/stylesheets/vk-remover.css")
+
 # see more parameters we can block at https://github.com/qutebrowser/qutebrowser/issues/3648
 config.set('content.javascript.enabled', False, 'stackoverflow.com')
 config.set('content.javascript.enabled', False, 'www.google.com/search*')

@@ -1,0 +1,36 @@
+/* top panel */
+.HeaderNav__item--logo{display:none}
+.HeaderNav__item--gap{display:none}
+/* #top_audio_btn_group{display:none !important} */
+/* #top_audio_player{display:none} */
+
+
+/* side menu buttons */
+#l_pr{display:none}
+#l_nwsf{display:none}
+#l_fr{display:none}
+#l_doc{display:none}
+
+/* "footer" in the side panel */
+.left_menu_nav_wrap{display:none}
+.ads_left_empty{display:none}
+
+
+/* remove entries in chats list */
+._im_dialog_2000000011{display:none}
+._im_dialog_2000000018{display:none}
+
+/* remove entries in right block with opened chats */
+#ui_rmenu_peer_2000000011{display:none}
+#ui_rmenu_peer_2000000018{display:none}
+
+/* hide online status in dialogues list */
+.online::after{display:none}
+
+/* chats functions like "call" */
+.im-page--dialogs-header-control.im-page--dialogs-header-control_call._im_create_call{display:none}
+.im-page--header-call.im-page--header-menu-button._im_dialog_call_action_wrapper{display:none}
+
+/* recommended friends */
+#profile_friends_recomm{display:none}
+
