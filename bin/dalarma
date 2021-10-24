@@ -1,19 +1,34 @@
 #!/bin/bash
 
+# time in seconds
+DEFAULT_LOCK_TIME=15
+
 SUCCESS_EXIT_CODE=42
 WIN_CLASS="dalarma_win"
 
 
 TERMINAL_SCRIPT_KEYWORD=IS_TERMINAL_SCRIPT
 if [ "$1" = "$TERMINAL_SCRIPT_KEYWORD" ]; then
-    echo Type \'$MSG\'
-    read uinp
-    while [ ! "$uinp" = "$MSG" ]; do
+    while true; do
+        time_remaining=$(echo $LOCK_START-$(date +%s)+$LOCK_TIME | bc)
+        if (( $time_remaining <= 0 )); then
+            break
+        fi
+
         clear
-        echo \'$uinp\' wrong input
-        echo Type \'$MSG\'
-        read uinp
+        if [ -n "$MSG" ]; then
+            echo "Alarma: $MSG"
+        fi
+        echo "Lock time remaining: $time_remaining"
+        echo To close immediately, type:
+        echo "$TASK_SOLVE"
+
+        read inp
+        if [ "$inp" = "$TASK_SOLVE" ]; then
+            break
+        fi
     done
+
     exit $SUCCESS_EXIT_CODE
 fi
 
@@ -22,29 +37,38 @@ fi
 if [ -z "$1" ]; then
     echo "Usage: $0 number[s|m|h|d] [text]"
     echo "More info about [s|m|h|d] see in 'man sleep'"
-    notify-send -u critical "can't start dalarma ('$MSG')"
+    notify-send -u critical "can't start dalarma"
+
     exit 1
 fi
 
-MSG="${@:2}"
-if [[ -z $MSG ]]; then
-    MSG=""
-fi
-export MSG
+sleep_time=$1
+export MSG="${@:2}"
 
-notify-send -t 1000 "dalarma started with '$MSG'"
+# TODO: there should be flag detection and setting custom lock time
+export LOCK_TIME=$DEFAULT_LOCK_TIME
 
-sleep $1
+notify-send -t 1000 "dalarma started for $sleep_time" "$MSG"
 
-notify-send -u critical "$MSG"
+sleep $sleep_time
+
+# preparation for lock program
+export TASK_SOLVE=$(date +%N | md5sum | head -c 10)
+export LOCK_START=$(date +%s)
+# TODO: kill current process automatically after timeout
+# cur_pid=$$
+# (sleep $LOCK_TIME && kill $cur_pid) &
 
 # pre lock
+notify-send -u critical "$MSG"
 ponymix is-muted
 IS_WAS_MUTED=$?
 ponymix mute > /dev/null
 playerctl -a pause 2> /dev/null
 
-i3-msg -t subscribe '[ "window" ]' -m | while read -r line; do i3-msg "[class=$WIN_CLASS] sticky enable, floating enable, fullscreen enable"; done > /dev/null &
+i3-msg -t subscribe '[ "window" ]' -m | while read -r line; do \
+    i3-msg "[class=$WIN_CLASS] sticky enable, floating enable, fullscreen enable"; \
+done > /dev/null &
 PID_I3MSG=$!
 
 # lock
