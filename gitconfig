@@ -1,7 +1,7 @@
 [commit]
     verbose = true
 [alias]
-    s = status
+    s = status -sb
     l = log
     c = checkout
     lp = log -p
