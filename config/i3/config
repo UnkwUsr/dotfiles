@@ -226,6 +226,9 @@ bindsym $mod+$alt+c exec rofi -dpi 1 -show calc -modi calc -no-show-match -no-so
 # password picker
 bindsym $mod+p exec "passmenu"
 
+# close all notifies
+bindsym ctrl+shift+space exec "dunstctl close-all"
+
 # translate tool
 set $trans_run trans -i /tmp/trans_text -view -show-original=no \
     -show-translation-phonetics=no -show-prompt-message=no \
