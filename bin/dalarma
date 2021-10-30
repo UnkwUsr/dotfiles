@@ -10,14 +10,14 @@ WIN_CLASS="dalarma_win"
 TERMINAL_SCRIPT_KEYWORD=IS_TERMINAL_SCRIPT
 if [ "$1" = "$TERMINAL_SCRIPT_KEYWORD" ]; then
     while true; do
-        time_remaining=$(echo $LOCK_START-$(date +%s)+$LOCK_TIME | bc)
+        time_remaining=$(( $LOCK_START-$(date +%s)+$LOCK_TIME ))
         if (( $time_remaining <= 0 )); then
             break
         fi
 
         clear
-        if [ -n "$MSG" ]; then
-            echo "Alarma: $MSG"
+        if [ -n "$TITLE" ]; then
+            echo "Alarma: $TITLE"
         fi
         echo "Lock time remaining: $time_remaining"
         echo To close immediately, type:
@@ -43,24 +43,22 @@ if [ -z "$1" ]; then
 fi
 
 sleep_time=$1
-export MSG="${@:2}"
+export TITLE="${@:2}"
 
 # TODO: there should be flag detection and setting custom lock time
 export LOCK_TIME=$DEFAULT_LOCK_TIME
 
-notify-send -t 1000 "dalarma started for $sleep_time" "$MSG"
+notify-send -t 1000 "dalarma started for $sleep_time" "$TITLE"
 
 sleep $sleep_time
 
 # preparation for lock program
 export TASK_SOLVE=$(date +%N | md5sum | head -c 10)
 export LOCK_START=$(date +%s)
-# TODO: kill current process automatically after timeout
-# cur_pid=$$
-# (sleep $LOCK_TIME && kill $cur_pid) &
+(sleep $LOCK_TIME && notify-send -u critical "dalarma break done") &
 
 # pre lock
-notify-send -u critical "$MSG"
+notify-send -u critical "$TITLE"
 ponymix is-muted
 IS_WAS_MUTED=$?
 ponymix mute > /dev/null
