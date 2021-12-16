@@ -1,0 +1,14 @@
+# Unbind existing scroll operations
+prev_img
+next_img
+# Set <action> <mouse button>
+zoom_in C-4
+zoom_out C-5
+
+# make scroll "simmilar" to zathura
+scroll_up 4
+scroll_down 5
+# this is undocumented, but we can bind any mouse button
+# (there is mouse scroll left and right)
+scroll_left 6
+scroll_right 7
