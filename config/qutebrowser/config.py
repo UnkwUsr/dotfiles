@@ -56,11 +56,11 @@ c.spellcheck.languages = ["en-US", "ru-RU"]
 c.url.searchengines["DEFAULT"] = "https://html.duckduckgo.com/html?q={}"
 c.url.searchengines["g"] = "https://www.google.com/search?q={}"
 c.url.searchengines["a"] = "https://wiki.archlinux.org/index.php/{}"
+c.url.searchengines["yt"] = "https://www.youtube.com/results?search_query={}"
 c.url.searchengines["w"] = "https://en.wikipedia.org/wiki/{}"
 c.url.searchengines["wr"] = "https://ru.wikipedia.org/wiki/{}"
 c.url.searchengines["gi"] = "https://github.com/search?q={}"
 c.url.searchengines["aur"] = "https://aur.archlinux.org/packages/?K={}&SB=v&SO=d"
-c.url.searchengines["c"] = "https://crates.io/crates/{}"
 c.url.searchengines["dc"] = "https://docs.rs/{}"
 c.url.searchengines["dr"] = "https://doc.rust-lang.org/std/index.html?search={}"
 
