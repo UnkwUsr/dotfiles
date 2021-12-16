@@ -44,6 +44,9 @@ device_kind = "sink"
 [[block]]
 block = "sound"
 device_kind = "source"
+[block.theme_overrides]
+idle_fg = "#b58900"
+warning_fg = "#93a1a1"
 
 [[block]]
 block = "temperature"
