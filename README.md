@@ -48,5 +48,9 @@ Can be installed from aur
 * `ponymix` - cli volume level control
 * `rclip-git` - clipboard manager written in Rust. (also [github](https://github.com/UnkwUsr/rclip))
 
+Other
+* `ticktask` - cli for creating tasks on ticktick.com [github](https://github.com/UnkwUsr/ticktask)
+* `dalarma` - alarm clock that will block your screen with alarm text [github](https://github.com/UnkwUsr/dalarma)
+
 # Scripts
 See [bin/README.md](bin/README.md)
