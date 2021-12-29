@@ -5,7 +5,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-Plug 'lewis6991/gitsigns.nvim'
+Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-fugitive'
 Plug 'svermeulen/vim-subversive'
 Plug 'mbbill/undotree'
@@ -27,6 +27,8 @@ Plug 'cespare/vim-toml'
 " Plug 'yuezk/vim-js'
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'alvan/vim-closetag'
+Plug 'ap/vim-css-color'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
@@ -98,18 +100,18 @@ inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 function! PInsert2(item)
-	let @z=a:item
-	norm "zp
-	call feedkeys('a')
+    let @z=a:item
+    norm "zp
+    call feedkeys('a')
 endfunction
 
 function! CompleteInf()
-	let nl=[]
-	let l=complete_info()
-	for k in l['items']
-		call add(nl, k['word']. ' : ' .k['info'] . ' '. k['menu'] )
-	endfor
-	call fzf#vim#complete(fzf#wrap({ 'source': nl,'reducer': { lines -> split(lines[0], '\zs :')[0] },'sink':function('PInsert2')}))
+    let nl=[]
+    let l=complete_info()
+    for k in l['items']
+        call add(nl, k['word']. ' : ' .k['info'] . ' '. k['menu'] )
+    endfor
+    call fzf#vim#complete(fzf#wrap({ 'source': nl,'reducer': { lines -> split(lines[0], '\zs :')[0] },'sink':function('PInsert2')}))
 endfunction
 
 " open fzf with current completion list
@@ -225,8 +227,8 @@ cnoremap <A-f> <S-Right>
 " delete character under cursor
 cnoremap <C-D> <Del>
 
-" copy from default yank register to global clipboard
-map <leader>yy :let @+=@"<CR>
+" copy from default yank register to system clipboard
+nmap <leader>yy :let @+=@"<CR>:echo 'copied to system buffer'<CR>
 
 " allow switch buffers without saving changes (can save when return)
 set hidden
@@ -238,7 +240,7 @@ set iminsert=0
 " map for switching layout
 map! <C-s> <C-^>
 " restore layout when return to normal mode
-inoremap <ESC> <ESC>:silent! set iminsert=0<CR>
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
 " set dictionary complete only for words from spelling
 set dictionary=spell
@@ -248,7 +250,7 @@ set spelllang+=ru
 set complete+=k
 
 " map to fast toggle spell on and off
-map <leader>s :set spell!<CR>
+nmap <leader>s :set spell!<CR>
 
 set completeopt=menuone,noselect
 " hide completion messages in statusline
@@ -257,8 +259,10 @@ set shortmess+=c
 " don't show intro on start with empty buffer
 set shortmess+=I
 
-" set history limit
+" set cmd history limit
 set history=1000
+" set recent files history limit
+set shada+='500
 
 " show completions in command-line
 set wildmenu
@@ -306,8 +310,10 @@ set splitright
 autocmd BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
 " for matching only non-escaped use this regex: '[\\]\@<!\s\+$'
 
-" auto enable spell in git-commit
+" enable spell in git-commit
 autocmd FileType gitcommit setlocal spell
+" disable wrap in html and css files
+autocmd FileType html,css setlocal nowrap
 
 " indent settings
 set tabstop=4
