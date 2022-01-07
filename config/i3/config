@@ -143,7 +143,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -200,7 +200,7 @@ focus_follows_mouse no
 set $st_win_with st -c st_win -e zsh -c
 
 # make screenshot
-bindsym Print exec --no-startup-id "flameshot gui -g && sleep 60 && pkill flameshot"
+bindsym Print exec --no-startup-id "flameshot gui"
 
 # clipboard manager
 bindsym $mod+o exec $st_win_with 'rclip_copy'
@@ -244,6 +244,10 @@ bindsym $mod+ctrl+t exec $trans_get_primary && $st_win_with '$trans_run en:ru'
 bindsym $mod+ctrl+shift+t exec $trans_get_primary && $st_win_with '$trans_run ru:en'
 ## edit previous translated text with vim
 bindsym $mod+$alt+t exec $st_win_with 'vim +set\ shortmess+=I +set\ binary +set\ noeol +set\ spell /tmp/trans_text'
+
+# start screen recording
+bindsym $mod+bracketright exec simplescreenrecorder --start-hidden --start-recording
+bindsym $mod+ctrl+bracketright exec simplescreenrecorder
 
 # run htop
 bindsym $mod+m exec $st_win_with 'TERM=xterm htop'
