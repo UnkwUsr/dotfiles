@@ -10,10 +10,9 @@ music = ""
 
 
 [[block]]
-block = "music"
-player = "spotify"
-max_width = 40
-dynamic_width = true
+block = "custom"
+command = "echo -n ' ' | tail -qn1 - ~/.goals"
+interval = "once"
 
 # [[block]]
 # block = "net"
@@ -63,4 +62,4 @@ device = "DisplayDevice"
 [[block]]
 block = "time"
 interval = 60
-format = "%a %d/%m %l:%M"
+format = "%a %m/%d %l:%M"
