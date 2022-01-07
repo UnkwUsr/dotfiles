@@ -274,11 +274,18 @@ bindsym ctrl+F10 exec --no-startup-id "ponymix --sink unmute > /dev/null && play
 
 # volume control
 
-# speaker
+# speaker (all binds duplicated for numpad)
+## lower volume
 bindsym XF86AudioLowerVolume exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
+bindsym KP_Multiply exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
+## raise volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
-## Stop media playback on mute. Also pause current media playing stuff
+bindsym KP_Subtract exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
+## toggle mute (and pause currently playing media)
 bindsym XF86AudioMute exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a pause"
+bindsym KP_Divide exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a pause"
+## unmute (and start play media) (only for numpad)
+bindsym ctrl+KP_Divide exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl -a play"
 
 # microphone
 bindsym $alt+KP_Insert exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
@@ -294,11 +301,10 @@ bindsym Mod2+$alt+KP_Decimal exec --no-startup-id "ponymix --source increase 5 >
 
 # dbvolume control
 bindsym KP_Home exec --no-startup-id "dbvolume default"
+bindsym KP_Prior exec --no-startup-id "dbvolume 500"
 bindsym KP_Up exec --no-startup-id "cat /tmp/dbvolume_level | dmenu | xargs dbvolume"
 bindsym KP_Begin mode "dbvolume!"
-
 mode "dbvolume!" {
-    bindsym KP_Prior exec --no-startup-id "dbvolume file"
     bindsym KP_Left exec --no-startup-id "dbvolume -10"
     bindsym KP_Right exec --no-startup-id "dbvolume +10"
 
