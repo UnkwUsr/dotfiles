@@ -2,7 +2,7 @@
 # make colored and human-readable
 alias ls='ls --color=auto -h --group-directories-first'
 alias du='du -h'
-alias df='df -h'
+alias df='df -h -x tmpfs -x devtmpfs --output=source,size,avail,target'
 alias pacman='pacman --color=auto'
 alias dmesg='dmesg --color=auto'
 alias diff='diff --color=auto'
