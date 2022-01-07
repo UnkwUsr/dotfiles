@@ -86,7 +86,7 @@ nmap <leader>fT :Tags<CR>
 nmap <leader>fh :History<CR>
 " search references to word under cursor
 nmap <leader>fj g*<C-o>:Rg <C-r>/<CR>
-" open list mappings (for what?)
+" open list mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
@@ -237,7 +237,7 @@ set hidden
 set keymap=russian-jcuken
 " ^ (command above) changes iminsert, so we restore it to default
 set iminsert=0
-" map for switching layout
+" for switching layout
 map! <C-s> <C-^>
 " restore layout when return to normal mode
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
@@ -246,11 +246,14 @@ inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 set dictionary=spell
 " add russian language to spelling
 set spelllang+=ru
-" use spell dictionary for complete when spelling is on
+" use spell dictionary for completion (applies on spelling turning on)
 set complete+=k
 
-" map to fast toggle spell on and off
+" fast toggle spell on and off
 nmap <leader>s :set spell!<CR>
+
+" cd to directory of current opened file
+nmap <leader>c :cd %:h<CR>
 
 set completeopt=menuone,noselect
 " hide completion messages in statusline
