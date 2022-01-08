@@ -1,5 +1,9 @@
-# editor
 export EDITOR=vim
+export BROWSER=quteb
+
+# xdg
+export XDG_CONFIG_HOME=~/.config
+
 # path to cargo(rust) local installed programs
 export PATH=$PATH:~/.cargo/bin
 # path to my scripts
