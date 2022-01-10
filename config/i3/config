@@ -324,8 +324,11 @@ assign [class="^TelegramDesktop$"] 10
 for_window [class="^qutebrowser$"] border none
 for_window [class="^Brave-browser$"] border none
 for_window [class="^feh$"] floating enable, move position center
-for_window [class="^st_win$"] floating enable, sticky enable, resize set 640 480, move position center, border pixel 3
 for_window [class="^Peek$"] floating enable, resize set 640 480, move position center
+for_window [class="^Pavucontrol$"] floating enable, sticky enable, resize set 1280 720, move position center
+## custom windows
+for_window [class="^st_win$"] floating enable, sticky enable, resize set 640 480, move position center, border pixel 3
+assign [instance="^quteb-mpv$"] 2
 ## games
 assign [class="^hl_linux$"] 5
 assign [class="^csgo_linux64$"] 5
