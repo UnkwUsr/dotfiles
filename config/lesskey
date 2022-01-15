@@ -6,9 +6,12 @@
 ^N  down
 ^W  word-backspace
 \ed word-delete
+\eb word-left
 \ef word-right
 ^A  home
 ^E  end
+^B  left
+^F  right
 ^D  abort
 
 #env
