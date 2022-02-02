@@ -1,4 +1,3 @@
-" Plugin manager ( https://github.com/junegunn/vim-plug )
 call plug#begin('~/.vim/plugged')
 
 Plug 'itchyny/lightline.vim'
@@ -57,6 +56,10 @@ let g:lightline = {
             \       [ 'lsp_status', 'filetype' ]
             \   ]
             \ },
+            \ 'component': {
+            \   'percent': '%3p%%/%L',
+            \   'total_lines': '%L'
+            \ },
             \ 'component_function': {
             \   'lsp_status': 'LspStatus'
             \ }
@@ -65,10 +68,10 @@ function! LspStatus() abort
     let sl = ''
     if luaeval('not vim.tbl_isempty(vim.lsp.buf_get_clients(0))')
         let sl.='E:'
-        let sl.=luaeval("vim.lsp.diagnostic.get_count(0, [[Error]])")
+        let sl.=luaeval("table.getn(vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }))")
         let sl.=' '
         let sl.='W:'
-        let sl.=luaeval("vim.lsp.diagnostic.get_count(0, [[Warning]])")
+        let sl.=luaeval("table.getn(vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }))")
     else
         let sl.=''
     endif
@@ -78,14 +81,17 @@ endfunction
 " fzf
 nmap <leader>ff :Files<CR>
 nmap <leader>fF :Files %:h<CR>
+nmap <leader>fl :GFiles?<CR>
 nmap <leader>fb :Buffers<CR>
 nmap <leader>fg :Rg 
 nmap <leader>f/ :Rg <C-r>/
-nmap <leader>ft :BTags<CR>
-nmap <leader>fT :Tags<CR>
+nmap <leader>ft :Tags<CR>
+nmap <leader>fT :BTags<CR>
 nmap <leader>fh :History<CR>
-" search references to word under cursor
-nmap <leader>fj g*<C-o>:Rg <C-r>/<CR>
+nmap <leader>f? :Helptags<CR>
+" search references for tag/word under cursor
+nmap <leader>fj g*N:Tags <C-r>/<CR>
+nmap <leader>fJ g*N:Rg <C-r>/<CR>
 " open list mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -96,15 +102,12 @@ imap <leader><tab> <plug>(fzf-maps-i)
 " complete path ('fd' instead of 'find')
 " imap <c-x><c-f> <plug>(fzf-complete-path)
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
-" complete line
-imap <c-x><c-l> <plug>(fzf-complete-line)
 
 function! PInsert2(item)
     let @z=a:item
     norm "zp
     call feedkeys('a')
 endfunction
-
 function! CompleteInf()
     let nl=[]
     let l=complete_info()
@@ -234,13 +237,15 @@ nmap <leader>yy :let @+=@"<CR>:echo 'copied to system buffer'<CR>
 set hidden
 
 " allow to change layout keyboard in insert mode
-set keymap=russian-jcuken
+set keymap=russian-jcukenwin
 " ^ (command above) changes iminsert, so we restore it to default
 set iminsert=0
-" for switching layout
+" fix russian layout
+imap № #
+" map for switching layout
 map! <C-s> <C-^>
 " restore layout when return to normal mode
-inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+" inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
 " set dictionary complete only for words from spelling
 set dictionary=spell
@@ -255,6 +260,9 @@ nmap <leader>s :set spell!<CR>
 " cd to directory of current opened file
 nmap <leader>c :cd %:h<CR>
 
+" create and open file under cursor
+nnoremap cgf :e <cfile><CR>
+
 set completeopt=menuone,noselect
 " hide completion messages in statusline
 set shortmess+=c
@@ -264,14 +272,17 @@ set shortmess+=I
 
 " set cmd history limit
 set history=1000
-" set recent files history limit
-set shada+='500
+" set recent files history limit to 500
+set shada=!,'500,<50,s10,h
+" original shada: !,'100,<50,s10,h
 
 " show completions in command-line
 set wildmenu
 set wildmode=longest:full,full
 
-" enable line numbers
+" enable line numbers relative to cursor line
+set relativenumber
+" show cursor line number
 set number
 
 " enable printing current pressed keys in normal mode in bottom right panel
@@ -318,6 +329,9 @@ autocmd FileType gitcommit setlocal spell
 " disable wrap in html and css files
 autocmd FileType html,css setlocal nowrap
 
+" highlight on yank
+au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
+
 " indent settings
 set tabstop=4
 set shiftwidth=4
@@ -327,6 +341,11 @@ set expandtab
 " copy indent from previous line
 set autoindent
 set smartindent
+
+" highlight line length limit
+set colorcolumn=80
+" highlight whole line under cursor
+set cursorline
 
 " allow to set cursor to non-symbol place in visual block mode
 set virtualedit=block
