@@ -20,7 +20,7 @@ case $1 in
         if [ -f $FILE_DBVOL_LEVEL ]; then
             PREV_VOL=$(cat $FILE_DBVOL_LEVEL)
         fi
-        NEW_VOL=$(echo $PREV_VOL $OPER $NUM | bc)
+        NEW_VOL=$(($PREV_VOL $OPER $NUM))
 
         echo $NEW_VOL > $FILE_DBVOL_LEVEL
         ;;
