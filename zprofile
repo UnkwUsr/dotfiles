@@ -1,7 +1,10 @@
 export EDITOR=vim
 export BROWSER=quteb
 
-# xdg
+# fzf settings
+export FZF_DEFAULT_OPTS="--bind ctrl-s:toggle-sort"
+
+# xdg specification
 export XDG_CONFIG_HOME=~/.config
 
 # path to cargo(rust) local installed programs
