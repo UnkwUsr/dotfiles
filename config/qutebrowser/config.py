@@ -12,7 +12,6 @@ c.url.default_page = "about:blank"
 c.url.start_pages = "about:blank"
 
 c.content.autoplay = False
-config.set('content.autoplay', True, 'vk.com')
 c.content.geolocation = False
 c.content.notifications.enabled = False
 c.content.cookies.accept = "no-unknown-3rdparty"
