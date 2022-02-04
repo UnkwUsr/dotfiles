@@ -90,3 +90,7 @@ config.bind("<ESC>", "clear-keychain ;; search ;; fullscreen --leave ;; clear-me
 
 config.bind(",m", "spawn -vd mpv {url} --profile=quteb")
 config.bind(",M", "hint media spawn -vd mpv {hint-url} --profile=quteb")
+
+config.source("pyconfig/redirectors.py")
+# workaround to make youtube redirector work
+c.qt.workarounds.remove_service_workers = True
