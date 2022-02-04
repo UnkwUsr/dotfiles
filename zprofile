@@ -2,6 +2,7 @@ export EDITOR=vim
 export BROWSER=quteb
 
 # fzf settings
+export FZF_DEFAULT_COMMAND='fd --type file --type symlink'
 export FZF_DEFAULT_OPTS="--bind ctrl-s:toggle-sort"
 
 # xdg specification

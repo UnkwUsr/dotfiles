@@ -65,8 +65,6 @@ source ~/.zsh_plugins.sh
 # CTRL-T for fuzzy-completion
 # ALT-T for fuzzy-file-select
 source /usr/share/fzf/key-bindings.zsh
-# more speed with fd
-export FZF_DEFAULT_COMMAND='fd --type file --type symlink'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
 
@@ -90,6 +88,6 @@ zle     -N   fzf-all-history-widget
 bindkey '^[r' fzf-all-history-widget
 
 
-# shell prompt
+# prompt
 PS1="%# "
 RPS1="%(?..[%?%1v])"
