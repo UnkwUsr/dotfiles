@@ -1,0 +1,11 @@
+/* general */
+/* fix buttons visibility bug caused by dark mode */
+input[type="submit"],
+input[type="button"],
+select {
+    color: lightseagreen;
+}
+
+/* stackoverflow */
+/* hide cookies banner that can't be closed because js is disabled*/
+.js-consent-banner{display:none}

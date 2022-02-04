@@ -25,7 +25,7 @@ c.content.blocking.hosts.lists.clear()
 c.content.blocking.hosts.lists.append("https://ewpratten.retrylife.ca/youtube_ad_blocklist/hosts.ipv4.txt")
 
 c.content.user_stylesheets.clear()
-c.content.user_stylesheets.append("~/.config/qutebrowser/stylesheets/vk-remover.css")
+c.content.user_stylesheets.append("~/.config/qutebrowser/global_styles.css")
 
 # see more parameters we can block at https://github.com/qutebrowser/qutebrowser/issues/3648
 config.set('content.javascript.enabled', False, 'stackoverflow.com')
