@@ -7,6 +7,8 @@ export FZF_DEFAULT_OPTS="--bind ctrl-s:toggle-sort"
 
 # xdg specification
 export XDG_CONFIG_HOME=~/.config
+# make docker follow xdg
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
 # path to cargo(rust) local installed programs
 export PATH=$PATH:~/.cargo/bin
