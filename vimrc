@@ -324,6 +324,8 @@ autocmd BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
 
 " enable spell in git-commit
 autocmd FileType gitcommit setlocal spell
+" set tab size = 2 for markdown
+autocmd FileType markdown setlocal sw=2 ts=2
 " disable wrap in html and css files
 autocmd FileType html,css setlocal nowrap
 
