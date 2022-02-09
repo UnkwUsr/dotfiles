@@ -253,8 +253,10 @@ set dictionary=spell
 set spelllang+=ru
 " use spell dictionary for completion (applies on spelling turning on)
 set complete+=k
+" disable tags completion
+set complete-=t
 
-" fast toggle spell on and off
+" toggle spell
 nmap <leader>s :set spell!<CR>
 
 " cd to directory of current opened file
