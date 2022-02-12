@@ -21,7 +21,6 @@ Plug 'srcery-colors/srcery-vim'
 
 " langs specific plugins
 Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
 " Plug 'dart-lang/dart-vim-plugin'
 " Plug 'yuezk/vim-js'
 " Plug 'HerringtonDarkholme/yats.vim'
