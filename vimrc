@@ -275,8 +275,7 @@ set shortmess+=I
 " set cmd history limit
 set history=1000
 " set recent files history limit to 500
-set shada=!,'500,<50,s10,h
-" original shada: !,'100,<50,s10,h
+set shada^='500
 
 " show completions in command-line
 set wildmenu
