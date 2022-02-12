@@ -229,6 +229,13 @@ cnoremap <A-f> <S-Right>
 " delete character under cursor
 cnoremap <C-D> <Del>
 
+" disable loading useless providers. It boost startup
+let g:loaded_python_provider = 0
+let g:loaded_python3_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
+
 " copy from default yank register to system clipboard
 nmap <leader>yy :let @+=@"<CR>:echo 'copied to system buffer'<CR>
 
