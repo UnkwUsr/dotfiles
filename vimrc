@@ -57,7 +57,6 @@ let g:lightline = {
             \ },
             \ 'component': {
             \   'percent': '%3p%%/%L',
-            \   'total_lines': '%L'
             \ },
             \ 'component_function': {
             \   'lsp_status': 'LspStatus'
@@ -121,21 +120,6 @@ imap <C-v> <CMD>:call CompleteInf()<CR>
 
 " commentary
 
-" gitsigns
-lua << EOF
-require('gitsigns').setup {
-    signs = {
-        add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-        change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        delete       = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        changedelete = {hl = 'GitSignsChange', text = '~_', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        },
-    }
-EOF
-" fix losting SignColumn highlight on change colorscheme
-autocmd ColorScheme * highlight! link SignColumn LineNr
-
 " fugitive
 
 " subversive
@@ -175,38 +159,12 @@ autocmd BufWritePost *.rs call s:generate_cargo_rust_tags()
 " suda
 command! -nargs=0 Sw SudaWrite
 
-" nvim-autopairs
-lua require('nvim-autopairs').setup()
-
 " nvim-lspconfig
-" see ~/.config/nvim/lspconfig.lua
+" see ~/.config/nvim/lua/lsp-conf
 " alias for :LspStart
 command! -nargs=0 LS LspStart
 
-" compe
-lua << EOF
-require'compe'.setup {
-  enabled = true;
-  autocomplete = false;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
-
-  source = {
-    path = true;
-    -- buffer = true;
-    nvim_lsp = true;
-  };
-}
-EOF
-
+" nvim-compe
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
