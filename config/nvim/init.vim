@@ -1,4 +1,3 @@
 source ~/.vimrc
 
-luafile ~/.config/nvim/lspconfig.lua
-
+lua require "lsp-conf"
