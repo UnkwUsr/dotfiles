@@ -9,3 +9,10 @@ select {
 /* stackoverflow */
 /* hide cookies banner that can't be closed because js is disabled*/
 .js-consent-banner{display:none}
+
+/* ticktick */
+/* fix caret color and size */
+.CodeMirror-cursor {
+    border-left-color: #00ffff !important;
+    border-left: 2px solid;
+}
