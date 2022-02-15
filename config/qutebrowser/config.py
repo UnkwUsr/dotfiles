@@ -21,8 +21,6 @@ c.content.blocking.method = "both"
 c.content.blocking.adblock.lists.clear()
 c.content.blocking.adblock.lists.append("https://easylist-downloads.adblockplus.org/advblock.txt")
 c.content.blocking.adblock.lists.append("https://easylist-downloads.adblockplus.org/cntblock.txt")
-c.content.blocking.hosts.lists.clear()
-c.content.blocking.hosts.lists.append("https://ewpratten.retrylife.ca/youtube_ad_blocklist/hosts.ipv4.txt")
 
 c.content.user_stylesheets.clear()
 c.content.user_stylesheets.append("~/.config/qutebrowser/global_styles.css")
