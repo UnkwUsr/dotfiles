@@ -10,6 +10,7 @@ Plug 'svermeulen/vim-subversive'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-vinegar'
 Plug 'lambdalisue/suda.vim'
 Plug 'windwp/nvim-autopairs'
 
@@ -170,6 +171,12 @@ inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+" netrw (installed by default)
+" also a little bit configured by vim-vinegar
+let g:netrw_winsize = 25
+" hide dotfiles
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 
 " Pure vim settings
