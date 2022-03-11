@@ -11,6 +11,7 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-eunuch'
 Plug 'lambdalisue/suda.vim'
 Plug 'windwp/nvim-autopairs'
 
