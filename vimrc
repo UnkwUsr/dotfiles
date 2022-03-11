@@ -31,7 +31,10 @@ Plug 'alvan/vim-closetag'
 Plug 'ap/vim-css-color'
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 " dependencies
 " gitsigns
@@ -154,10 +157,6 @@ function! s:generate_cargo_rust_tags()
 endfunction
 autocmd BufWritePost *.rs call s:generate_cargo_rust_tags()
 
-" vim-surround
-
-" vim-repeat
-
 " suda
 command! -nargs=0 Sw SudaWrite
 
@@ -165,13 +164,6 @@ command! -nargs=0 Sw SudaWrite
 " see ~/.config/nvim/lua/lsp-conf
 " alias for :LspStart
 command! -nargs=0 LS LspStart
-
-" nvim-compe
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " netrw (installed by default)
 " also a little bit configured by vim-vinegar
