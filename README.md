@@ -3,7 +3,7 @@ My dotfiles managed with [rcm](https://github.com/thoughtbot/rcm)
 # Installation
 * Symlink all config files with rcm: `rcup -v`
 ## neovim
-* Install vim-plug plugin manager for neovim: [neovim-plug](https://aur.archlinux.org/packages/neovim-plug/) (aur package)
+* Install [vim-plug](https://github.com/junegunn/vim-plug) plugin manager
 * Install plugins: type `:PlugInstall` in vim
 * Install [neovim-symlinks](https://aur.archlinux.org/packages/neovim-plug/) (aur package) to use command `vim` instead of `nvim`
 ## zsh
