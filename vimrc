@@ -293,6 +293,8 @@ autocmd FileType gitcommit setlocal spell
 autocmd FileType markdown setlocal sw=2 ts=2
 " disable wrap in html and css files
 autocmd FileType html,css setlocal nowrap
+" set commentstring
+autocmd FileType cpp setlocal commentstring=//\ %s
 
 " highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
