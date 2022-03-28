@@ -18,6 +18,10 @@ alias rg='rg -S'
 alias ll='ls -l'
 alias la='ls -lA'
 
+# typos
+alias l='ll'
+alias lll='ll'
+alias dc='cd'
 
 # history settings
 HISTFILE=~/.zsh_history
