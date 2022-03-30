@@ -23,11 +23,6 @@ Plug 'srcery-colors/srcery-vim'
 " Plug 'mhartington/oceanic-next'
 
 " langs specific plugins
-Plug 'rust-lang/rust.vim'
-" Plug 'dart-lang/dart-vim-plugin'
-" Plug 'yuezk/vim-js'
-" Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
 Plug 'ap/vim-css-color'
 
