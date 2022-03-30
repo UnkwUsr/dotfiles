@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# record microphone to file
+
 if [ -n "$1" ]; then
     filename=$1.wav
 else

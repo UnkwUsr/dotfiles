@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# force set volume level for all applications (aka sink-inputs)
+
 FILE_DBVOL_LEVEL=/tmp/dbvolume_level
 
 shopt -s extglob
