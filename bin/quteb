@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# just a qutebrowser wrapper with some additions
+
+# backup session before start browser, because sometimes qutebrowser can
+# overwrite some tabs with empty
+cp ~/.local/share/qutebrowser/sessions/default.yml \
+    ~/.local/share/qutebrowser/sessions/default.yml.old
+
+QT_SCALE_FACTOR=1.35 qutebrowser "$*" 2> /dev/null
