@@ -6,6 +6,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'svermeulen/vim-subversive'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
