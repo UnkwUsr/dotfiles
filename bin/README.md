@@ -1,8 +1,15 @@
 ## micrec
+
 record microphone to file
 
 ## srec
+
 record output sound (not microphone) to file
 
 ## dbvolume
-dbvolume - control specific sink-input (aka application) volume level
+
+control specific sink-input (aka application) volume level
+
+## touchpad_lock_on_type
+
+toggle touchpad feature "lock on type"
