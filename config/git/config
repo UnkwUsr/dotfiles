@@ -3,6 +3,7 @@
 [alias]
     s = status -sb
     l = log
+    ll = log --all
     lp = log -p
     c = checkout
     cb = checkout -b
