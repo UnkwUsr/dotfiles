@@ -85,8 +85,13 @@ config.unbind('<Ctrl-v>', mode='normal')
 
 config.bind("<ESC>", "clear-keychain ;; search ;; fullscreen --leave ;; clear-messages")
 
+# open in video player
 config.bind(",m", "spawn -vd mpv {url} --profile=quteb")
 config.bind(",M", "hint media spawn -vd mpv {hint-url} --profile=quteb")
+
+# enable/disable tor proxy
+config.bind("st", "set content.proxy socks://localhost:9050/ ;; message-info 'tor enabled'")
+config.bind("sT", "set content.proxy system ;; message-info 'tor disabled'")
 
 config.source("pyconfig/redirectors.py")
 # workaround to make youtube redirector work
