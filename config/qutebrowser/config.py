@@ -23,7 +23,7 @@ c.content.blocking.adblock.lists.append("https://easylist-downloads.adblockplus.
 c.content.blocking.adblock.lists.append("https://easylist-downloads.adblockplus.org/cntblock.txt")
 
 c.content.user_stylesheets.clear()
-c.content.user_stylesheets.append("~/.config/qutebrowser/global_styles.css")
+c.content.user_stylesheets.append("~/.config/qutebrowser/styles.css")
 
 # see more parameters we can block at https://github.com/qutebrowser/qutebrowser/issues/3648
 config.set('content.javascript.enabled', False, 'stackoverflow.com')
