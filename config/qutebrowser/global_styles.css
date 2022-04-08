@@ -16,3 +16,13 @@ select {
     border-left-color: #00ffff !important;
     border-left: 2px solid;
 }
+
+/* meduza */
+/* banner with app promotion */
+.Layout-bannerTop {display:none;}
+/* banner about "foreign agent" */
+#div-gpt-ad {display:none;}
+/* fix dark mode color */
+.Popover-module_body__3h5UO {
+    color: darkturquoise;
+}
