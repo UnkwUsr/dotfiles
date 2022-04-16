@@ -78,7 +78,7 @@ config.bind("K", "tab-next")
 config.bind("9gm", "tab-move -1")
 
 config.bind("<Ctrl+w>", "rl-backward-kill-word", mode='command')
-config.bind("<Alt+Backspace>", "rl-unix-word-rubout", mode='command')
+config.bind("<Alt+Backspace>", "rl-rubout ' '", mode='command')
 config.bind("<Ctrl+shift+e>", "edit-command", mode='command')
 
 config.unbind('<Ctrl-v>', mode='normal')
