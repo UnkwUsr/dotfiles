@@ -15,4 +15,4 @@
 ^D  abort
 
 #env
-LESS = -Ri
+LESS = -Ri --incsearch
