@@ -2,6 +2,7 @@
     verbose = true
 [alias]
     s = status -sb
+    st = status
     l = log
     ll = log --all
     lp = log -p
