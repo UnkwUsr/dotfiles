@@ -38,6 +38,9 @@ setopt INC_APPEND_HISTORY
 # ignore duplicates
 setopt HIST_IGNORE_ALL_DUPS
 
+# clear right-side prompt on pressing enter
+setopt TRANSIENT_RPROMPT
+
 # emacs-like navigation in prompt line
 bindkey -e
 
