@@ -42,6 +42,19 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
+# make C-w (and friends) consider symbol '/'
+WORDCHARS=${WORDCHARS/\/}
+
+# alt+backspace to delete WORD (consider only whitespaces)
+bindkey '^[^?' backward-kill-whitespace
+autoload -z select-word-style
+backward-kill-whitespace() {
+    select-word-style whitespace
+    zle backward-kill-word
+    select-word-style normal
+}
+zle -N backward-kill-whitespace
+
 fpath+=~/.zfunc
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
