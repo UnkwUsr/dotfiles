@@ -273,32 +273,24 @@ bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
 # media playback (using playerctl)
 bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
-## My current laptop keyboard have one key for play and pause simultaneously
-bindsym XF86AudioPlay exec --no-startup-id "playerctl -a pause"
-bindsym ctrl+F10 exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
 
 # volume control
-
-# speaker (all binds duplicated for numpad)
-## lower volume
-bindsym XF86AudioLowerVolume exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
+## adjust volume level
 bindsym KP_Multiply exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
-## raise volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
 bindsym KP_Subtract exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
-## toggle mute (and pause currently playing media)
-bindsym XF86AudioMute exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a pause"
+## toggle mute and pause playing media
 bindsym KP_Divide exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a pause"
-## unmute (and start play media) (only for numpad)
+## unmute and start play media
 bindsym ctrl+KP_Divide exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
 
 # microphone
+## adjust volume level
 bindsym $alt+KP_Insert exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
 bindsym $alt+KP_Delete exec --no-startup-id "ponymix --source increase 5 > /dev/null"
-## Different mute/unmute binds for microphone for more safety when switch between states
+## mute/unmute
 bindsym KP_Insert exec --no-startup-id "ponymix --source mute > /dev/null"
 bindsym KP_Delete exec --no-startup-id "ponymix --source unmute > /dev/null"
-## Fix different num lock on/off (all the same bindings above but for enabled num lock)
+## (all the same but for enabled num lock)
 bindsym Mod2+KP_0 exec --no-startup-id "ponymix --source mute > /dev/null"
 bindsym Mod2+KP_Decimal exec --no-startup-id "ponymix --source unmute > /dev/null"
 bindsym Mod2+$alt+KP_0 exec --no-startup-id "ponymix --source decrease 5 > /dev/null"
