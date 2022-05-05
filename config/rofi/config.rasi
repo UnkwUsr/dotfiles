@@ -1,3 +1,5 @@
+@theme "simple-calc"
+
 configuration {
     kb-remove-word-back: "Control+w";
     kb-clear-line: "Control+BackSpace";
