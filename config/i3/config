@@ -261,7 +261,7 @@ bindsym $mod+m exec $st_win_with 'TERM=xterm htop'
 bindsym $mod+a exec $st_win_with 'TERM=xterm htop -F dalarma -s PID'
 
 # lock screen
-bindsym $mod+i exec --no-startup-id "sleep 0.25 && xset dpms force suspend && playerctl -a stop"
+bindsym $mod+i exec --no-startup-id "sleep 0.25 && xset dpms force suspend"
 bindsym $mod+shift+i exec --no-startup-id "sleep 0.25 && systemctl suspend"
 
 # fn keys
