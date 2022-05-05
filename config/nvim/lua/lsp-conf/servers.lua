@@ -1,8 +1,9 @@
 local servers = {
     rust_analyzer = {
         autostart = false,
+    pylsp = {
+        autostart = false,
     },
-    pyright = {},
     sumneko_lua = {
         settings = {
             Lua = {
