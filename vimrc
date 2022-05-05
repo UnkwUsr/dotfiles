@@ -1,3 +1,4 @@
+" vim: fo-=o
 call plug#begin()
 
 Plug 'itchyny/lightline.vim'
