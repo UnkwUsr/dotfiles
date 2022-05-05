@@ -17,6 +17,8 @@ local servers = {
     ccls = {
         autostart = false,
     },
+    -- php
+    intelephense = {},
     tsserver = {},
     html = {},
     cssls = {},
