@@ -8,15 +8,15 @@ local servers = {
         settings = {
             Lua = {
                 diagnostics = {
-                    globals = {"vim", "mp"}
+                    globals = { "vim", "mp" },
                 },
-            }
+            },
         },
     },
+    -- c/c++
     ccls = {
         autostart = false,
     },
-    bashls = {},
     tsserver = {},
     html = {},
     cssls = {},
