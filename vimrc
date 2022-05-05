@@ -212,6 +212,8 @@ map! <C-s> <C-^>
 set dictionary=spell
 " add russian language to spelling
 set spelllang+=ru
+" disable check of capital letter at the start of the sentence
+set spellcapcheck=""
 " use spell dictionary for completion (applies on spelling turning on)
 set complete+=k
 " disable tags completion
