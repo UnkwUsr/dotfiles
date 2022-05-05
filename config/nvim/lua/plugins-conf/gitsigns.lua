@@ -6,6 +6,9 @@ require('gitsigns').setup {
         topdelete    = {hl = 'GitSignsDelete', text = '-^', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
         changedelete = {hl = 'GitSignsChange', text = '~_', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
     },
+    current_line_blame_opts = {
+        delay = 0
+    },
     on_attach = function(bufnr)
         local function map(mode, lhs, rhs, opts)
             opts = vim.tbl_extend('force', {noremap = true, silent = true}, opts or {})
