@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# open docx via zathura (as pdf)
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 filename [filename2] [filename3] ... (with docx extension)"
+    exit 1
+fi
+
+for filename in "$@"
+do
+    TEMP_DIR=$(mktemp -d /tmp/zdoc.XXXXXXXXXX)
+
+    cp "$filename" "$TEMP_DIR/"
+
+    echo "converting $filename"
+    libreoffice \
+        --headless \
+        --convert-to pdf \
+        --outdir "$TEMP_DIR/" \
+        "$TEMP_DIR/"* > /dev/null
+
+    if [ -f "$TEMP_DIR/"*".pdf" ]; then
+        (zathura "$TEMP_DIR/"*".pdf"; rm -r "$TEMP_DIR/") & disown
+    else
+        rm -r "$TEMP_DIR/"
+    fi
+done
