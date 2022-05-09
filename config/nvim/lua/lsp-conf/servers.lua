@@ -3,7 +3,15 @@ local servers = {
         autostart = false,
     },
     pylsp = {
-        autostart = false,
+        settings = {
+            pylsp = {
+                configurationSources = { "flake8" },
+                plugins = {
+                    flake8 = { enabled = true },
+                    pyflakes = { enabled = false },
+                },
+            },
+        },
     },
     sumneko_lua = {
         settings = {
