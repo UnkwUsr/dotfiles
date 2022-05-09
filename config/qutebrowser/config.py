@@ -1,3 +1,6 @@
+c = c  # noqa: F821
+config = config  # noqa: F821
+
 config.load_autoconfig(False)
 
 # improve performance
