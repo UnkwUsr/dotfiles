@@ -1,6 +1,8 @@
 import qutebrowser.api.interceptor
 from qutebrowser.utils import message
 
+# choose one on https://api.invidious.io
+YOUTUBE_REDIR = "invidious.sethforprivacy.com"
 
 def try_redirects(info: qutebrowser.api.interceptor.Request):
     host = info.request_url.host()
@@ -26,9 +28,9 @@ redirs = {
         "imgur.com": "imgin.voidnet.tech",
 
         # NOTE: to make youtube redirector work, you should clean service workers
-        "www.youtube.com": "invidious.snopyta.org",
-        "youtube.com": "invidious.snopyta.org",
-        "youtu.be": "invidious.snopyta.org",
+        "www.youtube.com": YOUTUBE_REDIR,
+        "youtube.com": YOUTUBE_REDIR,
+        "youtu.be": YOUTUBE_REDIR,
         }
 
 # remove previous registered interceptor (in case when run :config-source

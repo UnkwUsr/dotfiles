@@ -1,3 +1,5 @@
+import pyconfig.redirectors as redir
+
 c = c  # noqa: F821
 config = config  # noqa: F821
 
@@ -63,7 +65,7 @@ c.spellcheck.languages = ["en-US", "ru-RU"]
 c.url.searchengines["DEFAULT"] = "https://html.duckduckgo.com/html?q={}"
 c.url.searchengines["g"] = "https://www.google.com/search?q={}"
 c.url.searchengines["a"] = "https://wiki.archlinux.org/index.php/{}"
-c.url.searchengines["yt"] = "https://invidious.snopyta.org/results?search_query={}"
+c.url.searchengines["yt"] = "https://" + redir.YOUTUBE_REDIR +"/results?search_query={}"
 c.url.searchengines["w"] = "https://en.wikipedia.org/wiki/{}"
 c.url.searchengines["wr"] = "https://ru.wikipedia.org/wiki/{}"
 c.url.searchengines["gi"] = "https://github.com/search?q={}"
@@ -96,6 +98,5 @@ config.bind(",M", "hint media spawn -vd mpv {hint-url} --profile=quteb")
 config.bind("st", "set content.proxy socks://localhost:9050/ ;; message-info 'tor enabled'")
 config.bind("sT", "set content.proxy system ;; message-info 'tor disabled'")
 
-config.source("pyconfig/redirectors.py")
 # workaround to make youtube redirector work
 c.qt.workarounds.remove_service_workers = True
