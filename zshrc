@@ -17,10 +17,13 @@ alias rm='rm -v'
 alias chmod='chmod -v'
 # set rg case-sensitivity method 'smart'
 alias rg='rg -S'
-# useful aliases
-# (for detail see parameters descriptions in man pages of each program)
+
+# ls shortcuts
 alias ll='ls -l'
 alias la='ls -lA'
+# vim with gv plugin
+alias gv='vim +:GV'
+alias gva='vim +":GV --all"'
 
 # typos
 alias l='ll'
