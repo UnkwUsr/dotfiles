@@ -1,6 +1,9 @@
-# Unbind existing scroll operations
+# unbind mouse scroll
 prev_img
 next_img
+# unbind mouse left click
+pan
+
 # Set <action> <mouse button>
 zoom_in C-4
 zoom_out C-5
