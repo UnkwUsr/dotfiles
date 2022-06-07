@@ -27,11 +27,6 @@ local on_attach = function(client, bufnr)
     elseif client.resolved_capabilities.document_range_formatting then
         buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
     end
-
-    if client.name == "tsserver" then
-        buf_set_option('tabstop', 2)
-        buf_set_option('shiftwidth', 2)
-    end
 end
 
 return on_attach
