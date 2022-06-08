@@ -31,7 +31,7 @@ alias lll='ll'
 alias dc='cd'
 
 # history settings
-HISTFILE=~/.zsh_history
+HISTFILE=~/.local/share/zsh_history
 HISTSIZE=1000
 SAVEHIST=100000
 # append history entries immediately
@@ -67,9 +67,9 @@ zle -N backward-kill-whitespace
 
 fpath+=~/.zfunc
 # The following lines were added by compinstall
-zstyle :compinstall filename '~/.zshrc'
+zstyle :compinstall filename '~/.config/zsh/.zshrc'
 autoload -Uz compinit
-compinit
+compinit -d ~/.cache/zcompdump
 # End of lines added by compinstall
 
 # rehash before each completion
@@ -80,10 +80,9 @@ zstyle ':completion:*' rehash true
 unsetopt BANG_HIST
 
 # load plugins from antibody plugin manager
-# Note: need run
-# `antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh`
-# after changing .zsh_plugins.txt
-source ~/.zsh_plugins.sh
+source ~/.local/share/zsh_plugins.sh
+# Note: after changing plugins.txt you need to run:
+# `antibody bundle < ~/.config/zsh/plugins.txt > ~/.local/share/zsh_plugins.sh`
 
 # fzf stuff
 # ALT-C for fuzzy-cd
