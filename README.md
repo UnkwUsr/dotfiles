@@ -8,7 +8,7 @@ My dotfiles managed with [rcm](https://github.com/thoughtbot/rcm)
 * Install [neovim-symlinks](https://aur.archlinux.org/packages/neovim-plug/) (aur package) to use command `vim` instead of `nvim`
 ## zsh
 * Install plugin manager [antibody](https://aur.archlinux.org/packages/antibody) (aur package)
-* Install plugins: `antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh`
+* Install plugins: `antibody bundle < ~/.config/zsh/plugins.txt > ~/.local/share/zsh_plugins.sh`
 ## qutebrowser
 * Set as default browser: `xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop`
 * Install dictionaries: `/usr/share/qutebrowser/scripts/dictcli.py install en-US ru-RU`
@@ -34,7 +34,7 @@ Can be installed via pacman
     * `qutebrowser` - browser
     * `rofi-calc` - modal calculator
     * `feh` - images viewer and background setter
-    * `mpv` - video viewer
+    * `mpv` - video and audio player
     * `flameshot` - screenshot maker
     * `xclip` - easy interact with X clipboards
     * `dunst` - notification-daemon
@@ -47,7 +47,7 @@ Can be installed from aur
 * `redshift-minimal` - adjust screen temperature depending on time of day
 * `ponymix` - cli volume level control
 * `mpv-sponsorblock-minimal-git` - sponsorblock script for mpv
-* `rclip-git` - clipboard manager written in Rust. ([github](https://github.com/UnkwUsr/rclip))
+* `rclip-git` - clipboard manager written in Rust ([github](https://github.com/UnkwUsr/rclip))
 
 Other
 * `ticktask` - cli for creating tasks on ticktick.com ([github](https://github.com/UnkwUsr/ticktask))
