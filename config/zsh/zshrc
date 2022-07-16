@@ -1,4 +1,10 @@
+# load plugins from antibody plugins manager
+source ~/.local/share/zsh_plugins.sh
+# Note: after changing plugins.txt you need to run:
+# `antibody bundle < ~/.config/zsh/plugins.txt > ~/.local/share/zsh_plugins.sh`
+
 source ~/.config/zsh/aliases.zsh
+source ~/.config/zsh/keys.zsh
 
 # history settings
 HISTFILE=~/.local/share/zsh_history
@@ -14,27 +20,6 @@ setopt HIST_IGNORE_ALL_DUPS
 # clear right-side prompt on pressing enter
 setopt TRANSIENT_RPROMPT
 
-# emacs-like navigation in prompt line
-bindkey -e
-
-# open editor with current command by pressing Ctrl+x Ctrl+e
-autoload -z edit-command-line
-zle -N edit-command-line
-bindkey "^X^E" edit-command-line
-
-# make C-w (and friends) consider symbol '/'
-WORDCHARS=${WORDCHARS/\/}
-
-# alt+backspace to delete WORD (consider only whitespaces)
-bindkey '^[^?' backward-kill-whitespace
-autoload -z select-word-style
-backward-kill-whitespace() {
-    select-word-style whitespace
-    zle backward-kill-word
-    select-word-style normal
-}
-zle -N backward-kill-whitespace
-
 fpath+=~/.zfunc
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.config/zsh/.zshrc'
@@ -48,41 +33,6 @@ zstyle ':completion:*' rehash true
 # disable treating `!` character
 # (so now can use '!' for excluding in globs)
 unsetopt BANG_HIST
-
-# load plugins from antibody plugin manager
-source ~/.local/share/zsh_plugins.sh
-# Note: after changing plugins.txt you need to run:
-# `antibody bundle < ~/.config/zsh/plugins.txt > ~/.local/share/zsh_plugins.sh`
-
-# fzf stuff
-# ALT-C for fuzzy-cd
-# CTRL-R for fuzzy-history
-# ALT-R for fuzzy-all-history
-# CTRL-T for fuzzy-completion
-# ALT-T for fuzzy-file-select
-source /usr/share/fzf/key-bindings.zsh
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type d"
-
-bindkey "^T" fzf-tab-complete
-bindkey "^I" complete-word
-bindkey "^[t" fzf-file-widget
-
-fzf-all-history-widget() {
-    _HISTFILE=$HISTFILE
-    fc -p
-    ORIG_HIST_SIZE=HISTSIZE
-    HISTSIZE=1000000000000
-    fc -R $_HISTFILE
-
-    zle fzf-history-widget
-
-    HISTSIZE=ORIG_HIST_SIZE
-    fc -P
-}
-zle     -N   fzf-all-history-widget
-bindkey '^[r' fzf-all-history-widget
-
 
 # prompt
 PS1="%# "
