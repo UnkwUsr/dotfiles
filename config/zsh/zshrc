@@ -6,34 +6,46 @@ source ~/.local/share/zsh_plugins.sh
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/keys.zsh
 
-# history settings
+
+#### history
+
 HISTFILE=~/.local/share/zsh_history
 HISTSIZE=1000
 SAVEHIST=100000
-# append history entries immediately
-# (also immediately import new commands from history file)
-# setopt SHARE_HISTORY
+
+# append new history entries to file immediately
 setopt INC_APPEND_HISTORY
+
 # ignore duplicates
 setopt HIST_IGNORE_ALL_DUPS
 
-# clear right-side prompt on pressing enter
-setopt TRANSIENT_RPROMPT
 
+#### completion
+
+# rehash on each completion
+zstyle ':completion:*' rehash true
+
+# completion sources
 fpath+=~/.zfunc
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.config/zsh/.zshrc'
 autoload -Uz compinit
 compinit -d ~/.cache/zcompdump
 # End of lines added by compinstall
 
-# rehash before each completion
-zstyle ':completion:*' rehash true
+
+#### other
 
 # disable treating `!` character
-# (so now can use '!' for excluding in globs)
+# (so now we can use '!' for excluding in globs)
 unsetopt BANG_HIST
 
-# prompt
+
+#### prompt
+
+# clear right-side prompt on pressing enter
+setopt TRANSIENT_RPROMPT
+
 PS1="%# "
 RPS1="%(?..[%?%1v])"
