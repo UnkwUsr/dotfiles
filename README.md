@@ -9,6 +9,7 @@ My dotfiles managed with [rcm](https://github.com/thoughtbot/rcm)
 ## zsh
 * Install plugin manager [antibody](https://aur.archlinux.org/packages/antibody) (aur package)
 * Install plugins: `antibody bundle < ~/.config/zsh/plugins.txt > ~/.local/share/zsh_plugins.sh`
+* Workaround to store zsh configs outside of home directory: `echo "ZDOTDIR=\$HOME/.config/zsh" >> ~/.zshenv`
 ## qutebrowser
 * Set as default browser: `xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop`
 * Install dictionaries: `/usr/share/qutebrowser/scripts/dictcli.py install en-US ru-RU`
