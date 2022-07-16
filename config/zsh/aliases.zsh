@@ -34,6 +34,12 @@ alias l='ll'
 alias lll='ll'
 alias dc='cd'
 
+# open file from dotfiles directory
+alias sd='cd ~/.dotfiles && fzf --preview="bat {} --style changes --decorations always --color always" | xargs -r vim; cd - > /dev/null'
+alias ds='sd'
+# cd to directory of the file in dotfiles
+alias sdd='cd ~/.dotfiles && cd $(dirname $(fzf)) && pwd'
+
 # vim with gv plugin
 alias gv='vim +:GV'
 alias gva='vim +":GV --all"'
