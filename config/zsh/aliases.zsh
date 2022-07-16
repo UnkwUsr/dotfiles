@@ -43,3 +43,33 @@ alias sdd='cd ~/.dotfiles && cd $(dirname $(fzf)) && pwd'
 # vim with gv plugin
 alias gv='vim +:GV'
 alias gva='vim +":GV --all"'
+
+
+#### pacman
+
+# packages search and info
+alias pss='pacman -Ss'
+alias psi='pacman -Si'
+alias pqs='pacman -Qs'
+alias pqi='pacman -Qi'
+alias pqo='pacman -Qo'
+
+# local files search
+alias pql='pacman -Ql'
+pqlf() {
+    pacman -Ql $1 | fzf | cut -d" " -f2 | xargs -r vim
+}
+
+# packages files search
+alias pfx='pacman -Fx'
+alias pfl='pacman -Fl'
+alias pfy='sudo pacman -Fy'
+
+# upgrade all
+alias syu='sudo pacman -Syu'
+
+# install
+alias pin='sudo pacman -S'
+
+# remove
+alias pqr='sudo pacman -Rnscu'
