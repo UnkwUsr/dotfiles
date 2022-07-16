@@ -1,9 +1,10 @@
 export EDITOR=vim
 export BROWSER=quteb
 
-# fzf settings
-export FZF_DEFAULT_COMMAND='fd --type file --type symlink'
-export FZF_DEFAULT_OPTS="--bind ctrl-s:toggle-sort"
+# path to my scripts
+export PATH="$HOME/.bin:$PATH"
+# path to cargo(rust) local installed programs
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # xdg specification
 export XDG_CONFIG_HOME=~/.config
@@ -12,10 +13,9 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 # make X11 follow xdg
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
-# path to cargo(rust) local installed programs
-export PATH=$PATH:~/.cargo/bin
-# path to my scripts
-export PATH=$PATH:~/.bin
+# fzf settings
+export FZF_DEFAULT_COMMAND='fd --type file --type symlink'
+export FZF_DEFAULT_OPTS="--bind ctrl-s:toggle-sort"
 
 # automatic startx on tty1
 if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
