@@ -55,6 +55,8 @@ c.statusbar.widgets = ["keypress", "url", "scroll", "progress"]
 c.tabs.mousewheel_switching = False
 c.tabs.title.format = "{audio}{current_title}"
 c.tabs.last_close = "blank"
+# open new tabs at the beginning of the list
+c.tabs.new_position.unrelated = "first"
 
 c.window.hide_decoration = True
 # c.qt.highdpi = True
