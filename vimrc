@@ -227,6 +227,10 @@ nmap <leader>s :set spell!<CR>
 " cd to directory of current opened file
 nmap <leader>c :cd %:h<CR>
 
+" jump to next/previous buffer
+nnoremap <silent><C-n> :bnext<CR>
+nnoremap <silent><C-p> :bprevious<CR>
+
 " create and open file under cursor
 nnoremap cgf :e <cfile><CR>
 
