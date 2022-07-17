@@ -115,5 +115,8 @@ config.bind(
     "sT", "set content.proxy system ;; \
     set colors.statusbar.normal.bg black")
 
+# search site in web archive
+config.bind("zs", "open -tr https://web.archive.org/web/*/{url}")
+
 # workaround to make youtube redirector work
 c.qt.workarounds.remove_service_workers = True
