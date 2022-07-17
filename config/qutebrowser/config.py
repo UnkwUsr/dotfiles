@@ -41,6 +41,9 @@ config.set('content.javascript.enabled', False, 'www.google.com/search*')
 # config.set('content.javascript.enabled', False, 'habr.com')
 config.set('content.javascript.enabled', False, '*.archlinux.org')
 
+# allow clipboard access for some sites
+config.set('content.javascript.can_access_clipboard', True, 'github.com')
+
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.bg = "black"
