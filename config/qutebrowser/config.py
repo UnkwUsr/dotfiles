@@ -109,9 +109,11 @@ config.bind(",M", "hint media spawn -vd mpv {hint-url} --profile=quteb")
 
 # enable/disable tor proxy
 config.bind(
-    "st",
-    "set content.proxy socks://localhost:9050/ ;; message-info 'tor enabled'")
-config.bind("sT", "set content.proxy system ;; message-info 'tor disabled'")
+    "st", "set content.proxy socks://localhost:9050/ ;; \
+    set colors.statusbar.normal.bg #000090")
+config.bind(
+    "sT", "set content.proxy system ;; \
+    set colors.statusbar.normal.bg black")
 
 # workaround to make youtube redirector work
 c.qt.workarounds.remove_service_workers = True
