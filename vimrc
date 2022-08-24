@@ -49,16 +49,17 @@ let g:lightline = {
             \ 'active': {
             \   'left': [
             \       [ 'mode', 'paste' ],
-            \       [ 'readonly', 'relativepath', 'modified' ]
+            \       [ 'readonly', 'relativepath', 'modified' ],
+            \       [ ]
             \   ],
             \   'right': [
-            \       [ 'lineinfo' ],
-            \       [ 'percent' ],
+            \       [ 'lines' ],
+            \       [ ],
             \       [ 'lsp_status', 'filetype' ]
             \   ]
             \ },
             \ 'component': {
-            \   'percent': '%3p%%/%L',
+            \   'lines': '%L',
             \ },
             \ 'component_function': {
             \   'lsp_status': 'LspStatus'
