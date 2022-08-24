@@ -58,6 +58,10 @@ let g:lightline = {
             \       [ 'lsp_status', 'filetype' ]
             \   ]
             \ },
+            \ 'tabline': {
+            \   'left': [ [ 'tabs' ] ],
+            \   'right': [ ]
+            \ },
             \ 'component': {
             \   'lines': '%L',
             \ },
