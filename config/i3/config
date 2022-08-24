@@ -195,6 +195,9 @@ bar {
 
 focus_follows_mouse no
 
+# open new windows in tabs, not tiling
+workspace_layout tabbed
+
 # binds
 # Note: for find key names use xev tool
 
