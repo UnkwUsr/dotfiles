@@ -237,7 +237,7 @@ bindsym ctrl+shift+space exec "dunstctl close-all"
 # ticktask
 bindsym $mod+q exec echo -n | dmenu -p "ticktask:" | xargs -0 ticktask && \
             notify-send ticktask -t 1000 sent || \
-            notify-send ticktask -u critical "not sent"
+            notify-send ticktask -u critical -t 2000 "not sent"
 
 # translate tool
 set $trans_run trans -i /tmp/trans_text -view -show-original=no \
