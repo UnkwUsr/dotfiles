@@ -54,7 +54,7 @@ let g:lightline = {
             \   ],
             \   'right': [
             \       [ 'lines' ],
-            \       [ ],
+            \       [ 'words' ],
             \       [ 'lsp_status', 'filetype' ]
             \   ]
             \ },
@@ -62,7 +62,8 @@ let g:lightline = {
             \   'lines': '%L',
             \ },
             \ 'component_function': {
-            \   'lsp_status': 'LspStatus'
+            \   'lsp_status': 'LspStatus',
+            \   'words': 'WordsCount'
             \ }
             \}
 function! LspStatus() abort
@@ -75,6 +76,15 @@ function! LspStatus() abort
         let sl.=luaeval("table.getn(vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }))")
     else
         let sl.=''
+    endif
+    return sl
+endfunction
+
+function! WordsCount() abort
+    let sl = ''
+    " if &filetype =~# '\v(tex|markdown)'
+    if &filetype == 'markdown'
+        let sl.=wordcount().words . 'w'
     endif
     return sl
 endfunction
