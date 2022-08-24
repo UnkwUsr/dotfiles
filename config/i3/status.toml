@@ -11,7 +11,7 @@ music = ""
 
 [[block]]
 block = "custom"
-command = "echo -n ' ' | tail -qn1 - ~/.goals"
+command = "tail -qn1 - ~/.goals"
 interval = "once"
 
 # [[block]]
