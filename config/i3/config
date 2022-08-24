@@ -286,7 +286,7 @@ bindsym KP_Subtract exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
 ## toggle mute and pause playing media
 bindsym KP_Divide exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a pause"
 ## unmute and start play media
-bindsym ctrl+KP_Divide exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
+bindsym End exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
 
 # microphone
 ## adjust volume level
