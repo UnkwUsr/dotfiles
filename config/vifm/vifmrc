@@ -1,0 +1,58 @@
+" vim: filetype=vifm
+
+" allow completion in :help
+set vimhelp
+
+" hide "../"
+set dotdirs=
+
+" one-window mode
+only
+" enable preview (when splitted by pressing 'w')
+view
+
+
+" maps
+
+" P.S. dotfiles show/hide toggle shortcut by default is 'za'
+
+" toggle preview window
+nnoremap w :vsplit!<cr>
+
+nmap q :quit<cr>
+
+
+" filetypes
+
+" audio and video
+filextype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,
+    \*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,*.fl[icv],
+    \*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,*.as[fx]},
+    \<video/*,audio/*>
+        \ mpv %f
+
+fileviewer {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,
+    \*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,*.fl[icv],
+    \*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,*.as[fx]},
+    \<video/*,audio/*>
+        \ ffprobe -hide_banner -pretty %c 2>&1
+
+" images
+filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> feh %f,
+fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> file %f
+
+" pdf
+filextype {*.pdf},<application/pdf> zathura %c %i &
+
+" office files
+filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
+    \<application/vnd.openxmlformats-officedocument.*,
+    \application/msword,
+    \application/vnd.ms-excel>
+        \ libreoffice %f &
+
+" open all other files with default system programs
+" filetype * xdg-open
+
+" previewer for all unknown filetypes
+" fileviewer * file %f -b
