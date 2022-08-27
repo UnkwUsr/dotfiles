@@ -6,10 +6,10 @@ set vimhelp
 " hide "../"
 set dotdirs=
 
-" one-window mode
-only
 " enable preview (when splitted by pressing 'w')
 view
+" one-window mode (should be executed AFTER 'view')
+only
 
 
 " maps
