@@ -1,4 +1,3 @@
-" vim: fo-=o
 call plug#begin()
 
 Plug 'itchyny/lightline.vim'
@@ -312,8 +311,10 @@ autocmd BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
 autocmd FileType gitcommit setlocal spell
 " set tab size = 2 for markdown
 autocmd FileType markdown setlocal sw=2 ts=2
-" disable wrap in html and css files
+" disable wrap for html and css
 autocmd FileType html,css setlocal nowrap
+" disable auto-inserting comment on newline for all filetypes
+autocmd FileType * setlocal fo-=o
 " set commentstring
 autocmd FileType cpp setlocal commentstring=//\ %s
 
