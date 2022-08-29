@@ -41,9 +41,9 @@ alias ds='sd'
 # cd to directory of the file in dotfiles
 alias sdd='cd ~/.dotfiles && cd $(dirname $(fzf)) && pwd'
 
-# vim with gv plugin
-alias gv='vim +:GV'
-alias gva='vim +":GV --all"'
+# vim with gv plugin, shows git log
+alias gv='vim +:GV +":tabclose 2" +":nmap <buffer> q :q<CR>"'
+alias gva='vim +":GV --all" +":tabclose 2" +":nmap <buffer> q :q<CR>"'
 
 # file browser
 alias fm='vifm'
