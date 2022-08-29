@@ -12,10 +12,11 @@ alias ffplay='ffplay -hide_banner'
 alias ffprobe='ffprobe -hide_banner'
 
 # verbose
-alias cp='cp -v'
-alias mv='mv -v'
 alias rm='rm -v'
 alias chmod='chmod -v'
+# also prompt on overwrite
+alias cp='cp -vi'
+alias mv='mv -vi'
 
 # case-sensitivity method 'smart'
 alias rg='rg -S'
