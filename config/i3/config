@@ -247,8 +247,8 @@ bindsym $mod+t exec $trans_get_input && $st_win_with '$trans_run en:ru'
 bindsym $mod+shift+t exec $trans_get_input && $st_win_with '$trans_run ru:en'
 ## translate with text from "primary selection"
 set $trans_get_primary xclip -o -sel primary > /tmp/trans_text
-bindsym $mod+ctrl+t exec $trans_get_primary && $st_win_with '$trans_run en:ru'
-bindsym $mod+ctrl+shift+t exec $trans_get_primary && $st_win_with '$trans_run ru:en'
+bindsym $mod+ctrl+t exec $trans_get_primary && $st_win_with '$trans_run :ru'
+bindsym $mod+ctrl+shift+t exec $trans_get_primary && $st_win_with '$trans_run :en'
 ## edit previous translated text with vim
 bindsym $mod+$alt+t exec $st_win_with 'vim +set\ shortmess+=I +set\ binary +set\ noeol +set\ spell /tmp/trans_text'
 
