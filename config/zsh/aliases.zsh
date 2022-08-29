@@ -45,6 +45,9 @@ alias sdd='cd ~/.dotfiles && cd $(dirname $(fzf)) && pwd'
 alias gv='vim +:GV'
 alias gva='vim +":GV --all"'
 
+# file browser
+alias fm='vifm'
+
 
 #### pacman
 
