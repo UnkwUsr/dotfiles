@@ -248,6 +248,9 @@ nnoremap <silent><C-p> :bprevious<CR>
 " create and open file under cursor
 nnoremap cgf :e <cfile><CR>
 
+" format paragraph
+nmap gwp gwip
+
 set completeopt=menuone,noselect
 " hide completion messages in statusline
 set shortmess+=c
