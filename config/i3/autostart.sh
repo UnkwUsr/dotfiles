@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# set repeat rate
+# set keyboard press repeat rate
 xset r rate 400 50 &
 
 # download and set wallpaper
@@ -16,6 +16,3 @@ rclip daemon > /dev/null &
 
 # set initial monitor brightness
 light -S 40 &
-
-# reminder for blink
-# dblink 600 &
