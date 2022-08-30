@@ -240,12 +240,14 @@ bindsym $mod+q exec echo -n | dmenu -p "ticktask:" | xargs -0 ticktask && \
 set $trans_run trans -i /tmp/trans_text -view -show-original=no \
     -show-translation-phonetics=no -show-prompt-message=no \
     -show-languages=no -show-alternatives=no -show-original-dictionary=yes
-## to repeat previous translate just leave dmenu prompt empty and press enter
-set $trans_get_input (set -o pipefail && inp=$(echo -n | dmenu -fn "Hack-11" -p "trans:" | head -c -1) && \
-   (test -z "$inp" || echo "$inp" > /tmp/trans_text))
-bindsym $mod+t exec $trans_get_input && $st_win_with '$trans_run en:ru'
-bindsym $mod+shift+t exec $trans_get_input && $st_win_with '$trans_run ru:en'
-## translate with text from "primary selection"
+## translate text from dmenu from en to ru or ru to en
+## to repeat last translate just leave dmenu prompt empty and press enter
+set $trans_get_dmenu_input (set -o pipefail && \
+    inp=$(echo -n | dmenu -fn "Hack-11" -p "trans:" | head -c -1) && \
+    (test -z "$inp" || echo "$inp" > /tmp/trans_text))
+bindsym $mod+t exec $trans_get_dmenu_input && $st_win_with '$trans_run en:ru'
+bindsym $mod+shift+t exec $trans_get_dmenu_input && $st_win_with '$trans_run ru:en'
+## translate text from "primary selection" from any language to ru or en
 set $trans_get_primary xclip -o -sel primary > /tmp/trans_text
 bindsym $mod+ctrl+t exec $trans_get_primary && $st_win_with '$trans_run :ru'
 bindsym $mod+ctrl+shift+t exec $trans_get_primary && $st_win_with '$trans_run :en'
