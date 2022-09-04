@@ -51,7 +51,7 @@ filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
         \ libreoffice %f &
 
 " directories
-fileviewer */,.*/ ls --color=always --group-directories-first
+fileviewer */,.*/ sh -c "LC_COLLATE=C ls %c --color=always --group-directories-first"
 
 " open all other files with default system programs
 " filetype * xdg-open
