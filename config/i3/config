@@ -271,8 +271,8 @@ bindsym $mod+shift+i exec --no-startup-id "sleep 0.25 && systemctl suspend"
 # fn keys
 
 # control brightness
-bindsym XF86MonBrightnessUp  exec --no-startup-id "light -A 10"
-bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
+bindsym XF86MonBrightnessUp  exec --no-startup-id "light -A 10 && dunstctl close && notify-send -t 500 'light' $(light)"
+bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10 && dunstctl close && notify-send -t 500 'light' $(light)"
 
 # media playback (using playerctl)
 bindsym XF86AudioNext exec --no-startup-id "playerctl next"
