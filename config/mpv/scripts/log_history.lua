@@ -10,6 +10,11 @@ local function logline(path, title)
     local artist = mp.get_property("metadata/by-key/artist")
     if artist ~= nil then
         title = artist .. " - " .. title
+    else
+        local uploader = mp.get_property("metadata/by-key/uploader")
+        if uploader ~= nil then
+            title = uploader .. " - " .. title
+        end
     end
 
     local logfile = io.open(HISTFILE, "a")
