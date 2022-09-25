@@ -2,9 +2,9 @@
 local HISTFILE = mp.command_native({ "expand-path", "~~home/" }) .. "/history"
 
 -- log format:
--- <url> <artist_name_if_exist> - <track_title>
+-- <date> <time> <url> <artist_name_if_exist> - <track_title>
 -- example:
--- https://someurl.fm/stream artist name - track title
+-- 2022-07-17 17:32 https://someurl.fm/stream artist name - track title
 
 local function logline(path, title)
     local artist = mp.get_property("metadata/by-key/artist")
@@ -19,7 +19,8 @@ local function logline(path, title)
 
     local logfile = io.open(HISTFILE, "a")
     if logfile ~= nil then
-        logfile:write(("%s %s\n"):format(path, title))
+        local date = os.date("%Y-%m-%d %H:%M")
+        logfile:write(("%s %s %s\n"):format(date, path, title))
         logfile:close()
     else
         mp.osd_message("[log_history] Can't open file " .. HISTFILE)
