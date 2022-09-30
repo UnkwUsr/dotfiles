@@ -27,13 +27,14 @@ Plug 'alvan/vim-closetag'
 Plug 'ap/vim-css-color'
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 
 " dependencies
-" gitsigns
+" null-ls
 Plug 'nvim-lua/plenary.nvim'
 
 call plug#end()

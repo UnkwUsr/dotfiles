@@ -1,4 +1,10 @@
 local on_attach = function(client, bufnr)
+    -- disable sumneko_lua formatting as we use stylua via null-ls
+    if client.name == "sumneko_lua" then
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end
+
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
