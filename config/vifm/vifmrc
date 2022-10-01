@@ -21,6 +21,9 @@ nnoremap w :vsplit!<cr>
 
 nmap q :quit<cr>
 
+" open shell in current directory
+nmap s :shell<cr>
+
 
 " filetypes
 
