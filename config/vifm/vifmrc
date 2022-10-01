@@ -24,6 +24,9 @@ nmap q :quit<cr>
 " open shell in current directory
 nmap s :shell<cr>
 
+" go up directory
+nmap - gh
+
 
 " filetypes
 
