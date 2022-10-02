@@ -351,6 +351,9 @@ set listchars=tab:▸\
 set title
 let &titleold=$TERM
 
+" disable mouse support
+set mouse=
+
 " enable syntax highlight and theme
 syntax on
 set background=dark
