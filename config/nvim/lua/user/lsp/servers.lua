@@ -31,6 +31,9 @@ local servers = {
     tsserver = {},
     html = {},
     cssls = {},
+    -- also:
+    -- for zk see lua/user/plugins/zk.lua
+    -- for null-ls see lua/user/plugins/null-ls.lua
 }
 
 return servers

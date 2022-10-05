@@ -24,7 +24,7 @@ require("zk").setup({
     lsp = {
         config = {
             on_attach = function(client, bufnr)
-                require("lsp-conf.on_attach")(client, bufnr)
+                require("user.lsp.on_attach")(client, bufnr)
 
                 map_keys(bufnr)
             end,
