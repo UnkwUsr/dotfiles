@@ -34,3 +34,16 @@ cmp.setup({
         { name = "luasnip" },
     }),
 })
+
+cmp.setup.filetype("markdown", {
+    completion = {
+        autocomplete = {
+            require("cmp.types").cmp.TriggerEvent.InsertEnter,
+            require("cmp.types").cmp.TriggerEvent.TextChanged,
+        },
+        keyword_pattern = [[\k\+]],
+    },
+    sources = cmp.config.sources({
+        { name = "nvim_lsp", option = { keyword_pattern = [[\k\+]] } },
+    }),
+})
