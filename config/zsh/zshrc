@@ -7,17 +7,17 @@ source ~/.config/zsh/settings.zsh
 source ~/.config/zsh/aliases/_main.zsh
 source ~/.config/zsh/keys.zsh
 # note: have to be always at the end
-source ~/.config/zsh/prompt-highlight.zsh
+# source ~/.config/zsh/prompt-highlight.zsh
 
-precmd() {
-    ( (kitten icat --use-window-size 24,20,695,1135 /opt/terminal_image.png </dev/tty \
-        && echo -n '% ') &)
-    # ((kitten icat --place 24x20@0x0 /opt/terminal_image.png </dev/tty && tput cuf 2) &)
-    # timg -I -gx20 -pk /opt/terminal_image.png
-    # tput cup 20 0
-    # fortune -s
-    unfunction precmd
-}
+# precmd() {
+#     ( (kitten icat --use-window-size 24,20,695,1135 /opt/terminal_image.png </dev/tty \
+#         && echo -n '% ') &)
+#     # ((kitten icat --place 24x20@0x0 /opt/terminal_image.png </dev/tty && tput cuf 2) &)
+#     # timg -I -gx20 -pk /opt/terminal_image.png
+#     # tput cup 20 0
+#     # fortune -s
+#     unfunction precmd
+# }
 
 # dirty hack. Fixes to problem of using tmux on server connected to via ssh.
 # Problem is in that tmux resets locale settings, so we have to reset it again
