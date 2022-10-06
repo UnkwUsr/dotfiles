@@ -63,7 +63,7 @@
 
 # setup diff-so-fancy
 [core]
-    pager = diff-so-fancy | less --tabs=4 -R
+    ; pager = diff-so-fancy | less --tabs=4 -R
 [color]
     ui = true
 [color "diff-highlight"]
