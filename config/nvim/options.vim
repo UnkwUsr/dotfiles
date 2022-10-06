@@ -52,8 +52,8 @@ set wildmenu
 set wildmode=longest:full,full
 
 " enable line numbers relative to cursor line
-set relativenumber
-set number
+" set relativenumber
+" set number
 
 " enable printing current pressed keys in normal mode in bottom right panel
 " (for example: typing 'd' will print 'd' in this panel and then we need to
@@ -73,6 +73,8 @@ set notimeout
 
 " save swap files to /tmp (RAM)
 set directory=/tmp/.vim_swap
+" disable swap on phone
+set directory=
 
 " enable persistent undo
 set undofile
