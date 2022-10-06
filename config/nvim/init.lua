@@ -12,7 +12,7 @@ vim.cmd("source ~/.config/nvim/autocmd.vim")
 vim.cmd("source ~/.config/nvim/txts.vim")
 
 require("user.plugins")
-require("user.lsp")
+-- require("user.lsp")
 
 require("user.dotfiles_prefill_commit")
 require("user.gcfx")

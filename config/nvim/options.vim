@@ -73,6 +73,8 @@ set notimeout
 
 " save swap files to /tmp (RAM)
 set directory=/tmp/.vim_swap
+" disable swap on phone
+set directory=
 
 " enable persistent undo
 set undofile

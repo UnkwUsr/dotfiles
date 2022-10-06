@@ -30,7 +30,7 @@ Plug 'tidalcycles/vim-tidal'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'akinsho/flutter-tools.nvim'
 Plug 'udalov/kotlin-vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " for lisp-like syntax languages (parenthesis guesser)
 Plug 'gpanders/nvim-parinfer'
 " for note taking, in markdown
