@@ -60,8 +60,11 @@ alias pqo='pacman -Qo'
 
 # local files search
 alias pql='pacman -Ql'
+# fzf over local files
 pqlf() {
-    pacman -Ql $1 | fzf -m | cut -d" " -f2 | tr '\n' ' ' | xargs -r vim
+    pacman -Ql $1 | grep -v "/$" \
+        | fzf -m | cut -d" " -f2 | tr '\n' ' ' \
+        | xargs -r vim
 }
 
 # packages files search
