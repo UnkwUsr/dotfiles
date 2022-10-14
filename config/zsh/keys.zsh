@@ -6,9 +6,9 @@ bindkey "^X^E" edit-command-line
 autoload -z edit-command-line
 zle -N edit-command-line
 
-# make C-w (and friends) consider symbol '/'
+# make C-w (and friends) consider symbols '/' and '|'
 # (for default behavior see next bind)
-WORDCHARS=${WORDCHARS/\/}
+WORDCHARS=${WORDCHARS/\//|}
 
 # alt+backspace to delete a WORD
 # (consider only whitespaces (like default C-w))
