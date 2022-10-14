@@ -5,7 +5,7 @@ My dotfiles managed with [rcm](https://github.com/thoughtbot/rcm)
 ## neovim
 * Install [vim-plug](https://github.com/junegunn/vim-plug) plugin manager
 * Install plugins: type `:PlugInstall` in vim
-* Install [neovim-symlinks](https://aur.archlinux.org/packages/neovim-plug/) (aur package) to use command `vim` instead of `nvim`
+* Install [neovim-symlinks](https://aur.archlinux.org/packages/neovim-symlinks) (aur package) to use command `vim` instead of `nvim`
 ## zsh
 * Install plugin manager [antibody](https://aur.archlinux.org/packages/antibody) (aur package)
 * Install plugins: `antibody bundle < ~/.config/zsh/plugins.txt > ~/.local/share/zsh_plugins.sh`
