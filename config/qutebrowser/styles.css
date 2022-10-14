@@ -27,6 +27,10 @@ select {
     color: darkturquoise;
 }
 
+/* genius lyrics*/
+/* ad */
+*[data-exclude-from-selection="true"] {display:none;}
+
 /* gmail */
 /* fix dark mode toolbar buttons */
 .T-I.J-J5-Ji.T-I-ax7 > .asa > .T-I-J3.J-J5-Ji {
