@@ -46,8 +46,8 @@ fileviewer {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> feh --start-at %f
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> file %f
 
-" pdf
-filextype {*.pdf},<application/pdf> zathura %c %i &
+" documents, books
+filextype {*.pdf,*.epub},<application/pdf> zathura %c %i &
 
 " office files
 filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
