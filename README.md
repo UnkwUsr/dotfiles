@@ -53,6 +53,7 @@ Can be installed from aur
 Other
 * `ticktask` - cli for creating tasks on ticktick.com ([github](https://github.com/UnkwUsr/ticktask))
 * `dalarma` - alarm clock that will block your screen with alarm text ([github](https://github.com/UnkwUsr/dalarma))
+* `simplescreenrecorder` - screen recorder (but with [patch](https://github.com/MaartenBaert/ssr/pull/960))
 
 # Scripts
 See [bin/README.md](bin/README.md)
