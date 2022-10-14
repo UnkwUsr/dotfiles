@@ -6,6 +6,12 @@ set vimhelp
 " hide "../"
 set dotdirs=
 
+" incremental search
+set incsearch
+" smart case
+set ignorecase
+set smartcase
+
 " enable preview (when splitted by pressing 'w')
 view
 " one-window mode (should be executed AFTER 'view')
