@@ -256,7 +256,8 @@ bindsym $mod+$alt+t exec $st_win_with 'vim +set\ shortmess+=I +set\ binary +set\
 
 # start screen recording
 bindsym $mod+bracketright exec simplescreenrecorder --start-hidden --start-recording
-bindsym $mod+ctrl+bracketright exec simplescreenrecorder
+# patch required: https://github.com/MaartenBaert/ssr/pull/960
+bindsym $mod+ctrl+bracketright exec pkill -x simplescreenrec
 
 # run htop
 bindsym $mod+m exec $st_win_with 'TERM=xterm htop'
