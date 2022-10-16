@@ -328,8 +328,16 @@ set number
 " press next keys for finish command)
 set showcmd
 
-" disable key code delay (like when in insert mode and pressing <Esc>O )
-set ttimeoutlen=0
+" disable delay for key code sequences (example: in insert mode press <Esc>O)
+set nottimeout
+" the same as:
+" set ttimeoutlen=0
+
+" disable timeout for mappings (especially for <Leader> key) (will wait
+" forever till map is completed or other key is pressed)
+set notimeout
+" the same as:
+" set timeoutlen=99999999
 
 " save swap files to /tmp (RAM)
 set directory=/tmp/.vim_swap
