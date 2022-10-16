@@ -36,10 +36,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- sh -c "logger i3lock lock
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $left h
-set $down j
-set $up k
-set $right l
+set $left j
+set $right k
+set $down h
+set $up l
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
