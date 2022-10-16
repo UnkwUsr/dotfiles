@@ -35,6 +35,9 @@ alias auracle='auracle --sort=votes'
 alias ll='ls -l'
 alias la='ls -lA'
 
+# ripgrep shortcuts
+alias rgf='rg --count'
+
 # typos
 alias l='ll'
 alias lll='ll'
