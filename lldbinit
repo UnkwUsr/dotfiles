@@ -1,1 +1,4 @@
 settings set target.x86-disassembly-flavor intel
+
+# 3rd party plugins. For details see install_deps.sh file in repo root
+command script import ~/.config/lldb_write.py
