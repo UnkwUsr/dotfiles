@@ -8,6 +8,7 @@
     lp = log -p
     c = checkout
     cb = checkout -b
+    b = branch
     cam = commit --amend
     d = diff
     ds = diff --staged
