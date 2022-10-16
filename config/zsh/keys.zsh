@@ -28,21 +28,17 @@ zle -N edit-command-line
 #### fzf
 
 # ALT-C for fuzzy-cd
-# CTRL-R for fuzzy-history
+# CTRL-T for fuzzy file select
 source /usr/share/fzf/key-bindings.zsh
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
+# restore CTRL-R rebinded by fzf (I use improved bind on ALT-R)
+bindkey "^R" history-incremental-search-backward
 
-# disable Aloxaf/fzf-tab plugin to retore tab to default completion mechanism
-# (I bind this plugin to key CTRL-T)
-disable-fzf-tab
-
-# CTRL-T for fuzzy-tab-completion (by Aloxaf/fzf-tab plugin)
-bindkey "^T" fzf-tab-complete
-# ALT-T for fuzzy-file-select
-bindkey "^[t" fzf-file-widget
-# ALT-R for fuzzy-all-history
-bindkey '^[r' fzf-all-history-widget
+# ALT-T for fzf tab completion (by Aloxaf/fzf-tab plugin)
+bindkey "^[t" fzf-tab-complete
+# restore TAB rebinded by Aloxaf/fzf-tab
+bindkey "^I" expand-or-complete
 
 fzf-all-history-widget() {
     _HISTFILE=$HISTFILE
@@ -57,6 +53,8 @@ fzf-all-history-widget() {
     fc -P
 }
 zle -N fzf-all-history-widget
+# ALT-R for fuzzy-all-history
+bindkey '^[r' fzf-all-history-widget
 
 
 #### custom
