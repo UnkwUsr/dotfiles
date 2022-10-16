@@ -4,13 +4,8 @@ bindkey -e
 # disable ctrl-s which freezes terminal
 stty stop undef
 
-# Ctrl+x Ctrl+e to open editor with the current command
-bindkey "^X^E" edit-command-line
-autoload -z edit-command-line
-zle -N edit-command-line
-
 # make C-w (and friends) consider symbols '/' and '|'
-# (for default behavior see next bind)
+# (for default behavior see next alt+backspace bind)
 WORDCHARS=${WORDCHARS/\//|}
 
 # alt+backspace to delete a WORD
@@ -23,6 +18,11 @@ backward-kill-whitespace() {
     select-word-style normal
 }
 zle -N backward-kill-whitespace
+
+# Ctrl+x Ctrl+e to open editor with the current command
+bindkey "^X^E" edit-command-line
+autoload -z edit-command-line
+zle -N edit-command-line
 
 
 #### fzf
