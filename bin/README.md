@@ -3,6 +3,11 @@
 search for git repos, print `git status` and (optionally) exec some provided
 command for each of them
 
+## fv
+
+short: fzf vim. fzf over files content. One line in fzf is one file whole
+content. Then open selected files in vim
+
 ## micrec
 
 record microphone to file

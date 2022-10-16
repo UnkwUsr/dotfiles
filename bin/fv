@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+# fv - fzf vim. Fzf search over all files in current directory where each line
+# in fzf is whole content of file. Then open selected files in vim
+
+TARGET_DIR="$1"
+
+FZF_PROMPT="$(basename $0)> "
+# filename and content
+FZF_PREVIEW_CMD='echo file: {1}\\n; cat {1}'
+
+readarray -t FILES_CANDIDATES_LIST < <(rg --no-binary --files-with-matches . $TARGET_DIR)
+
+if [ ${#FILES_CANDIDATES_LIST[@]} -eq 0 ]; then
+    echo "No candidates for search"
+    exit 1
+fi
+
+readarray -t PICKED_FILES < <(gawk '
+BEGIN {
+    RS = ""
+    FS ="\n"
+}
+BEGINFILE {
+    printf("%s:", FILENAME);
+};
+{
+    for (f=1; f<=NF; ++f) {printf("%s ", $f)};
+};
+ENDFILE {
+    printf("\n")
+};
+' "${FILES_CANDIDATES_LIST[@]}" | \
+    fzf -m -d : --preview "$FZF_PREVIEW_CMD" --preview-window=wrap \
+        --prompt "$FZF_PROMPT" | \
+    awk -F : '{print $1}')
+
+if [ ${#PICKED_FILES[@]} -eq 0 ]; then
+    exit 0
+fi
+
+
+vim "${PICKED_FILES[@]}"
