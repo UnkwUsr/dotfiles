@@ -1,6 +1,9 @@
 # emacs-like navigation in prompt line
 bindkey -e
 
+# disable ctrl-s which freezes terminal
+stty stop undef
+
 # Ctrl+x Ctrl+e to open editor with the current command
 bindkey "^X^E" edit-command-line
 autoload -z edit-command-line
