@@ -96,6 +96,8 @@ config.bind("J", "tab-prev")
 config.bind("K", "tab-next")
 # move tab to the end
 config.bind("9gm", "tab-move -1")
+# copy url and title formatted
+config.bind("ym", "yank inline '* {title}: {url}'")
 
 config.bind("<Ctrl+w>", "rl-backward-kill-word", mode='command')
 config.bind("<Alt+Backspace>", "rl-rubout ' '", mode='command')
