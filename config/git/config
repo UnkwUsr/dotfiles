@@ -1,5 +1,7 @@
 [commit]
     verbose = true
+[merge]
+    ff = true
 [alias]
     s = status -sb
     st = status
