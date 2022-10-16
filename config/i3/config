@@ -45,7 +45,13 @@ set $up l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $alt+Return exec st
+set $st_tmux_instance "st_tmux"
+set $tmux_session "main"
+bindsym $mod+Return workspace 2; \
+            exec xdotool search $st_tmux_instance windowactivate 2> /dev/null \
+            && tmux new-window -t $tmux_session \
+                || st -n $st_tmux_instance -e tmux new-session -As $tmux_session
 
 # kill focused window
 bindsym $mod+Shift+q kill
