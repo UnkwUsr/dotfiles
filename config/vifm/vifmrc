@@ -1,4 +1,5 @@
 " vim: filetype=vifm
+source ~/.config/vifm/theme.vifm
 
 " allow completion in :help
 set vimhelp
