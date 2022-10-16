@@ -57,3 +57,18 @@ fzf-all-history-widget() {
     fc -P
 }
 zle -N fzf-all-history-widget
+
+
+#### custom
+
+# ctrl+j to run command but leave prompt untouched
+# source: https://gist.github.com/knu/10d113c5093ba101d57c
+bindkey '^j' run-line
+run-line () {
+  emulate -L zsh
+  local buffer=$BUFFER
+  zle push-line
+  BUFFER=$buffer
+  zle accept-line
+}
+zle -N run-line
