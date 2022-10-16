@@ -31,3 +31,7 @@ open docx documents in zathura (like pdf)
 ## qtb_export_history
 
 opens qutebrowser today history in vim
+
+## log_smartctl
+
+logs current nvme disk usage (stats data read and written)

@@ -1,0 +1,24 @@
+#!/bin/bash
+# this script logs current nvme disk usage (stats data read and written).
+#
+# Please note that this script should be run from root, as `smarctl` requires
+# root permissions.
+#
+# You can put this to autostart as a systemd service. To be run from root it
+# should be in /etc/systemd/system/
+
+LOGFILE="/var/log/smartctl_log"
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 {disk}"
+    echo "Where {disk} is path like '/dev/nvme0n1'"
+    exit 1
+fi
+DISK="$1"
+
+printinfo(){
+    date +'%F %R' | head -c -1
+    smartctl -a "$DISK" | awk '/Data Units/ {gsub(",", "", $4); printf " | %s %.2f", $3, ($4 * 512 / 1000000)}; END {printf "\n"}'
+}
+
+printinfo >> $LOGFILE
