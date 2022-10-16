@@ -67,3 +67,16 @@ flatdir() {
     mv "$1"/* ./
     rmdir "$1"
 }
+
+# write image from x-clipboard to a file
+# name: I couldn't think of a name for this, so there it is...
+aas() {
+    if [ $# -eq 0 ]; then
+        imgfilename=$(mktemp -u ./XXX.png)
+    else
+        imgfilename="$1.png"
+    fi
+
+    xclip -sel c -o -t image/png > "$imgfilename" || return 1
+    echo "$imgfilename"
+}
