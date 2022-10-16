@@ -19,7 +19,7 @@ view
 only
 
 
-" maps
+"""" maps
 
 " P.S. dotfiles show/hide toggle shortcut by default is 'za'
 
@@ -35,7 +35,7 @@ nmap s :shell<cr>
 nmap - gh
 
 
-" filetypes
+"""" filetypes
 
 " audio and video
 filextype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,
@@ -70,4 +70,5 @@ fileviewer */,.*/ sh -c "LC_COLLATE=C ls %c --color=always --group-directories-f
 " filetype * xdg-open
 
 " previewer for all unknown filetypes
-" fileviewer * file %f -b
+" fileviewer * file -b %c
+fileviewer * bat --color=always %c
