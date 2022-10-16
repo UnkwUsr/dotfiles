@@ -305,13 +305,13 @@ bindsym Mod2+$alt+KP_Decimal exec --no-startup-id "ponymix --source increase 5 >
 # dbvolume control
 bindsym KP_Home exec --no-startup-id "dbvolume default"
 bindsym Mod2+KP_7 exec --no-startup-id "dbvolume default"
-bindsym KP_Prior exec --no-startup-id "dbvolume 500"
 bindsym KP_Up exec --no-startup-id "cat /tmp/dbvolume_level | dmenu | xargs dbvolume"
 bindsym KP_Begin mode "dbvolume!"
 mode "dbvolume!" {
     bindsym KP_Home exec --no-startup-id "dbvolume default"
     bindsym KP_Left exec --no-startup-id "dbvolume -10"
     bindsym KP_Right exec --no-startup-id "dbvolume +10"
+    bindsym KP_Prior exec --no-startup-id "dbvolume 500"
 
     bindsym Escape mode "default"
     bindsym KP_Begin mode "default"
