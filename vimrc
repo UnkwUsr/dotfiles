@@ -219,8 +219,9 @@ set keymap=russian-jcukenwin
 set iminsert=0
 " fix russian layout
 imap № #
-" map for switching layout
+" maps for switching keyboard layout
 map! <C-s> <C-^>
+nmap <C-s> a<C-^><ESC>
 " restore layout when return to normal mode
 " inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
