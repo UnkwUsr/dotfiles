@@ -42,8 +42,8 @@ alias ds='sd'
 alias sdd='cd ~/.dotfiles && cd $(dirname $(fzf)) && pwd'
 
 # vim with gv plugin, shows git log
-alias gv='vim +:GV +":tabclose 2" +":nmap <buffer> q :q<CR>"'
-alias gva='vim +":GV --all" +":tabclose 2" +":nmap <buffer> q :q<CR>"'
+alias gv='git rev-parse --is-inside-work-tree > /dev/null && vim +:GV +":tabclose 2" +":nmap <buffer> q :q<CR>"'
+alias gva='git rev-parse --is-inside-work-tree > /dev/null && vim +":GV --all" +":tabclose 2" +":nmap <buffer> q :q<CR>"'
 
 # file browser
 alias fm='vifm'
