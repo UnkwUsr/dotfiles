@@ -73,3 +73,7 @@ fileviewer */,.*/ sh -c "LC_COLLATE=C ls %c --color=always --group-directories-f
 " previewer for all unknown filetypes
 " fileviewer * file -b %c
 fileviewer * bat --color=always %c
+
+" plugins. For details see install_deps.sh file in repo root
+plugin load
+set viewcolumns=-{NameLink},{LsTime},10{LsSize}

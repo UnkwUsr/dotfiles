@@ -2,6 +2,8 @@ My dotfiles managed with [rcm](https://github.com/thoughtbot/rcm)
 
 # Installation
 * Symlink all config files with rcm: `rcup -v`
+* Run [./install_deps.sh](./install_deps.sh) to install plugins for some
+  programs
 ## neovim
 * Install [vim-plug](https://github.com/junegunn/vim-plug) plugin manager
 * Install plugins: type `:PlugInstall` in vim
