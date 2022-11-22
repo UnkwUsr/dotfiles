@@ -13,6 +13,9 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 # make X11 follow xdg
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
+# colorize broken (orphan) symlinks
+export LS_COLORS='or=40;31;01'
+
 # fzf settings
 export FZF_DEFAULT_COMMAND='fd --type file --type symlink'
 export FZF_DEFAULT_OPTS="--bind ctrl-s:toggle-sort"
