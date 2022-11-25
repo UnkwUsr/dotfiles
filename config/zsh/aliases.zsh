@@ -3,8 +3,10 @@
 # color and human-readable
 alias pacman='pacman --color=auto'
 alias diff='diff --color=auto'
+alias ip='ip -c'
 alias du='du -h'
 alias df='df -h -x tmpfs -x devtmpfs --output=source,size,avail,target'
+alias free='free -h'
 alias ffmpeg='ffmpeg -hide_banner'
 alias ffplay='ffplay -hide_banner'
 alias ffprobe='ffprobe -hide_banner'
