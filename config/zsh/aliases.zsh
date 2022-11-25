@@ -56,6 +56,8 @@ gv() {
         vim +":GV $*" +":tabclose 2" +":nmap <buffer> q :q<CR>"
 }
 gva() { gv "--all $*" }
+compdef -e 'words[1]=(git log); service=git; (( CURRENT+=1 )); _git' gv gva
+# Source: https://stackoverflow.com/questions/27226716/custom-zsh-completion-for-a-function-based-on-default-arguments
 
 # file browser
 alias fm='vifm'
@@ -85,6 +87,7 @@ pqlf() {
         | fzf -m | cut -d" " -f2 | tr '\n' ' ' \
         | xargs -r vim
 }
+compdef -e 'words[1]=(pacman -Ql); service=pacman; (( CURRENT+=1 )); _pacman' pqlf
 
 # packages files search
 alias pfx='pacman -Fx'

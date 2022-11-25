@@ -1,3 +1,10 @@
+# P.S. this sould be before aliases.zsh as there I do compdef's
+# The following lines were added by compinstall
+zstyle :compinstall filename '~/.config/zsh/.zshrc'
+autoload -Uz compinit
+compinit -d ~/.cache/zcompdump
+# End of lines added by compinstall
+
 # load plugins from antibody plugins manager
 source ~/.local/share/zsh_plugins.sh
 # Note: after changing plugins.txt you need to run:
@@ -27,12 +34,6 @@ zstyle ':completion:*' rehash true
 
 # completion sources
 fpath+=~/.zfunc
-
-# The following lines were added by compinstall
-zstyle :compinstall filename '~/.config/zsh/.zshrc'
-autoload -Uz compinit
-compinit -d ~/.cache/zcompdump
-# End of lines added by compinstall
 
 
 #### other
