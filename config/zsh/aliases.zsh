@@ -23,6 +23,9 @@ alias rg='rg -S'
 # start week from Monday
 alias cal='cal -m'
 
+alias tokei='tokei --sort=lines'
+alias auracle='auracle --sort=votes'
+
 
 #### new commands
 
