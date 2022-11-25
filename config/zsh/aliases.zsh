@@ -2,7 +2,6 @@
 
 # color and human-readable
 alias pacman='pacman --color=auto'
-alias dmesg='dmesg --color=auto'
 alias diff='diff --color=auto'
 alias ls='ls --color=auto -h --group-directories-first'
 alias du='du -h'
