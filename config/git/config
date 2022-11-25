@@ -19,6 +19,10 @@
     cb = checkout -b
     b = branch
     cam = commit --amend
+    ri = rebase -i
+    rco = rebase --continue
+    roc = rebase --continue
+    rab = rebase --abort
     d = diff
     ds = diff --staged
     ref = reflog --date=relative
