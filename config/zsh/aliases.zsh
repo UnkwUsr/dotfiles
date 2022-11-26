@@ -41,8 +41,7 @@ alias lll='ll'
 alias dc='cd'
 
 # open file from dotfiles directory
-alias sd='cd ~/.dotfiles && fzf --preview="bat {} --style changes -f" | \
-    xargs -r vim; cd - > /dev/null'
+alias sd='cd ~/.dotfiles && fzf | xargs -r vim; cd - > /dev/null'
 # cd to directory of the file in dotfiles
 alias sdd='cd ~/.dotfiles && cd $(dirname $(fzf)) && pwd'
 
