@@ -200,6 +200,9 @@ cnoremap <A-f> <S-Right>
 " delete character under cursor
 cnoremap <C-D> <Del>
 
+" quit vim faster
+nmap Q :q<CR>
+
 " disable loading useless providers. It boost startup
 let g:loaded_python_provider = 0
 let g:loaded_python3_provider = 0
