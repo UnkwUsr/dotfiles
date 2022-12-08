@@ -62,4 +62,5 @@ device = "DisplayDevice"
 [[block]]
 block = "time"
 interval = 60
-format = "%a %m/%d %l:%M"
+format = "%m/%d %a %l:%M"
+locale = "ja_JP"
