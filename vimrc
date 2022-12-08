@@ -28,6 +28,7 @@ Plug 'srcery-colors/srcery-vim'
 
 " langs specific plugins
 Plug 'chrisbra/csv.vim'
+Plug 'tidalcycles/vim-tidal'
 " parenthesis guesser for lisp-like syntax languages
 Plug 'gpanders/nvim-parinfer'
 
@@ -196,6 +197,9 @@ nmap - :Vifm<CR>
 let g:csv_autocmd_arrange = 1
 let g:csv_arrange_align = 'r*'
 
+" tidal
+let g:tidal_target = "terminal"
+
 
 " Pure vim settings
 
@@ -347,6 +351,7 @@ autocmd FileType * setlocal fo-=o
 " set commentstring
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType mysql,plsql setlocal commentstring=--\ %s
+autocmd FileType tidal setlocal commentstring=--\ %s
 " set colorcolumn
 autocmd FileType rust setlocal colorcolumn=100
 
