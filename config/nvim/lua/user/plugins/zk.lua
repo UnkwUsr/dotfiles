@@ -1,3 +1,9 @@
+-- add `:ZkOrphans` command
+require("zk.commands").add("ZkOrphans", function(options)
+    options = vim.tbl_extend("force", { orphan = true }, options or {})
+    require("zk").edit(options, { title = "Zk Orphans" })
+end)
+
 local function map_keys(bufnr)
     local function keymap(mode, key, cmd)
         local opts = { noremap = true, silent = false }
@@ -16,6 +22,9 @@ local function map_keys(bufnr)
     -- links/backlinks
     keymap("n", "<leader>zl", "<Cmd>ZkLinks<CR>")
     keymap("n", "<leader>zb", "<Cmd>ZkBacklinks<CR>")
+
+    -- orphans
+    keymap("n", "<leader>zo", "<Cmd>ZkOrphans<CR>")
     -- stylua: ignore end
 end
 
