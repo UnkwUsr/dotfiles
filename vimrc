@@ -212,7 +212,7 @@ let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
 
 " copy from default yank register to system clipboard
-nmap <leader>yy :let @+=@"<CR>:echo 'copied to system buffer'<CR>
+nmap <leader>y :let @+=@"<CR>:echo 'copied to system buffer'<CR>
 
 " allow switch buffers without saving changes (can save when return)
 set hidden
