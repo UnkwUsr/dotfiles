@@ -99,6 +99,9 @@ alias syu='sudo pacman -Syu'
 
 # install
 alias pin='sudo pacman -S'
+# install packages selected via fzf
+alias pinf='pin $(pacman -Slq | \
+    fzf -q "$1" -m --preview "pacman -Si {1}" --print0 | tr "\0" " ")'
 
 # remove
 alias pqr='sudo pacman -Rnscu'
