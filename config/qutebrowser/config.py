@@ -1,5 +1,9 @@
 import pyconfig.redirectors as redir
 
+# hack for being able to revert some options to "default" instead of just
+# clearing them (for example list-like options)
+from qutebrowser.config.config import instance as config_hack
+
 c = c  # noqa: F821
 config = config  # noqa: F821
 
@@ -25,13 +29,13 @@ c.content.cookies.accept = "no-unknown-3rdparty"
 c.content.register_protocol_handler = False
 
 c.content.blocking.method = "both"
-c.content.blocking.adblock.lists.clear()
+config_hack.unset("content.blocking.adblock.lists")
 c.content.blocking.adblock.lists.append(
     "https://easylist-downloads.adblockplus.org/advblock.txt")
 c.content.blocking.adblock.lists.append(
     "https://easylist-downloads.adblockplus.org/cntblock.txt")
 
-c.content.user_stylesheets.clear()
+config_hack.unset("content.user_stylesheets")
 c.content.user_stylesheets.append("~/.config/qutebrowser/styles.css")
 
 # see more parameters we can block at
