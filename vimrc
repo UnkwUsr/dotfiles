@@ -40,6 +40,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'mickael-menu/zk-nvim'
+Plug 'folke/neodev.nvim'
 
 " dependencies
 " null-ls

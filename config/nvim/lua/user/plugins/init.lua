@@ -4,4 +4,5 @@ require("user.plugins.null_ls")
 require("user.plugins.zk")
 require("user.plugins.lsp_status")
 
+require("neodev").setup({})
 require("nvim-autopairs").setup()
