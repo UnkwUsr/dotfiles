@@ -3,6 +3,7 @@ export BROWSER=quteb
 
 # path to my scripts
 export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 # path to cargo(rust) local installed programs
 export PATH="$HOME/.cargo/bin:$PATH"
 
