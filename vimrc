@@ -233,6 +233,8 @@ nmap <C-s> a<C-^><ESC>
 set dictionary=spell
 " add russian language to spelling
 set spelllang+=ru
+" limit suggested words list
+set spellsuggest+=9
 " recognize camel case in spelling
 set spelloptions=camel
 " disable check of capital letter at the start of the sentence
