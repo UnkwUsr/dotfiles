@@ -20,6 +20,10 @@ record output sound (not microphone) to file
 
 control specific sink-input (aka application) volume level
 
+Demo (enable sound):
+
+<https://github.com/UnkwUsr/dotfiles/assets/49063932/426dd797-e4a5-4d45-9c03-ac90ea256b93>
+
 ## touchpad_lock_on_type
 
 toggle touchpad feature "lock on type"
