@@ -5,6 +5,7 @@ function P(a)
 end
 
 vim.cmd("source ~/.vimrc")
+vim.cmd("source ~/.config/nvim/txts.vim")
 
 require("user.plugins")
 require("user.lsp")
