@@ -260,6 +260,10 @@ nnoremap cgf :e <cfile><CR>
 " format paragraph
 nmap gwp gwip
 
+" swap maps because shorter one is used more often
+nnoremap g_ $
+nnoremap $ g_l
+
 set completeopt=menuone,noselect
 " hide completion messages in statusline
 set shortmess+=c
