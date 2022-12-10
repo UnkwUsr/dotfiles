@@ -175,9 +175,9 @@ autocmd BufWritePost *.rs call s:generate_cargo_rust_tags()
 command! -nargs=0 Sw SudaWrite
 
 " nvim-lspconfig
-" see ~/.config/nvim/lua/lsp-conf
-" alias for :LspStart
-command! -nargs=0 LS LspStart
+" for lspconfig config see ~/.config/nvim/lua/user/lsp
+" just shorter alias
+cabbrev LS LspStart
 
 " netrw (installed by default)
 " also a little bit configured by vim-vinegar
