@@ -33,6 +33,7 @@ Plug 'tidalcycles/vim-tidal'
 Plug 'gpanders/nvim-parinfer'
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/lsp-status.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -78,17 +79,7 @@ let g:lightline = {
             \ }
             \}
 function! LspStatus() abort
-    let sl = ''
-    if luaeval('not vim.tbl_isempty(vim.lsp.buf_get_clients(0))')
-        let sl.='E:'
-        let sl.=luaeval("table.getn(vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }))")
-        let sl.=' '
-        let sl.='W:'
-        let sl.=luaeval("table.getn(vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }))")
-    else
-        let sl.=''
-    endif
-    return sl
+    return luaeval('Lua_LspStatus()')
 endfunction
 
 function! WordsCount() abort
