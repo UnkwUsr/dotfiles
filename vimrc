@@ -326,6 +326,7 @@ autocmd FileType html,css setlocal nowrap
 autocmd FileType * setlocal fo-=o
 " set commentstring
 autocmd FileType cpp setlocal commentstring=//\ %s
+autocmd FileType mysql,plsql setlocal commentstring=--\ %s
 
 " highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
