@@ -15,6 +15,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-eunuch'
 Plug 'lambdalisue/suda.vim'
 Plug 'windwp/nvim-autopairs'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'tomasr/molokai'
