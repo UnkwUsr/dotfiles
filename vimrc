@@ -16,6 +16,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'lambdalisue/suda.vim'
 Plug 'windwp/nvim-autopairs'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'vifm/vifm.vim'
 
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'tomasr/molokai'
@@ -185,6 +186,8 @@ let g:netrw_winsize = 25
 " hide dotfiles
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
+" vifm
+nmap - :Vifm<CR>
 
 " Pure vim settings
 
