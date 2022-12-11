@@ -339,6 +339,8 @@ autocmd FileType * setlocal fo-=o
 " set commentstring
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType mysql,plsql setlocal commentstring=--\ %s
+" set colorcolumn
+autocmd FileType rust setlocal colorcolumn=100
 
 " highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
