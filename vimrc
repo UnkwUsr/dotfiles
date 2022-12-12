@@ -402,3 +402,7 @@ hi SpellBad ctermfg=3
 
 " colorscheme material
 
+" disable syntax highlighting in diff mode (vimdiff)
+if &diff
+    syntax off
+endif
