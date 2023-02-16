@@ -29,6 +29,7 @@ Plug 'srcery-colors/srcery-vim'
 " langs specific plugins
 Plug 'alvan/vim-closetag'
 Plug 'ap/vim-css-color'
+Plug 'chrisbra/csv.vim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
@@ -190,6 +191,11 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 " vifm
 nmap - :Vifm<CR>
+
+" csv.vim
+let g:csv_autocmd_arrange = 1
+let g:csv_arrange_align = 'r*'
+
 
 " Pure vim settings
 
