@@ -27,6 +27,7 @@ only
 nnoremap w :vsplit!<cr>
 
 nmap q :quit<cr>
+nmap Q :quit<cr>
 
 " open shell in current directory
 nmap s :shell<cr>
