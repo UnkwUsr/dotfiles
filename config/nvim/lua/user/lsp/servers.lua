@@ -13,7 +13,7 @@ local servers = {
             },
         },
     },
-    sumneko_lua = {
+    lua_ls = {
         settings = {
             Lua = {
                 diagnostics = {
