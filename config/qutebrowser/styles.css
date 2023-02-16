@@ -30,3 +30,12 @@ select {
 /* genius lyrics*/
 /* ad */
 *[data-exclude-from-selection="true"] {display:none;}
+
+/* gismeteo */
+/* ad, news */
+body.project-weather > section.content > .column2,
+body.project-weather > section.content > .column3,
+body.project-weather > section.content > .column1 > .section-media,
+body.project-weather > section.content > .column1 > .section-rss {
+    display:none
+}
