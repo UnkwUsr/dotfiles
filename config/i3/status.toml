@@ -8,6 +8,11 @@ icons = "awesome6"
 
 
 [[block]]
+block = "custom"
+command = "rem | rg -qv 'No reminders\\.' && echo 'hvr'"
+interval = 1800
+
+[[block]]
 block = "memory"
 format = "$icon $mem_used.eng(hide_unit:true, width:3) "
 
