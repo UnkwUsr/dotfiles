@@ -30,6 +30,8 @@ Plug 'srcery-colors/srcery-vim'
 Plug 'alvan/vim-closetag'
 Plug 'ap/vim-css-color'
 Plug 'chrisbra/csv.vim'
+" parenthesis guesser for lisp-like syntax languages
+Plug 'gpanders/nvim-parinfer'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
