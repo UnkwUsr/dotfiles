@@ -111,7 +111,7 @@ config.bind(
 
 # open in video player
 config.bind(",m", "spawn -vd mpv {url} --profile=quteb")
-config.bind(",M", "hint media spawn -vd mpv {hint-url} --profile=quteb")
+config.bind(",M", "hint links spawn -vd mpv {hint-url} --profile=quteb")
 
 # enable/disable tor proxy
 config.bind(
