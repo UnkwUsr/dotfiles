@@ -328,7 +328,7 @@ autocmd BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
 " for matching only non-escaped use this regex: '[\\]\@<!\s\+$'
 
 " enable spell in git-commit
-autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit setlocal spell iminsert=0
 " set tab size = 2 for markdown
 autocmd FileType markdown setlocal sw=2 ts=2
 " disable wrap for html and css
