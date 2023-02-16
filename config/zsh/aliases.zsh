@@ -58,6 +58,11 @@ gva() { gv "--all $*" }
 # file browser
 alias fm='vifm'
 
+# open vim recent files history (with fzf)
+alias vh='vim +":History"'
+# open vim recent file
+alias vo='vim +":exe \"normal \<C-o>\""'
+
 
 #### pacman
 
