@@ -28,6 +28,7 @@ Plug 'srcery-colors/srcery-vim'
 " langs specific plugins
 Plug 'chrisbra/csv.vim'
 Plug 'tidalcycles/vim-tidal'
+Plug 'neovimhaskell/haskell-vim'
 " parenthesis guesser for lisp-like syntax languages
 Plug 'gpanders/nvim-parinfer'
 
@@ -436,6 +437,12 @@ set background=dark
 
 colorscheme srcery
 hi SpellBad ctermfg=3
+
+" fix srcery colorscheme for Haskell
+hi! link haskellType SrceryYellow
+hi! link haskellOperators SrceryYellow
+hi! link haskellConditional SrceryCyan
+hi! link haskellLet SrceryYellow
 
 " colorscheme material
 

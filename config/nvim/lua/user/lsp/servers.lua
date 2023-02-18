@@ -2,6 +2,14 @@ local servers = {
     rust_analyzer = {
         autostart = false,
     },
+    hls = {
+        settings = {
+            haskell = {
+                checkProject = false,
+                formattingProvider = "floskell",
+            },
+        },
+    },
     pylsp = {
         settings = {
             pylsp = {
