@@ -64,6 +64,8 @@ alias fm='vifm'
 alias vh='vim +":History"'
 # open vim recent file
 alias vo='vim +":exe \"normal \<C-o>\""'
+# vim fzf over git changed files
+alias vfl='vim +":GFiles?"'
 
 
 #### pacman
