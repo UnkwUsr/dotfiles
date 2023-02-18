@@ -39,3 +39,16 @@ body.project-weather > section.content > .column1 > .section-media,
 body.project-weather > section.content > .column1 > .section-rss {
     display:none
 }
+
+/* racket docs */
+/* code blocks */
+.SVInsetFlow > table {
+    background: #232323;
+}
+/* side panel */
+.tocset {
+    background-color: rgb(53 53 53);
+}
+.navsettop {
+    background: rgb(53 53 53);
+}
