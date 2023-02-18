@@ -51,7 +51,7 @@ warning_fg = "#93a1a1"
 block = "temperature"
 collapsed = false
 interval = 5
-format = "{max} max"
+format = "{min}, {max}"
 
 [[block]]
 block = "battery"
