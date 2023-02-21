@@ -12,3 +12,4 @@ require("user.lsp")
 
 require("user.dotfiles_prefill_commit")
 require("user.gcfx")
+require("user.sticky_floating_windows")
