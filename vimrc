@@ -137,6 +137,8 @@ imap <C-v> <CMD>:call CompleteInf()<CR>
 " commentary
 
 " fugitive
+" always open fugitive in new tab
+cabbrev G tab G
 
 " gv
 " restore 'o' in visual mode to native behavior
