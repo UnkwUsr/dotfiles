@@ -46,7 +46,7 @@ call plug#end()
 
 
 " lightline
-set laststatus=2
+set laststatus=3
 " disable show mode in cmdline, because now we have it on statusline
 set noshowmode
 let g:lightline = {
