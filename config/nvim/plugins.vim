@@ -39,6 +39,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'zk-org/zk-nvim'
+Plug 'Olical/conjure'
 Plug 'folke/neodev.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -253,3 +254,14 @@ let g:csv_arrange_align = 'r*'
 
 " tidal
 let g:tidal_target = "terminal"
+
+" conjure
+" disable lsp diagnostics for log buffer
+autocmd BufNewFile conjure-log-* lua vim.diagnostic.disable(0)
+" disable log window
+"let g:conjure#log#hud#enabled = v:false
+" disable for some filetypes
+" UPD: better to fix collision with lsp maps and use it everywhere. Cuz even
+" rust works with it
+let g:conjure#filetypes = ["clojure", "fennel", "scheme", "lua", "lisp", "python"]
+" default: ["clojure", "fennel", "janet", "hy", "julia", "racket", "scheme", "lua", "lisp", "python", "rust", "sql"]
