@@ -37,6 +37,8 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'mickael-menu/zk-nvim'
 Plug 'folke/neodev.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
 " dependencies
 " null-ls
