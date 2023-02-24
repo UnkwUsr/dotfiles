@@ -70,6 +70,10 @@ alias vo='vim +":exe \"normal \<C-o>\""'
 alias vf='vim $(fzf -m)'
 # vim fzf over git changed files
 alias vfl='vim +":GFiles?"'
+# fd search for files and open them in vim
+vfd() {
+    vim $(fd -tf "$@")
+}
 
 
 #### pacman
