@@ -61,6 +61,8 @@ alias sdd='cd ~/.dotfiles && cd $(dirname $(fzf)) && pwd'
 
 # show my ip and location
 alias myip='curl -s https://api.ip.sb/geoip -A Mozilla | jq'
+# list current open connections
+alias cons='lsof -i'
 
 # move all from another folder to current one and remove empty folder then
 flatdir() {
