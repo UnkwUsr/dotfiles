@@ -52,3 +52,24 @@ body.project-weather > section.content > .column1 > .section-rss {
 .navsettop {
     background: rgb(53 53 53);
 }
+
+/* github */
+/* fix checkboxes color (very dirty hack) */
+input[type=checkbox][disabled].task-list-item-checkbox  {
+    width:0px; height:0px;
+
+}
+input[type="checkbox"][disabled].task-list-item-checkbox:before {
+    content:'\e013';
+    position:absolute;
+    margin-top:-12px;
+    margin-left:-5px;
+    font-family: 'Glyphicons Halflings';
+}
+input[type=checkbox][disabled][checked].task-list-item-checkbox:after {
+    content:'x';
+    position:absolute;
+    color: red;
+    margin-top:-12px;
+    margin-left:-4px;
+}
