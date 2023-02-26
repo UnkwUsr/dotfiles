@@ -16,6 +16,9 @@ local servers = {
     lua_ls = {
         settings = {
             Lua = {
+                format = {
+                    enable = false,
+                },
                 diagnostics = {
                     globals = { "vim", "mp" },
                 },

@@ -34,12 +34,6 @@ local function map_keys(client, bufnr)
 end
 
 local on_attach = function(client, bufnr)
-    -- disable sumneko_lua formatting as we use stylua via null-ls
-    if client.name == "sumneko_lua" then
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-    end
-
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
     map_keys(client, bufnr)
