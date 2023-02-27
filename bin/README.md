@@ -1,3 +1,8 @@
+## gts
+
+search for git repos, print `git status` and (optionally) exec some provided
+command for each of them
+
 ## micrec
 
 record microphone to file
