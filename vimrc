@@ -391,6 +391,9 @@ autocmd TermOpen * startinsert
 " highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
 
+" fzf over files in ~/.dotfiles
+command! -nargs=0 Sd cd ~/.dotfiles/ | FZF
+
 " indent settings
 set tabstop=4
 set shiftwidth=4
