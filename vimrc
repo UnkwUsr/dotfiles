@@ -27,8 +27,6 @@ Plug 'srcery-colors/srcery-vim'
 " Plug 'mhartington/oceanic-next'
 
 " langs specific plugins
-Plug 'alvan/vim-closetag'
-Plug 'ap/vim-css-color'
 Plug 'chrisbra/csv.vim'
 " parenthesis guesser for lisp-like syntax languages
 Plug 'gpanders/nvim-parinfer'
