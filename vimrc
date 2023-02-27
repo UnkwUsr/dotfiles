@@ -235,6 +235,9 @@ cnoremap <C-D> <Del>
 " quit vim faster
 nmap Q :q<CR>
 
+"""" perf
+" limit syntax highlight for long lines
+set synmaxcol=1000
 " disable loading useless providers. It boost startup
 let g:loaded_python_provider = 0
 let g:loaded_python3_provider = 0
