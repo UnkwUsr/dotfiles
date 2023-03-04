@@ -86,7 +86,8 @@ alias pql='pacman -Ql'
 # fzf over local files
 pqlf() {
     pacman -Ql $1 | grep -v "/$" \
-        | fzf -m | cut -d" " -f2 | tr '\n' ' ' \
+        | fzf -m --preview="less {2}" \
+        | cut -d" " -f2 | tr '\n' ' ' \
         | xargs -r vim
 }
 compdef -e 'words[1]=(pacman -Ql); service=pacman; (( CURRENT+=1 )); _pacman' pqlf
