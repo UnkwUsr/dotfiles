@@ -5,4 +5,6 @@ require("user.plugins.zk")
 require("user.plugins.lsp_status")
 
 require("neodev").setup({})
-require("nvim-autopairs").setup()
+require("nvim-autopairs").setup({
+    disable_filetype = { "lisp" },
+})
