@@ -376,8 +376,8 @@ autocmd TermOpen * call Unmatch_trailing_spaces()
 
 " enable spell in git-commit
 autocmd FileType gitcommit setlocal spell iminsert=0
-" set tab size = 2 for markdown
-autocmd FileType markdown setlocal sw=2 ts=2
+" set tab size = 2 for some filetypes
+autocmd FileType markdown,lisp setlocal sw=2 ts=2
 " disable wrap for html and css
 autocmd FileType html,css setlocal nowrap
 " disable auto-inserting comment on newline for all filetypes
