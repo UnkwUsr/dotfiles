@@ -20,7 +20,12 @@ local servers = {
                     enable = false,
                 },
                 diagnostics = {
-                    globals = { "vim", "mp" },
+                    globals = {
+                        -- neovim api
+                        "vim",
+                        -- mpv api
+                        "mp",
+                    },
                 },
             },
         },
