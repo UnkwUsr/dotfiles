@@ -359,6 +359,7 @@ autocmd FileType * setlocal fo-=o
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType mysql,plsql setlocal commentstring=--\ %s
 autocmd FileType tidal setlocal commentstring=--\ %s
+autocmd FileType gnuplot setlocal commentstring=#\ %s
 " set colorcolumn
 autocmd FileType rust setlocal colorcolumn=100
 
