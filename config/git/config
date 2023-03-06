@@ -26,6 +26,7 @@
     d = diff
     ds = diff --staged
     ref = reflog --date=relative
+    unstage = restore --staged
 
     # create fixup commit with commit picked with fzf
     fxa = !git diff --staged --quiet \
