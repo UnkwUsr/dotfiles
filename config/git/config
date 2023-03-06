@@ -22,6 +22,14 @@
     d = diff
     ds = diff --staged
     ref = reflog --date=relative
+
+    # create fixup commit with commit picked with fzf
+    fxa = !git diff --staged --quiet \
+        && echo nothing staged \
+        || git log --pretty=oneline --abbrev-commit origin..HEAD \
+            | fzf --preview='git show --color=always {1}' \
+            | cut -d' ' -f1 | xargs git commit --fixup
+
 [core]
     pager = diff-so-fancy | less --tabs=4 -R
 [color]
