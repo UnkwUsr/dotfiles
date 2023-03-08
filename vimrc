@@ -182,6 +182,9 @@ let g:netrw_winsize = 25
 " hide dotfiles
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
+" markdown-preview
+let g:mkdp_port = '8215'
+
 " vifm
 nmap - :Vifm<CR>
 
