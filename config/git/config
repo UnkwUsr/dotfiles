@@ -5,6 +5,10 @@
     verbose = true
 [merge]
     ff = true
+[rebase]
+    missingCommitsCheck = warn
+    autoSquash = true
+
 [alias]
     s = status -sb
     st = status
