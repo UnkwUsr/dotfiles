@@ -80,3 +80,8 @@ aas() {
     xclip -sel c -o -t image/png > "$imgfilename" || return 1
     echo "$imgfilename"
 }
+
+# open lisp repl
+alias sbcl="rlwrap sbcl --noinform"
+# execute lisp script
+alias sbcls="sbcl --script"
