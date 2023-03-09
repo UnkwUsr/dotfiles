@@ -363,6 +363,9 @@ autocmd FileType gnuplot setlocal commentstring=#\ %s
 " set colorcolumn
 autocmd FileType rust setlocal colorcolumn=100
 
+" auto enter insert mode on term open
+autocmd TermOpen * startinsert
+
 " highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
 
