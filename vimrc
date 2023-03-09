@@ -328,9 +328,21 @@ set scrolloff=15
 " set vertical split by right by default(instead of left)
 set splitright
 
-" highlight all trailing spaces
-autocmd BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
-" for matching only non-escaped use this regex: '[\\]\@<!\s\+$'
+function Match_trailing_spaces()
+    if !exists('w:match_trailing_spaces')
+        let w:match_trailing_spaces = matchadd('ErrorMsg', '\s\+$', -1)
+        " for matching only non-escaped use this regex: '[\\]\@<!\s\+$'
+    endif
+endfunction
+function Unmatch_trailing_spaces()
+    if exists('w:match_trailing_spaces')
+        call matchdelete(w:match_trailing_spaces)
+        unlet w:match_trailing_spaces
+    endif
+endfunction
+" highlight all trailing spaces, except for in term buffer
+autocmd BufNewFile,BufRead,VimEnter,TermClose * call Match_trailing_spaces()
+autocmd TermOpen * call Unmatch_trailing_spaces()
 
 " enable spell in git-commit
 autocmd FileType gitcommit setlocal spell iminsert=0
