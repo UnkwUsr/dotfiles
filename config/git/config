@@ -5,6 +5,8 @@
     verbose = true
 [merge]
     ff = true
+[am]
+    threeWay = true
 [rebase]
     missingCommitsCheck = warn
     autoSquash = true
