@@ -56,8 +56,8 @@ body.project-weather > section.content > .column1 > .section-rss {
 /* github */
 /* fix checkboxes color (very dirty hack) */
 input[type=checkbox][disabled].task-list-item-checkbox  {
-    width:0px; height:0px;
-
+    width:0px;
+    height:0px;
 }
 input[type="checkbox"][disabled].task-list-item-checkbox:before {
     content:'\e013';
@@ -72,4 +72,22 @@ input[type=checkbox][disabled][checked].task-list-item-checkbox:after {
     color: red;
     margin-top:-12px;
     margin-left:-4px;
+}
+
+/* wikipedia and wiktionary */
+/* header background */
+#mw-page-base {
+    background-image: none;
+}
+/* header buttons */
+.mw-list-item {
+    background-image: none !important;
+}
+/* spoilers */
+.NavFrame .NavHead {
+    background-image: none !important;
+}
+/* new sidebar bottom glow */
+.vector-toc.vector-pinnable-element:after {
+    background: none !important;
 }
