@@ -138,6 +138,10 @@ imap <C-v> <CMD>:call CompleteInf()<CR>
 
 " fugitive
 
+" gv
+" restore 'o' in visual mode to native behavior
+autocmd FileType GV xunmap <buffer> o
+
 " subversive
 " Replace text-object with content register
 " Usage: ["register]s{motion}
