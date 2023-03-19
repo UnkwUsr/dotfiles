@@ -46,6 +46,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $alt+Return exec st
+# start/focus a terminal with tmux and open new (tmux) window
 set $st_tmux_instance "st_tmux"
 set $tmux_session "main"
 bindsym $mod+Return workspace 2; \
