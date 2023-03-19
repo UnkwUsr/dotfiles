@@ -61,3 +61,9 @@ alias sdd='cd ~/.dotfiles && cd $(dirname $(fzf)) && pwd'
 
 # show my ip and location
 alias myip='curl -s https://api.ip.sb/geoip -A Mozilla | jq'
+
+# move all from another folder to current one and remove empty folder then
+flatdir() {
+    mv "$1"/* ./
+    rmdir "$1"
+}
