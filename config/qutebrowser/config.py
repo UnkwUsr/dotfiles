@@ -123,6 +123,8 @@ config.bind(
 
 # search site in web archive
 config.bind("zs", "open -tr https://web.archive.org/web/*/{url}")
+# open prompt to search in web archive
+config.bind("zS", "set-cmd-text :open -tr https://web.archive.org/web/*/")
 
 # workaround to make youtube redirector work
 c.qt.workarounds.remove_service_workers = True
