@@ -16,9 +16,11 @@ alias ls='LC_COLLATE=C ls --color=auto -h --group-directories-first'
 # verbose
 alias rm='rm -v'
 alias chmod='chmod -v'
-# also prompt on overwrite
+# verbose and prompt on overwrite
 alias cp='cp -vi'
 alias mv='mv -vi'
+# verbose and remove parents
+alias rmdir='rmdir -vp'
 
 # case-sensitivity method 'smart'
 alias rg='rg -S'
