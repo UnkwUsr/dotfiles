@@ -52,3 +52,9 @@ alias sd='cd ~/.dotfiles && fzf \
     | xargs -r vim; cd - > /dev/null'
 # cd to directory of the file in dotfiles
 alias sdd='cd ~/.dotfiles && cd $(dirname $(fzf)) && pwd'
+
+
+#### misc
+
+# show my ip and location
+alias myip='curl -s https://api.ip.sb/geoip -A Mozilla | jq'
