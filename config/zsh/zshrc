@@ -4,5 +4,5 @@ source ~/.local/share/zsh_plugins.sh
 # `antibody bundle < ~/.config/zsh/plugins.txt > ~/.local/share/zsh_plugins.sh`
 
 source ~/.config/zsh/settings.zsh
-source ~/.config/zsh/aliases.zsh
+source ~/.config/zsh/aliases/_main.zsh
 source ~/.config/zsh/keys.zsh
