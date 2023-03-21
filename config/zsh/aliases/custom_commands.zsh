@@ -18,17 +18,20 @@ alias rgf='rg --count'
 
 #### vim+git
 
+# just helper to detect if we are in git repo. Exit zero (ok) if in git,
+# otherwise non-zero (error)
+alias are-we-git="git rev-parse --is-inside-work-tree > /dev/null"
+
 # vim with gv plugin, shows git log
 gv() {
-    git rev-parse --is-inside-work-tree > /dev/null && \
-        vim +":GV $*" +":tabclose 2" +":nmap <buffer> q :q<CR>"
+    are-we-git && vim +":GV $*" +":tabclose 2" +":nmap <buffer> q :q<CR>"
 }
 gva() { gv "--all $*" }
 compdef -e 'words[1]=(git log); service=git; (( CURRENT+=1 )); _git' gv gva
 # Source: https://stackoverflow.com/questions/27226716/custom-zsh-completion-for-a-function-based-on-default-arguments
 
 # vim fzf over git changed files
-alias vfl='vim +":GFiles?"'
+alias vfl='are-we-git && vim +":GFiles?"'
 
 
 #### vim
