@@ -1,0 +1,18 @@
+#!/bin/bash
+# opens qutebrowser today history in vim. Optionally accepts argument for date
+# offset (like "-2 day")
+
+date_shift=""
+if [ -n "$1" ]; then
+    date_shift="'$@',"
+fi
+
+sqlite3 -column ~/.local/share/qutebrowser/history.sqlite \
+    "SELECT
+        strftime('%Y/%m/%d %H:%M', datetime(atime, 'unixepoch', 'localtime')) as date_time,
+        title,
+        url,
+        redirect
+    FROM History
+    WHERE atime > unixepoch('now', $date_shift 'start of day')
+    ORDER BY atime" | nvim +'setlocal nowrap'
