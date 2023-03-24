@@ -84,12 +84,16 @@ function! LspStatus() abort
 endfunction
 
 function! WordsCount() abort
-    let sl = ''
     " if &filetype =~# '\v(tex|markdown)'
-    if &filetype == 'markdown'
-        let sl.=wordcount().words . 'w'
+    if &filetype != 'markdown'
+        return ''
     endif
-    return sl
+    let ws = wordcount()
+    if has_key(ws, 'visual_words')
+        return ws.visual_words . 'vw'
+    else
+        return ws.words . 'w'
+    endif
 endfunction
 
 " fzf
