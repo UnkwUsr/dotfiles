@@ -63,7 +63,7 @@ let g:lightline = {
             \   ],
             \   'right': [
             \       [ 'lines' ],
-            \       [ 'words' ],
+            \       [ 'spell', 'words' ],
             \       [ 'lsp_status', 'filetype' ]
             \   ]
             \ },
@@ -76,6 +76,7 @@ let g:lightline = {
             \ },
             \ 'component_function': {
             \   'lsp_status': 'LspStatus',
+            \   'spell': 'SpellStatus',
             \   'words': 'WordsCount'
             \ }
             \}
@@ -93,6 +94,14 @@ function! WordsCount() abort
         return ws.visual_words . 'vw'
     else
         return ws.words . 'w'
+    endif
+endfunction
+
+function! SpellStatus() abort
+    if &spell == 1
+        return 'spell'
+    else
+        return ''
     endif
 endfunction
 
