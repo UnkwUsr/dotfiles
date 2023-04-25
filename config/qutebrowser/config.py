@@ -125,6 +125,10 @@ config.bind(",N", "hint links spawn -vd mpv {hint-url} --profile=quteb --no-vid"
 # download video from current page
 config.bind(",z", "spawn -vd tm-ytdl '{url}'")
 
+# send current url to inbox
+config.bind(",i", "spawn -vd sh -c 'echo -e \"* {title}\\n  * <{url}>\"\
+                   >> ~/txts/inbox/quteb_saved_urls.md' ;; tab-close")
+
 # enable/disable tor proxy
 config.bind(
     "st", "set content.proxy socks://localhost:9050/ ;; \
