@@ -95,3 +95,6 @@ input[type=checkbox][disabled][checked].task-list-item-checkbox:after {
 /* habr */
 /* recommended articles */
 .tm-page__sidebar > .tm-layout-sidebar {display:none;}
+
+/* fb.ru ad */
+.innerbox__bar-list{display:none;}
