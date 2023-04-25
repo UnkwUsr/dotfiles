@@ -88,7 +88,7 @@ c.url.searchengines = {
     "dr": "https://doc.rust-lang.org/std/index.html?search={}"
 }
 
-c.completion.open_categories = ["quickmarks", "history"]
+c.completion.open_categories = ["history", "quickmarks"]
 
 c.editor.command = [
     "st", "-c", "st_win", "vim", "-f", "{file}", "-c",
