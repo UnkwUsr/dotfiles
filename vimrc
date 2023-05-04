@@ -152,6 +152,9 @@ imap <C-v> <CMD>:call CompleteInf()<CR>
 " always open fugitive in new tab
 cabbrev G tab G
 
+" not fugitive, but for git. proper use `git fxa` alias
+command! -nargs=0 Gfxa term git fxa
+
 " gv
 " restore 'o' in visual mode to native behavior
 autocmd FileType GV xunmap <buffer> o
