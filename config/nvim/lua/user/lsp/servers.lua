@@ -19,6 +19,10 @@ local servers = {
                 format = {
                     enable = false,
                 },
+                workspace = {
+                    -- suppress annoying prompt on each start
+                    checkThirdParty = false,
+                },
                 diagnostics = {
                     globals = {
                         -- neovim api
