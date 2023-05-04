@@ -43,8 +43,10 @@ alias vo='vim +":exe \"normal \<C-o>\""'
 
 # open vim with files selected via fzf
 alias vf='vim $(fzf -m)'
-# fd search for files and open them in vim
+# fd filename search for files and open them in vim
 vfd() { vim $(fd -tf "$@") }
+# rg full-text search for files and open them in vim
+vrg() { vim $(rgf "$@" | cut -d: -f1) }
 
 
 #### dotfiles managing
