@@ -120,6 +120,7 @@ nmap <leader>f? :Helptags<CR>
 " search references for tag/word under cursor
 nmap <leader>fj g*N:Tags <C-r>/<CR>
 nmap <leader>fJ g*N:Rg <C-r>/<CR>
+vmap <leader>fJ "vy:Rg <C-r>v<CR>
 " open list mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
