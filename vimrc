@@ -156,6 +156,7 @@ cabbrev G tab G
 " gv
 " restore 'o' in visual mode to native behavior
 autocmd FileType GV xunmap <buffer> o
+nmap <leader>ag :GV<CR>
 
 " subversive
 " Replace text-object with content register
@@ -203,6 +204,7 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 " markdown-preview
 let g:mkdp_port = '8215'
+nmap <leader>am :MarkdownPreview<CR>
 
 " vifm
 nmap - :Vifm<CR>
