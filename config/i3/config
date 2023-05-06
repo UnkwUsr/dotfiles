@@ -47,12 +47,12 @@ floating_modifier $mod
 # start a terminal
 bindsym $alt+Return exec st
 # start/focus a terminal with tmux and open new (tmux) window
-set $st_tmux_instance "st_tmux"
+set $st_tmux_class "st_tmux"
 set $tmux_session "main"
 bindsym $mod+Return workspace 2; \
-            exec xdotool search $st_tmux_instance windowactivate 2> /dev/null \
+            exec xdotool search $st_tmux_class windowactivate 2> /dev/null \
             && tmux new-window -t $tmux_session \
-                || st -n $st_tmux_instance -e tmux new-session -As $tmux_session
+                || st -c $st_tmux_class -e tmux new-session -As $tmux_session
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -342,6 +342,7 @@ for_window [class="^Peek$"] floating enable, resize set 640 480, move position c
 for_window [class="^Pavucontrol$"] floating enable, sticky enable, resize set 1280 720, move position center
 ## custom windows
 for_window [class="^st_win$"] floating enable, sticky enable, resize set 640 480, move position center, border pixel 3
+assign [class="^st_tmux$"] 2
 assign [instance="^quteb-mpv$"] 0
 assign [instance="^vifm-mpv$"] 3
 ## games
