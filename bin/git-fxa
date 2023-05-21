@@ -1,9 +1,13 @@
 #!/bin/bash
 # create fixup commit with commit picked with fzf
 
+preview_cmd='git diff --staged --color=always \
+    && echo -e "\n" \
+    && git show --color=always {1}'
+
 git rev-parse --is-inside-work-tree > /dev/null \
     && (git diff --staged --quiet \
         && echo nothing staged \
         || git log --pretty=oneline --abbrev-commit origin..HEAD \
-            | fzf --preview='git show --color=always {1}' \
+            | fzf --preview="$preview_cmd" \
             | cut -d' ' -f1 | xargs git commit --fixup)
