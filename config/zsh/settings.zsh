@@ -12,6 +12,9 @@ setopt INC_APPEND_HISTORY
 # ignore duplicates
 setopt HIST_IGNORE_ALL_DUPS
 
+# ignore commands starts with space
+setopt HIST_IGNORE_SPACE
+
 
 ### completion
 
