@@ -109,5 +109,5 @@ au DirEnter /mnt/**/* setlocal previewprg='test -d "%c" && sh -c "$dir_ls_previe
 
 
 " plugins. For details see install_deps.sh file in repo root
-plugin load
-set viewcolumns=-{NameLink},{LsTime},10{LsSize}
+" plugin load
+" set viewcolumns=-{NameLink},{LsTime},10{LsSize}
