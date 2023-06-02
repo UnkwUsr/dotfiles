@@ -28,6 +28,7 @@ redirs = {
     "www.reddit.com": "teddit.net",
     "twitter.com": "nitter.net",
     "imgur.com": "imgin.voidnet.tech",
+    "www.quora.com": "quora.vern.cc",
 
     # NOTE: to make youtube redirector work, you should clean service workers
     "www.youtube.com": YOUTUBE_REDIR,
