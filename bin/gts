@@ -32,6 +32,6 @@ do
     total_count=$((total_count+1))
     path_project=${path_dotgit%/*/*}
     printinfo $path_project
-done <<< $(fd -td -H -g .git "$TARGET_PATH")
+done <<< $(fd -td --no-ignore-vcs -H -g .git "$TARGET_PATH")
 
 echo Total repos: "$total_count"
