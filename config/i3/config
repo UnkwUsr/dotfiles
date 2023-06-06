@@ -270,7 +270,7 @@ bindsym $mod+ctrl+bracketright exec pkill -x simplescreenrec
 bindsym $mod+m exec $st_win_with 'TERM=xterm htop'
 
 # open list of running dalarma's
-bindsym $mod+a exec $st_win_with 'TERM=xterm htop -F dalarma -s PID'
+bindsym $mod+a exec $st_win_with "fdalarma"
 
 # lock screen
 bindsym $mod+i exec --no-startup-id "sleep 0.25 && xset dpms force suspend"
