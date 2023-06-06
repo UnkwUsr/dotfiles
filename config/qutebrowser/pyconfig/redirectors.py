@@ -30,6 +30,8 @@ redirs = {
     "twitter.com": "nitter.net",
     "imgur.com": "imgin.voidnet.tech",
     "www.quora.com": "quora.vern.cc",
+    # instances list: https://github.com/realaravinth/libmedium#instances
+    "medium.com": "md.vern.cc",
 
     # NOTE: to make youtube redirector work, you should clean service workers
     "www.youtube.com": YOUTUBE_REDIR,
