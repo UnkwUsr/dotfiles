@@ -78,6 +78,13 @@ fileviewer */,.*/ sh -c "$dir_ls_preview_cmd %c"
 " fileviewer * file -b %c
 fileviewer * bat --color=always %c
 
+" special case for /mnt/*: disable previewing of files
+set slowfs=/mnt/
+au DirEnter /mnt/**/* setlocal previewprg='test -d "%c" && sh -c "$dir_ls_preview_cmd %c" || echo preview disabled in /mnt/'
+" P.S. `setlocal` sets options for current directory only, so we don't need to
+" manually unset this when we are entering other dirs after entered /mnt
+
+
 " plugins. For details see install_deps.sh file in repo root
 plugin load
 set viewcolumns=-{NameLink},{LsTime},10{LsSize}
