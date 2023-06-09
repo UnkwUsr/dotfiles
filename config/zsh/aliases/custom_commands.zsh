@@ -33,6 +33,9 @@ compdef -e 'words[1]=(git log); service=git; (( CURRENT+=1 )); _git' gv gva
 # vim fzf over git changed files
 alias vfl='are-we-git && vim +":GFiles?"'
 
+# cd to root of git repo
+alias cdg='_t=$(git rev-parse --show-toplevel) && cd "$_t" && pwd'
+
 
 #### vim
 
