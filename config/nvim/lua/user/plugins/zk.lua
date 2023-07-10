@@ -4,6 +4,30 @@ require("zk.commands").add("ZkOrphans", function(options)
     require("zk").edit(options, { title = "Zk Orphans" })
 end)
 
+-- improved `:ZkBacklinks`:
+-- * jump to usage
+-- * auto select if there is only one
+require("zk.commands").add("ZkMyBacklinks", function(options)
+    options = vim.tbl_extend(
+        "force",
+        { linkTo = { vim.api.nvim_buf_get_name(0) } },
+        options or {}
+    )
+    local picker_options = {
+        title = "Zk Backlinks",
+        fzf_options = { "--select-1" },
+    }
+
+    local parent_filename = vim.api.nvim_buf_get_name(0):match(".*/(.*).md$")
+
+    require("zk").pick_notes(options, picker_options, function(notes)
+        for _, note in ipairs(notes) do
+            vim.cmd("e " .. note.absPath)
+            vim.cmd("/(" .. parent_filename .. ")")
+        end
+    end)
+end)
+
 local function map_keys(bufnr)
     local function keymap(mode, key, cmd)
         local opts = { noremap = true, silent = false }
@@ -21,7 +45,7 @@ local function map_keys(bufnr)
 
     -- links/backlinks
     keymap("n", "<leader>zl", "<Cmd>ZkLinks<CR>")
-    keymap("n", "<leader>zb", "<Cmd>ZkBacklinks<CR>")
+    keymap("n", "<leader>zb", "<Cmd>ZkMyBacklinks<CR>")
 
     -- orphans
     keymap("n", "<leader>zo", "<Cmd>ZkOrphans<CR>")
