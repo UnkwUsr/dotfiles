@@ -398,6 +398,11 @@ au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, o
 " fzf over files in ~/.dotfiles
 command! -nargs=0 Sd cd ~/.dotfiles/ | FZF
 
+" accepts vim command, executes it and puts output to the new buffer for vim
+" natural navigating, instead of crapped view window
+" Source: https://vi.stackexchange.com/a/8379/46823
+command! -nargs=+ -complete=command Redir let s:reg = @@ | redir @"> | silent execute <q-args> | redir END | new | pu | 1,2d_ | let @@ = s:reg
+
 " indent settings
 set tabstop=4
 set shiftwidth=4
