@@ -23,8 +23,10 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 # make go follow xdg
 export GOPATH="$XDG_DATA_HOME"/go
 
-# colorize broken (orphan) symlinks
-export LS_COLORS='or=40;31;01'
+# colorize:
+# * broken (orphan) symlinks
+# * files with more than 1 hardlink
+export LS_COLORS='or=40;31;01:mh=44;37'
 
 # fzf settings
 export FZF_DEFAULT_COMMAND='fd --type file --type symlink'
