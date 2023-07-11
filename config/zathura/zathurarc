@@ -1,1 +1,3 @@
+set selection-clipboard clipboard
+
 map R rotate rotate-ccw 90
