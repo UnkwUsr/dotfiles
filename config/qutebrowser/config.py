@@ -107,6 +107,7 @@ config.bind("<Alt+Backspace>", "rl-rubout ' '", mode='command')
 config.bind("<Ctrl+shift+e>", "edit-command", mode='command')
 
 config.unbind('<Ctrl-v>', mode='normal')
+config.unbind('.', mode='normal')
 
 config.bind(
     "<ESC>",
