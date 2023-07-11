@@ -13,7 +13,7 @@ alias dc='cd'
 alias fm='vifm'
 
 # show files with matches
-alias rgf='rg --count'
+alias rgf='rg --files-with-matches'
 
 
 #### vim+git
