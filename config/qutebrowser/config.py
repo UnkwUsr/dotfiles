@@ -41,8 +41,6 @@ c.content.user_stylesheets.append("~/.config/qutebrowser/styles.css")
 # see more parameters we can block at
 # https://github.com/qutebrowser/qutebrowser/issues/3648
 config.set('content.javascript.enabled', False, 'www.google.com/search*')
-# config.set('content.javascript.enabled', False, 'habr.com')
-config.set('content.javascript.enabled', False, '*.archlinux.org')
 
 # allow clipboard access for some sites
 config.set('content.javascript.can_access_clipboard', True, 'github.com')
