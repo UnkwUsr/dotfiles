@@ -124,11 +124,6 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 imap <leader><tab> <plug>(fzf-maps-i)
-" complete word from dictionary
-" imap <c-x><c-k> <plug>(fzf-complete-word)
-" complete path ('fd' instead of 'find')
-" imap <c-x><c-f> <plug>(fzf-complete-path)
-inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
 
 function! PInsert2(item)
     let @z=a:item
