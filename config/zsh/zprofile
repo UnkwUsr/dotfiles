@@ -15,10 +15,13 @@ export PATH="$HOME/.cabal/bin:$PATH"
 
 # xdg specification
 export XDG_CONFIG_HOME=~/.config
+export XDG_DATA_HOME=~/.local/share
 # make docker follow xdg
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 # make X11 follow xdg
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+# make go follow xdg
+export GOPATH="$XDG_DATA_HOME"/go
 
 # colorize broken (orphan) symlinks
 export LS_COLORS='or=40;31;01'
