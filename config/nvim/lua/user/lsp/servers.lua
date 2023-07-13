@@ -25,19 +25,12 @@ local servers = {
         settings = {
             Lua = {
                 format = {
+                    -- I use stylua for format
                     enable = false,
                 },
                 workspace = {
                     -- suppress annoying prompt on each start
                     checkThirdParty = false,
-                },
-                diagnostics = {
-                    globals = {
-                        -- neovim api
-                        "vim",
-                        -- mpv api
-                        "mp",
-                    },
                 },
             },
         },
