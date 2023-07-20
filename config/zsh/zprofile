@@ -36,6 +36,10 @@ export FZF_DEFAULT_OPTS="--no-mouse --bind ctrl-s:toggle-sort \
 # add ripgrep to 'progress' util
 export PROGRESS_ARGS='-a rg'
 
+# set yay (aur helper) build folder. P.S. but note that it can mess up if RAM
+# is over
+export AURDEST="/tmp/yay-build"
+
 # automatic startx on tty1
 if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
       exec startx "$XDG_CONFIG_HOME/X11/xinitrc" -- -keeptty &> ~/.local/share/startx.log
