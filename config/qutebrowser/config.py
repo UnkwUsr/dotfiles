@@ -114,9 +114,12 @@ config.bind(
     "clear-keychain ;; search ;; fullscreen --leave ;; clear-messages")
 
 
-# open in video player
+# open in mpv (video player)
 config.bind(",m", "spawn -vd mpv {url} --profile=quteb")
 config.bind(",M", "hint links spawn -vd mpv {hint-url} --profile=quteb")
+# open in mpv but play only audio
+config.bind(",n", "spawn -vd mpv {url} --profile=quteb --no-vid")
+config.bind(",N", "hint links spawn -vd mpv {hint-url} --profile=quteb --no-vid")  # noqa: E501
 
 # enable/disable tor proxy
 config.bind(
