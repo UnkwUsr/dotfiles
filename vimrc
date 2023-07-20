@@ -389,6 +389,8 @@ autocmd FileType rust setlocal colorcolumn=100
 
 " auto enter insert mode on term open
 autocmd TermOpen * startinsert
+" hide line numbers in terminal
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 " highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
