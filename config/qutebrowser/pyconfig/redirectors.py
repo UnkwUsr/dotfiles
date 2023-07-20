@@ -12,6 +12,9 @@ def try_redirects(info: qutebrowser.api.interceptor.Request):
 
     redir_to = redirs[host]
 
+    if redir_to == "my.libreddit" and info.request_url.scheme() == "https":
+        info.request_url.setScheme("http")
+
     info.request_url.setHost(redir_to)
     message.info("redirect " + host)
 
@@ -24,9 +27,12 @@ def try_redirects(info: qutebrowser.api.interceptor.Request):
 
 
 # more services: https://github.com/pluja/awesome-privacy
+# fmt: off
 redirs = {
-    "reddit.com": "teddit.net",
-    "www.reddit.com": "teddit.net",
+    # my self hosted
+    "reddit.com": "my.libreddit",
+    "www.reddit.com": "my.libreddit",
+
     "twitter.com": "nitter.cz",
     "imgur.com": "imgin.voidnet.tech",
     "www.quora.com": "quetre.iket.me",
@@ -39,12 +45,14 @@ redirs = {
     "youtube.com": YOUTUBE_REDIR,
     "youtu.be": YOUTUBE_REDIR,
 }
+# fmt: on
 
 # remove previous registered interceptor (in case when run :config-source
 # command)
 if hasattr(qutebrowser.api, "redirector_intercept_func"):
     qutebrowser.api.interceptor.interceptors._interceptors.remove(
-        qutebrowser.api.redirector_intercept_func)
+        qutebrowser.api.redirector_intercept_func
+    )
 
 qutebrowser.api.redirector_intercept_func = try_redirects
 qutebrowser.api.interceptor.register(try_redirects)
