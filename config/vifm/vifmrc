@@ -7,6 +7,9 @@ set vimhelp
 " hide "../"
 set dotdirs=
 
+" do not navigate to directory of symlink
+set nofollowlinks
+
 " incremental search
 set incsearch
 " smart case
