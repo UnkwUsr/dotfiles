@@ -5,8 +5,9 @@
 
 # TODO: gts should say how many dirt repos
 
-
 # TODO: I think maybe drop first arg "path"?
+
+# good complementer: gfold (https://github.com/nickgerace/gfold)
 
 if [ -z "$1" ]; then
     echo "Usage: $0 path [optional cmds]"

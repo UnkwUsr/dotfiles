@@ -8,7 +8,9 @@
 [am]
     threeWay = true
 [rebase]
+    # show missed commits after rebase
     missingCommitsCheck = warn
+    # auto squash marked commits ("fixup!", etc.)
     autoSquash = true
 
 [alias]
@@ -32,6 +34,7 @@
 
     # see also: ~/.bin/git-fxa
 
+# setup diff-so-fancy
 [core]
     pager = diff-so-fancy | less --tabs=4 -R
 [color]
