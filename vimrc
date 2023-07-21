@@ -157,6 +157,17 @@ command! -nargs=0 Gfxa term git fxa
 " gv
 " restore 'o' in visual mode to native behavior
 autocmd FileType GV xunmap <buffer> o
+" override bind 'O'. Enable showing root commit and add stat info
+autocmd FileType GV nnoremap <silent> <buffer> O :call <sid>mygvopen()<cr>
+
+function! s:mygvopen()
+  let sha = gv#sha()
+  if !empty(sha)
+      execute 'tab Git show --stat --patch --pretty="format:tree %T%nparent %P%nauthor %an <%ae> %ad%ncommitter %cn <%ce> %cd%n%n%s%n%n%b" ' . sha
+      execute 'file git show ' . sha
+  endif
+endfunction
+
 nmap <leader>ag :GV<CR>
 
 " subversive
