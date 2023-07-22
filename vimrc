@@ -130,17 +130,6 @@ function! PInsert2(item)
     norm "zp
     call feedkeys('a')
 endfunction
-function! CompleteInf()
-    let nl=[]
-    let l=complete_info()
-    for k in l['items']
-        call add(nl, k['word']. ' : ' .k['info'] . ' '. k['menu'] )
-    endfor
-    call fzf#vim#complete(fzf#wrap({ 'source': nl,'reducer': { lines -> split(lines[0], '\zs :')[0] },'sink':function('PInsert2')}))
-endfunction
-
-" open fzf with current completion list
-imap <C-v> <CMD>:call CompleteInf()<CR>
 
 " commentary
 
