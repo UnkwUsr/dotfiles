@@ -10,25 +10,28 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
             local current_line = vim.fn.getline(".")
             local mtch = string.match(current_line, "^#\tmodified:   (.*)")
 
-            mtch = mtch:gsub("^config/", "")
+            -- stylua: ignore start
+            local replaced = mtch
+                :gsub("^config/", "")
 
-            mtch = mtch:gsub("^qutebrowser/", "quteb/")
-            mtch = mtch:gsub("^quteb/pyconfig/", "quteb/")
+                :gsub("^qutebrowser/", "quteb/")
+                :gsub("^quteb/pyconfig/", "quteb/")
 
-            mtch = mtch:gsub("^nvim/lua/user/", "nvim/")
-            mtch = mtch:gsub("^nvim/init.lua", "nvim")
+                :gsub("^nvim/lua/user/", "nvim/")
+                :gsub("^nvim/init.lua", "nvim")
 
-            -- remove extensions
-            mtch = mtch:gsub("%..+$", "")
+                -- remove extensions
+                :gsub("%..+$", "")
 
-            -- remove trailing in like "i3/config"
-            mtch = mtch:gsub("/config$", "")
-            -- remove trailing in like "tmux/tmux"
-            mtch = mtch:gsub("([^/]+)/%1$", "%1")
-            -- remove trailing in like "vifm/vifmrc"
-            mtch = mtch:gsub("([^/]+)/%1rc$", "%1")
+                -- remove trailing in like "i3/config"
+                :gsub("/config$", "")
+                -- remove trailing in like "tmux/tmux"
+                :gsub("([^/]+)/%1$", "%1")
+                -- remove trailing in like "vifm/vifmrc"
+                :gsub("([^/]+)/%1rc$", "%1")
+            -- stylua: ignore end
 
-            local final = "WIP [" .. mtch .. "] "
+            local final = "WIP [" .. replaced .. "] "
             final = vim.fn.setline(1, final)
             vim.fn.cursor({ 1, 99 })
         end
