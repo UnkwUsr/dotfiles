@@ -147,6 +147,8 @@ imap <C-v> <CMD>:call CompleteInf()<CR>
 " fugitive
 " always open fugitive in new tab
 cabbrev G tab G
+" map q to exit. Complements gv.vim behavior
+autocmd FileType git nmap <buffer> q :q<CR>
 
 " not fugitive, but for git. proper use `git fxa` alias
 command! -nargs=0 Gfxa term git fxa
