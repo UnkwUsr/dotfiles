@@ -1,8 +1,8 @@
 import qutebrowser.api.interceptor
 from qutebrowser.utils import message
 
-# choose one on https://api.invidious.io
-YOUTUBE_REDIR = "invidious.sethforprivacy.com"
+# instances list: https://api.invidious.io
+YOUTUBE_REDIR = "yewtu.be"
 
 
 def try_redirects(info: qutebrowser.api.interceptor.Request):
@@ -23,6 +23,7 @@ def try_redirects(info: qutebrowser.api.interceptor.Request):
         pass
 
 
+# more services: https://github.com/pluja/awesome-privacy
 redirs = {
     "reddit.com": "teddit.net",
     "www.reddit.com": "teddit.net",
