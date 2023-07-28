@@ -27,11 +27,11 @@ def try_redirects(info: qutebrowser.api.interceptor.Request):
 redirs = {
     "reddit.com": "teddit.net",
     "www.reddit.com": "teddit.net",
-    "twitter.com": "nitter.net",
+    "twitter.com": "nitter.cz",
     "imgur.com": "imgin.voidnet.tech",
-    "www.quora.com": "quora.vern.cc",
+    "www.quora.com": "quetre.iket.me",
     # instances list: https://github.com/realaravinth/libmedium#instances
-    "medium.com": "md.vern.cc",
+    "medium.com": "medium.hostux.net",
 
     # NOTE: to make youtube redirector work, you should clean service workers
     "www.youtube.com": YOUTUBE_REDIR,
