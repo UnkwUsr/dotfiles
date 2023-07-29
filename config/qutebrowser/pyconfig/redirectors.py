@@ -32,6 +32,7 @@ redirs = {
     "www.quora.com": "quetre.iket.me",
     # instances list: https://github.com/realaravinth/libmedium#instances
     "medium.com": "medium.hostux.net",
+    "translate.google.com": "lingva.lunar.icu",
 
     # NOTE: to make youtube redirector work, you should clean service workers
     "www.youtube.com": YOUTUBE_REDIR,
