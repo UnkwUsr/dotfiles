@@ -27,6 +27,7 @@
     rco = rebase --continue
     roc = rebase --continue
     rab = rebase --abort
+    cp = cherry-pick
     d = diff
     ds = diff --staged
     ref = reflog --date=relative
