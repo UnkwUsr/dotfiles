@@ -40,6 +40,8 @@ unsetopt BANG_HIST
 
 # do not overwrite existing files with `>`
 setopt NOCLOBBER
+# but allow creating files if not exist with `>>`
+setopt APPEND_CREATE
 
 
 ### prompt
