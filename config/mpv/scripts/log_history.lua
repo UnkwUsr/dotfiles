@@ -1,4 +1,7 @@
 -- "~/.config/mpv/history" by default
+-- P.S. sometimes this file may be messed with encodings and vim will fail to
+-- determine it correct. It this case do `:set fileencoding=utf-8` and write
+-- file
 local HISTFILE = mp.command_native({ "expand-path", "~~home/" }) .. "/history"
 
 -- log format:
