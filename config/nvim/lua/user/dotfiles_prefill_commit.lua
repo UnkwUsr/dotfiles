@@ -4,11 +4,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         if
             string.match(vim.fn.expand("%:p:h"), ".dotfiles/.git")
             and vim.fn.getline(1) == ""
-            and vim.fn.search("^# Changes to be committed:")
-            and vim.fn.search("^#\tmodified:")
+            and vim.fn.search("^# Changes to be committed:", "n")
+            and vim.fn.search("^#\tmodified:", "n")
         then
             local current_line = vim.fn.getline(".")
             local mtch = string.match(current_line, "^#\tmodified:   (.*)")
+            if not mtch then
+                return
+            end
 
             -- stylua: ignore start
             local replaced = mtch
