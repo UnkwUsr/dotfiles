@@ -69,8 +69,6 @@ c.window.hide_decoration = True
 
 c.downloads.location.suggestion = "filename"
 
-c.input.insert_mode.leave_on_load = True
-
 c.search.wrap = False
 
 c.spellcheck.languages = ["en-US", "ru-RU"]
