@@ -32,6 +32,7 @@
     ds = diff --staged
     ref = reflog --date=relative
     unstage = restore --staged
+    clown = clone --depth 1
 
     # see also: ~/.bin/git-fxa
 
