@@ -5,7 +5,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
             string.match(vim.fn.expand("%:p:h"), ".dotfiles/.git")
             and vim.fn.getline(1) == ""
             and vim.fn.search("^# Changes to be committed:", "n")
-            and vim.fn.search("^#\tmodified:", "n")
+            and vim.fn.search(
+                "^#\tmodified:",
+                "",
+                -- searching will be stopped after this line
+                vim.fn.search("^# Changes not staged for commit:", "n")
+            )
         then
             local current_line = vim.fn.getline(".")
             local mtch = string.match(current_line, "^#\tmodified:   (.*)")
