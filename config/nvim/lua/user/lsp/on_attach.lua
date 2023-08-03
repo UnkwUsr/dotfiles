@@ -34,6 +34,12 @@ local function map_keys(client, bufnr)
 end
 
 local on_attach = function(client, bufnr)
+    -- disable formatting for tsserver. I use deno_fmt from null-ls
+    if client.name == "tsserver" then
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end
+
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
     map_keys(client, bufnr)
