@@ -54,7 +54,7 @@ alias vf='fzf -m | all_open_in_vim'
 # fd filename search for files and open them in vim
 vfd() { fd -tf "$@" | all_open_in_vim }
 # rg full-text search for files and open them in vim
-vrg() { rgf "$@" | cut -d: -f1 | all_open_in_vim }
+vrg() { rgf "$@" | all_open_in_vim }
 
 
 #### dotfiles managing
