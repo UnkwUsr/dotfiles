@@ -47,12 +47,14 @@ alias vh='vim +":History"'
 # open vim recent file
 alias vo='vim +":exe \"normal \<C-o>\""'
 
+# helper alias, open all files one per line in vim
+alias all_open_in_vim='xargs -d "\n" -r vim'
 # open vim with files selected via fzf
-alias vf='vim $(fzf -m)'
+alias vf='fzf -m | all_open_in_vim'
 # fd filename search for files and open them in vim
-vfd() { vim $(fd -tf "$@") }
+vfd() { fd -tf "$@" | all_open_in_vim }
 # rg full-text search for files and open them in vim
-vrg() { vim $(rgf "$@" | cut -d: -f1) }
+vrg() { rgf "$@" | cut -d: -f1 | all_open_in_vim }
 
 
 #### dotfiles managing
@@ -62,7 +64,7 @@ alias sd='cd ~/.dotfiles && fzf \
     --preview="bat {} --style changes --decorations always --color always" \
     | xargs -r vim; cd - > /dev/null'
 # cd to directory of the file in dotfiles
-alias sdd='cd ~/.dotfiles && cd $(dirname $(fzf)) && pwd'
+alias sdd='cd ~/.dotfiles && cd "$(dirname "$(fzf)")" && pwd'
 
 
 #### misc
