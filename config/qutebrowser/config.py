@@ -27,6 +27,7 @@ c.content.geolocation = False
 c.content.notifications.enabled = False
 c.content.cookies.accept = "no-unknown-3rdparty"
 c.content.register_protocol_handler = False
+c.content.webrtc_ip_handling_policy = "disable-non-proxied-udp"
 
 c.content.blocking.method = "both"
 config_hack.unset("content.blocking.adblock.lists")
