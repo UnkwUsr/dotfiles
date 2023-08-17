@@ -30,6 +30,9 @@ select {
 /* genius lyrics*/
 /* ad */
 *[data-exclude-from-selection="true"] {display:none;}
+/* annotate popup */
+button.LyricsHighlightTooltip__Container-sc-16s2xh1-0 {display:none;}
+
 
 /* gismeteo */
 /* ad, news */
