@@ -101,7 +101,7 @@ config.bind("ym", "yank inline '* {title}: {url}'")
 
 config.bind("<Ctrl+w>", "rl-backward-kill-word", mode='command')
 config.bind("<Alt+Backspace>", "rl-rubout ' '", mode='command')
-config.bind("<Ctrl+shift+e>", "edit-command", mode='command')
+config.bind("<Ctrl+shift+e>", "cmd-edit", mode='command')
 
 config.unbind('<Ctrl-v>', mode='normal')
 config.unbind('.', mode='normal')
@@ -129,7 +129,7 @@ config.bind(
 # search site in web archive
 config.bind("zs", "open -tr https://web.archive.org/web/*/{url}")
 # open prompt to search in web archive
-config.bind("zS", "set-cmd-text :open -tr https://web.archive.org/web/*/")
+config.bind("zS", "cmd-set-text :open -tr https://web.archive.org/web/*/")
 # save current url in web archive
 config.bind("zd", "open -tr https://web.archive.org/save/{url}")
 
