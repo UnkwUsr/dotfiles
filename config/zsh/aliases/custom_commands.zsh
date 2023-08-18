@@ -15,6 +15,9 @@ alias fm='vifm'
 # show files with matches
 alias rgf='rg --files-with-matches'
 
+# download audio-only with yt-dlp
+alias yta="yt-dlp --embed-thumbnail --extract-audio --format=bestaudio"
+
 
 #### vim+git
 
