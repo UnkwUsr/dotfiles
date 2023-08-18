@@ -52,7 +52,7 @@ c.fonts.web.size.minimum = 17
 c.completion.shrink = True
 c.completion.height = "40%"
 
-c.statusbar.widgets = ["keypress", "url", "scroll", "progress"]
+c.statusbar.widgets = ["search_match", "keypress", "url", "scroll", "progress"]
 
 c.tabs.mousewheel_switching = False
 c.tabs.title.format = "{audio}{current_title}"
