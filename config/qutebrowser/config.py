@@ -43,9 +43,6 @@ c.content.user_stylesheets.append("~/.config/qutebrowser/styles.css")
 # https://github.com/qutebrowser/qutebrowser/issues/3648
 config.set('content.javascript.enabled', False, 'www.google.com/search*')
 
-# allow clipboard access for some sites
-config.set('content.javascript.can_access_clipboard', True, 'github.com')
-
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.bg = "black"
