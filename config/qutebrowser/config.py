@@ -48,6 +48,7 @@ c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.bg = "black"
 
 c.fonts.web.size.minimum = 17
+c.zoom.default = 70
 
 c.completion.shrink = True
 c.completion.height = "40%"
