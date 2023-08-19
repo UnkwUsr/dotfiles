@@ -1,5 +1,8 @@
 -- shortcut for pretty print
-P = vim.print
+function P(a)
+    print(vim.inspect(a))
+    return a
+end
 
 vim.cmd("source ~/.vimrc")
 
