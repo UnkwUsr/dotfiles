@@ -6,6 +6,20 @@
 #
 # You can put this to autostart as a systemd service. To be run from root it
 # should be in /etc/systemd/system/
+#
+# Example:
+#
+# ```
+# [Unit]
+# Description=Log nvme disk usage
+#
+# [Service]
+# Type=oneshot
+# ExecStart=/usr/local/sbin/log_smartctl /dev/<your_disk>
+#
+# [Install]
+# WantedBy=multi-user.target
+# ```
 
 LOGFILE="/var/log/smartctl_log"
 
