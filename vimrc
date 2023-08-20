@@ -1,5 +1,6 @@
 call plug#begin()
 
+Plug 'srcery-colors/srcery-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -19,12 +20,6 @@ Plug 'windwp/nvim-autopairs'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'vifm/vifm.vim'
 Plug 'stsewd/gx-extended.vim'
-
-" Plug 'altercation/vim-colors-solarized'
-" Plug 'tomasr/molokai'
-Plug 'srcery-colors/srcery-vim'
-" Plug 'kaicataldo/material.vim'
-" Plug 'mhartington/oceanic-next'
 
 " langs specific plugins
 Plug 'chrisbra/csv.vim'
@@ -49,6 +44,16 @@ Plug 'nvim-lua/plenary.nvim'
 
 call plug#end()
 
+
+" srcery (colorscheme)
+colorscheme srcery
+" fix spell color
+hi SpellBad ctermfg=3
+" fix colors for Haskell
+hi! link haskellType SrceryYellow
+hi! link haskellOperators SrceryYellow
+hi! link haskellConditional SrceryCyan
+hi! link haskellLet SrceryYellow
 
 " lightline
 set laststatus=3
@@ -432,26 +437,6 @@ let &titleold=$TERM
 
 " disable mouse support
 set mouse=
-
-" enable syntax highlight and theme
-syntax on
-set background=dark
-" colorscheme ron
-
-" set termguicolors
-" colorscheme solarized
-" colorscheme molokai
-
-colorscheme srcery
-hi SpellBad ctermfg=3
-
-" fix srcery colorscheme for Haskell
-hi! link haskellType SrceryYellow
-hi! link haskellOperators SrceryYellow
-hi! link haskellConditional SrceryCyan
-hi! link haskellLet SrceryYellow
-
-" colorscheme material
 
 " disable syntax highlighting in diff mode (vimdiff)
 if &diff
