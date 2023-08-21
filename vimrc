@@ -431,6 +431,15 @@ autocmd VimLeave * call chansend(v:stderr, "\033]7;\033\\")
 " highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
 
+" auto jump to last cursor position in each opened file (from benknoble's dotfiles)
+augroup vimrc_last_cursor_position
+  autocmd!
+  autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'gitcommit' |
+        \   exe "normal! g`\"" |
+        \ endif
+augroup end
+
 " fzf over files in ~/.dotfiles
 command! -nargs=0 Sd cd ~/.dotfiles/ | FZF
 
