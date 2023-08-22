@@ -12,6 +12,9 @@ alias dc='cd'
 # file browser
 alias fm='vifm'
 
+# run mpv in background
+mpb() { mpv --loop-playlist=inf --force-window=immediate "$@" & disown }
+
 # show files with matches
 alias rgf='rg --files-with-matches'
 
