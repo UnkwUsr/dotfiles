@@ -17,6 +17,13 @@ alias rgf='rg --files-with-matches'
 
 # download audio-only with yt-dlp
 alias yta="yt-dlp --embed-thumbnail --extract-audio --format=bestaudio"
+# apply yta on files already downloaded as videos
+ytaf() {
+    for filename in "$@"
+    do
+        yta $(sed 's/^.*\[\(.*\)\]\..*/\1/g' <(<<<${filename}))
+    done
+}
 
 
 #### vim+git
