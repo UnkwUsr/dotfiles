@@ -22,7 +22,7 @@ Plug 'vifm/vifm.vim'
 Plug 'stsewd/gx-extended.vim'
 
 " langs specific plugins
-Plug 'chrisbra/csv.vim'
+" Plug 'chrisbra/csv.vim'
 Plug 'tidalcycles/vim-tidal'
 Plug 'neovimhaskell/haskell-vim'
 " parenthesis guesser for lisp-like syntax languages
