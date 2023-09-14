@@ -200,6 +200,7 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 " markdown-preview
 let g:mkdp_port = '8215'
+let g:mkdp_echo_preview_url = 1
 nmap <leader>am :MarkdownPreview<CR>
 
 " vifm
