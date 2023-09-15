@@ -50,10 +50,13 @@ colorscheme srcery
 " fix spell color
 hi SpellBad ctermfg=3
 " fix colors for Haskell
+" TODO: probably this not applying now
 hi! link haskellType SrceryYellow
 hi! link haskellOperators SrceryYellow
 hi! link haskellConditional SrceryCyan
 hi! link haskellLet SrceryYellow
+" fix markdown list marker color
+autocmd FileType markdown hi! link markdownListMarker SrceryYellow
 
 " lightline
 set laststatus=3
