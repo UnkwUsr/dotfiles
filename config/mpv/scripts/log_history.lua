@@ -31,6 +31,11 @@ local function logline(path, title)
 end
 
 local function on_title_change(_, new_title)
+    -- this is the first empty init event, ignore it
+    if new_title == nil then
+        return
+    end
+
     local filename = mp.get_property("filename")
     if new_title == filename then
         return
