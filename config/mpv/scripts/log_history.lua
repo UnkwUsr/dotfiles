@@ -45,8 +45,21 @@ local function on_title_change(_, new_title)
         return
     end
 
-    local filename = mp.get_property("filename")
-    if new_title == filename then
+    local cur_filename = mp.get_property("filename")
+    if new_title == cur_filename then
+        -- there is a problem in that on opening file this event sends title
+        -- equals to filename. And then a bit later mpv parses title from file
+        -- and sends this event again already with right title. And real
+        -- problem in that not every file have right title, so, for some files
+        -- this event fires only once, with title equals to filename.
+        --
+        -- I decided to log the case when title equas to filename, so we not
+        -- lose valuable entries of any files
+        --
+        -- and yes, we taking that if file have right title, then in log file
+        -- there will be 2 entries: first fired on file opening, and second
+        -- with right title
+        logline("", new_title)
         return
     end
 
