@@ -5,7 +5,7 @@
 if [ -n "$1" ]; then
     filename=$1.wav
 else
-    filename="micrec_$(date +%Y_%m_%d_%H-%m_%N)"
+    filename="micrec_$(date +%Y_%m_%d_%H-%M_%N)"
     filename+=.wav
 fi
 
