@@ -17,6 +17,7 @@ local servers = {
                 plugins = {
                     flake8 = { enabled = true },
                     pyflakes = { enabled = false },
+                    pycodestyle = { enabled = false },
                 },
             },
         },
