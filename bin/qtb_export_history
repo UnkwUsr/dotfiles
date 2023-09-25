@@ -15,4 +15,4 @@ sqlite3 -column ~/.local/share/qutebrowser/history.sqlite \
         redirect
     FROM History
     WHERE atime > unixepoch('now', $date_shift 'start of day')
-    ORDER BY atime" | nvim +'setlocal nowrap'
+    ORDER BY atime" | split_much_delta | nvim +'setlocal nowrap'
