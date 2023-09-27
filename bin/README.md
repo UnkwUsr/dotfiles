@@ -24,6 +24,10 @@ control specific sink-input (aka application) volume level
 
 toggle touchpad feature "lock on type"
 
+## git-fxa
+
+create fixup commit with commit picked with fzf
+
 ## zdoc
 
 open docx documents in zathura (like pdf)
