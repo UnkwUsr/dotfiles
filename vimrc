@@ -377,9 +377,11 @@ function! Unmatch_trailing_spaces()
         unlet w:match_trailing_spaces
     endif
 endfunction
-" highlight all trailing spaces, except for in term buffer
+" highlight all trailing spaces
 autocmd BufNewFile,BufRead,VimEnter,TermClose * call Match_trailing_spaces()
+" with exception for some cases...
 autocmd TermOpen * call Unmatch_trailing_spaces()
+autocmd FileType git call Unmatch_trailing_spaces()
 
 " enable spell in git-commit
 autocmd FileType gitcommit setlocal spell iminsert=0
