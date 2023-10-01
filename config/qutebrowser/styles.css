@@ -19,7 +19,7 @@ select {
 
 /* meduza */
 /* banner with app promotion */
-.Layout-bannerTop {display:none;}
+.Layout-module-banner {display:none;}
 /* banner about "foreign agent" */
 #div-gpt-ad {display:none;}
 /* fix dark mode color */
