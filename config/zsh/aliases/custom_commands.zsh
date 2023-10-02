@@ -11,6 +11,8 @@ alias dc='cd'
 
 # file browser
 alias fm='vifm'
+# git-annex
+alias an="git annex"
 
 # run mpv in background
 mpb() { mpv --loop-playlist=inf --force-window=immediate "$@" & disown }
