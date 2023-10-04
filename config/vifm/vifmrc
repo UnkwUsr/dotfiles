@@ -68,7 +68,8 @@ filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
         \ libreoffice %f &
 
 " directories
-fileviewer */,.*/ sh -c "LC_COLLATE=C ls -A %c --color=always --group-directories-first"
+let $dir_ls_preview_cmd = "LC_COLLATE=C ls -A --color=always --group-directories-first"
+fileviewer */,.*/ sh -c "$dir_ls_preview_cmd %c"
 
 " open all other files with default system programs
 " filetype * xdg-open
