@@ -410,6 +410,7 @@ autocmd FileType remind setlocal commentstring=#\ %s
 autocmd FileType gnuplot setlocal commentstring=#\ %s
 " set colorcolumn
 autocmd FileType rust setlocal colorcolumn=100
+autocmd FileType python setlocal colorcolumn=88
 
 " auto enter insert mode on term open
 autocmd TermOpen * startinsert

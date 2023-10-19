@@ -114,7 +114,7 @@ config.bind(",m", "spawn -vd mpv {url} --profile=quteb")
 config.bind(",M", "hint links spawn -vd mpv {hint-url} --profile=quteb")
 # open in mpv but play only audio
 config.bind(",n", "spawn -vd mpv {url} --profile=quteb --no-vid")
-config.bind(",N", "hint links spawn -vd mpv {hint-url} --profile=quteb --no-vid")  # noqa: E501
+config.bind(",N", "hint links spawn -vd mpv {hint-url} --profile=quteb --no-vid")
 
 # download video from current page
 config.bind(",z", "spawn -vd tm-ytdl '{url}'")

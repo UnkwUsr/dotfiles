@@ -15,7 +15,11 @@ local servers = {
             pylsp = {
                 configurationSources = { "flake8" },
                 plugins = {
-                    flake8 = { enabled = true },
+                    flake8 = {
+                        enabled = true,
+                        maxLineLength = 88,
+                        extendIgnore = { "E203" },
+                    },
                     pyflakes = { enabled = false },
                     pycodestyle = { enabled = false },
                 },
