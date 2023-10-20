@@ -25,7 +25,7 @@ function myfix() {
     position: absolute;";
 
     me.onfocus = (_event) => {
-        let btn = document.getElementsByClassName("header-search-button")[0];
+        let btn = document.getElementsByClassName("AppHeader-searchButton")[0];
         btn.click();
     };
 }
