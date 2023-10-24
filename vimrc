@@ -309,6 +309,11 @@ nnoremap cgf :e <cfile><CR>
 " format paragraph
 nmap gwp gwip
 
+" markdown filetype specific: google list item and delete line
+nmap <leader>v ^w"hy$:!quteb "<C-r>h" &<CR>dd:echo "quteb: <C-r>h"<CR>
+vmap <leader>v "hy:!quteb "<C-r>h" &<CR><CR>:echo "quteb: <C-r>h"<CR>
+
+
 " swap maps because shorter one is used more often
 nnoremap g_ $
 nnoremap $ g_l
