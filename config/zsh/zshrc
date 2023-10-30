@@ -6,3 +6,5 @@ source ~/.local/share/zsh_plugins.sh
 source ~/.config/zsh/settings.zsh
 source ~/.config/zsh/aliases/_main.zsh
 source ~/.config/zsh/keys.zsh
+# note: have to be always at the end
+source ~/.config/zsh/prompt-highlight.zsh

@@ -46,10 +46,8 @@ setopt APPEND_CREATE
 
 ### prompt
 
+PS1="%# "
+RPS1="%(?..[%?%1v])"
+
 # clear right-side prompt on pressing enter
 setopt TRANSIENT_RPROMPT
-
-# colorize prompt input text
-PS1="%# %B%F{white}"
-RPS1="%F{default}%(?..[%?%1v])"
-preexec () { echo -ne "\e[0m" }
