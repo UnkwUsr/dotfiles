@@ -80,6 +80,8 @@ alias sd='cd ~/.dotfiles && fzf \
     | xargs -r vim; cd - > /dev/null'
 # cd to directory of the file in dotfiles
 alias sdd='cd ~/.dotfiles && cd "$(dirname "$(fzf)")" && pwd'
+# fv over dotfiles (files full-text search)
+alias sdf='cd ~/.dotfiles && fv'
 
 
 #### misc
