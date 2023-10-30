@@ -90,6 +90,9 @@ c.editor.command = [
     "normal {line}G{column0}l"
 ]
 
+# reload config
+config.bind("<Ctrl+r>", "config-source")
+
 config.bind("J", "tab-prev")
 config.bind("K", "tab-next")
 # move tab to the end
