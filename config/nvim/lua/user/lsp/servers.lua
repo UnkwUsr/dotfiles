@@ -49,6 +49,7 @@ local servers = {
     tsserver = {},
     html = {},
     cssls = {},
+    bashls = {},
     -- also:
     -- for zk see lua/user/plugins/zk.lua
     -- for null-ls see lua/user/plugins/null-ls.lua
