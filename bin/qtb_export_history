@@ -1,11 +1,9 @@
 #!/bin/bash
-# opens qutebrowser today history in vim. Optionally accepts argument for date
-# offset (like "-2 day")
+# opens qutebrowser today history in vim. Optionally accepts argument - number
+# of days offset
 
-date_shift=""
-if [ -n "$1" ]; then
-    date_shift="'$@',"
-fi
+# take argument value or default to "0" if it is unset
+day_shift="${1:-0}"
 
 sqlite3 -column ~/.local/share/qutebrowser/history.sqlite \
     "SELECT
@@ -14,5 +12,5 @@ sqlite3 -column ~/.local/share/qutebrowser/history.sqlite \
         url,
         redirect
     FROM History
-    WHERE atime > unixepoch('now', $date_shift 'start of day')
+    WHERE atime > unixepoch('now', '-$day_shift day', 'start of day')
     ORDER BY atime" | split_much_delta | nvim +'setlocal nowrap'
