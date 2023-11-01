@@ -417,6 +417,10 @@ autocmd TermOpen * startinsert
 " hide line numbers in terminal
 autocmd TermOpen * setlocal nonumber norelativenumber
 
+" fix reporting cwd on :cd (https://github.com/neovim/neovim/issues/21771)
+autocmd DirChanged * call chansend(v:stderr, printf("\033]7;%s\033\\", v:event.cwd))
+autocmd VimLeave * call chansend(v:stderr, "\033]7;\033\\")
+
 " highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
 
