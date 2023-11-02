@@ -12,6 +12,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
 # (not sure I need cabal path?)
 export PATH="$HOME/.cabal/bin:$PATH"
+# flutter toolchain
+export PATH="/opt/flutter/bin:$PATH"
 
 # xdg specification
 export XDG_CONFIG_HOME=~/.config

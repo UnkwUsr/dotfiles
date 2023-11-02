@@ -9,3 +9,9 @@ require("neodev").setup({})
 require("nvim-autopairs").setup({
     disable_filetype = { "lisp" },
 })
+
+require("flutter-tools").setup({
+    lsp = {
+        on_attach = require("user.lsp.on_attach"),
+    },
+})

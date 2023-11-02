@@ -25,6 +25,8 @@ Plug 'stsewd/gx-extended.vim'
 " Plug 'chrisbra/csv.vim'
 Plug 'tidalcycles/vim-tidal'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'akinsho/flutter-tools.nvim'
+Plug 'udalov/kotlin-vim'
 " parenthesis guesser for lisp-like syntax languages
 Plug 'gpanders/nvim-parinfer'
 
