@@ -2,7 +2,16 @@
 -- P.S. sometimes this file may be messed with encodings and vim will fail to
 -- determine it correct. It this case do `:set fileencoding=utf-8` and write
 -- file
-local HISTFILE = mp.command_native({ "expand-path", "~~home/" }) .. "/history"
+
+local custom_file = mp.get_opt("log-history-custom-file")
+local filename = "history"
+if custom_file then
+    filename = custom_file
+end
+
+local HISTFILE = mp.command_native({ "expand-path", "~~home/" })
+    .. "/"
+    .. filename
 
 -- log format:
 -- <date> <time> <url> <artist_name_if_exist> - <track_title>
