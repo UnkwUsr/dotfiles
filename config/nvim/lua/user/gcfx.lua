@@ -19,16 +19,11 @@ local bm_api = void(function(callback)
     local result = bcache.git_obj:run_blame(buftext, lnum, nil)
     assert(result)
 
-    local sha = result.sha
-    local is_committed = result.sha and tonumber("0x" .. result.sha) ~= 0
+    local sha = result[lnum].commit.abbrev_sha
+    local is_committed = sha and tonumber("0x" .. sha) ~= 0
     if not is_committed then
-        -- TODO: im not sure does previous_sha works. Isn't it takes just
-        -- recent commit from git log? I need it to be like {reset current line
-        -- staged and take blame of it}
-        sha = result.previous_sha
+        sha = ""
     end
-
-    sha = sha:sub(1, 8)
 
     callback(sha)
 end)
