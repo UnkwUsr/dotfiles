@@ -6,7 +6,7 @@ xkb_keymap {
 
     xkb_symbols   {
         include "pc+us+ru:2+inet(evdev)"
-        include "capslock(escape)"
+        include "capslock(escape_shifted_capslock)"
         include "compose(rctrl)"
 
         key <RALT> {
