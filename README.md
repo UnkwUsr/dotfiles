@@ -26,6 +26,8 @@ My dotfiles managed with [rcm](https://github.com/thoughtbot/rcm)
 
 * Set as default browser: `xdg-settings set default-web-browser
   org.qutebrowser.qutebrowser.desktop`
+* Set program for pdf: `xdg-mime default org.pwmt.zathura.desktop
+  application/pdf`
 * Install dictionaries: `/usr/share/qutebrowser/scripts/dictcli.py install
   en-US ru-RU`
 
