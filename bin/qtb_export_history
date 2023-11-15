@@ -5,6 +5,12 @@
 # take argument value or default to "0" if it is unset
 day_shift="${1:-0}"
 
+# day start offset
+# for example, 2023-11-20 02:59 will be 2023-11-19 (previous day)
+# and when it shows entries for 2023-11-19, there will be only starting from
+# 05:00, not earlier
+day_start_offset="5 hours"
+
 sqlite3 -column ~/.local/share/qutebrowser/history.sqlite \
     "SELECT
         strftime('%Y/%m/%d %H:%M', datetime(atime, 'unixepoch', 'localtime')) as date_time,
@@ -12,5 +18,5 @@ sqlite3 -column ~/.local/share/qutebrowser/history.sqlite \
         url,
         redirect
     FROM History
-    WHERE atime > unixepoch('now', '-$day_shift day', 'start of day')
+    WHERE atime > unixepoch('now', '-$day_shift day', '-$day_start_offset', 'start of day', 'utc', '+$day_start_offset')
     ORDER BY atime" | split_much_delta | nvim +'setlocal nowrap'
