@@ -6,10 +6,12 @@
 #
 # mostly for usage in qtb_export_history and mh (mpv history)
 
-awk '{
+awk '
+    function abs(v) {return v < 0 ? -v : v}
+    {
     split($2,time,":");
     tmins=(time[1] * 60) + time[2]
-    dmins=tmins - prev_tmins
+    dmins=abs(tmins - prev_tmins)
     if (prev_tmins && dmins > 60) {
         print ""
     }
