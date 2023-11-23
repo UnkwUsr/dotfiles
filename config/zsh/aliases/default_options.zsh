@@ -29,3 +29,5 @@ alias cal='cal -m'
 
 alias tokei='tokei --sort=lines'
 alias auracle='auracle --sort=votes'
+
+alias readelf='readelf --wide --demangle'
