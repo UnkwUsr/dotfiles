@@ -335,7 +335,7 @@ hide_edge_borders smart
 # Note: to search windows criterias use xprop
 assign [class="^qutebrowser$"] 1
 assign [class="^Brave-browser$"] 0
-assign [class="^discord$"] 9
+assign [class="^discord$"] 8
 assign [class="^TelegramDesktop$"] 10
 assign [class="^Soffice$"] 3
 assign [class="^Zathura$"] 3
@@ -354,7 +354,7 @@ assign [instance="^vifm-mpv$"] 3
 ## games
 assign [class="^hl_linux$"] 5
 assign [class="^csgo_linux64$"] 5
-for_window [class="^Steam|steam$"] move container to workspace 9
+for_window [class="^Steam|steam$"] move container to workspace 8
 for_window [class="^Minecraft"] floating enable, move container to workspace 5
 for_window [class="^ru-turikhay-tlauncher-bootstrap-Bootstrap$"] floating enable, move container to workspace 5
 
