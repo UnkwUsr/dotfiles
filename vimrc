@@ -481,4 +481,5 @@ set mouse=
 " disable syntax highlighting in diff mode (vimdiff)
 if &diff
     syntax off
+    set laststatus=2
 endif
