@@ -231,6 +231,9 @@ cabbrev LS LspStart
 let g:netrw_winsize = 25
 " hide dotfiles
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+" open external links (like http://, etc.) without asking 'press enter' after
+" download
+let g:netrw_silent = 1
 
 " markdown-preview
 let g:mkdp_port = '8215'
