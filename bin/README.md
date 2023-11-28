@@ -36,6 +36,10 @@ create fixup commit with commit picked with fzf
 
 open docx documents in zathura (like pdf)
 
+## st-tm
+
+pass commands to st_tmux (dedicated terminal window with tmux instance)
+
 ## qtb_export_history
 
 opens qutebrowser today history in vim

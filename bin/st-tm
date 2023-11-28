@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# opens my st_tmux (open st if have not yet opened, run tmux if not yet
+# running) and run commands from arguments
+
+# TODO: option: use provided command as tmux pane start command, not just "pass
+# to shell"
+
+ST_TMUX_WINDOW_CLASS="st_tmux"
+TMUX_SESSION="main"
+
+should_focus=false
+if [ "$1" = "--focus" ]; then
+    should_focus=true
+    shift
+fi
+
+tmux new-window -t $TMUX_SESSION || tmux new-session -dAs $TMUX_SESSION
+
+for cmd in "$@"
+do
+    # prepending "space" to not mess shell history
+    tmux send-keys " $cmd" C-m
+done
+
+xdotool search --class $ST_TMUX_WINDOW_CLASS > /dev/null \
+    || (st -c $ST_TMUX_WINDOW_CLASS -e tmux new-session -As $TMUX_SESSION &)
+
+if [ "$should_focus" = "true" ]; then
+    # TODO: can eliminate sleep with xdotool-search --sync flag, but now it
+    # have no customizable sleep time. Probably will send PR
+    sleep 0.05
+    xdotool search --class $ST_TMUX_WINDOW_CLASS windowactivate
+fi
