@@ -19,7 +19,7 @@ local bm_api = void(function(callback)
     local result = bcache.git_obj:run_blame(buftext, lnum, nil)
     assert(result)
 
-    local sha = result[lnum].commit.abbrev_sha
+    local sha = result[lnum].commit.sha:sub(1, 7)
     local is_committed = sha and tonumber("0x" .. sha) ~= 0
     if not is_committed then
         sha = ""
