@@ -129,6 +129,11 @@ config.bind(",N", "hint links spawn -vd mpv {hint-url} --profile=quteb --no-vid"
 config.bind(",e", "spawn -vd st-tm --focus \"vim \
                                         $(sed 's/\\/blob\\//\\/raw\\//' \
                                         <<<'{url}')\"")
+# git clone current url
+config.bind(",c", "spawn -vd st-tm --focus "
+                  "\"cd /tmp && "
+                  "git clown $(cut -d'/' -f-5 <<<'{url}' | cut -d'?' -f1) && "
+                  "cd \\\"$(basename \\\"$_\\\" .git)\\\" && pwd && ll\"")
 
 # download video from current page
 config.bind(",z", "spawn -vd tm-ytdl '{url}'")
