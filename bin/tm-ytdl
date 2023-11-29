@@ -1,21 +1,14 @@
 #!/bin/bash
 #
-# accepts URL and downloads video from it using yt-dlp
+# accepts URL and downloads video from it using yt-dlp. Runs command in tmux
 #
-# why to use tmux there? I want to see progress and be able to stop downloading
-# and/or modify command if something goes wrong
+# why to use tmux here? I want to see progress and be able to stop downloading
+# and/or modifying command if something goes wrong
 #
 # P.S. this script designed to be used in quteb as bind
 
-url="$1"
+DL_PATH="$HOME/Files/Media/yt/"
 
-st_tmux_window_class="st_tmux"
-tmux_session="main"
-dl_path="$HOME/Files/Media/yt/"
-
-tmux new-window -t $tmux_session || tmux new-session -dAs $tmux_session
-tmux send-keys "cd '$dl_path'" C-m
-tmux send-keys "yt-dlp '$url' || echo '$url' >> bad_urls" C-m
-
-xdotool search $st_tmux_window_class 2> /dev/null \
-    || st -c $st_tmux_window_class -e tmux new-session -As $tmux_session
+st-tm \
+    "cd '$DL_PATH'" \
+    "yt-dlp '$1' || echo '$1' >> bad_urls"
