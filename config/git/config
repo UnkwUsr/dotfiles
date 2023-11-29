@@ -15,7 +15,7 @@
 
 [alias]
     # P.S. hacking with stash because `--show-stash` not work with `--short``
-    s = "!git status -sb $@ && (git stash list | cut -d: -f1) #"
+    s = "!cd \"$GIT_PREFIX\" && git status -sb $@ && (git stash list | cut -d: -f1) #"
     st = status
     l = log
     ll = log --all
