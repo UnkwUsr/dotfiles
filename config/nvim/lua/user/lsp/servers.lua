@@ -6,7 +6,6 @@ local servers = {
         settings = {
             haskell = {
                 checkProject = false,
-                formattingProvider = "floskell",
             },
         },
     },
