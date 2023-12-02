@@ -17,5 +17,9 @@ rclip daemon > /dev/null &
 # set initial monitor brightness
 light -S 40 &
 
+# redshift, care about eyes at night. systemd autostart sometimes not work, so
+# here it is
+systemctl --user start redshift.service &
+
 # libreddit, self-hosted alternative frontend for reddit
 docker run --rm -d --name libreddit -p 127.0.0.150:80:8080 libreddit/libreddit &
