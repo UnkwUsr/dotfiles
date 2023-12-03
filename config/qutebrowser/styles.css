@@ -101,3 +101,13 @@ input[type=checkbox][disabled][checked].task-list-item-checkbox:after {
 
 /* fb.ru ad */
 .innerbox__bar-list{display:none;}
+
+/* yandex music */
+/* fix track titles cutted */
+.track__name {
+    margin-top: 0px !important;
+}
+/* hide ad */
+.bar-below_plus {
+    display: none;
+}
