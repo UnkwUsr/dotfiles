@@ -240,7 +240,7 @@ bindsym $mod+$alt+c exec rofi -dpi 1 -show calc -modi calc -no-show-match -no-so
 bindsym ctrl+shift+space exec "dunstctl close-all"
 
 # ticktask
-bindsym $mod+q exec echo -e "#buy \n*today \n*tomorrow " | dmenu -p "ticktask:" | xargs -0 ticktask && \
+bindsym $mod+q exec echo -n | dmenu -p "ticktask:" | xargs -0 ticktask && \
             notify-send ticktask -t 1000 sent || \
             notify-send ticktask -u critical -t 2000 "not sent"
 # dtm inbox
