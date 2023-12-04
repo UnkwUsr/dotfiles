@@ -164,6 +164,9 @@ autocmd FileType GV nnoremap <silent> <buffer> O :call <sid>mygvopen()<cr>
 " fix mess with tabs (example: when use O in GV): move GV tab to last
 " (and have to set after VimEnter, otherwise it breaks when open GV on start)
 autocmd VimEnter * autocmd FileType GV tabmove $
+" fix to prevent GV buffer appearing in oldfiles list. Also see 'shada'
+" setting
+autocmd FileType GV exe "file gv://" . bufname()
 
 " specific paragraph binds for dotfiles repo git log
 autocmd FileType GV if @% =~ 'gv://.dotfiles*' | call <sid>mydotfiles_map_nav() | endif
@@ -343,7 +346,7 @@ set history=1000
 " set recent files history limit to 500
 set shada^='500
 " do not save temp files in history
-set shada^=r/tmp/,r/proc/,rfugitive:,rzipfile:,rman:,rhttp:,rhttps:
+set shada^=r/tmp/,r/proc/,rfugitive:,rzipfile:,rman:,rhttp:,rhttps:,rgv:
 
 " show completions in command-line
 set wildmenu
