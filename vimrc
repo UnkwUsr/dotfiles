@@ -161,6 +161,9 @@ command! -nargs=0 Gfxa term git fxa
 autocmd FileType GV xunmap <buffer> o
 " override bind 'O'. Enable showing root commit and add stat info
 autocmd FileType GV nnoremap <silent> <buffer> O :call <sid>mygvopen()<cr>
+" fix mess with tabs (example: when use O in GV): move GV tab to last
+" (and have to set after VimEnter, otherwise it breaks when open GV on start)
+autocmd VimEnter * autocmd FileType GV tabmove $
 
 " specific paragraph binds for dotfiles repo git log
 autocmd FileType GV if @% =~ 'gv://.dotfiles*' | call <sid>mydotfiles_map_nav() | endif
