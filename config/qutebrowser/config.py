@@ -83,7 +83,8 @@ c.url.searchengines = {
     "gi": "https://github.com/search?q={}",
     "aur": "https://aur.archlinux.org/packages/?K={}&SB=v&SO=d",
     "dc": "https://docs.rs/{}",
-    "dr": "https://doc.rust-lang.org/std/index.html?search={}"
+    "dr": "https://doc.rust-lang.org/std/index.html?search={}",
+    "hg": "https://hoogle.haskell.org/?hoogle={}",
 }
 
 c.completion.open_categories = ["history", "quickmarks"]
