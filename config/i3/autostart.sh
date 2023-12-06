@@ -17,6 +17,9 @@ rclip daemon > /dev/null &
 # set initial monitor brightness
 light -S 40 &
 
+# hide cursor when typing or scrolling
+xbanish -s
+
 # redshift, care about eyes at night. systemd autostart sometimes not work, so
 # here it is
 systemctl --user start redshift.service &
