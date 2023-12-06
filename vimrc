@@ -20,6 +20,8 @@ Plug 'windwp/nvim-autopairs'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'vifm/vifm.vim'
 Plug 'stsewd/gx-extended.vim'
+" detect indent style (tab vs space) and set appropriate options
+Plug 'Darazaki/indent-o-matic'
 
 " langs specific plugins
 " Plug 'chrisbra/csv.vim'
