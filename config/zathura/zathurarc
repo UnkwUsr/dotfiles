@@ -1,3 +1,6 @@
 set selection-clipboard clipboard
 
 map R rotate rotate-ccw 90
+
+# fix opening links
+set sandbox none
