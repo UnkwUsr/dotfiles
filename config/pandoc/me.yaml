@@ -1,0 +1,11 @@
+pdf-engine: xelatex
+
+metadata:
+  documentclass: exam
+  mainfont: Liberation Serif
+  sansfont: Liberation Sans
+  monofont: Hack
+  mathfont: Cambria Math
+
+include-in-header:
+  - ${HOME}/.config/pandoc/me.tex
