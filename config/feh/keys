@@ -1,2 +1,4 @@
 # unbind key s (screenshot)
 save_image
+# unbind esc key and map quit on q
+quit q
