@@ -76,7 +76,7 @@ c.spellcheck.languages = ["en-US", "ru-RU"]
 c.url.searchengines = {
     "DEFAULT": "https://html.duckduckgo.com/html?q={}",
     "g": "https://www.google.com/search?q={}",
-    "a": "https://wiki.archlinux.org/index.php/{}",
+    "ar": "https://wiki.archlinux.org/index.php/{}",
     "yt": "https://" + redir.YOUTUBE_REDIR + "/results?search_query={}",
     "w": "https://en.wikipedia.org/wiki/{}",
     "wr": "https://ru.wikipedia.org/wiki/{}",
