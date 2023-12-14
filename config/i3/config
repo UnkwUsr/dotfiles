@@ -339,6 +339,7 @@ assign [class="^discord$"] 8
 assign [class="^TelegramDesktop$"] 10
 assign [class="^Soffice$"] 3
 assign [class="^Zathura$"] 3
+assign [title="^ReZound$"] 3
 for_window [class="^qutebrowser$"] border none
 for_window [class="^Brave-browser$"] border none
 for_window [class="^Blender$"] border none
