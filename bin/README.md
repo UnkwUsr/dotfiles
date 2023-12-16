@@ -47,3 +47,7 @@ opens qutebrowser today history in vim
 ## log_smartctl
 
 logs current nvme disk usage (stats data read and written)
+
+## ff_split_chaps
+
+split video/audio by chapters into separate files

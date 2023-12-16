@@ -1,0 +1,32 @@
+#!/bin/sh -ef
+#
+# split video/audio by chapters into separate files
+#
+# original source: https://stackoverflow.com/a/53553938/17940925
+# edited by me
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 path/to/media_file"
+    exit 1
+fi
+
+input="$1"
+ffprobe \
+    -hide_banner \
+    -print_format csv \
+    -show_chapters \
+    "$input" |
+    cut -d ',' -f '5,7,8-' |
+    tr '/' '-' | tr -d '"' |
+    while IFS=, read -r start end chapter
+    do
+        ffmpeg \
+            -hide_banner \
+            -nostdin \
+            -ss "$start" -to "$end" \
+            -i "$input" \
+            -c copy \
+            -map 0 \
+            -map_chapters -1 \
+            "${input%.*}-$chapter.${input##*.}"
+    done
