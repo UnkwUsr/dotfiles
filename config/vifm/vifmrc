@@ -38,6 +38,10 @@ nmap s :shell<cr>
 " go up directory
 nmap - gh
 
+" run command over selected files
+nmap !! :! %f<left><left><left>
+vmap ! :! %f<left><left><left>
+
 
 """" filetypes
 
