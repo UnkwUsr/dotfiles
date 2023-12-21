@@ -6,9 +6,6 @@ require("user.plugins.lsp_status")
 require("user.plugins.treesitter")
 
 require("neodev").setup({})
-require("nvim-autopairs").setup({
-    disable_filetype = { "lisp" },
-})
 
 require("flutter-tools").setup({
     lsp = {

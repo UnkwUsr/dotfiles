@@ -16,7 +16,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'lambdalisue/suda.vim'
-Plug 'windwp/nvim-autopairs'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'vifm/vifm.vim'
 Plug 'stsewd/gx-extended.vim'
