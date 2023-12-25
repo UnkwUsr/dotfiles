@@ -20,7 +20,7 @@ tmux new-window -t $TMUX_SESSION || tmux new-session -dAs $TMUX_SESSION
 for cmd in "$@"
 do
     # prepending "space" to not mess shell history
-    tmux send-keys " $cmd" C-m
+    tmux send-keys -t $TMUX_SESSION " $cmd" C-m
 done
 
 xdotool search --class $ST_TMUX_WINDOW_CLASS > /dev/null \
