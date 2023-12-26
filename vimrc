@@ -238,7 +238,10 @@ let g:netrw_silent = 1
 
 " markdown-preview
 let g:mkdp_port = '8215'
+let g:mkdp_browser = 'brave'
 let g:mkdp_echo_preview_url = 1
+" refresh only on file save
+let g:mkdp_refresh_slow = 1
 nmap <leader>am :MarkdownPreview<CR>
 
 " vifm
