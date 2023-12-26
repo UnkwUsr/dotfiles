@@ -23,4 +23,6 @@ xbanish -s &
 systemctl --user start redshift.service &
 
 # libreddit, self-hosted alternative frontend for reddit
-docker run --rm -d --name libreddit -p 127.0.0.150:80:8080 libreddit/libreddit &
+# run this once:
+# sudo systemctl enable docker.service
+# docker run -d --restart unless-stopped --name libreddit -p 127.0.0.150:80:8080 libreddit/libreddit &
