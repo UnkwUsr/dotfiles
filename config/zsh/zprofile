@@ -33,6 +33,7 @@ export LS_COLORS='or=40;31;01:mh=44;37'
 # fzf settings
 export FZF_DEFAULT_COMMAND='fd --type file --type symlink'
 export FZF_DEFAULT_OPTS="--no-mouse --bind ctrl-s:toggle-sort \
+                         --bind ctrl-alt-a:select-all \
                          --bind ctrl-t:track+clear-query"
 
 # add ripgrep to 'progress' util
