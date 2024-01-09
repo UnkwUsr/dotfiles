@@ -44,6 +44,8 @@ redirs = {
     "www.youtube.com": YOUTUBE_REDIR,
     "youtube.com": YOUTUBE_REDIR,
     "youtu.be": YOUTUBE_REDIR,
+    "www.youtube-nocookie.com": YOUTUBE_REDIR,
+    "youtube-nocookie.com": YOUTUBE_REDIR,
 }
 # fmt: on
 
