@@ -46,7 +46,10 @@ setopt APPEND_CREATE
 
 ### prompt
 
-PS1="%# "
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    from_ssh="termux"
+fi
+PS1="${from_ssh}%# "
 RPS1="%(?..[%?%1v])"
 
 # clear right-side prompt on pressing enter
