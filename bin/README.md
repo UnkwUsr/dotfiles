@@ -47,8 +47,3 @@ opens qutebrowser today history in vim
 ## log_smartctl
 
 logs current nvme disk usage (stats data read and written)
-
-## tm-ytdl
-
-downloads video from URL using yt-dlp. P.S. designed to be used in quteb as
-bind

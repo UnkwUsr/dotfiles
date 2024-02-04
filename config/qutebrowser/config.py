@@ -137,7 +137,12 @@ config.bind(",c", "spawn -vd st-tm --focus "
                   "cd \\\"$(basename \\\"$_\\\" .git)\\\" && pwd && ll\"")
 
 # download video from current page
-config.bind(",z", "spawn -vd tm-ytdl '{url}'")
+#
+# why to use tmux here? I want to see progress and be able to stop downloading
+# and/or modify command if something goes wrong (like use proxy)
+config.bind(",z", "spawn -vd st-tm \
+    'cd \"$HOME/Files/Media/yt/\"' \
+    'yt-dlp \"{url}\" || echo \"{url}\" >> bad_urls'")
 
 # send current url to inbox
 config.bind(",i", "spawn -vd sh -c 'echo -e \"* {title}\\n  * <{url}>\"\
