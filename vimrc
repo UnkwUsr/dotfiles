@@ -315,6 +315,8 @@ set complete-=t
 
 " toggle spell
 nmap <leader>s :set spell!<CR>
+" toggle wrap
+nmap <leader>w :set wrap!<CR>
 
 " cd to directory of current opened file
 nmap <leader>c :cd %:h<CR>
