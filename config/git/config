@@ -34,6 +34,9 @@
     ds = diff --staged
     ref = reflog --date=relative
     unstage = restore --staged
+
+    # to unshallow: git fetch --unshallow
+    # to restore branches: git remote set-branches origin '*'
     clown = clone --depth 1
 
     # see also: ~/.bin/git-fxa
