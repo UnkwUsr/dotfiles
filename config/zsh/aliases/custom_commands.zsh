@@ -125,7 +125,7 @@ alias mepan="pandoc -d ~/.config/pandoc/me.yaml"
 # mepan and open in zathura
 zpan() {
     name="/tmp/rendered_$1_$(date +%s).pdf"
-    mepan "$1" -o "$name" && zathura "$name" & disown
+    mepan "$1" -o "$name" && (zathura "$name" && rm "$name" > /dev/null) & disown
 }
 
 # open lisp repl
