@@ -18,7 +18,7 @@ rclip daemon > /dev/null &
 light -S 40 &
 
 # hide cursor when typing or scrolling
-xbanish -s
+xbanish -s &
 
 # redshift, care about eyes at night. systemd autostart sometimes not work, so
 # here it is
