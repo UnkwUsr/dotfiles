@@ -8,6 +8,8 @@ wget -nv -P ~/.config/vifm/ -x -nH --cut-dirs=4 \
 wget -nv -P ~/.config/mpv/ -x -nH --cut-dirs=3 \
     'https://raw.githubusercontent.com/occivink/mpv-scripts/af360f332897dda907644480f785336bc93facf1/scripts/crop.lua' \
     'https://raw.githubusercontent.com/occivink/mpv-scripts/af360f332897dda907644480f785336bc93facf1/scripts/encode.lua'
+wget -nv -P ~/.config/mpv/scripts/ -x -nH --cut-dirs=3 \
+    'https://raw.githubusercontent.com/viniciusbm/mpv-cycle-through-existing/738a79a450b53edcd254d6e6ab20323fbce1cf8f/cycle-through-existing.lua'
 
 # lldb plugins
 wget -nv -O ~/.config/lldb_write.py \
