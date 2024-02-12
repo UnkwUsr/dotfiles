@@ -102,6 +102,13 @@ input[type=checkbox][disabled][checked].task-list-item-checkbox:after {
 /* fb.ru ad */
 .innerbox__bar-list{display:none;}
 
+/* lyrical-nonsense.com */
+/* allow selecting text with mouse */
+#prilyr.olyrictext {
+    user-select: auto;
+    -webkit-user-select: auto;
+}
+
 /* yandex music */
 /* fix track titles cutted */
 .track__name {
