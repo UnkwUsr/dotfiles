@@ -244,8 +244,8 @@ bindsym $mod+s exec echo -n | dmenu -p "dtm inbox:" \
 
 # translate tool
 set $trans_run trans -i /tmp/trans_text -view -show-original=no \
-    -show-translation-phonetics=no -show-prompt-message=no \
-    -show-languages=no -show-alternatives=no -show-original-dictionary=yes
+    -show-translation-phonetics=yes -show-prompt-message=no \
+    -show-languages=no -show-alternatives=yes -show-original-dictionary=yes
 ## translate text from dmenu from en to ru or ru to en
 ## to repeat last translate just leave dmenu prompt empty and press enter
 set $trans_get_dmenu_input (set -o pipefail && \
