@@ -22,6 +22,9 @@ alias rgf='rg --files-with-matches'
 
 # download audio-only with yt-dlp
 alias yta="yt-dlp --embed-thumbnail --extract-audio --format=bestaudio"
+# download with tor proxy
+alias yttor="yt-dlp --proxy 'socks://localhost:9050/'"
+alias ytator="yta --proxy 'socks://localhost:9050/'"
 # apply yta on files already downloaded as videos
 ytaf() {
     for filename in "$@"
