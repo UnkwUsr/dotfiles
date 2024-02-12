@@ -9,6 +9,11 @@ icons = "awesome6"
 
 [[block]]
 block = "custom"
+command = "dalarma-status"
+interval = 60
+
+[[block]]
+block = "custom"
 command = "rem | rg -qv 'No reminders\\.' && echo 'hvr'"
 interval = 1800
 
