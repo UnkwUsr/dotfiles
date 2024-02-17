@@ -240,10 +240,10 @@ bindsym $mod+$alt+c exec rofi -dpi 1 -show calc -modi calc -no-show-match -no-so
 # close all notifies
 bindsym ctrl+shift+space exec "dunstctl close-all"
 
-# ticktask
-bindsym $mod+q exec echo -n | dmenu -p "ticktask:" | xargs -0 ticktask && \
-            notify-send ticktask -t 1000 sent || \
-            notify-send ticktask -u critical -t 2000 "not sent"
+# buy list
+bindsym $mod+b exec echo -n | dmenu -p "buy:" | cat <(echo -n "* ") - >> ~/txts/synced-inbox/buy.md \
+                && notify-send "buy" -t 1000 "created" \
+                || notify-send "buy" -u critical -t 2000 "can't create"
 # dtm inbox
 bindsym $mod+s exec echo -n | dmenu -p "dtm inbox:" \
             | ifne sh -c '(echo -n "* " && cat) >> ~/txts/dtm/inbox/00_inboxed.md'
