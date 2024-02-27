@@ -40,6 +40,25 @@ prd() {
     clear && cd "$PROJECTS_ROOT/$picked" && pwd && ll && git s
 }
 
+# mpv whole history
+# '+args\ %' hack to suppress 'E173: 1 more file to edit' warning
+alias mha='vim +args\ % ~/.config/mpv/history ~/.config/mpv/history_radio'
+# mpv history for specific day (today by default)
+# optionally takes 1 argument, number of days offset (to the past)
+# P.S. it opens 2 files: main history and radio history
+mh() {
+    offset=${1:=0}
+    date=$(date +'%F' -d "-$offset day -3 hours")
+
+    from_file() {
+        awk '/^'$date' /,/*/' "$1" | split_much_delta
+    }
+
+    vim +'bufdo set noreadonly | buffer 1' \
+        <(from_file ~/.config/mpv/history) \
+        <(from_file ~/.config/mpv/history_radio)
+}
+
 
 #### vim+git
 
