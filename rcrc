@@ -2,4 +2,4 @@ EXCLUDES="README.md LICENSE install_deps.sh config/hl1_configs suckless"
 
 # workaround as zsh looks for dot-prefixed files in ~/.config/zsh/, but rcm
 # links them as non-dotted
-SYMLINK_DIRS="config/zsh"
+SYMLINK_DIRS="config/zsh config/htop"
