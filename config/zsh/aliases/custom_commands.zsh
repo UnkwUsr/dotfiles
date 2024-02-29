@@ -148,12 +148,15 @@ aas() {
     echo "$imgfilename"
 }
 
-# pandoc with my defaults config
-alias mepan="pandoc -d ~/.config/pandoc/me.yaml"
-# mepan and open in zathura
+# pandoc with my config (to quickly get pdf file)
+mepan() {
+    pandoc -d ~/.config/pandoc/me.yaml "$1" -o "$1.pdf"
+}
+# open in zathura pdf of pandoc-rendered markdown
 zpan() {
     name="/tmp/rendered_$1_$(date +%s).pdf"
-    mepan "$1" -o "$name" && (zathura "$name" && rm "$name" > /dev/null) & disown
+    pandoc -d ~/.config/pandoc/me.yaml "$1" -o "$name" \
+        && (zathura "$name" && rm "$name" > /dev/null) & disown
 }
 
 # open lisp repl
