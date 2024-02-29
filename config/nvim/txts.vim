@@ -25,3 +25,6 @@ command! -nargs=0 Z e ~/txts/zk2/00_INDEX.md
 
 """" remind/calendar
 command! -nargs=0 R e ~/.reminders/main.rem
+
+"""" manylists
+command! -nargs=0 Ani e ~/txts/manylists/00_MAIN.md

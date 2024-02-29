@@ -54,6 +54,14 @@ alias zs="cd ~/txts/zk2 && zk edit -i -s modified"
 alias zd="cd ~/txts/zk2 && pwd"
 
 
+### manylists - list of media like films, anime and books
+# (name history: originally it was for anime titles only)
+
+alias ani="cd ~/txts/manylists && vim 00_MAIN.md"
+alias anis="cd ~/txts/manylists && zk edit -i -s modified"
+alias anid="cd ~/txts/manylists && pwd"
+
+
 ### remind/calendar ("tasks on time")
 
 # view today
