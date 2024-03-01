@@ -40,6 +40,10 @@ prd() {
     clear && cd "$PROJECTS_ROOT/$picked" && pwd && ll && git s
 }
 
+# cd into often used dirs
+alias yt="cd ~/Files/Media/yt && pwd && ll"
+alias mz="cd ~/Files/Media/mz && pwd && ll"
+
 # mpv whole history
 # '+args\ %' hack to suppress 'E173: 1 more file to edit' warning
 alias mha='vim +args\ % ~/.config/mpv/history ~/.config/mpv/history_radio'
