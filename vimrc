@@ -355,7 +355,7 @@ set history=1000
 " set recent files history limit to 500
 set shada^='500
 " do not save temp files in history
-set shada^=r/tmp/,r/proc/,rfugitive:,rzipfile:,rman:,rhttp:,rhttps:,rgv:
+set shada^=r/proc/,rfugitive:,rzipfile:,rman:,rhttp:,rhttps:,rgv:
 
 " show completions in command-line
 set wildmenu
