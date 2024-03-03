@@ -81,6 +81,7 @@ Can be installed from aur
 * `dragon-drop` - drag-and-drop source/sink cli
 * `mpv-sponsorblock-minimal-git` - sponsorblock script for mpv
 * `nodejs-markdownlint-cli` - markdown formatter
+* `python-myougiden` - cli Japanese dictionary
 * `rclip-git` - clipboard manager written in Rust
   ([github](https://github.com/UnkwUsr/rclip))
 
