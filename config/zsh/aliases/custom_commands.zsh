@@ -76,7 +76,7 @@ gv() {
 }
 gva() { gv "--all $*" }
 # show commits from HEAD to $1 (or "origin" by default)
-gvd() { gv "${1:-origin}"~..HEAD "${@:2}"}
+gvd() { gv "${1:-'origin/master'}"~..HEAD "${@:2}"}
 
 compdef -e 'words[1]=(git log); service=git; (( CURRENT+=1 )); _git' gv gva
 # Source: https://stackoverflow.com/questions/27226716/custom-zsh-completion-for-a-function-based-on-default-arguments
