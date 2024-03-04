@@ -1,0 +1,4 @@
+#!/bin/sh
+#
+# ffmpeg hash audio
+fd "$1" --exec ffmpeg -i "{}" -f hash -hash md5 - 2>/dev/null
