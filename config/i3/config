@@ -261,7 +261,7 @@ set $trans_get_dmenu_input (set -o pipefail && \
 set $trans_get_ime_input (set -o pipefail && \
     inp=$(xprompt < /dev/null) && \
     (test -z "$inp" || echo "$inp" > /tmp/trans_text))
-bindsym $mod+t exec $trans_get_dmenu_input && $st_win_with '$trans_run en:ru'
+bindsym $mod+t exec $trans_get_dmenu_input && $st_win_with '$trans_run :ru'
 bindsym $mod+shift+t exec $trans_get_dmenu_input && $st_win_with '$trans_run ru:en'
 bindsym $mod+shift+f exec $trans_get_dmenu_input && $st_win_with '$trans_run ru:uk'
 bindsym $mod+shift+g exec $trans_get_dmenu_input && $st_win_with '$trans_run :ja'
