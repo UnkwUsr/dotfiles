@@ -54,6 +54,7 @@ redirs = {
     "www.reddit.com": "my.libreddit",
 
     "twitter.com": "nitter.cz",
+    "www.anilibria.tv": "dl-20220804-91.anilib.top",
     "imgur.com": "imgin.voidnet.tech",
     "www.quora.com": "quetre.iket.me",
     # instances list: https://github.com/realaravinth/libmedium#instances
