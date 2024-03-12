@@ -126,6 +126,11 @@ alias cons='lsof -i'
 
 # move all from another folder to current one and remove empty folder then
 flatdir() {
+    if [ -z "$1" ]; then
+        echo "Usage: $0 [dir]"
+        return 1
+    fi
+
     mv "$1"/* ./
     rmdir "$1"
 }
