@@ -3,10 +3,8 @@
 # set keyboard press repeat rate
 xset r rate 400 50 &
 
-# download and set wallpaper
-url_wp=$(cat ~/.config/i3/url_wp)
-set_wp="feh --no-fehbg --bg-scale $(realpath ~/.config/i3/wp.jpg)"
-[ -f ~/.config/i3/wp.jpg ] && ($set_wp &) || ((echo "Downloading wallpaper" && curl $url_wp --output ~/.config/i3/wp.jpg -s && $set_wp) &)
+# set random wallpaper
+feh --no-fehbg --bg-scale "$(fd -tf . ~/.config/i3/wallpapers/ | shuf | head -n1)"
 
 # notifications daemon
 dunst &
