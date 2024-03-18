@@ -30,21 +30,21 @@ cmp.setup({
             end
         end,
 
-        -- snippet placeholders navigation
-        ["<Tab>"] = function(fallback)
-            if luasnip.jumpable(1) then
-                luasnip.jump(1)
-            else
-                fallback()
-            end
-        end,
-        ["<S-Tab>"] = function(fallback)
-            if luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end,
+        -- -- snippet placeholders navigation
+        -- ["<Tab>"] = function(fallback)
+        --     if luasnip.jumpable(1) then
+        --         luasnip.jump(1)
+        --     else
+        --         fallback()
+        --     end
+        -- end,
+        -- ["<S-Tab>"] = function(fallback)
+        --     if luasnip.jumpable(-1) then
+        --         luasnip.jump(-1)
+        --     else
+        --         fallback()
+        --     end
+        -- end,
     },
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
