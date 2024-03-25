@@ -36,6 +36,8 @@
     d = diff
     ds = diff --staged
     ref = reflog --date=relative
+    # reflog but with hidden some rebase actions
+    refs = "!git -c color.ui=always ref | rg -v 'rebase \\(pick\\)' | rg -v 'rebase: fast-forward' | less #"
     unstage = restore --staged
 
     # to unshallow: git fetch --unshallow
