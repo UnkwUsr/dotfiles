@@ -28,6 +28,8 @@ only
 
 " toggle preview window
 nnoremap w :vsplit!<cr>
+" toggle wrap in preview window
+nnoremap W :set wrap!<cr>
 
 nmap q :quit<cr>
 nmap Q :quit<cr>
