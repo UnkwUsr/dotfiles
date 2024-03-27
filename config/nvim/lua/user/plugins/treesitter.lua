@@ -18,7 +18,7 @@ require("nvim-treesitter.configs").setup({
         smart_rename = {
             enable = true,
             keymaps = {
-                smart_rename = "grr",
+                smart_rename = "gnr",
             },
         },
     },
@@ -26,10 +26,10 @@ require("nvim-treesitter.configs").setup({
         enable = true,
         keymaps = {
             -- set to `false` to disable one of the mappings
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
+            init_selection = "<c-d>",
+            node_incremental = "<c-d>",
+            scope_incremental = "<c-s>",
+            node_decremental = "<c-a>",
         },
     },
 })
