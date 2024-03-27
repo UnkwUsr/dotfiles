@@ -10,3 +10,12 @@ for server_name, settings in pairs(servers) do
 
     require("lspconfig")[server_name].setup(opts)
 end
+
+-- diagnostic signs
+local function sign(name, text)
+    vim.fn.sign_define(name, { texthl = name, text = text })
+end
+sign("DiagnosticSignError", "X")
+sign("DiagnosticSignWarn", "▲")
+sign("DiagnosticSignHint", "?")
+sign("DiagnosticSignInfo", "!")
