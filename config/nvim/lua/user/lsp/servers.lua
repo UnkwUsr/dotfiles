@@ -50,8 +50,8 @@ local servers = {
     cssls = {},
     bashls = {},
     -- also:
-    -- for zk see lua/user/plugins/zk.lua
-    -- for null-ls see lua/user/plugins/null-ls.lua
+    -- for zk see ../plugins/zk.lua
+    -- for null-ls see ../plugins/null_ls.lua
 }
 
 return servers
