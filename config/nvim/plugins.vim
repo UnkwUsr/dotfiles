@@ -6,7 +6,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
-Plug 'tpope/vim-fugitive'
+Plug 'UnkwUsr/vim-fugitive' " fork from tpope
 Plug 'junegunn/gv.vim'
 Plug 'svermeulen/vim-subversive'
 Plug 'mbbill/undotree'
