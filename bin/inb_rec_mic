@@ -1,0 +1,13 @@
+#!/bin/sh
+target_fldr="$HOME/txts/synced-inbox/voices-laptop"
+ponymix --source unmute >/dev/null
+mkdir -p "$target_fldr" && cd "$target_fldr" || exit
+micrec & rec_pid="$!"
+
+# this fixes that mic recorder trims last few seconds on end
+# shellcheck disable=2162,3061
+read
+sleep 1
+kill "$rec_pid"
+
+ponymix --source mute >/dev/null
