@@ -1,4 +1,6 @@
 #### txts aliases (note taking, planning, etc.)
+#
+# NOTE: my knowledge-bases are assisted with zk: https://github.com/zk-org/zk
 
 # aliases naming legend (applies to dtm/plans, zk, and few other):
 # .i - Index (open index file)
