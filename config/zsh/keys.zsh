@@ -26,15 +26,13 @@ zle -N edit-command-line
 
 
 #### fzf
-
-# ALT-C for fuzzy-cd
-# CTRL-T for fuzzy file select
 source /usr/share/fzf/key-bindings.zsh
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
+bindkey "^T" fzf-cd-widget
+bindkey "^[c" fzf-file-widget
 # restore CTRL-R rebinded by fzf (I use improved bind on ALT-R)
 bindkey "^R" history-incremental-search-backward
-
 # ALT-T for fzf tab completion (by Aloxaf/fzf-tab plugin)
 bindkey "^[t" fzf-tab-complete
 # restore TAB rebinded by Aloxaf/fzf-tab
