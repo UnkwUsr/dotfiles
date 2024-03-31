@@ -33,16 +33,6 @@ ytaf() {
     done
 }
 
-# cd to projects with fzf
-prd() {
-    PROJECTS_ROOT="$HOME/Projects"
-    picked=$(cd "$PROJECTS_ROOT" \
-        && dirname $(fd -td --prune '.git$' -H --no-ignore-vcs) \
-        | fzf --preview="LC_COLLATE=C ls --color=always -h --group-directories-first -- {}" \
-        ) || return
-    clear && cd "$PROJECTS_ROOT/$picked" && pwd && ll && git s
-}
-
 # cd into often used dirs
 alias yt="cd ~/Files/Media/yt && pwd && ll"
 alias mz="cd ~/Files/Media/mz && pwd && ll"
