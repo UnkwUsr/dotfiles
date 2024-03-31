@@ -1,1 +1,5 @@
-st -t arad mpv --profile=radio ~/txts/radios/_all_compiled
+#!/bin/bash
+alacritty -T arad -e \
+    tmux new-session -As arad \
+        "mpv --profile=radio ~/txts/radios/_all_compiled" \
+        \; set status off
