@@ -33,7 +33,7 @@
     roc = rebase --continue
     rab = rebase --abort
     cp = cherry-pick
-    d = diff
+    d = diff --stat --patch
     ds = diff --staged
     ref = reflog --date=relative
     # reflog but with hidden some rebase actions
