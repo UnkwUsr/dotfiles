@@ -365,6 +365,7 @@ for_window [class="^Pavucontrol$"] floating enable, sticky enable, resize set 12
 ## custom windows
 for_window [class="^st_win$"] floating enable, sticky enable, resize set 640 480, move position center, border pixel 3
 assign [class="^st_tmux$"] 2
+assign [class="^tmux_noise_win$"] 4
 assign [title="^arad$"] 9
 assign [instance="^quteb-mpv$"] 0
 assign [instance="^vifm-mpv$"] 3
