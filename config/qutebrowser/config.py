@@ -132,7 +132,7 @@ config.bind(",e", "spawn -vd st-tm --focus \"vim \
                                         <<<'{url}')\"")
 # git clone current url
 config.bind(",c", "spawn -vd st-tm --focus "
-                  "\"cd /tmp && "
+                  "\"mkdir -p /tmp/clowns && cd /tmp/clowns && "
                   "git clown $(cut -d'/' -f-5 <<<'{url}' | cut -d'?' -f1) && "
                   "cd \\\"$(basename \\\"$_\\\" .git)\\\" && pwd && ll\"")
 
