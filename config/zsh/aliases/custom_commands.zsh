@@ -46,6 +46,7 @@ prd() {
 # cd into often used dirs
 alias yt="cd ~/Files/Media/yt && pwd && ll"
 alias mz="cd ~/Files/Media/mz && pwd && ll"
+alias ms="cd ~/Files/annexes/music/ && pwd && ll"
 
 # mpv whole history
 # '+args\ %' hack to suppress 'E173: 1 more file to edit' warning
