@@ -13,7 +13,7 @@ autocmd BufNewFile,BufRead TODO,~/txts/diary/*/202*
 command! -nargs=0 D e ~/txts/dtm/plans.md
 command! -nargs=0 Di e ~/txts/dtm/00_index.md
 " disable gitsigns in dtm
-autocmd BufNewFile,BufRead ~/txts/dtm/*.md silent! Gitsigns toggle_signs false
+autocmd BufNewFile,BufRead ~/txts/dtm/*.md setlocal signcolumn=no
 
 """" inbox
 command! -nargs=0 Dw e ~/txts/dtm/inbox/0spn.md
