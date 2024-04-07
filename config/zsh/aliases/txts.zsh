@@ -45,7 +45,6 @@ alias bb="cd ~/txts/synced-inbox && vim buy.md && cd - > /dev/null"
 ### zk - zettel notes
 
 alias z="cd ~/txts/zk2 && vim 00_INDEX.md"
-alias zi="cd ~/txts/zk2 && vim inbox/00_INBOX.md"
 alias zs="cd ~/txts/zk2 && zk edit -i -s modified"
 alias zd="cd ~/txts/zk2 && pwd"
 
