@@ -4,7 +4,11 @@ function P(a)
     return a
 end
 
-vim.cmd("source ~/.vimrc")
+vim.cmd("source ~/.config/nvim/plugins.vim")
+vim.cmd("source ~/.config/nvim/options.vim")
+vim.cmd("source ~/.config/nvim/maps.vim")
+vim.cmd("source ~/.config/nvim/autocmd.vim")
+
 vim.cmd("source ~/.config/nvim/txts.vim")
 
 require("user.plugins")
