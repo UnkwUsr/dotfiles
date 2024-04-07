@@ -26,3 +26,6 @@ systemctl --user start redshift.service &
 # run this once:
 # sudo systemctl enable docker.service
 # docker run -d --restart unless-stopped --name libreddit -p 127.0.0.150:80:8080 libreddit/libreddit &
+
+# tracks stack of last active player, so pause/play them correspondingly
+playerctld daemon &
