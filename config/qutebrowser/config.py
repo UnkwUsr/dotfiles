@@ -19,6 +19,10 @@ c.session.lazy_restore = True
 c.auto_save.session = True
 c.session.default_name = "default"
 
+# stub fix hangs on download popup:
+# https://github.com/qutebrowser/qutebrowser/issues/8125
+c.downloads.location.prompt = False
+
 c.url.default_page = "about:blank"
 c.url.start_pages = "about:blank"
 
