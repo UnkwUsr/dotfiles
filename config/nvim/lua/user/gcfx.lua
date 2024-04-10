@@ -3,11 +3,11 @@
 local util = require("gitsigns.util")
 local gs_cache = require("gitsigns.cache")
 local cache = gs_cache.cache
-local void = require("gitsigns.async").void
+local async_create = require("gitsigns.async").create
 
 -- git-blame line under cursor and extract commit hash, then pass it to
 -- callback
-local bm_api = void(function(callback)
+local bm_api = async_create(function(callback)
     local bufnr = vim.api.nvim_get_current_buf()
     local bcache = cache[bufnr]
     if not bcache then
@@ -32,7 +32,7 @@ local function gcfx()
     bm_api(function(sha)
         vim.schedule(function()
             -- I use there my other script git-fxa because it's handy to
-            -- confirm selectopn and see preview of the commit
+            -- confirm selection and see preview of the commit
             vim.cmd("term git fxa --query=" .. sha)
         end)
     end)
