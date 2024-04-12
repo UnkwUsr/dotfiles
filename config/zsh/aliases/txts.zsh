@@ -77,3 +77,13 @@ alias dtd="cd ~/txts/diary && pwd"
 # write diary for "2022-01-01"
 alias dt='cd ~/txts/diary/$(date +"%m" -d "-3 hours") && \
     vim $(date +"%Y_%m_%d" -d "-3 hours") && cd - > /dev/null'
+
+# get week day name and months name
+# TODO: open selected date in diary
+dats() {
+    back=${1:-1}
+    yes "$(date +%s -d "-$back years")" \
+        | head -n $((365 * ($back))) \
+        | gawk '{printf "%s\n", strftime("%Y-%m-%d %A %B", $1 + 60 * 60 * 24 * NR)}' \
+        | fzf +s
+}
