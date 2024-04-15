@@ -65,7 +65,8 @@ filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm},<image/*> feh -q --start-at %f &
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.xpm},<image/*> file %f
 
 " office files
-filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
+filextype {*.doc,*.docx} zdoc %f 2>/dev/null &
+filextype {*.odt,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
     \<application/vnd.openxmlformats-officedocument.*,
     \application/msword,
     \application/vnd.ms-excel>
