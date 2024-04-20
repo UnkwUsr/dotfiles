@@ -248,6 +248,9 @@ nmap <leader>am :MarkdownPreview<CR>
 " vifm
 nmap - :Vifm<CR>
 
+" gx-extended
+let g:gxext#opencmd = '/bin/sh -c "\"$BROWSER\" \"\$1\" & disown" sh'
+
 " csv.vim
 let g:csv_autocmd_arrange = 1
 let g:csv_arrange_align = 'r*'
