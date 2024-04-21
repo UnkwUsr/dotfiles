@@ -29,7 +29,7 @@ alias ytator="yta --proxy 'socks://localhost:9050/'"
 ytaf() {
     for filename in "$@"
     do
-        yta $(sed 's/^.*\[\(.*\)\]\..*/\1/g' <<<"$filename")
+        yta -- "$(sed 's/^.*\[\(.*\)\]\..*/\1/g' <<<"$filename")"
     done
 }
 
