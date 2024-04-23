@@ -33,6 +33,22 @@ ytaf() {
     done
 }
 
+# TODO: think I can make general playlist file name and void arguments here
+# list playlist
+yfl() {
+    for filename in "$@"; do
+        yt-dlp "$(cat "$filename")" --flat-playlist -J \
+            | jq '.entries[].title' \
+            | nl -w 1 -s ' '
+    done
+}
+# download from playlist
+yfi() {
+    filename="$1"
+    index="$2"
+    yt-dlp "$(cat "$filename")" -I "$index"
+}
+
 # cd into often used dirs
 alias yt="cd ~/Files/Media/yt && pwd && ll"
 alias mz="cd ~/Files/Media/mz && pwd && ll"
