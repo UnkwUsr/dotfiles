@@ -140,16 +140,19 @@ config.bind(",c", "spawn -vd st-tm --focus "
                   "git clown $(cut -d'/' -f-5 <<<'{url}' | cut -d'?' -f1) && "
                   "cd \\\"$(basename \\\"$_\\\" .git)\\\" && pwd && ll\"")
 
+# better yank with replaced youtube url
+config.bind("yy", "spawn -d sh -c 'xclip -sel c <<<\"" + redir.yt_url_replaced + "\"' ;; message-info 'Yanked current url'")
+
 # download video from current page
 #
 # why to use tmux here? I want to see progress and be able to stop downloading
 # and/or modify command if something goes wrong (like use proxy)
 config.bind(",z", "spawn -vd st-tm \
     'cd \"$HOME/Files/Media/yt/\"' \
-    'yt-dlp \"{url}\" || echo \"{url}\" >> bad_urls'")
+    'yt-dlp \"" + redir.yt_url_replaced + "\" || echo \"{url}\" >> bad_urls'")
 
 # send current url to inbox
-config.bind(",i", "spawn -vd sh -c 'echo -e \"* {title}\\n  * <{url}>\"\
+config.bind(",i", "spawn -vd sh -c 'echo -e \"* {title}\\n  * <" + redir.yt_url_replaced + ">\"\
                    >> ~/txts/inbox/quteb_saved_urls.md' ;; tab-close")
 
 # enable/disable tor proxy

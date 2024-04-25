@@ -4,6 +4,8 @@ from qutebrowser.utils import message
 # instances list: https://api.invidious.io
 YOUTUBE_REDIR = "yewtu.be"
 
+yt_url_replaced = "$(sed 's/" + YOUTUBE_REDIR + "/youtube.com/' <<<\"{url}\")"
+
 
 def try_redirects(info: qutebrowser.api.interceptor.Request):
     host = info.request_url.host()
