@@ -64,4 +64,4 @@ idle_fg = { link = "good_fg" }
 [[block]]
 block = "time"
 interval = 60
-format = "$icon $timestamp.datetime(f:'%d/%m %a %-I:%M', l:ja_JP)"
+format = "$icon $timestamp.datetime(f:'%d/%m/%Y %a %-I:%M', l:ja_JP)"
