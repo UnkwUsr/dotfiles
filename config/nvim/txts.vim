@@ -23,8 +23,6 @@ command! -nargs=0 Bb e ~/txts/synced-inbox/buy.md
 
 """" zk
 command! -nargs=0 Z e ~/txts/zk2/00_INDEX.md
-command! -nargs=0 Zi e ~/txts/zk2/inbox/00_INBOX.md
-command! -nargs=0 ZI e ~/txts/zk2/inbox/00_INBOX.md
 
 """" remind/calendar
 command! -nargs=0 R e ~/.reminders/main.rem
