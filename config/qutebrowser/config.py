@@ -141,7 +141,7 @@ config.bind(",c", "spawn -vd st-tm --focus "
                   "cd \\\"$(basename \\\"$_\\\" .git)\\\" && pwd && ll\"")
 
 # better yank with replaced youtube url
-config.bind("yy", "spawn -d sh -c 'xclip -sel c <<<\"" + redir.yt_url_replaced + "\"' ;; message-info 'Yanked current url'")
+config.bind("yy", "spawn -d sh -c 'echo -n \"" + redir.yt_url_replaced + "\" | xclip -sel c' ;; message-info 'Yanked current url'")
 
 # download video from current page
 #
