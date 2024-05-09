@@ -28,8 +28,6 @@ alias d="cd ~/txts/dtm && vim plans.md && cd - > /dev/null"
 ### semi-sorted inbox repo (aka dtm pre-staging area)
 
 alias dwd="cd ~/txts/dtm/inbox"
-# entry point, aka "not in priority"
-alias dw="cd ~/txts/dtm && vim inbox/0spn.md"
 # saved notes from i3 bind
 alias da="cd ~/txts/dtm/inbox/ && vim +':norm G' 00_inboxed.md && cd - > /dev/null"
 # saved links from browser

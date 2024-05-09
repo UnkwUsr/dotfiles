@@ -16,7 +16,6 @@ command! -nargs=0 Di e ~/txts/dtm/00_index.md
 autocmd BufNewFile,BufRead ~/txts/dtm/*.md setlocal signcolumn=no
 
 """" inbox
-command! -nargs=0 Dw e ~/txts/dtm/inbox/0spn.md
 command! -nargs=0 Da e ~/txts/dtm/inbox/00_inboxed.md
 command! -nargs=0 Db e ~/txts/dtm/inbox/quteb_saved_urls.md
 command! -nargs=0 Bb e ~/txts/synced-inbox/buy.md
