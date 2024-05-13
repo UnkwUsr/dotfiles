@@ -247,6 +247,8 @@ bindsym $mod+b exec echo -n | dmenu -p "buy:" | cat <(echo -n "* ") - >> ~/txts/
 # dtm inbox
 bindsym $mod+s exec echo -n | dmenu -p "dtm inbox:" \
             | ifne sh -c '(echo -n "* " && cat) >> ~/txts/dtm/inbox/00_inboxed.md'
+# voice record inbox (this is *those key fn under F1*. idk why so)
+bindsym $mod+F1 exec $st_win_with "inb_rec_mic"
 
 # translate tool
 set $trans_run trans -i /tmp/trans_text -view -show-original=no \
