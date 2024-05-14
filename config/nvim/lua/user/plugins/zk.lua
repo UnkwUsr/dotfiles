@@ -35,16 +35,14 @@ local function map_keys(bufnr)
     end
 
     -- stylua: ignore start
-    -- create notes
-    keymap("n", "<leader>zn", "<Cmd>ZkNew<CR>")
+    -- create note from selection
     keymap("v", "<leader>znt", ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>")
 
     -- search notes
     keymap("n", "<leader>zs", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>")
     keymap("v", "<leader>zs", ":'<,'>ZkMatch<CR>")
 
-    -- links/backlinks
-    keymap("n", "<leader>zl", "<Cmd>ZkLinks<CR>")
+    -- backlinks
     keymap("n", "<leader>zb", "<Cmd>ZkMyBacklinks<CR>")
 
     -- orphans
