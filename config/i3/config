@@ -374,7 +374,7 @@ assign [instance="^vifm-mpv$"] 3
 ## games
 assign [class="^hl_linux$"] 5
 assign [class="^csgo_linux64$"] 5
-for_window [class="^Steam|steam$"] move container to workspace 8
+for_window [title="^Steam$"] move container to workspace 8
 for_window [class="^Minecraft"] floating enable, move container to workspace 5
 for_window [class="^ru-turikhay-tlauncher-bootstrap-Bootstrap$"] floating enable, move container to workspace 5
 
