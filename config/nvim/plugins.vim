@@ -249,6 +249,7 @@ nmap <leader>am :MarkdownPreview<CR>
 nmap - :Vifm<CR>
 
 " gx-extended
+nmap gx <Plug>(gxext-normal)
 let g:gxext#opencmd = '/bin/sh -c "\"$BROWSER\" \"\$1\" & disown" sh'
 
 " csv.vim
