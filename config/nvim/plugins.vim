@@ -65,6 +65,7 @@ call plug#end()
 
 
 " srcery (colorscheme)
+set notermguicolors
 colorscheme srcery
 " fix spell color
 hi SpellBad ctermfg=3
