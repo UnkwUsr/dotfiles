@@ -18,7 +18,7 @@ voice_recognise() {
         my-whisper.py voices voices-res.md
     fi
     if [ -d voices-laptop ]; then
-        echo -e "\n ## laptop\n" >> voices-res.md
+        echo -e "\n## laptop\n" >> voices-res.md
         my-whisper.py voices-laptop voices-res.md
     fi
 }
