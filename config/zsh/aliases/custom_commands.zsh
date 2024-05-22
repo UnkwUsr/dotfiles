@@ -17,6 +17,12 @@ alias an="git annex"
 # run mpv in background
 mpb() { mpv --loop-playlist=inf --force-window=immediate "$@" & disown }
 
+# play all music in shuffled order
+alias msb="cd ~/Files/music/ \
+    && fd -tl -tf --exec-batch \
+    mpv --force-window=yes \
+    --input-commands=playlist-shuffle,playlist-next & disown"
+
 # show files with matches
 alias rgf='rg --files-with-matches'
 
