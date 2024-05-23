@@ -1,52 +1,65 @@
 call plug#begin()
 
+"""" looking, theming
 Plug 'srcery-colors/srcery-vim'
 Plug 'UnkwUsr/lightline.vim' " waiting for neovim release with fix. nightly seems fixed
+
+"""" utils
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-commentary'
+Plug 'mbbill/undotree'
+Plug 'vifm/vifm.vim'
+" better vim defaults
+Plug 'stsewd/gx-extended.vim'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-unimpaired'
+" linux utils
+Plug 'tpope/vim-eunuch'
+Plug 'lambdalisue/suda.vim'
+" text editing itself utils
+Plug 'svermeulen/vim-subversive'
+Plug 'tpope/vim-surround'
+" git stuff
 Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 Plug 'UnkwUsr/vim-fugitive' " fork from tpope
 Plug 'junegunn/gv.vim'
-Plug 'svermeulen/vim-subversive'
-Plug 'mbbill/undotree'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-unimpaired'
-Plug 'lambdalisue/suda.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'vifm/vifm.vim'
-Plug 'stsewd/gx-extended.vim'
-" detect indent style (tab vs space) and set appropriate options
-Plug 'Darazaki/indent-o-matic'
 
-" langs specific plugins
+"""" langs specific plugins
 " Plug 'chrisbra/csv.vim'
 Plug 'tidalcycles/vim-tidal'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'akinsho/flutter-tools.nvim'
 Plug 'udalov/kotlin-vim'
-" parenthesis guesser for lisp-like syntax languages
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" for lisp-like syntax languages (parenthesis guesser)
 Plug 'gpanders/nvim-parinfer'
+" for note taking, in markdown
+Plug 'zk-org/zk-nvim'
+" for neovim's lua api (providing completion)
+Plug 'folke/neodev.nvim'
+" for many languages
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'Olical/conjure'
+Plug 'tpope/vim-commentary'
+" detect indent style (tab vs space) and set appropriate options
+Plug 'Darazaki/indent-o-matic'
 
+"""" lsp itself stuff
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp-status.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+" completion stuff
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
-Plug 'zk-org/zk-nvim'
-Plug 'Olical/conjure'
-Plug 'folke/neodev.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
-" dependencies
+"""" dependencies
 " null-ls
 Plug 'nvim-lua/plenary.nvim'
+" vim-surround
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
@@ -141,28 +154,18 @@ xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 imap <leader><tab> <plug>(fzf-maps-i)
 
-function! PInsert2(item)
-    let @z=a:item
-    norm "zp
-    call feedkeys('a')
-endfunction
-
-" commentary
-
 " fugitive
 " always open fugitive in new tab
 cabbrev G tab G
 " map q to exit. Complements gv.vim behavior
 autocmd FileType git nmap <buffer> q :q<CR>
-
-" not fugitive, but for git. proper use `git fxa` alias
+" not fugitive, but for git: proper use `git fxa` alias
 command! -nargs=0 Gfxa term git fxa
 
 " gv
+nmap <leader>ag :GV<CR>
 " restore 'o' in visual mode to native behavior
 autocmd FileType GV xunmap <buffer> o
-" override bind 'O'. Enable showing root commit and add stat info
-autocmd FileType GV nnoremap <silent> <buffer> O :call <sid>mygvopen()<cr>
 " fix mess with tabs (example: when use O in GV): move GV tab to last
 " (and have to set after VimEnter, otherwise it breaks when open GV on start)
 autocmd VimEnter * autocmd FileType GV tabmove $
@@ -180,6 +183,8 @@ function! s:mydotfiles_map_nav()
     exec ':nmap <buffer> <silent> } :norm ^j<CR>:call search("' . l:regex . '", "W")<CR>:norm ^<CR>'
 endfunction
 
+" override bind 'O'. Enable showing root commit and add stat info
+autocmd FileType GV nnoremap <silent> <buffer> O :call <sid>mygvopen()<cr>
 function! s:mygvopen()
   let sha = gv#sha()
   if !empty(sha)
@@ -188,16 +193,12 @@ function! s:mygvopen()
   endif
 endfunction
 
-nmap <leader>ag :GV<CR>
-
 " subversive
 " Replace text-object with content register
 " Usage: ["register]s{motion}
 nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
 nmap S <plug>(SubversiveSubstituteToEndOfLine)
-
-" undotree
 
 " rust-lang
 function! s:find_cargo_root()
@@ -219,14 +220,6 @@ function! s:generate_cargo_rust_tags()
     endif
 endfunction
 autocmd BufWritePost *.rs call s:generate_cargo_rust_tags()
-
-" suda
-command! -nargs=0 Sw SudaWrite
-
-" nvim-lspconfig
-" for lspconfig config see ~/.config/nvim/lua/user/lsp
-" just shorter alias
-cabbrev LS LspStart
 
 " netrw (installed by default)
 " also a little bit configured by vim-vinegar
@@ -258,6 +251,14 @@ let g:csv_arrange_align = 'r*'
 
 " tidal
 let g:tidal_target = "terminal"
+
+" suda
+command! -nargs=0 Sw SudaWrite
+
+" nvim-lspconfig
+" for lspconfig config see ~/.config/nvim/lua/user/lsp
+" just shorter alias
+cabbrev LS LspStart
 
 " conjure
 " disable lsp diagnostics for log buffer
