@@ -118,3 +118,8 @@ input[type=checkbox][disabled][checked].task-list-item-checkbox:after {
 .bar-below_plus {
     display: none;
 }
+
+/* github recommends */
+aside.feed-right-sidebar.mb-5.border-bottom {
+    visibility: hidden;
+}
