@@ -18,8 +18,7 @@ voice_recognise() {
         my-whisper.py voices voices-res.md
     fi
     if [ -d voices-laptop ]; then
-        echo -e "\n## laptop\n" >> voices-res.md
-        my-whisper.py voices-laptop voices-res.md
+        my-whisper.py voices-laptop laptop-voices-res.md
     fi
 }
 
@@ -31,13 +30,15 @@ copy_into_target() {
     done
 
     [ -f voices-res.md ] && cat <(echo -e "\n## voices\n") voices-res.md >> "$TARGET_TO"
+    [ -f laptop-voices-res.md ] && cat <(echo -e "\n## laptop\n") laptop-voices-res.md >> "$TARGET_TO"
 
-    fd . -HI -tf --exclude=voices-res.md --exclude=voices/ --exclude=voices-laptop/ --exclude='inbox_*.md' --exclude=buy.md --exclude=.git/ \
+    fd . -HI -tf --exclude=voices-res.md --exclude=laptop-voices-res.md --exclude=voices/ --exclude=voices-laptop/ --exclude='inbox_*.md' --exclude=buy.md --exclude=.git/ \
         | ifne cat <(echo -e "\n## WARNING: other files also\n") - >> "$TARGET_TO"
 }
 
 final_clean() {
     [ -f voices-res.md ] && rm voices-res.md
+    [ -f laptop-voices-res.md ] && rm laptop-voices-res.md
     [ -d voices ] && (git rm voices/*.m4a && mkdir -p ~/txts/dtm/voices && mv voices/*.wav ~/txts/dtm/voices && rmdir voices)
     [ -d voices-laptop ] && (mv voices-laptop/*.wav ~/txts/dtm/voices && rmdir voices-laptop)
     files=( ./inbox_*.md ) && (( ${#files[@]} )) && git rm "${files[@]}"
