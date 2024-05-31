@@ -61,6 +61,8 @@ end
 local function speed_reset_handler()
     speed_reset()
     show_cur_speed()
+    -- also reset volume level
+    mp.set_property("volume", 100)
 end
 
 ---- finally bind
