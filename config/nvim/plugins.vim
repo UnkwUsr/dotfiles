@@ -2,7 +2,7 @@ call plug#begin()
 
 """" looking, theming
 Plug 'srcery-colors/srcery-vim'
-Plug 'UnkwUsr/lightline.vim' " waiting for neovim release with fix. nightly seems fixed
+Plug 'itchyny/lightline.vim'
 
 """" utils
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
