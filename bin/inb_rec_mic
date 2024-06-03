@@ -1,6 +1,12 @@
 #!/bin/sh
 target_fldr="$HOME/txts/synced-inbox/voices-laptop"
+
+# unmute microphone
 ponymix --source unmute >/dev/null
+# mute speakers
+ponymix is-muted; IS_WAS_MUTED=$?
+ponymix mute > /dev/null
+
 mkdir -p "$target_fldr" && cd "$target_fldr" || exit
 micrec & rec_pid="$!"
 
@@ -10,4 +16,8 @@ read
 sleep 1
 kill "$rec_pid"
 
+# mute microphone back
 ponymix --source mute >/dev/null
+# unmute speakers back
+test "$IS_WAS_MUTED" -ne 0 && \
+    ponymix unmute > /dev/null
