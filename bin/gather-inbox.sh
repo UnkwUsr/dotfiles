@@ -40,7 +40,7 @@ final_clean() {
     [ -f voices-res.md ] && rm voices-res.md
     [ -f laptop-voices-res.md ] && rm laptop-voices-res.md
     [ -d voices ] && (git rm voices/*.m4a && mkdir -p ~/txts/dtm/voices && mv voices/*.wav ~/txts/dtm/voices && rmdir voices)
-    [ -d voices-laptop ] && (mv voices-laptop/*.wav ~/txts/dtm/voices && rmdir voices-laptop)
+    [ -d voices-laptop ] && (mkdir -p ~/txts/dtm/voices-laptop && mv voices-laptop/*.wav ~/txts/dtm/voices-laptop && rmdir voices-laptop)
     files=( ./inbox_*.md ) && (( ${#files[@]} )) && git rm "${files[@]}"
 
     # also add buy.md at the same time. Why not
