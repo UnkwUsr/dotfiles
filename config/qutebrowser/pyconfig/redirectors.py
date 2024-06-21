@@ -1,8 +1,8 @@
 import qutebrowser.api.interceptor
 from qutebrowser.utils import message
 
+YOUTUBE_REDIR = "my.invidiousyt"
 # instances list: https://api.invidious.io
-YOUTUBE_REDIR = "yewtu.be"
 
 yt_url_replaced = '$(echo "{url}" | sed "s/' + YOUTUBE_REDIR + '/youtube.com/")'
 
@@ -14,7 +14,10 @@ def try_redirects(info: qutebrowser.api.interceptor.Request):
 
     redir_to = redirs[host]
 
-    if redir_to == "my.libreddit" and info.request_url.scheme() == "https":
+    if (
+        redir_to in ["my.libreddit", YOUTUBE_REDIR]
+        and info.request_url.scheme() == "https"
+    ):
         info.request_url.setScheme("http")
 
     special_handle_short_youtube(info)
