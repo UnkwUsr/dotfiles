@@ -7,6 +7,16 @@ bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10 && dunstctl clos
 # media playback (using playerctl)
 bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
+# media seek back/forward in seconds
+set $seek_show_notif sh -c "dunstctl close \
+        && notify-send -t 750 \
+            $(playerctl metadata -f '"{{xesam:title}}" "{{duration(position)}} / {{duration(mpris:length)}}"')"
+bindsym Prior exec --no-startup-id playerctl position 5- && $seek_show_notif
+bindsym Next exec --no-startup-id playerctl position 5+ && $seek_show_notif
+bindsym shift+Prior exec --no-startup-id playerctl position 10- && $seek_show_notif
+bindsym shift+Next exec --no-startup-id playerctl position 10+ && $seek_show_notif
+bindsym $alt+Prior exec --no-startup-id playerctl position 30- && $seek_show_notif
+bindsym $alt+Next exec --no-startup-id playerctl position 30+ && $seek_show_notif
 
 # volume control
 ## adjust volume level
