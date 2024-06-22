@@ -1,4 +1,4 @@
-# this is alias for easy to use alt in future bindings
+# this is aliases for easy to use in future bindings
 set $mod Mod4
 set $alt Mod1
 
@@ -8,13 +8,16 @@ include ~/.config/i3/windows_assigns.i3
 
 font pango:Hack 11
 
-focus_follows_mouse no
-# open new windows in tabs, not tiling
-workspace_layout tabbed
 # windows settings
 focus_wrapping no
 default_border normal
 hide_edge_borders smart
+# disable focus following mouse
+focus_follows_mouse no
+# open new windows in tabs, not tiling
+workspace_layout tabbed
+# use Mouse+$mod to drag floating windows
+floating_modifier $mod
 
 # autostart
 exec ~/.config/i3/autostart.sh
