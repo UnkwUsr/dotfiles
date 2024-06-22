@@ -11,19 +11,6 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
-
-# This is alias for easy to use alt in future bindings
-set $alt Mod1
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:Hack 11
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -45,11 +32,6 @@ set $up l
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# start a terminal
-bindsym $alt+Return exec st
-# start/focus a terminal with tmux and create new tmux pane
-bindsym $mod+Return workspace 2; exec st-tm --focus
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -192,6 +174,3 @@ bar {
         bindsym button4 nop
         bindsym button5 nop
 }
-
-
-

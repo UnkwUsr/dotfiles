@@ -1,6 +1,12 @@
+# this is alias for easy to use alt in future bindings
+set $mod Mod4
+set $alt Mod1
+
 include ~/.config/i3/defaults_derived.i3
-include ~/.config/i3/binds.i3
+include ~/.config/i3/binds/_main.i3
 include ~/.config/i3/windows_assigns.i3
+
+font pango:Hack 11
 
 focus_follows_mouse no
 # open new windows in tabs, not tiling
