@@ -1,0 +1,15 @@
+#!/bin/sh
+
+cd ~/sdcard/books
+pwd
+echo
+
+git s
+git pull
+git add . && git commit
+git push
+git s
+
+echo
+echo "all done. Press enter"
+read -r

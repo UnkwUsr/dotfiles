@@ -1,0 +1,18 @@
+#!/bin/env bash
+set -euo pipefail
+# this script syncs phone inbox (both ways)
+
+INBOX_FOLDER="$HOME/device/txts/phone_inbox"
+cd "$INBOX_FOLDER" || exit 1
+
+[ -f inbox.md ] && mv inbox.md "inbox_$(date +'%F-%H-%M').md"
+git pull
+git add .
+git diff --staged --exit-code --quiet || git commit -m "phone auto at $(date)"
+git push
+
+if [ -t 0 ]; then
+    echo
+    echo "all done. Press enter"
+    read -r
+fi

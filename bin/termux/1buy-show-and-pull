@@ -1,0 +1,17 @@
+#!/bin/env bash
+set -euo pipefail
+# this scripts shows buy list, tries to pull latest update from git, and then
+# shows list again if something changed
+
+INBOX_FOLDER="$HOME/device/txts/phone_inbox"
+cd "$INBOX_FOLDER" || exit 1
+
+cat buy.md && echo
+
+ping -c1 -q -W1 8.8.8.8 > /dev/null && git pull && echo && cat buy.md
+
+if [ -t 0 ]; then
+    echo
+    echo "all done. Press enter"
+    read -r
+fi

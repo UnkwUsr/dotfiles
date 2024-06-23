@@ -1,0 +1,8 @@
+#!/bin/env bash
+
+keybase git list > /dev/null
+bash ~/.bin/gts ~/txts git pull
+
+echo
+echo "all done. Press enter"
+read -r

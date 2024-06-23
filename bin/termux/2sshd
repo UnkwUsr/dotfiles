@@ -1,0 +1,4 @@
+termux-wake-lock
+sshd
+echo sshd started
+sleep 1

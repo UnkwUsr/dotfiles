@@ -1,0 +1,7 @@
+#!/bin/env bash
+set -euo pipefail
+
+INBOX_FOLDER="$HOME/device/txts/phone_inbox"
+cd "$INBOX_FOLDER" || exit 1
+cat inbox.md
+read -r
