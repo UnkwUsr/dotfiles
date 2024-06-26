@@ -1,0 +1,88 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 89a095a..7fa1d7e 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -14,15 +14,40 @@ depends=(libxft)
+ url=https://st.suckless.org
+ source=(https://dl.suckless.org/$pkgname/$pkgname-$pkgver.tar.gz
+         terminfo.patch
++        st-appsync-20200618-b27a383.diff
++        st-scrollback-20210507-4536f46.diff
++        st-scrollback-mouse-20220127-2c5edf2.diff
++        st-scrollback-mouse-altscreen-20220127-2c5edf2.diff
++        st-newterm-0.9.diff
++        st-newterm-0.9-tmux.diff
++        st-hidecursor-0.8.3.diff
++        st-copyurl-multiline-20230406-211964d.diff
+         README.terminfo.rst)
+ sha256sums=('6b215d4f472b21d6232f30f221117a777e24bcfee68955ddefb7426467f9494b'
+             'f9deea445a5c6203a0e8e699f3c3b55e27275f17fb408562c4dd5d649edeea23'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP'
+             '95be3197f7de77a0fe2e4f527202e17e910ee24e1ed6bc39beb320a1304bb7e1')
+ _sourcedir=$pkgname-$pkgver
+ 
+ prepare() {
+   patch -d "$_sourcedir" -p 0 < terminfo.patch
+ 
++  patch -d "$_sourcedir" < st-appsync-20200618-b27a383.diff
++  patch -d "$_sourcedir" < st-hidecursor-0.8.3.diff
++  patch -d "$_sourcedir" < st-copyurl-multiline-20230406-211964d.diff
++  patch -d "$_sourcedir" < st-newterm-0.9.diff
++  patch -d "$_sourcedir" < st-newterm-0.9-tmux.diff
++  patch -d "$_sourcedir" < st-scrollback-20210507-4536f46.diff
++  patch -d "$_sourcedir" < st-scrollback-mouse-20220127-2c5edf2.diff
++  patch -d "$_sourcedir" < st-scrollback-mouse-altscreen-20220127-2c5edf2.diff
++
+   # This package provides a mechanism to provide a custom config.h. Multiple
+   # configuration states are determined by the presence of two files in
+   # $BUILDDIR:
+diff --git a/st-newterm-0.9.diff b/st-newterm-0.9.diff
+index 5525e7a..77e4d30 100644
+--- a/st-newterm-0.9.diff
++++ b/st-newterm-0.9.diff
+@@ -17,10 +17,12 @@ diff --git a/config.def.h b/config.def.h
+ index 91ab8ca..7c75246 100644
+ --- a/config.def.h
+ +++ b/config.def.h
+-@@ -201,6 +201,7 @@ static Shortcut shortcuts[] = {
++@@ -201,8 +201,9 @@ static Shortcut shortcuts[] = {
+  	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
+  	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+  	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
++ 	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
++ 	{ MODKEY|ShiftMask,     XK_L,           copyurl,        {.i =  1} },
+ +	{ TERMMOD,              XK_Return,      newterm,        {.i =  0} },
+  };
+  
+diff --git a/st-scrollback-20210507-4536f46.diff b/st-scrollback-20210507-4536f46.diff
+index f960f6b..2a6ccac 100644
+--- a/st-scrollback-20210507-4536f46.diff
++++ b/st-scrollback-20210507-4536f46.diff
+@@ -3,9 +3,9 @@ index 6f05dce..93cbcc0 100644
+ --- a/config.def.h
+ +++ b/config.def.h
+ @@ -199,6 +199,8 @@ static Shortcut shortcuts[] = {
+- 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
+- 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+- 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
++	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
++	{ MODKEY|ShiftMask,     XK_L,           copyurl,        {.i =  1} },
++	{ TERMMOD,              XK_Return,      newterm,        {.i =  0} },
+ +	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+ +	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+  };
+@@ -346,6 +346,6 @@ index fa2eddf..adda2db 100644
+  
+ +void kscrolldown(const Arg *);
+ +void kscrollup(const Arg *);
++ void newterm(const Arg *);
+  void printscreen(const Arg *);
+  void printsel(const Arg *);
+- void sendbreak(const Arg *);
