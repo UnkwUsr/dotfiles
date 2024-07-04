@@ -8,13 +8,7 @@ ponymix is-muted; IS_WAS_MUTED=$?
 ponymix mute > /dev/null
 
 mkdir -p "$target_fldr" && cd "$target_fldr" || exit
-micrec & rec_pid="$!"
-
-# this fixes that mic recorder trims last few seconds on end
-# shellcheck disable=2162,3061
-read
-sleep 1
-kill "$rec_pid"
+micrec
 
 # mute microphone back
 ponymix --source mute >/dev/null
