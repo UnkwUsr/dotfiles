@@ -1,0 +1,79 @@
+diff --git a/kitty-graphics.diff b/kitty-graphics.diff
+index dd69fcc..e1c9ffb 100644
+--- a/kitty-graphics.diff
++++ b/kitty-graphics.diff
+@@ -48,6 +48,15 @@ index 91ab8ca..a6ade15 100644
+  
+  /* Kerning / character bounding-box multipliers */
+  static float cwscale = 1.0;
++@@ -82,7 +82,7 @@ static unsigned int cursorthickness = 2;
++ static int bellvolume = 0;
++ 
++ /* default TERM value */
++-char *termname = "st-256color";
+++char *termname = "xterm-kitty";
++ 
++ /*
++  * spaces per tab
+ @@ -163,6 +171,26 @@ static unsigned int mousebg = 0;
+   */
+  static unsigned int defaultattr = 11;
+@@ -91,8 +100,8 @@ index 91ab8ca..a6ade15 100644
+  	/* mask                 button   function        argument       release */
+ +	{ TERMMOD,              Button3, previewimage,   {.s = "feh"} },
+ +	{ TERMMOD,              Button2, showimageinfo,  {},            1 },
+- 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
+- 	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
++	{ XK_ANY_MOD,           Button4, kscrollup,      {.i = 1},		0, /* !alt */ -1 },
++	{ XK_ANY_MOD,           Button5, kscrolldown,    {.i = 1},		0, /* !alt */ -1 },
+  	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
+ @@ -183,10 +217,6 @@ static MouseShortcut mshortcuts[] = {
+  	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
+@@ -106,9 +115,9 @@ index 91ab8ca..a6ade15 100644
+  	/* mask                 keysym          function        argument */
+  	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
+ @@ -201,6 +231,10 @@ static Shortcut shortcuts[] = {
+- 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
+- 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+- 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
++	{ TERMMOD,              XK_Return,      newterm,        {.i =  0} },
++	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
++	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+ +	{ TERMMOD,              XK_F1,          togglegrdebug,  {.i =  0} },
+ +	{ TERMMOD,              XK_F6,          dumpgrstate,    {.i =  0} },
+ +	{ TERMMOD,              XK_F7,          unloadimages,   {.i =  0} },
+@@ -4646,7 +4655,7 @@ index d6478f5..5dc9a93 100644
+ @@ -831,7 +851,24 @@ ttyread(void)
+  		die("couldn't read from shell: %s\n", strerror(errno));
+  	default:
+- 		buflen += ret;
++		buflen += twrite_aborted ? 0 : ret;
+ -		written = twrite(buf, buflen, 0);
+ +		if (already_processing) {
+ +			/* Avoid recursive call to twrite() */
+@@ -4909,11 +4918,10 @@ index d6478f5..5dc9a93 100644
+  	}
+  }
+  
+-@@ -1958,8 +2138,26 @@ strhandle(void)
+- 	case 'k': /* old title set compatibility */
+- 		xsettitle(strescseq.args[0]);
++@@ -1958,7 +2138,25 @@ strhandle(void)
++ 		else if (strstr(strescseq.buf, "=2s") == strescseq.buf)
++ 			tsync_end();  /* ESU */
+  		return;
+--	case 'P': /* DCS -- Device Control String */
+  	case '_': /* APC -- Application Program Command */
+ +		if (gr_parse_command(strescseq.buf, strescseq.len)) {
+ +			GraphicsCommandResult *res = &graphics_command_result;
+@@ -4933,7 +4941,6 @@ index d6478f5..5dc9a93 100644
+ +			return;
+ +		}
+ +		return;
+-+	case 'P': /* DCS -- Device Control String */
+  	case '^': /* PM -- Privacy Message */
+  		return;
+  	}
+-- 
+2.45.2
+

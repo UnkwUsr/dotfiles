@@ -14,9 +14,11 @@ index 89a095a..7fa1d7e 100644
 +        st-newterm-0.9-tmux.diff
 +        st-hidecursor-0.8.3.diff
 +        st-copyurl-multiline-20230406-211964d.diff
++        kitty-graphics.diff
          README.terminfo.rst)
  sha256sums=('6b215d4f472b21d6232f30f221117a777e24bcfee68955ddefb7426467f9494b'
              'f9deea445a5c6203a0e8e699f3c3b55e27275f17fb408562c4dd5d649edeea23'
++            'SKIP'
 +            'SKIP'
 +            'SKIP'
 +            'SKIP'
@@ -39,6 +41,7 @@ index 89a095a..7fa1d7e 100644
 +  patch -d "$_sourcedir" < st-scrollback-20210507-4536f46.diff
 +  patch -d "$_sourcedir" < st-scrollback-mouse-20220127-2c5edf2.diff
 +  patch -d "$_sourcedir" < st-scrollback-mouse-altscreen-20220127-2c5edf2.diff
++  patch -d "$_sourcedir" < kitty-graphics.diff
 +
    # This package provides a mechanism to provide a custom config.h. Multiple
    # configuration states are determined by the presence of two files in
