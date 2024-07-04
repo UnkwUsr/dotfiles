@@ -25,7 +25,7 @@ autocmd FileType html,css setlocal nowrap
 " disable auto-inserting comment on newline for all filetypes
 autocmd FileType * setlocal fo-=o
 " set commentstring
-autocmd FileType cpp,xkb setlocal commentstring=//\ %s
+autocmd FileType cpp,xkb,supercollider setlocal commentstring=//\ %s
 autocmd FileType mysql,plsql setlocal commentstring=--\ %s
 autocmd FileType tidal setlocal commentstring=--\ %s
 autocmd FileType remind setlocal commentstring=#\ %s
