@@ -9,7 +9,4 @@ else
     filename+=.wav
 fi
 
-# parec -d @DEFAULT_SOURCE@ | ffmpeg -hide_banner -ac 2 -f s16le -i - $filename
-echo recording to $filename
-parecord -v -d @DEFAULT_SOURCE@ $filename
-
+asak rec "$filename"
