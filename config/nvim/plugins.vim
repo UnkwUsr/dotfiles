@@ -68,7 +68,7 @@ call plug#end()
 set notermguicolors
 colorscheme srcery
 " fix spell color
-hi SpellBad ctermfg=3
+hi SpellBad ctermfg=3 cterm=underline
 " fix colors for Haskell
 " TODO: probably this not applying now
 hi! link haskellType SrceryYellow
