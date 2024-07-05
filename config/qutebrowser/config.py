@@ -170,5 +170,8 @@ config.bind("zS", "cmd-set-text :open -tr https://web.archive.org/web/*/")
 # save current url in web archive
 config.bind("zd", "open -tr https://web.archive.org/save/{url}")
 
+# toggle dark
+config.bind("\\w", "config-cycle colors.webpage.darkmode.enabled false true")
+
 # workaround to make youtube redirector work
 c.qt.workarounds.remove_service_workers = True
