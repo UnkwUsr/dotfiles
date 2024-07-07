@@ -93,8 +93,6 @@ Other
   ([github](https://github.com/UnkwUsr/ticktask))
 * `dalarma` - alarm clock that will block your screen with alarm text
   ([github](https://github.com/UnkwUsr/dalarma))
-* `simplescreenrecorder` - screen recorder (but with
-  [patch](https://github.com/MaartenBaert/ssr/pull/960))
 
 # Scripts
 

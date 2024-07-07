@@ -2,10 +2,13 @@
 
 # make screenshot
 bindsym Print exec --no-startup-id "flameshot gui"
-# start video screen recording (video)
-bindsym $mod+bracketright exec simplescreenrecorder --start-hidden --start-recording
-# stop screen recording (patch required: https://github.com/MaartenBaert/ssr/pull/960)
-bindsym $mod+ctrl+bracketright exec pkill -x simplescreenrec
+# start screen recording (video + audio)
+bindsym $mod+bracketright exec \
+    bash -c "exec -a me_screen_rec ffmpeg -video_size 1920x1080 -framerate 30 \
+        -f x11grab -i $DISPLAY -f pulse -i default -c:a aac -c:v libx264rgb -crf 0 \
+        -preset ultrafast -color_range 2 \"screen_$(date +%Y_%m_%d_%H-%M_%N).mp4\" &" \
+    && bash -c "exec -a me_screen_rec_tray yad --notification --image camera-web &"
+bindsym $mod+ctrl+bracketright exec pkill -f me_screen_rec && pkill -f me_screen_rec_tray
 
 # lock screen
 bindsym $mod+i exec --no-startup-id "sleep 0.25 && xset dpms force suspend"
