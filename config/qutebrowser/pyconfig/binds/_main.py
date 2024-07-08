@@ -1,6 +1,5 @@
-import pyconfig.redirectors as redir
-
-config = config  # noqa: F821
+# fmt: off
+config = config; redir = redir  # noqa
 
 # reload config
 config.bind("<Ctrl+r>", "config-source")
