@@ -23,6 +23,7 @@ Plug 'tpope/vim-surround'
 Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 Plug 'UnkwUsr/vim-fugitive' " fork from tpope
 Plug 'junegunn/gv.vim'
+Plug 'liuchengxu/vista.vim'
 
 """" langs specific plugins
 " Plug 'chrisbra/csv.vim'
@@ -193,6 +194,9 @@ function! s:mygvopen()
       execute 'file git show ' . sha
   endif
 endfunction
+
+" vista
+nmap =- :Vista<CR>
 
 " subversive
 " Replace text-object with content register
