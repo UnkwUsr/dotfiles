@@ -4,7 +4,7 @@ from qutebrowser.utils import message
 # instances list: https://api.invidious.io
 YOUTUBE_REDIR = "yewtu.be"
 
-yt_url_replaced = "$(echo \"{url}\" | sed \"s/" + YOUTUBE_REDIR + "/youtube.com/\")"
+yt_url_replaced = '$(echo "{url}" | sed "s/' + YOUTUBE_REDIR + '/youtube.com/")'
 
 
 def try_redirects(info: qutebrowser.api.interceptor.Request):
@@ -73,13 +73,15 @@ redirs = {
 }
 # fmt: on
 
-# remove previous registered interceptor (in case when run :config-source
-# command)
-if hasattr(qutebrowser.api, "redirector_intercept_func"):
-    qutebrowser.api.interceptor.interceptors._interceptors.remove(
-        qutebrowser.api.redirector_intercept_func
-    )
 
-qutebrowser.api.redirector_intercept_func = try_redirects
-qutebrowser.api.interceptor.register(try_redirects)
-message.info("my redirectors loaded")
+def init_redirectors():
+    # remove previous registered interceptor (in case when run :config-source
+    # command)
+    if hasattr(qutebrowser.api, "redirector_intercept_func"):
+        qutebrowser.api.interceptor.interceptors._interceptors.remove(
+            qutebrowser.api.redirector_intercept_func
+        )
+
+    qutebrowser.api.redirector_intercept_func = try_redirects
+    qutebrowser.api.interceptor.register(try_redirects)
+    message.info("my redirectors loaded")
