@@ -15,8 +15,10 @@ def exec_config_subfiles(files):
 
 # fmt: off
 exec_config_subfiles([
-    "pyconfig/binds/_main.py",
-    "pyconfig/settings.py"
+    "pyconfig/settings.py",
+    "pyconfig/binds/better_defaults.py",
+    "pyconfig/binds/external.py",
+    "pyconfig/binds/utils.py"
     ])
 c = c; config = config  # noqa
 # fmt: on
