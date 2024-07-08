@@ -150,6 +150,10 @@ config.bind("yy", "spawn -d sh -c 'echo -n \"" + redir.yt_url_replaced + "\" | x
 config.bind(",z", "spawn -vd st-tm \
     'cd \"$HOME/Files/Media/yt/\"' \
     'yt-dlp \"" + redir.yt_url_replaced + "\" || echo \"{url}\" >> bad_urls'")
+# download page as music album or youtube playlist. Put all in separate folder
+config.bind(",a", "spawn -vd st-tm \
+    'cd \"$HOME/Files/Media/yt/\"' \
+    'yt-dlp -o \"%(album)s/%(artist)s - %(title)s.%(ext)s\" \"" + redir.yt_url_replaced + "\" || echo \"{url}\" >> bad_urls'")
 
 # send current url to inbox
 config.bind(",i", "spawn -vd sh -c 'echo -e \"* {title}\\n  * <" + redir.yt_url_replaced + ">\"\
