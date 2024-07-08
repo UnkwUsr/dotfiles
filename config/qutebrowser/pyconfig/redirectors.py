@@ -58,13 +58,10 @@ redirs = {
     "reddit.com": "my.libreddit",
     "www.reddit.com": "my.libreddit",
 
-    "twitter.com": "nitter.cz",
     "www.anilibria.tv": "dl-20220804-91.anilib.top",
-    "imgur.com": "imgin.voidnet.tech",
-    "www.quora.com": "quetre.iket.me",
+    "www.quora.com": "q.opnxng.com",
     # instances list: https://github.com/realaravinth/libmedium#instances
-    "medium.com": "medium.hostux.net",
-    "translate.google.com": "lingva.lunar.icu",
+    # "medium.com": "medium.hostux.net",
 
     # NOTE: to make youtube redirector work, you should clean service workers
     "www.youtube.com": YOUTUBE_REDIR,
