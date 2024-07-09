@@ -52,18 +52,14 @@ ytaf() {
 
 
 #### yt-dlp download playlists
-# TODO: think I can make general playlist file name and void arguments here
-# list playlist
+YF_PLAYLIST_FILENAME="playlist"
 yfl() {
-    for filename in "$@"; do
-        yt-dlp "$(cat "$filename")" --flat-playlist -J \
-            | jq '.entries[].title' \
-            | nl -w 1 -s ' '
-    done
+    yt-dlp "$(cat "$YF_PLAYLIST_FILENAME")" --flat-playlist -J \
+        | jq '.entries[].title' \
+        | nl -w 1 -s ' '
 }
 # download from playlist
 yfi() {
-    filename="$1"
-    index="$2"
-    yt-dlp "$(cat "$filename")" -I "$index"
+    index="$1"
+    yt-dlp "$(cat "$YF_PLAYLIST_FILENAME")" -I "$index"
 }
