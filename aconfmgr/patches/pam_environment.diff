@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -3,3 +3,7 @@
+ #
+ # Syntax: simple "KEY=VAL" pairs on separate lines
+ #
++
++GTK_IM_MODULE=fcitx
++QT_IM_MODULE=fcitx
++XMODIFIERS=@im=fcitx

@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -1 +1,8 @@
+ source /usr/share/nvim/archlinux.lua
++
++" my thing:
++"
++" set it to something large so when will be merge conflicts in vimrc, shada
++" will not setted, which lead to losing all my history oldfiles. So thing
++" there will prevent it
++set shada^='2000

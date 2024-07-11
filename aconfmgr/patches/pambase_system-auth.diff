@@ -1,0 +1,20 @@
+--- 
++++ 
+@@ -4,7 +4,7 @@
+ # Optionally use requisite above if you do not want to prompt for the password
+ # on locked accounts.
+ -auth      [success=2 default=ignore]  pam_systemd_home.so
+-auth       [success=1 default=bad]     pam_unix.so          try_first_pass nullok
++auth       [success=1 default=bad]     pam_unix.so          try_first_pass nullok nodelay
+ auth       [default=die]               pam_faillock.so      authfail
+ auth       optional                    pam_permit.so
+ auth       required                    pam_env.so
+@@ -18,7 +18,7 @@
+ account    required                    pam_time.so
+ 
+ -password  [success=1 default=ignore]  pam_systemd_home.so
+-password   required                    pam_unix.so          try_first_pass nullok shadow
++password   required                    pam_unix.so          try_first_pass nullok shadow sha512
+ password   optional                    pam_permit.so
+ 
+ -session   optional                    pam_systemd_home.so

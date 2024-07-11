@@ -1,0 +1,46 @@
+--- 
++++ 
+@@ -7,11 +7,11 @@
+ #
+ # Will log the user name into the system log if the user is not found.
+ # Enabled if option is present.
+-# audit
++audit
+ #
+ # Don't print informative messages.
+ # Enabled if option is present.
+-# silent
++silent
+ #
+ # Don't log informative messages via syslog.
+ # Enabled if option is present.
+@@ -29,7 +29,7 @@
+ # Deny access if the number of consecutive authentication failures
+ # for this user during the recent interval exceeds n tries.
+ # The default is 3.
+-# deny = 3
++deny = 6
+ #
+ # The length of the interval during which the consecutive
+ # authentication failures must happen for the user account
+@@ -42,7 +42,7 @@
+ # will not be re-enabled without resetting the faillock
+ # entries by the `faillock` command.
+ # The default is 600 (10 minutes).
+-# unlock_time = 600
++unlock_time = 900
+ #
+ # Root account can become locked as well as regular accounts.
+ # Enabled if option is present.
+@@ -60,3 +60,11 @@
+ # `root_unlock_time` will apply to them.
+ # By default, the option is not set.
+ # admin_group = <admin_group_name>
++#
++
++
++
++
++
++# my
++nodelay

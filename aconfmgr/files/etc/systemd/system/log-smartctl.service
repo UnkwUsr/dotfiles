@@ -1,0 +1,9 @@
+[Unit]
+Description=Log smartctl nvme usage
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/log_smartctl /dev/nvme0n1
+
+; [Install]
+; WantedBy=multi-user.target

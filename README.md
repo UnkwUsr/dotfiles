@@ -1,4 +1,7 @@
-My dotfiles managed with [rcm](https://github.com/thoughtbot/rcm)
+My dotfiles managed with [rcm](https://github.com/thoughtbot/rcm). System
+config files and list of installed archlinux packages managed with
+[aconfmgr](https://github.com/CyberShadow/aconfmgr) (see corresponding
+directory).
 
 # Installation
 

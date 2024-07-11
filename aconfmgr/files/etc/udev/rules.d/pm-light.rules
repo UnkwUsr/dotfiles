@@ -1,0 +1,2 @@
+# connect
+SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/usr/bin/light -S 40"

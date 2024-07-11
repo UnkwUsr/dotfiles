@@ -1,0 +1,52 @@
+--- 
++++ 
+@@ -22,7 +22,21 @@
+ Architecture = auto
+ 
+ # Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
+-#IgnorePkg   =
++# yes, they are treated separately
++IgnorePkg   = linux-zen
++IgnorePkg   = linux-zen-headers
++IgnorePkg   = linux-headers
++IgnorePkg   = linux-firmware
++
++IgnorePkg   = wine
++
++IgnorePkg   = jdk-openjdk
++IgnorePkg   = jre-openjdk
++IgnorePkg   = jre-openjdk-headless
++IgnorePkg   = jdk17-openjdk
++
++IgnorePkg   = go
++
+ #IgnoreGroup =
+ 
+ #NoUpgrade   =
+@@ -30,11 +44,11 @@
+ 
+ # Misc options
+ #UseSyslog
+-#Color
++Color
+ #NoProgressBar
+-CheckSpace
+-#VerbosePkgLists
+-#ParallelDownloads = 5
++#CheckSpace
++VerbosePkgLists
++ParallelDownloads = 5
+ 
+ # By default, pacman accepts packages signed by keys that its local keyring
+ # trusts (see pacman-key and its man page), as well as unsigned packages.
+@@ -87,8 +104,8 @@
+ #[multilib-testing]
+ #Include = /etc/pacman.d/mirrorlist
+ 
+-#[multilib]
+-#Include = /etc/pacman.d/mirrorlist
++[multilib]
++Include = /etc/pacman.d/mirrorlist
+ 
+ # An example of a custom package repository.  See the pacman manpage for
+ # tips on creating your own repositories.
