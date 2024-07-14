@@ -24,6 +24,7 @@ AddPackage --foreign vital-synth # Spectral warping wavetable synth.
 AddPackage vmpk # Virtual MIDI Piano Keyboard
 AddPackage --foreign pianoteq # Physical modelling piano instrument as a standalone program, VST2 and LV2 plugin
 ### jack stuff
+AddPackage jack2-dbus # The JACK low-latency audio server (dbus integration)
 AddPackage jack_capture # Simple command line tool to record JACK audio output to a file
 AddPackage pulseaudio-jack # Jack support for PulseAudio
 AddPackage qjackctl # A Qt front-end for the JACK low-latency audio server
