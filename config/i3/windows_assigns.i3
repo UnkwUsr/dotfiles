@@ -23,6 +23,7 @@ assign [class="^st_tmux$"] 2
 assign [class="^tmux_noise_win$"] 4
 assign [title="^arad$"] 9
 assign [instance="^quteb-mpv$"] 0
+assign [instance="^music-mpv$"] 7
 assign [instance="^vifm-mpv$"] 3
 
 ## games

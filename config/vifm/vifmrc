@@ -23,6 +23,9 @@ view
 " one-window mode (should be executed AFTER 'view')
 only
 
+" play mpv here
+nmap m :!zsh -ic 'mpb . &>/dev/null'<CR>
+
 
 """" maps
 

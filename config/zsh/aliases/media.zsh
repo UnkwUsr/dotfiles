@@ -12,7 +12,7 @@ alias msb="cd ~/Files/music/ \
     --input-commands=playlist-shuffle,playlist-next & disown"
 
 # run mpv in background
-mpb() { mpv --loop-playlist=inf --force-window=immediate "$@" & disown }
+mpb() { mpv --loop-playlist=inf --directory-mode=recursive --force-window=immediate --x11-name=music-mpv "$@" & disown }
 
 
 #### mpv history
