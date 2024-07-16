@@ -9,7 +9,7 @@ byfiles() {
 _tokei_helper() {
     target="$1"; shift
     tokei -Cfo json $* \
-        | jq -r '.[].reports[] | "\(.stats.'$target') \(.name)"' \
+        | jq -r '.[].reports[] | "\(.stats.'$target') \(.name | ltrimstr("./"))"' \
         | nctok
 }
 # by code
