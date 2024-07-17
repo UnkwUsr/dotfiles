@@ -2,6 +2,10 @@
 
 # make screenshot
 bindsym Print exec --no-startup-id "flameshot gui"
+# annotate (like draw big red arrows) without freezing image
+bindsym shift+Print exec --no-startup-id xcompmgr \
+                & flameshot_do_not_freeze gui --region all \
+                && pkill xcompmgr
 # start screen recording (video + audio)
 bindsym $mod+bracketright exec \
     bash -c "exec -a me_screen_rec ffmpeg -video_size 1920x1080 -framerate 30 \
