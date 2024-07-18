@@ -5,12 +5,6 @@ alias yt="cd ~/Files/Media/yt && pwd && ll"
 alias mz="cd ~/Files/Media/mz && pwd && ll"
 alias ms="cd ~/Files/annexes/music/ && pwd && ll"
 
-# play all music in shuffled order
-alias msb="cd ~/Files/music/ \
-    && fd -tl -tf --exec-batch \
-    mpv --force-window=yes \
-    --input-commands=playlist-shuffle,playlist-next & disown"
-
 # run mpv in background
 mpb() { mpv --loop-playlist=inf --directory-mode=recursive --force-window=immediate --x11-name=music-mpv "$@" & disown }
 
