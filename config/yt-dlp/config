@@ -1,3 +1,4 @@
 --format="bestvideo[height<=?1080]+bestaudio/best"
 --embed-chapters
 --no-playlist
+-N 8
