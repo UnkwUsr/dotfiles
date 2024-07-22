@@ -1,0 +1,7 @@
+#!/bin/bash
+# I run this script after upgrding packages to fix keyboard binds
+xkbcomp ~/.config/X11/xkbconfig "$DISPLAY" -w 0
+echo "Done!"
+echo "P.S. if stuck with caps lock, run 'xdotool key Caps_Lock' to switch caps state"
+
+# TODO: this should somehow run on triggering `sudo udevadm trigger`
