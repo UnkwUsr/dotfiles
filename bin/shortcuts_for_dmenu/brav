@@ -1,0 +1,1 @@
+brave --disable-features=OutdatedBuildDetector
