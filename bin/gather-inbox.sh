@@ -9,16 +9,28 @@ TARGET_TO="$HOME/txts/dtm/plans.md"
 # temporary backups for now, just in case
 cp "$TARGET_TO" /tmp/plans-"$(date +%s)".md
 
+me_whisper() {
+    src_dir="$1"
+    dest_file="$2"
+    # have to instal with `uv tool install whisper-ctranslate2`
+    whisper-ctranslate2 -f txt -o "$src_dir" --language ru "$src_dir/"*.wav
+    for x in "$src_dir"/*.txt; do
+        (tr '\n' ' ' < "$x" | sed -e 's/^/* /' \
+            && echo "${x//.txt/.wav}") \
+            >> "$dest_file"
+        rm "$x"
+    done
+}
 
 voice_recognise() {
     if [ -d voices ]; then
         cd voices
         ls -1 ./*.m4a | xargs -I{} ffmpeg -hide_banner -i {} -ar 16000 {}.wav
         cd -
-        my-whisper.py voices voices-res.md
+        me_whisper voices voices-res.md
     fi
     if [ -d voices-laptop ]; then
-        my-whisper.py voices-laptop laptop-voices-res.md
+        me_whisper voices-laptop laptop-voices-res.md
     fi
 }
 
