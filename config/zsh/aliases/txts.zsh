@@ -23,6 +23,8 @@ alias dtmd="cd ~/txts/dtm && pwd"
 alias ds="cd ~/txts/dtm && zk edit -i -s modified"
 # inbox, part of dtm, most often entry point. Playground for thoughts, etc.
 alias d="cd ~/txts/dtm && vim plans.md && cd - > /dev/null"
+# nctok over dtm
+alias dtmn='cd ~/txts/dtm/ && zk_graph_for_nctok.py 00_index.md | nctok --path-separator="|"'
 
 
 ### semi-sorted inbox repo (aka dtm pre-staging area)
