@@ -10,6 +10,7 @@ CreateLink /etc/systemd/user/sockets.target.wants/pulseaudio.socket /usr/lib/sys
 CreateLink /etc/systemd/system/multi-user.target.wants/vnstat.service /usr/lib/systemd/system/vnstat.service
 CreateLink /etc/systemd/system/paths.target.wants/vmware-networks.path /usr/lib/systemd/system/vmware-networks.path
 CreateLink /etc/systemd/system/sockets.target.wants/docker.socket /usr/lib/systemd/system/docker.socket
+CreateLink /etc/systemd/system/multi-user.target.wants/dnscrypt-proxy.service /usr/lib/systemd/system/dnscrypt-proxy.service
 ### my custom units
 CreateLink /etc/systemd/system/timers.target.wants/iwd.timer /etc/systemd/system/iwd.timer
 CreateLink /etc/systemd/system/timers.target.wants/lm_sensors.timer /etc/systemd/system/lm_sensors.timer

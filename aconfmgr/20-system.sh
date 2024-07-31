@@ -27,6 +27,8 @@ AddPackage --foreign yay-bin # Yet another yogurt. Pacman wrapper and AUR helper
 AddPackage powertop # A tool to diagnose issues with power consumption and power management
 AddPackage --foreign powertop-auto-tune # A systemd service for powertop that sets all tunable options to their GOOD setting.
 AddPackage smartmontools # Control and monitor S.M.A.R.T. enabled ATA and SCSI Hard Drives
+AddPackage dnscrypt-proxy # A flexible DNS proxy, with support for encrypted DNS protocols
+
 AddPackage tor # Anonymizing overlay network.
 AddPackage --foreign obfs4proxy # The obfourscator - a pluggable transport proxy written in Go
 AddPackage translate-shell # A command-line interface and interactive shell for Google Translate
