@@ -19,7 +19,7 @@ AddPackage supercollider # Platform for audio synthesis and algorithmic composit
 AddPackage sc3-plugins # Extension plugins for the SuperCollider3 audio synthesis server.
 AddPackage linuxwave # Generate music from the entropy of Linux
 ### graphical interface
-AddPackage --foreign rezound-git # A graphical audio file editor (Qt git version)
+AddPackage --foreign rezound-qt-git # A graphical audio file editor (Qt git version)
 AddPackage --foreign vital-synth # Spectral warping wavetable synth.
 AddPackage vmpk # Virtual MIDI Piano Keyboard
 AddPackage --foreign pianoteq # Physical modelling piano instrument as a standalone program, VST2 and LV2 plugin
