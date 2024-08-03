@@ -49,5 +49,8 @@ setopt APPEND_CREATE
 PS1="%# "
 RPS1="%(?..[%?%1v])"
 
+# prepend distrobox container name
+PS1="${CONTAINER_ID}${PS1}"
+
 # clear right-side prompt on pressing enter
 setopt TRANSIENT_RPROMPT
