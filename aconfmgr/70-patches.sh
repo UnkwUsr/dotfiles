@@ -1,6 +1,6 @@
 # just applying patches from patches/ directory
 
-function ApplyPatch() { patch "$(GetPackageOriginalFile "$1" "$2")" "$3"; }
+function ApplyPatch() { patch --no-backup-if-mismatch "$(GetPackageOriginalFile "$1" "$2")" "$3"; }
 ApplyPatch systemd /etc/systemd/logind.conf ./patches/systemd_logind.conf.diff
 ApplyPatch neovim /etc/xdg/nvim/sysinit.vim ./patches/neovim_sysinit.vim.diff
 ApplyPatch pam /etc/security/faillock.conf ./patches/pam_faillock.conf.diff
