@@ -10,8 +10,9 @@ source ~/.config/zsh/keys.zsh
 source ~/.config/zsh/prompt-highlight.zsh
 
 precmd() {
+    cur_fortune="$(fortune -s | tee -a /tmp/fortune-history)"
     ( (kitten icat --use-window-size 24,20,695,1135 /opt/terminal_image.png </dev/tty \
-        && fortune -s && echo -n '% ') &)
+        && echo "$cur_fortune" && echo -n '% ') &)
     # ((kitten icat --place 24x20@0x0 /opt/terminal_image.png </dev/tty && tput cuf 2) &)
     # timg -I -gx20 -pk /opt/terminal_image.png
     # tput cup 20 0
