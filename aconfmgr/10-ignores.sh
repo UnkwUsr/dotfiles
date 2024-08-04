@@ -56,3 +56,8 @@ IgnorePath '/etc/mkinitcpio.d/linux-zen.preset'
 IgnorePath '/etc/cni/*'
 IgnorePath '/etc/vconsole.conf'
 CreateDir '/etc/light/'
+CreateDir /etc/openvpn/client 750 openvpn network
+CreateDir /etc/openvpn/server 750 openvpn network
+# idk what they do, just annoys always
+SetFileProperty /usr/bin/groupmems group groups
+SetFileProperty /usr/bin/groupmems mode 2750
