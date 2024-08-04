@@ -48,6 +48,7 @@
     clown = clone --depth 1
 
     # see also: ~/.bin/git-fxa
+    # see also: ~/.bin/yt-git-clown
 
 # setup diff-so-fancy
 [core]

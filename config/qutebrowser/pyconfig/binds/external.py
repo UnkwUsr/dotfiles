@@ -30,10 +30,7 @@ config.bind(",e", "spawn -vd st-tm --focus \"vim \
                                         $(sed 's/\\/blob\\//\\/raw\\//' \
                                         <<<'{url}')\"")
 # git clone current url
-config.bind(",c", "spawn -vd st-tm --focus "
-                  "\"mkdir -p /tmp/clowns && cd /tmp/clowns && "
-                  "git clown $(cut -d'/' -f-5 <<<'{url}' | cut -d'?' -f1) && "
-                  "cd \\\"$(basename \\\"$_\\\" .git)\\\" && pwd && ll\"")
+config.bind(",c", "spawn -vd yt-git-clown '{url}'")
 # send current url to inbox
 config.bind(",i", "spawn -vd sh -c 'echo -e \"* {title}\\n  * <" + redir.yt_url_replaced + ">\"\
                    >> ~/txts/inbox/quteb_saved_urls.md' ;; tab-close")

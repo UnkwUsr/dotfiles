@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# this script used as shortcut in qutebrowser. Takes url, cuts first 3 elements
+# and clones repository from resulted link
+
+url="$1"
+url="$(cut -d'/' -f-5 <<<"$1" | cut -d'?' -f1)"
+
+st-tm --focus \
+    "mkdir -p /tmp/clowns && cd /tmp/clowns" \
+    "git clown \"${url}\"" \
+    'cd "$(basename "$_" .git)" && pwd && ll'
