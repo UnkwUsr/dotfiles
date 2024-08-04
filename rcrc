@@ -1,4 +1,4 @@
-EXCLUDES="README.md LICENSE install_deps.sh config/hl1_configs suckless"
+EXCLUDES="README.md LICENSE install_deps.sh config/hl1_configs suckless aconfmgr"
 
 # workaround as zsh looks for dot-prefixed files in ~/.config/zsh/, but rcm
 # links them as non-dotted
