@@ -139,6 +139,7 @@ endfunction
 nmap <leader>ff :Files<CR>
 nmap <leader>fF :Files %:h<CR>
 nmap <leader>fl :GFiles?<CR>
+nmap <leader>fL :GFiles<CR>
 nmap <leader>fb :Buffers<CR>
 nmap <leader>fg :Rg 
 nmap <leader>f/ :Rg <C-r>/
