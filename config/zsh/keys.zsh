@@ -26,7 +26,7 @@ zle -N edit-command-line
 
 
 #### fzf
-source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/key-bindings.zsh 2> /dev/null || source <(fzf --zsh)
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
 bindkey "^T" fzf-cd-widget
