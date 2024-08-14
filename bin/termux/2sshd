@@ -1,4 +1,5 @@
 termux-wake-lock
 sshd
 echo sshd started
-sleep 1
+ip a
+sleep 10
