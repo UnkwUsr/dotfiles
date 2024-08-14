@@ -41,6 +41,9 @@ export FZF_DEFAULT_OPTS="--no-mouse --exact --bind ctrl-s:toggle-sort \
 # add ripgrep to 'progress' util
 export PROGRESS_ARGS='-a rg'
 
+# make wine do not prompt for installing mono
+export WINEDLLOVERRIDES='mscoree=d'
+
 # set yay (aur helper) build folder. P.S. but note that it can mess up if RAM
 # is over
 export AURDEST="/tmp/yay-build"
