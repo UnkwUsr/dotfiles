@@ -2,7 +2,7 @@ diff --git a/PKGBUILD b/PKGBUILD
 index 89a095a..7fa1d7e 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -14,15 +14,40 @@ depends=(libxft)
+@@ -14,15 +14,43 @@ depends=(libxft)
  url=https://st.suckless.org
  source=(https://dl.suckless.org/$pkgname/$pkgname-$pkgver.tar.gz
          terminfo.patch
