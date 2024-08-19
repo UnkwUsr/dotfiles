@@ -4,7 +4,7 @@ local function reload_handler()
 
     if duration and duration >= 0 then
         local time_pos = mp.get_property("time-pos")
-        mp.commandv("loadfile", path, "replace", "start=+" .. time_pos)
+        mp.commandv("loadfile", path, "replace", -1, "start=+" .. time_pos)
     else
         -- stream
         mp.commandv("loadfile", path, "replace")
