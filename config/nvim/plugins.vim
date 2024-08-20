@@ -276,3 +276,6 @@ autocmd BufNewFile conjure-log-* lua vim.diagnostic.disable(0)
 " rust works with it
 let g:conjure#filetypes = ["clojure", "fennel", "scheme", "lua", "lisp", "python"]
 " default: ["clojure", "fennel", "janet", "hy", "julia", "racket", "scheme", "lua", "lisp", "python", "rust", "sql"]
+
+" TODO: we can check for lsp and disable it only if lsp runs
+let g:conjure#mapping#doc_word = v:false
