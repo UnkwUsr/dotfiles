@@ -3,6 +3,7 @@ local servers = {
         autostart = false,
     },
     hls = {
+        autostart = false,
         settings = {
             haskell = {
                 checkProject = false,
