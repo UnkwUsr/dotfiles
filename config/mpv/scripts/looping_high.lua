@@ -1,3 +1,5 @@
+local utils = require("mp.utils")
+
 local STEP = 0.01
 
 local function bind(key, name, func)
@@ -66,5 +68,23 @@ local function switch_to_ab_loops(key)
     end
 end
 
+local function cut_current_loop()
+    local path = mp.get_property("path")
+    local a = mp.get_property("ab-loop-a")
+    local b = mp.get_property("ab-loop-b")
+    -- stylua: ignore
+    local args = {
+        "ffmpeg", "-loglevel", "panic", "-hide_banner",
+        "-i", path,
+        "-ss", a,
+        "-to", b,
+        os.getenv("HOME") .. "/loop_cut_" .. path .. "_" .. a .. "_to_" .. b .. ".flac",
+    }
+
+    utils.subprocess_detached({ args = args })
+    mp.osd_message("saved current cut loop", 3)
+end
+
 bind("z", "switch-to-a-loops", switch_to_ab_loops("a"))
 bind("x", "switch-to-b-loops", switch_to_ab_loops("b"))
+bind("alt+z", "cut-current-loop", cut_current_loop)
