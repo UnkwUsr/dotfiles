@@ -6,6 +6,7 @@ assign [class="^qutebrowser$"] 1
 assign [class="^Brave-browser$"] 0
 assign [class="^discord$"] 8
 assign [class="^TelegramDesktop$"] 10
+assign [class="^chat-simplex-desktop-MainKt$"] 9
 assign [class="^Soffice$"] 3
 assign [class="^Zathura$"] 3
 assign [title="^ReZound$"] 3
