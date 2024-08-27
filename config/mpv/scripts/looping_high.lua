@@ -1,3 +1,6 @@
+-- this plugin allows making closely measured loops with mouse wheel, switching
+-- between start/end of loop and adjusting step size
+
 local utils = require("mp.utils")
 
 local STEP = 0.01
@@ -85,6 +88,18 @@ local function cut_current_loop()
     mp.osd_message("saved current cut loop", 3)
 end
 
+local function switch_to_step()
+    bind("WHEEL_DOWN", "step_wheel_down", function()
+        STEP = STEP / 2
+        mp.osd_message("step = " .. STEP, 3)
+    end)
+    bind("WHEEL_UP", "step_wheel_up", function()
+        STEP = STEP * 2
+        mp.osd_message("step = " .. STEP, 3)
+    end)
+end
+
 bind("z", "switch-to-a-loops", switch_to_ab_loops("a"))
 bind("x", "switch-to-b-loops", switch_to_ab_loops("b"))
+bind("c", "switch-to-step", switch_to_step)
 bind("alt+z", "cut-current-loop", cut_current_loop)
