@@ -18,7 +18,8 @@ ffprobe \
     "$input" |
     cut -d ',' -f '5,7,8-' |
     tr '/' '-' | tr -d '"' |
-    while IFS=, read -r start end chapter
+    nl -n rz -w 2 -s ',' |
+    while IFS=, read -r i start end chapter
     do
         ffmpeg \
             -hide_banner \
@@ -28,5 +29,5 @@ ffprobe \
             -c copy \
             -map 0 \
             -map_chapters -1 \
-            "${input%.*}-$chapter.${input##*.}"
+            "${i}_${input%.*}-$chapter.${input##*.}"
     done
