@@ -12,3 +12,12 @@ require("flutter-tools").setup({
         on_attach = require("user.lsp.on_attach"),
     },
 })
+
+-- replace maps from tpope's unimpaired
+require("unimpaired").setup({
+    keymaps = {
+        previous_file = { mapping = "[f", dot_repeat = true },
+        next_file = { mapping = "]f", dot_repeat = true },
+    },
+    default_keymaps = false,
+})

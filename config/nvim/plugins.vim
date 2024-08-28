@@ -13,6 +13,7 @@ Plug 'vifm/vifm.vim'
 Plug 'stsewd/gx-extended.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
+Plug 'tummetott/unimpaired.nvim'
 " linux utils
 Plug 'tpope/vim-eunuch'
 Plug 'lambdalisue/suda.vim'
@@ -23,7 +24,6 @@ Plug 'tpope/vim-surround'
 Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 Plug 'UnkwUsr/vim-fugitive' " fork from tpope
 Plug 'junegunn/gv.vim'
-Plug 'liuchengxu/vista.vim'
 
 """" langs specific plugins
 " Plug 'chrisbra/csv.vim'
@@ -42,6 +42,7 @@ Plug 'folke/neodev.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'Olical/conjure'
 Plug 'tpope/vim-commentary'
+Plug 'liuchengxu/vista.vim'
 " detect indent style (tab vs space) and set appropriate options
 Plug 'Darazaki/indent-o-matic'
 
