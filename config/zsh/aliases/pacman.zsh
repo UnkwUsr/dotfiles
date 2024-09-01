@@ -1,4 +1,4 @@
-# there is aliases/shortcuts for pacman
+# there is aliases/shortcuts for pacman (and also aur helpers)
 
 # packages search and info
 alias pss='pacman -Ss'
@@ -34,3 +34,15 @@ alias pinf='pin $(pacman -Slq | \
 
 # remove
 alias pqr='sudo pacman -Rnscu'
+
+
+#### aur section
+alias pas="auracle search"
+alias pai="auracle show"
+alias pan="yay -S"
+alias pac="auracle clone"
+# open in browser (takes completion from auracle clone)
+pab() {
+    quteb "https://aur.archlinux.org/packages/$1" & disown
+}
+compdef -e 'words[1]=(auracle clone); service=auracle; (( CURRENT+=1 )); _auracle' pab
