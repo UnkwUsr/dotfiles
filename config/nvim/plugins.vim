@@ -169,6 +169,8 @@ command! -nargs=0 Gfxa term git fxa
 nmap <leader>ag :GV<CR>
 " restore 'o' in visual mode to native behavior
 autocmd FileType GV xunmap <buffer> o
+" make o behave as O in normal mode (open commit in tabs)
+autocmd FileType GV nmap <buffer> o O
 " fix mess with tabs (example: when use O in GV): move GV tab to last
 " (and have to set after VimEnter, otherwise it breaks when open GV on start)
 autocmd VimEnter * autocmd FileType GV tabmove $
