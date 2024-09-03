@@ -180,8 +180,8 @@ autocmd FileType GV exe "file gv://" . bufname()
 autocmd FileType GV if @% =~ 'gv://.dotfiles*' | call <sid>mydotfiles_map_nav() | endif
 autocmd FileType gitrebase if expand("%:p") =~ '\/.dotfiles\/' | call <sid>mydotfiles_map_nav() | endif
 function! s:mydotfiles_map_nav()
-    " matches: file start, file end, ' ----' and empty lines
-    let l:regex = '\\\%^\\\| ----\\\|^$\\\|\\\%$'
+    " matches: file start, file end, ' ----', branch tags and empty lines
+    let l:regex = '\\\%^\\\| ----\\\|^\\\* .\\\{21}(\\\|^$\\\|\\\%$'
     exec ':nmap <buffer> <silent> { :call search("' . l:regex . '", "Wb")<CR>:norm ^<CR>'
     exec ':nmap <buffer> <silent> } :norm ^j<CR>:call search("' . l:regex . '", "W")<CR>:norm ^<CR>'
 endfunction
