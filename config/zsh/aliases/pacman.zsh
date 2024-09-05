@@ -34,6 +34,7 @@ alias pinf='pin $(pacman -Slq | \
 
 # remove
 alias pqr='sudo pacman -Rnscu'
+alias pqr_unneeded='pacman -Qtdtq | pqr -'
 
 
 #### aur section
