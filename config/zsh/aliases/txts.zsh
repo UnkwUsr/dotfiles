@@ -25,6 +25,8 @@ alias ds="cd ~/txts/dtm && zk edit -i -s modified"
 alias d="cd ~/txts/dtm && vim plans.md && cd - > /dev/null"
 # nctok over dtm
 alias dtmn='cd ~/txts/dtm/ && zk_graph_for_nctok.py 00_index.md | nctok --path-separator="|"'
+# open random task
+alias randtask='vim $(fd . -tf ~/txts/dtm/ | shuf -n1)'
 
 
 ### semi-sorted inbox repo (aka dtm pre-staging area)
