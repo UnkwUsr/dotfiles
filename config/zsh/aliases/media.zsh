@@ -1,4 +1,4 @@
-# this is media combusting stuff shit yea mpv yt-dlp etc
+# media stuff like mpv, yt-dlp, etc
 
 # cd into often used dirs
 alias yt="cd ~/Files/Media/yt && pwd && ll"
@@ -30,7 +30,7 @@ mh() {
 }
 
 
-#### yt-dlp often used shit
+#### yt-dlp often used
 # download audio-only with yt-dlp
 alias yta="yt-dlp --embed-thumbnail --extract-audio --format=bestaudio"
 # download with tor proxy
@@ -43,6 +43,8 @@ ytaf() {
         yta -- "$(sed 's/^.*\[\(.*\)\]\..*/\1/g' <<<"$filename")"
     done
 }
+# download album/playlist, puts album tracks in separate folder
+alias ytalbum='yt-dlp -o "%(artist)s - %(playlist)s/%(video_autonumber)s. %(title)s [%(id)s].%(ext)s"'
 
 
 #### yt-dlp download playlists
