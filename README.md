@@ -3,11 +3,85 @@ config files and list of installed archlinux packages managed with
 [aconfmgr](https://github.com/CyberShadow/aconfmgr) (see corresponding
 directory).
 
-# Installation
+## Excerpt
+
+* terminal: [st (suckless)](https://st.suckless.org)
+* shell: zsh
+* terminal multiplexer: tmux
+* text editor: neovim
+* file manager: [vifm](https://github.com/vifm/vifm)
+* graphical window manager (X11): [i3](https://i3wm.org)
+* web browser: [qutebrowser](https://www.qutebrowser.org)
+* media player: [mpv](https://mpv.io)
+* email: [aerc](https://git.sr.ht/~rjarry/aerc)
+
+List of all installed packages (sorted by categories): [aconfmgr/](aconfmgr/)
+
+## Worth noting
+
+Here is mention of some things I'm proud of in my setup and think would be
+interesting for passers-by.
+
+* [git-fxa](bin/git-fxa) - script for making fixup commits by selecting target
+  commit with fzf (don't know about fixup commits? [Read
+  man](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupamendrewordltcommitgt))
+  * [gcfx](config/nvim/lua/user/gcfx.lua) - vim helper for fixing-up to commit
+    who latest changed line under cursor
+* [i3 binds](config/i3/binds/translate.i3) for language translation "on the go"
+* [zsh aliases](config/zsh/aliases/pacman.zsh) for often used pacman commands.
+  Just a lil collection of good things in pacman in one place
+* [vim script](config/nvim/lua/user/dotfiles_prefill_commit.lua) for
+  pre-filling commit message context part in dotfiles repo (it adds
+  `[path/to/file] ` to start of each commit. It made me able do quick atomic
+  commits while still maintaining clean history)
+* [tmux binds](config/tmux/altish-binds.conf) without prefix key. This is the only
+  way I was able to use tmux fast and without pain
+
+### note-taking system
+
+* [zsh aliases](config/zsh/aliases/txts.zsh) (this one best describes the whole
+  system)
+* [i3 binds](config/i3/binds/note_taking.i3) for taking inbox notes
+* [gather_inbox](bin/gather-inbox.sh) - script for gathering notes from all
+  other devices (via git) (also this doing voice-to-text recognizing for voice
+  notes)
+* [sync_to_relay](bin/termux/3sync_to_relay) and [schedule
+  helpers](bin/termux/auto-sync/) - scripts used in termux on Android phone,
+  which are pushing inbox to relay server
+  * [buy-show-and-pull](bin/termux/1buy-show-and-pull) - one more script for
+    phone which shows buy list and pulls updates
+* [UnkwUsr/remind-done-tasks](https://github.com/UnkwUsr/remind-done-tasks) -
+  helper scripts for dealing with repeating tasks in calendar managed with
+  [remind(1)](https://dianne.skoll.ca/projects/remind/)
+
+### More
+
+* I do listen to internet radio. This is cool for always having source of fresh
+  music and makes possible finding new ones (of course I still have archive of
+  "favorite" tracks). Here is my list of internet radio stations:
+  [UnkwUsr/radios_list](https://github.com/UnkwUsr/radios_list) . It takes time
+  to collect something to your taste, but it's worth it
+
+### And a little more of self-promotion
+
+* [UnkwUsr/rclip](https://github.com/UnkwUsr/rclip) - clipboard manager with
+  ability to save different clipboard entries (such as text or images), where
+  each entry stored per file (also [on
+  AUR](https://aur.archlinux.org/packages/rclip-git))
+* [UnkwUsr/dalarma](https://github.com/UnkwUsr/dalarma) - alarm clock that will
+  block your screen with alarm text, forcing you to get up from the computer
+  (also [on AUR](https://aur.archlinux.org/packages/dalarma-git))
+* [UnkwUsr/nctok](https://github.com/UnkwUsr/nctok) - TUI utility for
+  interactive navigating through weighted hierarchical structured data and
+  analyzing them (actually useful in unix-way style. Here is my usecases:
+  [nctok.zsh](config/zsh/aliases/nctok.zsh))
+
+# Installation (not for passers-by)
 
 * Symlink all config files with rcm: `rcup -v`
 * Run [./install_deps.sh](./install_deps.sh) to install plugins for some
   programs
+* Apply aconfmgr: `aconfmgr -c ~/.dotfiles/aconfmgr/ --paranoid apply`
 
 ## neovim
 
@@ -33,70 +107,3 @@ directory).
   application/pdf`
 * Install dictionaries: `/usr/share/qutebrowser/scripts/dictcli.py install
   en-US ru-RU`
-
-## suckless programs
-
-See [suckless/README.md](suckless/README.md)
-
-## Other programs
-
-Can be installed via pacman
-
-* console
-  * `ripgrep` - faster `grep` replacement
-  * `fzf` - fuzzy-finder
-  * `fd` - faster `find` replacement
-  * `bat` - `cat` with syntax highlight
-  * `diff-so-fancy` - diff pager for git
-  * `htop` - system status monitor
-  * `tmux` - terminal multiplexor
-  * `ncdu` - interactive ncurses disk usage viewer
-  * `nethogs` - monitor net bandwidth per process
-  * `progress` - show status of copying(or similar) process
-  * `wget` - cli downloader
-  * `yt-dlp` - cli to download videos from different sources
-  * `translate-shell` - cli program to do translations
-  * `playerctl` - media players controller via MPRIS protocol
-  * X11 utils
-    * `xss-lock` - lock screen on idle
-    * `xorg-xev` - show X events and keypresses
-    * `xclip` - easy interact with X clipboards
-* graphical
-  * `i3-wm i3lock i3status-rust` - window manager and related programs
-  * `dmenu` - dynamic menu used as program launcher and so on
-  * `qutebrowser` - browser
-  * `zathura` - pdf viewer
-  * `rofi-calc` - modal calculator
-  * `feh` - images viewer and background setter
-  * `mpv` - video and audio player
-  * `flameshot` - screenshot maker
-  * `dunst` - notification-daemon
-  * `peek` - lightweight screen recorder
-  * `fcitx5 fcitx5-mozc fcitx5-gtk fcitx5-qt` - for Japanese input method
-  * fonts
-    * `ttf-hack` - text font (used in i3)
-    * `otf-ipafont adobe-source-han-sans-jp-fonts
-      adobe-source-han-serif-jp-fonts` - Japanese fonts
-    * `ttf-font-awesome` - icons font (used in i3status-rust)
-
-Can be installed from aur
-
-* `redshift-minimal` - adjust screen temperature depending on time of day
-* `ponymix` - cli volume level control
-* `dragon-drop` - drag-and-drop source/sink cli
-* `mpv-sponsorblock-minimal-git` - sponsorblock script for mpv
-* `nodejs-markdownlint-cli` - markdown formatter
-* `python-myougiden` - cli Japanese dictionary
-* `rclip-git` - clipboard manager written in Rust
-  ([github](https://github.com/UnkwUsr/rclip))
-
-Other
-
-* `ticktask` - cli for creating tasks on ticktick.com
-  ([github](https://github.com/UnkwUsr/ticktask))
-* `dalarma` - alarm clock that will block your screen with alarm text
-  ([github](https://github.com/UnkwUsr/dalarma))
-
-# Scripts
-
-See [bin/README.md](bin/README.md)
