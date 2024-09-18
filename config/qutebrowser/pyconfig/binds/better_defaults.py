@@ -19,6 +19,3 @@ config.unbind("<Ctrl-v>", mode="normal")
 config.unbind(".", mode="normal")
 
 config.bind("<ESC>", "clear-keychain ;; search ;; fullscreen --leave ;; clear-messages")
-
-# better yank with replaced youtube url
-config.bind("yy", "spawn -d sh -c 'echo -n \"" + redir.yt_url_replaced + "\" | xclip -sel c' ;; message-info 'Yanked current url'")

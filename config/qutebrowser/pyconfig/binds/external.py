@@ -16,11 +16,11 @@ config.bind(",N", "hint links spawn -vd mpv {hint-url} --profile=quteb --no-vid"
 # and/or modify command if something goes wrong (like use proxy)
 config.bind(",z", "spawn -vd st-tm \
     'cd \"$HOME/Files/Media/yt/\"' \
-    'yt-dlp \"" + redir.yt_url_replaced + "\" || echo \"{url}\" >> bad_urls'")
+    'yt-dlp \"{url}\" || echo \"{url}\" >> bad_urls'")
 # download page as music album or youtube playlist. Put all in separate folder
 config.bind(",a", "spawn -vd st-tm \
     'cd \"$HOME/Files/Media/yt/\"' \
-    'yt-dlp -o \"%(album)s/%(artist)s - %(title)s.%(ext)s\" \"" + redir.yt_url_replaced + "\" || echo \"{url}\" >> bad_urls'")
+    'yt-dlp -o \"%(album)s/%(artist)s - %(title)s.%(ext)s\" \"{url}\" || echo \"{url}\" >> bad_urls'")
 
 
 # #### misc
@@ -32,5 +32,5 @@ config.bind(",e", "spawn -vd st-tm --focus \"vim \
 # git clone current url
 config.bind(",c", "spawn -vd yt-git-clown '{url}'")
 # send current url to inbox
-config.bind(",i", "spawn -vd sh -c 'echo -e \"* {title}\\n  * <" + redir.yt_url_replaced + ">\"\
+config.bind(",i", "spawn -vd sh -c 'echo -e \"* {title}\\n  * <{url}>\"\
                    >> ~/txts/inbox/quteb_saved_urls.md' ;; tab-close")

@@ -31,8 +31,5 @@ systemctl --user start redshift.service &
 # sudo systemctl enable docker.service
 # docker run -d --restart unless-stopped --name redlib -p 127.0.0.150:80:8080 quay.io/redlib/redlib:latest
 
-# invidious
-cd /opt/invidious/ && docker compose up & disown
-
 # tracks stack of last active player, so pause/play them correspondingly
 playerctld daemon &

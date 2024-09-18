@@ -25,7 +25,5 @@ c = c; config = config  # noqa
 
 
 redir.init_redirectors()
-# workaround to make youtube redirector work
-c.qt.workarounds.remove_service_workers = True
 
 config.load_autoconfig(False)
