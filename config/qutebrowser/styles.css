@@ -123,3 +123,6 @@ input[type=checkbox][disabled][checked].task-list-item-checkbox:after {
 aside.feed-right-sidebar.mb-5.border-bottom {
     visibility: hidden;
 }
+
+/* youtube.com fix dark mode */
+.ytp-gradient-bottom, .ytp-gradient-top { filter: invert(1) !important }
