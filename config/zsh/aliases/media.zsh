@@ -57,5 +57,6 @@ yfl() {
 # download from playlist
 yfi() {
     index="$1"
-    yt-dlp "$(cat "$YF_PLAYLIST_FILENAME")" -I "$index"
+    format="%(playlist_index)s. %(title)s [%(id)s].%(ext)s"
+    yt-dlp -o "$format" "$(cat "$YF_PLAYLIST_FILENAME")" -I "$index"
 }
