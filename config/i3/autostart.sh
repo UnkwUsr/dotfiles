@@ -26,10 +26,5 @@ xbanish -s &
 # here it is
 systemctl --user start redshift.service &
 
-# redlib - self-hosted alternative frontend for reddit
-# run this once:
-# sudo systemctl enable docker.service
-# docker run -d --restart unless-stopped --name redlib -p 127.0.0.150:80:8080 quay.io/redlib/redlib:latest
-
 # tracks stack of last active player, so pause/play them correspondingly
 playerctld daemon &

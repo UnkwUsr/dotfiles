@@ -9,12 +9,6 @@ def try_redirects(info: qutebrowser.api.interceptor.Request):
 
     redir_to = redirs[host]
 
-    if (
-        redir_to in ["my.libreddit"]
-        and info.request_url.scheme() == "https"
-    ):
-        info.request_url.setScheme("http")
-
     info.request_url.setHost(redir_to)
     message.info("redirect " + host)
 
@@ -32,8 +26,8 @@ def try_redirects(info: qutebrowser.api.interceptor.Request):
 # fmt: off
 redirs = {
     # my self hosted
-    "reddit.com": "my.libreddit",
-    "www.reddit.com": "my.libreddit",
+    "reddit.com": "libreddit.bus-hit.me",
+    "www.reddit.com": "libreddit.bus-hit.me",
 
     "www.anilibria.tv": "dl-20220804-91.anilib.top",
     "www.quora.com": "q.opnxng.com",
