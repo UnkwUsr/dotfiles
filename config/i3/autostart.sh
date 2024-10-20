@@ -3,6 +3,9 @@
 # set keyboard press repeat rate
 xset r rate 400 50 &
 
+# set screensaver timeout
+xset dpms 1200 1200 1200
+
 # set random wallpaper
 # feh --no-fehbg --bg-scale "$(fd -tf . ~/.config/i3/wallpapers/ | shuf | head -n1)"
 feh --no-fehbg --bg-scale ~/.config/i3/wallpapers/04_Miku_v2.png
