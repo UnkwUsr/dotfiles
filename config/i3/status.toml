@@ -25,8 +25,7 @@ format = "$icon $mem_used.eng(hide_unit:true, width:3) "
 block = "memory"
 warning_swap = 1
 critical_swap = 10
-# TODO: want to hide swap on zero
-format = "$icon_swap $swap_used.eng(hide_unit:true, width:1) "
+format = "$icon_swap $swap_used.eng(hide_unit:true, width:1, range:1..) |"
 
 [[block]]
 block = "cpu"
