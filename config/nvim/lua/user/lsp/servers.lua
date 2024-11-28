@@ -46,7 +46,7 @@ local servers = {
     },
     -- php
     intelephense = {},
-    tsserver = {},
+    ts_ls = {},
     html = {},
     cssls = {},
     bashls = {},
