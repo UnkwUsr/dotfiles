@@ -24,6 +24,7 @@ def try_redirects(info: qutebrowser.api.interceptor.Request):
 
 # more services: https://github.com/pluja/awesome-privacy
 # fmt: off
+# https://privacydev.net/services.html
 redirs = {
     # my self hosted
     "reddit.com": "libreddit.bus-hit.me",
@@ -31,6 +32,9 @@ redirs = {
 
     "www.anilibria.tv": "dl-20220804-91.anilib.top",
     "www.quora.com": "q.opnxng.com",
+    # nitter instances: https://status.d420.de/
+    # https://twiiit.com/
+    "x.com": "xcancel.com",
     # instances list: https://github.com/realaravinth/libmedium#instances
     # "medium.com": "medium.hostux.net",
 }
