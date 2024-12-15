@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# script to toggle touchpad enable/disable status
+#
+# Dependencies: xorg-xinput
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 {1|0}"
+
+    exit 1
+fi
+
+device_id=$(xinput list | \
+    grep -oP "Touchpad.*id=\K\d+")
+echo "device_id: $device_id"
+
+prop_id=$(xinput list-props $device_id | \
+    grep -oP "Device Enabled \(\K\d+")
+echo "prop_id: $prop_id"
+
+xinput set-prop $device_id $prop_id $1
