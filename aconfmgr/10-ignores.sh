@@ -17,6 +17,7 @@ IgnorePath '/etc/group-'
 IgnorePath '/etc/gshadow'
 IgnorePath '/etc/gshadow-'
 IgnorePath '/etc/ld.so.cache'
+IgnorePath '/etc/ld.so.preload'
 IgnorePath '/etc/hostname'
 IgnorePath '/etc/machine-id'
 IgnorePath '/etc/passwd-'
@@ -49,6 +50,8 @@ IgnorePath '/etc/locale.gen'
 IgnorePath '/etc/locale.conf'
 IgnorePath '/etc/fstab'
 
+IgnorePath '/etc/resolv.conf.head'
+
 # might change
 IgnorePath '/etc/mkinitcpio.d/linux-zen.preset'
 
@@ -58,6 +61,8 @@ IgnorePath '/etc/vconsole.conf'
 CreateDir '/etc/light/'
 CreateDir /etc/openvpn/client 750 openvpn network
 CreateDir /etc/openvpn/server 750 openvpn network
+CreateDir /etc/colord '' colord colord
+CreateDir /lost+found 700
 # idk what they do, just annoys always
 SetFileProperty /usr/bin/groupmems group groups
 SetFileProperty /usr/bin/groupmems mode 2750
