@@ -19,4 +19,3 @@ CopyFile /etc/systemd/system/log-smartctl.timer
 CopyFile /etc/systemd/system/powertop.service
 CopyFile /etc/systemd/system/powertop.timer
 CopyFile /etc/systemd/system/tor.timer
-CopyFile /etc/systemd/system/fuck_dpi.service
