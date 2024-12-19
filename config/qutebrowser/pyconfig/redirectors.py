@@ -25,6 +25,7 @@ def try_redirects(info: qutebrowser.api.interceptor.Request):
 # more services: https://github.com/pluja/awesome-privacy
 # fmt: off
 # https://privacydev.net/services.html
+# https://farside.link/
 redirs = {
     # my self hosted
     "reddit.com": "libreddit.bus-hit.me",

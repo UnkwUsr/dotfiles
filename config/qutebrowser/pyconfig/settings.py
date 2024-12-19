@@ -75,7 +75,7 @@ c.search.wrap = False
 c.spellcheck.languages = ["en-US", "ru-RU"]
 
 c.url.searchengines = {
-    "DEFAULT": "https://html.duckduckgo.com/html?q={}",
+    "DEFAULT": "https://search.rhscz.eu/search?q={}",
     "g": "https://www.google.com/search?q={}",
     "ar": "https://wiki.archlinux.org/index.php/{}",
     "yt": "http://youtube.com/results?search_query={}",
