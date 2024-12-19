@@ -260,6 +260,8 @@ let g:csv_arrange_align = 'r*'
 
 " tidal
 let g:tidal_target = "terminal"
+" force use ghci from system package manager to prevent colliding with ghcup
+let g:tidal_ghci = "/bin/ghci"
 
 " suda
 command! -nargs=0 Sw SudaWrite
