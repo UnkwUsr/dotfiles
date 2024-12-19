@@ -26,16 +26,11 @@ AddPackage --foreign yay-bin # Yet another yogurt. Pacman wrapper and AUR helper
 # tier 2 (not vital)
 AddPackage powertop # A tool to diagnose issues with power consumption and power management
 AddPackage --foreign powertop-auto-tune # A systemd service for powertop that sets all tunable options to their GOOD setting.
-AddPackage smartmontools # Control and monitor S.M.A.R.T. enabled ATA and SCSI Hard Drives
 AddPackage dnscrypt-proxy # A flexible DNS proxy, with support for encrypted DNS protocols
-
-AddPackage tor # Anonymizing overlay network.
-AddPackage --foreign obfs4proxy # The obfourscator - a pluggable transport proxy written in Go
-AddPackage translate-shell # A command-line interface and interactive shell for Google Translate
-AddPackage --foreign ponymix # CLI PulseAudio Volume Control
+AddPackage smartmontools # Control and monitor S.M.A.R.T. enabled ATA and SCSI Hard Drives
+AddPackage vnstat # A console-based network traffic monitor
 AddPackage --foreign kbfs # The Keybase filesystem
 AddPackage --foreign keybase # CLI tool for GPG with keybase.io
-AddPackage vnstat # A console-based network traffic monitor
 
 ## idk
 # AddPackage polkit-gnome # Legacy polkit authentication agent for GNOME

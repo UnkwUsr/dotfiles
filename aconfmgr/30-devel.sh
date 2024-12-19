@@ -3,11 +3,13 @@
 ## tools
 AddPackage clang # C language family frontend for LLVM
 AddPackage gcc # The GNU Compiler Collection - C and C++ frontends
+AddPackage mold # A Modern Linker
 AddPackage lldb # Next generation, high-performance debugger
 AddPackage cmake # A cross-platform open-source make system
 AddPackage ctags # Generates an index file of language objects found in source files
 AddPackage docker # Pack, ship and run any application as a lightweight container
 AddPackage docker-compose # Fast, isolated development environments using Docker
+AddPackage distrobox # Use any linux distribution inside your terminal.
 AddPackage --foreign ida-free # Freeware version of the world's smartest and most feature-full disassembler
 AddPackage --foreign rust-pseudo-package # Rust pseudo package that provides rust and cargo to build anthing from aur while you have installed rustup
 AddPackage --foreign vmware-workstation # The industry standard for running multiple operating systems as virtual machines on a single Linux PC.
@@ -18,7 +20,6 @@ AddPackage diff-so-fancy # Good-looking diffs with diff-highlight and more
 AddPackage binutils # A set of programs to assemble and manipulate binary and object files
 AddPackage --foreign detect-it-easy-bin # Detect It Easy, or abbreviated "DIE" is a program for determining types of files
 AddPackage --foreign xxd-standalone # Hexdump utility from vim
-AddPackage --foreign ngrok # A tunneling, reverse proxy for developing and understanding networked, HTTP services
 # AddPackage --foreign snoopy-logger # A small library that logs all program executions
 
 ## language servers
@@ -42,3 +43,7 @@ AddPackage vscode-html-languageserver # HTML language server
 AddPackage tidy # A tool to tidy down your HTML code to a clean style
 AddPackage prettier # An opinionated code formatter
 # AddPackage pgformatter # A PostgreSQL SQL syntax beautifier
+
+# this used now for installing python package for speech recognition script (in
+# gather_inbox.sh), but also turned out it is nice tool for python
+AddPackage uv # An extremely fast Python package installer and resolver written in Rust

@@ -9,7 +9,9 @@ AddPackage zathura-djvu # DjVu support for Zathura
 ## editors
 AddPackage audacity # A program that lets you manipulate digital audio waveforms
 AddPackage gimp # GNU Image Manipulation Program
-AddPackage blender # A fully integrated 3D graphics creation suite
+# AddPackage blender # A fully integrated 3D graphics creation suite
+# AddPackage krita # Edit and paint images
+AddPackage --foreign xppenlinux-v3 # XP-Pen (Official) Linux utility for legacy XPPen Tablets
 AddPackage --foreign kdenlive-appimage # A non-linear video editor for Linux using the MLT video framework
 
 ## noise/music
@@ -19,7 +21,7 @@ AddPackage supercollider # Platform for audio synthesis and algorithmic composit
 AddPackage sc3-plugins # Extension plugins for the SuperCollider3 audio synthesis server.
 AddPackage linuxwave # Generate music from the entropy of Linux
 ### graphical interface
-AddPackage --foreign rezound-qt-git # A graphical audio file editor (Qt git version)
+AddPackage --foreign rezound-git # A graphical audio file editor, not bloated, simple to use. Supports LADSPA-plugins.
 AddPackage --foreign vital-synth # Spectral warping wavetable synth.
 AddPackage vmpk # Virtual MIDI Piano Keyboard
 AddPackage --foreign pianoteq # Physical modelling piano instrument as a standalone program, VST2 and LV2 plugin

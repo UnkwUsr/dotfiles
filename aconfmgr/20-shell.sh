@@ -12,6 +12,7 @@ AddPackage bat # Cat clone with syntax highlighting and git integration
 AddPackage git # the fast distributed version control system
 AddPackage wget # Network utility to retrieve files from the Web
 AddPackage jq # Command-line JSON processor
+AddPackage aerc # Email Client for your Terminal
 ### text editor
 AddPackage neovim # Fork of Vim aiming to improve user experience, plugins, and GUIs
 AddPackage --foreign neovim-symlinks # Runs neovim if vi or vim is called
@@ -31,22 +32,26 @@ AddPackage neofetch # A CLI system information tool written in BASH that support
 
 ## home setup
 AddPackage git-annex # Manage files with git, without checking their contents into git
-AddPackage --foreign git-annex-remote-rclone # A git-annex special remote using rclone
 AddPackage zk # A command-line tool helping you to maintain a Zettelkasten or personal wiki
 AddPackage remind # A sophisticated calendar and alarm program.
 AddPackage pass # Stores, retrieves, generates, and synchronizes passwords securely
 AddPackage pass-otp # A pass extension for managing one-time-password (OTP) tokens.
 AddPackage yt-dlp # A youtube-dl fork with additional features and fixes
+# dependency for yt-dlp extract audio
+AddPackage python-mutagen # An audio metadata tag reader and writer (python library)
 
 ## tier2
 AddPackage tokei # A blazingly fast CLOC (Count Lines Of Code) program
 AddPackage imagemagick # An image viewing/manipulation program
 AddPackage rclone # Sync files to and from Google Drive, S3, Swift, Cloudfiles, Dropbox and Google Cloud Storage
+    # for rclone mount
+    AddPackage fuse3 # Interface for userspace programs to export a filesystem to the Linux kernel
 AddPackage --foreign python-myougiden-git # A command-line, Japanese/English English/Japanese dictionary
 # AddPackage torsocks # Wrapper to safely torify applications
 # AddPackage gnuplot # Plotting package which outputs to X11, PostScript, PNG, GIF, and others
 AddPackage --foreign pandoc-bin # Pandoc - executable only, without 750MB Haskell depends/makedepends
 AddPackage rsync # A fast and versatile file copying tool for remote and local files
+AddPackage torsocks # Wrapper to safely torify applications
 
 ## utils
 AddPackage patch # A utility to apply patch files to original sources
@@ -57,7 +62,10 @@ AddPackage moreutils # A growing collection of the unix tools that nobody though
 AddPackage kitty # terminal emulator. I use `kitten icat` from it
 # AddPackage rlwrap # Adds readline-style editing and history to programs
 AddPackage fortune-mod # The Fortune Cookie Program from BSD games
+AddPackage android-tools # Android platform tools
+AddPackage speedtest-cli # Command line interface for testing internet bandwidth using speedtest.net
+AddPackage mtr # Combines the functionality of traceroute and ping into one tool (CLI version)
 ### archives
 AddPackage unrar # The RAR uncompression program
 AddPackage unzip # For extracting and viewing files in .zip archives
-AddPackage p7zip # Command-line file archiver with high compression ratio
+AddPackage 7zip # File archiver for extremely high compression

@@ -51,12 +51,22 @@ AddPackage screenkey # A screencast tool to display your keys inspired by Screen
 AddPackage xdotool # Command-line X11 automation tool
 AddPackage xorg-xev # Print contents of X events
 AddPackage xorg-xkill # Kill a client by its X resource
+AddPackage translate-shell # A command-line interface and interactive shell for Google Translate
 AddPackage --foreign light # A program to control backlights (and other hardware lights)
 AddPackage --foreign dragon-drop # Simple drag-and-drop source/sink for X or Wayland
+AddPackage --foreign ponymix # CLI PulseAudio Volume Control
 AddPackage --foreign xclip-git # Command line interface to the X11 clipboard
+AddPackage tor # Anonymizing overlay network.
+AddPackage --foreign obfs4proxy # The obfourscator - a pluggable transport proxy written in Go
 AddPackage mesa-utils # Essential Mesa utilities
 AddPackage xorg-xinput # Small commandline tool to configure devices
 AddPackage playerctl # mpris media player controller and lib for spotify, vlc, audacious, bmp, xmms2, and others.
+AddPackage scrcpy # Display and control your Android device
+# used in i3 bind for making flameshot drawing over non-freezed screen
+AddPackage xcompmgr # Composite window effect manager
+# used to play radio. Not using st for it because it has bug that command not
+# executing until window gets focus for the first time
+AddPackage alacritty # A cross-platform, GPU-accelerated terminal emulator
 
 ## apps
 AddPackage telegram-desktop # Official Telegram Desktop client
@@ -72,12 +82,10 @@ AddPackage --foreign anki-bin # Helps you remember facts (like words/phrases in 
 AddPackage --foreign sunshine-bin # A self-hosted game stream host for Moonlight.
 AddPackage --foreign waydroid # A container-based approach to boot a full Android system on a regular Linux system
 AddPackage --foreign immersed # Immersed Desktop Agent
-AddPackage discord # All-in-one voice and text chat for gamers
-AddPackage chromium # A web browser built for speed, simplicity, and security
-# AddPackage pdfarranger # Helps merge or split PDF documents and rotate, crop and rearrange pages
 
 ## other stuff
 AddPackage vulkan-radeon # Open-source Vulkan driver for AMD GPUs
 AddPackage vkd3d # Direct3D 12 to Vulkan translation library By WineHQ
 AddPackage mesa-vdpau # Open-source VDPAU drivers
 AddPackage libva-mesa-driver # Open-source VA-API drivers
+AddPackage yad # A fork of zenity - display graphical dialogs from shell scripts or command line
