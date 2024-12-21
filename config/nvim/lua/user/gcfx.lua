@@ -1,4 +1,4 @@
--- create fixup commit on commit under cursor
+-- create fixup commit to commit which latest changed line under cursor
 
 local util = require("gitsigns.util")
 local gs_cache = require("gitsigns.cache")
