@@ -27,10 +27,8 @@ def try_redirects(info: qutebrowser.api.interceptor.Request):
 # https://privacydev.net/services.html
 # https://farside.link/
 redirs = {
-    # my self hosted
-    "reddit.com": "libreddit.bus-hit.me",
-    "www.reddit.com": "libreddit.bus-hit.me",
-
+    "reddit.com": "redlib.thebunny.zone",
+    "www.reddit.com": "redlib.thebunny.zone",
     "www.anilibria.tv": "dl-20220804-91.anilib.top",
     "www.quora.com": "q.opnxng.com",
     # nitter instances: https://status.d420.de/
