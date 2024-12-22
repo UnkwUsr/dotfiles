@@ -31,6 +31,7 @@ redirs = {
     "www.reddit.com": "redlib.thebunny.zone",
     "www.anilibria.tv": "dl-20220804-91.anilib.top",
     "www.quora.com": "q.opnxng.com",
+    "www.pixiv.net": "pixivfe.thebunny.zone",
     # nitter instances: https://status.d420.de/
     # https://twiiit.com/
     "x.com": "xcancel.com",
