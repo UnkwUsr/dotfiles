@@ -1,15 +1,16 @@
 # there is aliases/shortcuts for pacman (and also aur helpers)
 
-# packages search and info
+# packages search and info (remote and local)
 alias pss='pacman -Ss'
 alias psi='pacman -Si'
 alias pqs='pacman -Qs'
 alias pqi='pacman -Qi'
+# find which package owns some file
 alias pqo='pacman -Qo'
 
-# local files search
+# list files owned by installed package
 alias pql='pacman -Ql'
-# fzf over local files
+# fzf over files owned by installed packages
 pqlf() {
     pacman -Ql $1 | grep -v "/$" \
         | fzf -m --preview="less {2}" \
@@ -18,8 +19,9 @@ pqlf() {
 }
 compdef -e 'words[1]=(pacman -Ql); service=pacman; (( CURRENT+=1 )); _pacman' pqlf
 
-# packages files search
+# search which packages (not only installed) owns some file
 alias pfx='pacman -Fx'
+# list all files owned by some package (not only installed)
 alias pfl='pacman -Fl'
 alias pfy='sudo pacman -Fy'
 
