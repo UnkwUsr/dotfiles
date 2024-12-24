@@ -5,6 +5,11 @@ byfiles() {
     fd -tf $* | sed 's/^/1 /' | nctok
 }
 
+# pattern matches count per file
+bymatch() {
+    rg "$1" --count-matches --null | awk -F '\0' '{print $2, $1}' | nctok
+}
+
 # with tokei
 _tokei_helper() {
     target="$1"; shift
