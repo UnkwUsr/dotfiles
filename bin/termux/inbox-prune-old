@@ -1,0 +1,8 @@
+#!/bin/env bash
+
+INBOX_FOLDER="$HOME/device/txts/phone_inbox"
+cd "$INBOX_FOLDER" || exit 1
+
+git rev-list HEAD -n1 "$(git rev-parse --before='10 day ago')" > .git/shallow
+git reflog expire --expire=now --all
+git gc --prune=now
