@@ -104,3 +104,17 @@ interesting for passers-by.
   application/pdf`
 * Install dictionaries: `/usr/share/qutebrowser/scripts/dictcli.py install
   en-US ru-RU`
+
+## rclone
+
+* Symlink rclone config to real config in password-store: `mkdir -p
+  ~/.config/rclone && ln -s ~/.password-store/rclone.conf ~/.config/rclone/`
+  (should be absolute path symlink)
+  * I can't put this symlink into dotfiles repo because then when rclone tries
+    to write to this file, it sees symlink relative path and tries to write to
+    it, but "relative" is meant from perspective inside dotfiles repo and in
+    result it breaks (trying to write to `/home/.password-store/`)
+    * probably can report this to rclone. Real problem is that they try to
+      write to path from symlink and not just to the file it symlinks to. To
+      reproduce you need to also make `~/.config/rclone/` symlink to
+      `~/.dotfiles/config/rclone/`

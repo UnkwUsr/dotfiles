@@ -41,6 +41,8 @@ export FZF_DEFAULT_OPTS="--no-mouse --exact --bind ctrl-s:toggle-sort \
 # add ripgrep to 'progress' util
 export PROGRESS_ARGS='-a rg'
 
+export RCLONE_PASSWORD_COMMAND="pass show rclone_config_pass"
+
 # make wine do not prompt for installing mono
 export WINEDLLOVERRIDES='mscoree=d'
 
