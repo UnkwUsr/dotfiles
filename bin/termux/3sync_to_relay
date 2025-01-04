@@ -1,6 +1,8 @@
 #!/bin/env bash
 set -euo pipefail
-# this script syncs phone inbox (both ways)
+# this script syncs phone inbox (both ways).
+# Special storage schema allows making pull before each push and guarantee that
+# there will no be conflicts
 
 INBOX_FOLDER="$HOME/device/txts/phone_inbox"
 cd "$INBOX_FOLDER" || exit 1
