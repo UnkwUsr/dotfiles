@@ -58,8 +58,23 @@ final_clean() {
     # also add buy.md at the same time. Why not
     git add buy.md
 
-    git commit -m "gather auto at $(date)"
-    git push
+    if commit_res="$(git commit -m "gather auto at $(date)")"; then
+        git push
+    else
+        if [[ "$commit_res" =~ "nothing to commit, working tree clean" ]]; then
+            # special handling because otherwise it returns with exit code = error
+            return 0
+        elif [[ "$commit_res" =~ "nothing added to commit but untracked files present" ]]; then
+            echo "$commit_res"
+            echo "(but doing git push anyway)"
+            git push
+            exit 1
+        else
+            echo "git commit error:"
+            echo "$commit_res"
+            exit 1
+        fi
+    fi
 }
 
 voice_recognise
