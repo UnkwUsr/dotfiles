@@ -2,7 +2,8 @@
 
 
 # set screensaver timeout
-xset dpms 1200 1200 1200
+xset s 1200 0
+xset dpms 1200 0 0
 
 # set random wallpaper
 # feh --no-fehbg --bg-scale "$(fd -tf . ~/.config/i3/wallpapers/ | shuf | head -n1)"
