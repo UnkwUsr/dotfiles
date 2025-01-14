@@ -16,4 +16,4 @@
 \e\e  abort
 
 #env
-LESS = -Ri --incsearch
+LESS = -Ri --incsearch --wordwrap
