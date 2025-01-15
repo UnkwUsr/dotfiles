@@ -41,6 +41,9 @@ alias sdf='cd ~/.dotfiles && fv'
 
 #### misc
 
+# rmdir everything possible
+alias rmd="rmdir */ 2>/dev/null"
+
 # move all from another folder to current one and remove empty folder then
 flatdir() {
     if [ -z "$1" ]; then
