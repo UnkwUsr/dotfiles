@@ -1,8 +1,17 @@
+From 4bd3697a4f97ba759a7c1da356c1a9a84208e87a Mon Sep 17 00:00:00 2001
+From: UnkwUsr <ktoto2707043@gmail.com>
+Date: Thu, 16 Jan 2025 00:34:22 +0300
+Subject: [PATCH 3/3] fix kitty-graphics patch
+
+---
+ kitty-graphics.diff | 32 +++++++++++++++++++-------------
+ 1 file changed, 19 insertions(+), 13 deletions(-)
+
 diff --git a/kitty-graphics.diff b/kitty-graphics.diff
-index dd69fcc..e1c9ffb 100644
+index b7cb2e3..77d79e3 100644
 --- a/kitty-graphics.diff
 +++ b/kitty-graphics.diff
-@@ -48,6 +48,15 @@ index 91ab8ca..a6ade15 100644
+@@ -48,6 +48,15 @@ index 2cd740a..4aadbbc 100644
   
   /* Kerning / character bounding-box multipliers */
   static float cwscale = 1.0;
@@ -15,10 +24,10 @@ index dd69fcc..e1c9ffb 100644
 + 
 + /*
 +  * spaces per tab
- @@ -163,6 +171,26 @@ static unsigned int mousebg = 0;
+ @@ -163,6 +171,28 @@ static unsigned int mousebg = 0;
    */
   static unsigned int defaultattr = 11;
-@@ -91,8 +100,8 @@ index 91ab8ca..a6ade15 100644
+@@ -93,8 +102,8 @@ index 2cd740a..4aadbbc 100644
   	/* mask                 button   function        argument       release */
  +	{ TERMMOD,              Button3, previewimage,   {.s = "feh"} },
  +	{ TERMMOD,              Button2, showimageinfo,  {},            1 },
@@ -27,12 +36,12 @@ index dd69fcc..e1c9ffb 100644
 +	{ XK_ANY_MOD,           Button4, kscrollup,      {.i = 1},		0, /* !alt */ -1 },
 +	{ XK_ANY_MOD,           Button5, kscrolldown,    {.i = 1},		0, /* !alt */ -1 },
   	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
- @@ -183,10 +217,6 @@ static MouseShortcut mshortcuts[] = {
+ @@ -183,10 +219,6 @@ static MouseShortcut mshortcuts[] = {
   	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
-@@ -106,9 +115,9 @@ index 91ab8ca..a6ade15 100644
+@@ -108,9 +117,9 @@ index 2cd740a..4aadbbc 100644
   	/* mask                 keysym          function        argument */
   	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
- @@ -201,6 +231,10 @@ static Shortcut shortcuts[] = {
+ @@ -201,6 +233,10 @@ static Shortcut shortcuts[] = {
 - 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 - 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 - 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
@@ -42,31 +51,34 @@ index dd69fcc..e1c9ffb 100644
  +	{ TERMMOD,              XK_F1,          togglegrdebug,  {.i =  0} },
  +	{ TERMMOD,              XK_F6,          dumpgrstate,    {.i =  0} },
  +	{ TERMMOD,              XK_F7,          unloadimages,   {.i =  0} },
-@@ -4646,7 +4655,7 @@ index d6478f5..5dc9a93 100644
- @@ -831,7 +851,24 @@ ttyread(void)
+@@ -6219,10 +6228,10 @@ index 57c6e96..f1c5299 100644
+  
+  	/* append read bytes to unprocessed bytes */
+  	ret = read(cmdfd, buf+buflen, LEN(buf)-buflen);
+-@@ -831,7 +851,24 @@ ttyread(void)
++@@ -900,7 +900,24 @@ ttyread(void)
   		die("couldn't read from shell: %s\n", strerror(errno));
   	default:
 - 		buflen += ret;
-+		buflen += twrite_aborted ? 0 : ret;
++ 		buflen += twrite_aborted ? 0 : ret;
  -		written = twrite(buf, buflen, 0);
  +		if (already_processing) {
  +			/* Avoid recursive call to twrite() */
-@@ -4909,11 +4918,10 @@ index d6478f5..5dc9a93 100644
+@@ -6522,11 +6531,9 @@ index 57c6e96..f1c5299 100644
   	}
   }
   
--@@ -1958,8 +2138,26 @@ strhandle(void)
+-@@ -1962,8 +2174,26 @@ strhandle(void)
 - 	case 'k': /* old title set compatibility */
 - 		xsettitle(strescseq.args[0]);
-+@@ -1958,7 +2138,25 @@ strhandle(void)
-+ 		else if (strstr(strescseq.buf, "=2s") == strescseq.buf)
++@@ -2385,6 +2402,24 @@ strhandle(void)
 + 			tsync_end();  /* ESU */
   		return;
 --	case 'P': /* DCS -- Device Control String */
   	case '_': /* APC -- Application Program Command */
  +		if (gr_parse_command(strescseq.buf, strescseq.len)) {
  +			GraphicsCommandResult *res = &graphics_command_result;
-@@ -4933,7 +4941,6 @@ index d6478f5..5dc9a93 100644
+@@ -6546,7 +6553,6 @@ index 57c6e96..f1c5299 100644
  +			return;
  +		}
  +		return;
@@ -74,6 +86,17 @@ index dd69fcc..e1c9ffb 100644
   	case '^': /* PM -- Privacy Message */
   		return;
   	}
+@@ -6751,9 +6757,9 @@ index efab2cf..ded76c1 100644
+ --- a/st.info
+ +++ b/st.info
+ @@ -195,6 +195,7 @@ st-mono| simpleterm monocolor,
+- 	Ms=\E]52;%p1%s;%p2%s\007,
+  	Se=\E[2 q,
+  	Ss=\E[%p1%d q,
++ 	Sync=\EP=%p1%ds\E\\,
+ +	Smulx=\E[4:%p1%dm,
+  
+  st| simpleterm,
 -- 
-2.45.2
+2.48.1
 

@@ -1,51 +1,33 @@
-diff --git a/PKGBUILD b/PKGBUILD
-index 89a095a..7fa1d7e 100644
---- a/PKGBUILD
-+++ b/PKGBUILD
-@@ -14,15 +14,43 @@ depends=(libxft)
- url=https://st.suckless.org
- source=(https://dl.suckless.org/$pkgname/$pkgname-$pkgver.tar.gz
-         terminfo.patch
-+        st-appsync-20200618-b27a383.diff
-+        st-scrollback-20210507-4536f46.diff
-+        st-scrollback-mouse-20220127-2c5edf2.diff
-+        st-scrollback-mouse-altscreen-20220127-2c5edf2.diff
-+        st-newterm-0.9.diff
-+        st-newterm-0.9-tmux.diff
-+        st-hidecursor-0.8.3.diff
-+        st-copyurl-multiline-20230406-211964d.diff
-+        kitty-graphics.diff
-         README.terminfo.rst)
- sha256sums=('6b215d4f472b21d6232f30f221117a777e24bcfee68955ddefb7426467f9494b'
-             'f9deea445a5c6203a0e8e699f3c3b55e27275f17fb408562c4dd5d649edeea23'
-+            'SKIP'
-+            'SKIP'
-+            'SKIP'
-+            'SKIP'
-+            'SKIP'
-+            'SKIP'
-+            'SKIP'
-+            'SKIP'
-+            'SKIP'
-             '95be3197f7de77a0fe2e4f527202e17e910ee24e1ed6bc39beb320a1304bb7e1')
- _sourcedir=$pkgname-$pkgver
- 
- prepare() {
-   patch -d "$_sourcedir" -p 0 < terminfo.patch
- 
-+  patch -d "$_sourcedir" < st-appsync-20200618-b27a383.diff
-+  patch -d "$_sourcedir" < st-hidecursor-0.8.3.diff
-+  patch -d "$_sourcedir" < st-copyurl-multiline-20230406-211964d.diff
-+  patch -d "$_sourcedir" < st-newterm-0.9.diff
-+  patch -d "$_sourcedir" < st-newterm-0.9-tmux.diff
-+  patch -d "$_sourcedir" < st-scrollback-20210507-4536f46.diff
-+  patch -d "$_sourcedir" < st-scrollback-mouse-20220127-2c5edf2.diff
-+  patch -d "$_sourcedir" < st-scrollback-mouse-altscreen-20220127-2c5edf2.diff
-+  patch -d "$_sourcedir" < kitty-graphics.diff
-+
-   # This package provides a mechanism to provide a custom config.h. Multiple
-   # configuration states are determined by the presence of two files in
-   # $BUILDDIR:
+From 9a9bf8e94ab8f8a07fc0c1afd62c5b8e0de73a2e Mon Sep 17 00:00:00 2001
+From: UnkwUsr <ktoto2707043@gmail.com>
+Date: Thu, 16 Jan 2025 00:31:43 +0300
+Subject: [PATCH 2/3] fix patches
+
+---
+ st-hidecursor-0.8.3.diff            | 4 ++--
+ st-newterm-0.9.diff                 | 4 +++-
+ st-scrollback-20210507-4536f46.diff | 8 ++++----
+ 3 files changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/st-hidecursor-0.8.3.diff b/st-hidecursor-0.8.3.diff
+index 4895a66..c2f073a 100644
+--- a/st-hidecursor-0.8.3.diff
++++ b/st-hidecursor-0.8.3.diff
+@@ -28,12 +28,12 @@ index e5f1737..7e759b0 100644
+  	if (IS_SET(MODE_MOUSE) && !(e->xbutton.state & forcemousemod)) {
+  		mousereport(e);
+  		return;
+-@@ -1099,10 +1111,10 @@ void
++@@ -1142,10 +1142,10 @@ void
+  xinit(int cols, int rows)
+  {
+  	XGCValues gcvalues;
+ -	Cursor cursor;
+- 	Window parent;
++ 	Window parent, root;
+  	pid_t thispid = getpid();
+  	XColor xmousefg, xmousebg;
+ +	Pixmap blankpm;
 diff --git a/st-newterm-0.9.diff b/st-newterm-0.9.diff
 index 5525e7a..77e4d30 100644
 --- a/st-newterm-0.9.diff
@@ -89,3 +71,6 @@ index f960f6b..2a6ccac 100644
   void printscreen(const Arg *);
   void printsel(const Arg *);
 - void sendbreak(const Arg *);
+-- 
+2.48.1
+
