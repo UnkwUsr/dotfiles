@@ -6,6 +6,9 @@
 # TODO: option: use provided command as tmux pane start command, not just "pass
 # to shell"
 
+# HACK HACK: remove leftover cache files of st kitty graphics patch
+rm -rf /tmp/st-images-* &
+
 ST_TMUX_WINDOW_CLASS="st_tmux"
 TMUX_SESSION="main"
 
