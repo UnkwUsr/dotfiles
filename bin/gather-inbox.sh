@@ -6,8 +6,6 @@ cd ~/txts/synced-inbox || exit 1
 git pull
 
 TARGET_TO="$HOME/txts/dtm/plans.md"
-# temporary backups for now, just in case
-cp "$TARGET_TO" /tmp/plans-"$(date +%s)".md
 
 me_whisper() {
     src_dir="$1"
