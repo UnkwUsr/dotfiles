@@ -1,0 +1,10 @@
+[tool]
+
+fzf-bind-new = "Ctrl-O"
+
+# this is default options:
+# fzf-options = "--tiebreak begin --exact --tabstop 4 --height 100% --layout reverse --no-hscroll --color hl:-1,hl+:-1 --preview-window wrap"
+# me added: "-m"
+fzf-options = "-m --tiebreak begin --exact --tabstop 4 --height 100% --layout reverse --no-hscroll --color hl:-1,hl+:-1 --preview-window wrap"
+
+fzf-preview = "bat -p --color always {-1}"
