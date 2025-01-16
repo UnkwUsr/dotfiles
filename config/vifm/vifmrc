@@ -49,6 +49,13 @@ nmap - gh
 nmap !! :! %f<left><left><left>
 vmap ! :! %f<left><left><left>
 
+" copy files (itself, not content of them) to X11 clipboard
+nmap yl :!cpfiles.sh %f<CR>
+" I don't include vmap here, because it collides with existing map `y` and
+" having `yl` will make using usual `y` wait for timeout. Instead I will
+" select in visual mode, press enter to accept selection and return back to
+" normal mode, and only here press `yl`
+
 
 """" filetypes
 
