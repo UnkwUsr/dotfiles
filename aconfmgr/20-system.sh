@@ -31,6 +31,7 @@ AddPackage smartmontools # Control and monitor S.M.A.R.T. enabled ATA and SCSI H
 AddPackage vnstat # A console-based network traffic monitor
 AddPackage --foreign kbfs # The Keybase filesystem
 AddPackage --foreign keybase # CLI tool for GPG with keybase.io
+AddPackage acpi # Client for battery, power, and thermal readings
 
 ## idk
 # AddPackage polkit-gnome # Legacy polkit authentication agent for GNOME

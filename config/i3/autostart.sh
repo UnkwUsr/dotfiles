@@ -26,6 +26,8 @@ xbanish -s &
 # here it is
 systemctl --user start redshift.service &
 
+battery_low_monitor.sh &
+
 # tracks stack of last active player, so pause/play them correspondingly
 playerctld daemon &
 
