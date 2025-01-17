@@ -42,5 +42,12 @@ require("gx").setup({
     },
 })
 
+vim.keymap.set({ "n", "x" }, "gx", function()
+    -- highlight current line for few milliseconds. This utilizes autocmd
+    -- on_yank
+    local t = vim.fn.getreg("o")
+    vim.cmd.normal('"oyy')
+    vim.fn.setreg("o", t)
 
-vim.keymap.set({ "n", "x" }, "gx", "<cmd>Browse<cr>")
+    vim.cmd("Browse")
+end)
