@@ -4,6 +4,7 @@ require("user.plugins.null_ls")
 require("user.plugins.zk")
 require("user.plugins.lsp_status")
 require("user.plugins.treesitter")
+require("user.plugins.gx")
 
 require("neodev").setup({})
 

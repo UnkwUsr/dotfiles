@@ -10,7 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
 Plug 'vifm/vifm.vim'
 " better vim defaults
-Plug 'stsewd/gx-extended.vim'
+Plug 'chrishrb/gx.nvim'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
 Plug 'tummetott/unimpaired.nvim'
@@ -249,10 +249,6 @@ nmap <leader>am :MarkdownPreview<CR>
 
 " vifm
 nmap - :Vifm<CR>
-
-" gx-extended
-nmap gx <Plug>(gxext-normal)
-let g:gxext#opencmd = '/bin/sh -c "\"$BROWSER\" \"\$1\" & disown" sh'
 
 " csv.vim
 let g:csv_autocmd_arrange = 1
