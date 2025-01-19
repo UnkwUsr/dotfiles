@@ -7,4 +7,5 @@
 cp ~/.local/share/qutebrowser/sessions/default.yml \
     ~/.local/share/qutebrowser/sessions/default.yml.old
 
+notify-send -t 250 quteb "opened in quteb" &
 qutebrowser "$@"
