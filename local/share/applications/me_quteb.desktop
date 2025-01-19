@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=qutebrowser
+StartupWMClass=qutebrowser
+Type=Application
+Exec=quteb %u
+Terminal=false
+StartupNotify=true
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rdf+xml;image/gif;image/webp;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/qute;
+Keywords=Browser

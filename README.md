@@ -98,7 +98,7 @@ interesting for passers-by.
 ## qutebrowser
 
 * Set as default browser: `xdg-settings set default-web-browser
-  org.qutebrowser.qutebrowser.desktop`
+  me_quteb.desktop`
 * Set program for pdf: `xdg-mime default org.pwmt.zathura.desktop
   application/pdf`
 * Install dictionaries: `/usr/share/qutebrowser/scripts/dictcli.py install
