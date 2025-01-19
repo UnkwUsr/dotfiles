@@ -8,4 +8,6 @@ cp ~/.local/share/qutebrowser/sessions/default.yml \
     ~/.local/share/qutebrowser/sessions/default.yml.old
 
 notify-send -t 250 quteb "opened in quteb" &
-qutebrowser "$@"
+# using --untrusted-args because now I use this script in xdg-handler for urls,
+# so it can pass arbitary arguments
+qutebrowser --untrusted-args "$@"
