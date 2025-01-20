@@ -47,6 +47,13 @@ ytaf() {
         yta -- "$(sed 's/^.*\[\(.*\)\]\..*/\1/g' <<<"$filename")"
     done
 }
+# download subs for file
+ytsf() {
+    for filename in "$@"
+    do
+        yt-dlp --embed-subs --sub-langs=en,ja --write-auto-subs -- "$(sed 's/^.*\[\(.*\)\]\..*/\1/g' <<<"$filename")"
+    done
+}
 # download audio album/playlist, puts album tracks in separate folder
 alias ytalbum='yta -o "%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s"'
 
