@@ -76,6 +76,14 @@ input[type=checkbox][disabled][checked].task-list-item-checkbox:after {
     margin-top:-12px;
     margin-left:-4px;
 }
+/* hide github actions warnings in pull request "files changed" tab */
+tr.js-inline-annotations {
+    display:none;
+}
+/* hide "Unchanged files with check annotations" in pull request "files changed" tab */
+.js-diff-progressive-container:has(h3.mb-2) {
+    display:none;
+}
 
 /* wikipedia and wiktionary */
 /* header background */
