@@ -43,6 +43,9 @@ ibn() { echo "* from ibn: $*" >> ~/txts/dtm/inbox/00_inboxed.md }
 # buy list
 alias bb="cd ~/txts/synced-inbox && vim buy.md && cd - > /dev/null"
 
+### phone inbox
+alias nbd="cd ~/txts/synced-inbox/ && git s && ll"
+
 
 ### zk - zettel notes
 
