@@ -12,8 +12,6 @@ AddPackage docker-compose # Fast, isolated development environments using Docker
 AddPackage distrobox # Use any linux distribution inside your terminal.
 AddPackage --foreign ida-free # Freeware version of the world's smartest and most feature-full disassembler
 AddPackage --foreign rust-pseudo-package # Rust pseudo package that provides rust and cargo to build anthing from aur while you have installed rustup
-AddPackage --foreign vmware-workstation # The industry standard for running multiple operating systems as virtual machines on a single Linux PC.
-AddPackage --foreign vmware-keymaps # Keymaps required by some VMware packages
 
 ## utils
 AddPackage diff-so-fancy # Good-looking diffs with diff-highlight and more
