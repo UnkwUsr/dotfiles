@@ -90,12 +90,12 @@ let g:lightline = {
             \   'left': [
             \       [ 'mode', 'paste' ],
             \       [ 'readonly', 'relativepath', 'modified' ],
-            \       [ ]
+            \       [ 'lsp_status' ]
             \   ],
             \   'right': [
             \       [ 'lines' ],
             \       [ 'spell', 'words' ],
-            \       [ 'lsp_status', 'filetype' ]
+            \       [ 'lsp_clients', 'filetype' ]
             \   ]
             \ },
             \ 'tabline': {
@@ -107,12 +107,16 @@ let g:lightline = {
             \ },
             \ 'component_function': {
             \   'lsp_status': 'LspStatus',
+            \   'lsp_clients': 'LspClients',
             \   'spell': 'SpellStatus',
             \   'words': 'WordsCount'
             \ }
             \}
 function! LspStatus() abort
     return luaeval('Lua_LspStatus()')
+endfunction
+function! LspClients() abort
+    return luaeval('Lua_LspClients()')
 endfunction
 
 function! WordsCount() abort

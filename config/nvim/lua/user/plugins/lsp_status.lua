@@ -13,6 +13,15 @@ lsp_status.config({
 })
 
 function Lua_LspStatus()
+    local status = require("lsp-status").status()
+    if status == "  " then
+        status = " "
+    end
+
+    return status
+end
+
+function Lua_LspClients()
     local clients = vim.lsp.get_active_clients({ bufnr = 0 })
     if not vim.tbl_isempty(clients) then
         clients = vim.tbl_map(function(x)
@@ -20,12 +29,7 @@ function Lua_LspStatus()
         end, clients)
         local sclients = table.concat(clients, ", ")
 
-        local status = require("lsp-status").status()
-        if status == "  " then
-            status = " "
-        end
-
-        return sclients .. status
+        return sclients
     end
     return ""
 end
