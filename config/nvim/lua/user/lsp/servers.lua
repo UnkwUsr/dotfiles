@@ -1,5 +1,12 @@
 local servers = {
     rust_analyzer = {
+        settings = {
+            ["rust-analyzer"] = {
+                check = {
+                    ignore = { "dead_code", "unreachable_code" },
+                },
+            },
+        },
         autostart = false,
     },
     hls = {
