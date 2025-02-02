@@ -29,6 +29,10 @@ config.bind(",a", "spawn -vd st-tm \
 config.bind(",e", "spawn -vd st-tm --focus \"vim \
                                         $(sed 's/\\/blob\\//\\/raw\\//' \
                                         <<<'{url}')\"")
+# open link in vim appending .diff to it. This makes github and gitlab
+# pull/merge requests appear as usual raw diff
+config.bind(",d", "spawn -vd st-tm --focus \"vim '{url}.diff'\"")
+
 # git clone current url
 config.bind(",c", "spawn -vd quteb-git-clown '{url}'")
 # send current url to inbox
