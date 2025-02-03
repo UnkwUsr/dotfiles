@@ -13,4 +13,10 @@
     # merge multiple notifications with the same content
     stack_duplicates = false
 
+# hide simplex-desktop notifications
+[skip-rule-simplex]
+body=new message
+icon=dialog-information
+skip_display=true
+
 # vim: ft=cfg
