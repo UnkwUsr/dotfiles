@@ -51,3 +51,30 @@ vim.keymap.set({ "n", "x" }, "gx", function()
 
     vim.cmd("Browse")
 end)
+
+-- google line under cursor and delete it
+-- (normal mode is actually markdown specific (it takes list item))
+vim.keymap.set({ "n", "v" }, "<leader>v", function()
+    local mode = vim.api.nvim_get_mode().mode
+    local text_to_search
+    if mode == "n" then
+        -- yank text from second word of the line to the end to "h register
+        local reg_h = vim.fn.getreg("h")
+        vim.cmd.normal('^w"hy$')
+        text_to_search = vim.fn.getreg("h")
+        vim.fn.setreg("h", reg_h)
+    elseif mode == "v" then
+        text_to_search = vim.fn.getregion(
+            vim.fn.getpos("v"),
+            vim.fn.getpos("."),
+            { type = "v" }
+        )[1]
+    end
+
+    vim.system({ "quteb", text_to_search }, { detach = true })
+
+    if mode == "n" then
+        vim.cmd.normal("dd")
+    end
+    print("quteb:", text_to_search)
+end)
