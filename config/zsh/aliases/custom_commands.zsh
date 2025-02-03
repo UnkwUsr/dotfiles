@@ -76,3 +76,12 @@ zpan() {
     pandoc -d ~/.config/pandoc/me.yaml "$1" -o "$name" \
         && (zathura "$name" && rm "$name" > /dev/null) & disown
 }
+
+# open rclip image history by date in fzf
+rimga() {
+    img_dir="$HOME/.local/share/rclip/image/png"
+    file_pick=$(ls -1 "$img_dir" \
+        | awk '{print $1, strftime("%F %R", substr($1, 1, length($1)-3))}' \
+        | fzf --tac --with-nth 2.. | cut -d' ' -f1)
+    feh --start-at "$img_dir/$file_pick" & disown
+}
