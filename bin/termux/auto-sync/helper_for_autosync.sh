@@ -11,6 +11,6 @@ MY_REP="$HOME/device/txts/phone_inbox"
     && (exit 1)
 
 ~/.shortcuts/3sync_to_relay \
-    >> ~/.cache/log_auto_sync_out \
-    2>>~/.cache/log_auto_sync_err \
+    >> ~/.local/share/log_auto_sync_out \
+    2>>~/.local/share/log_auto_sync_err \
     || (notif "sync error" && exit 1)
