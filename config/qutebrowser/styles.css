@@ -138,6 +138,10 @@ aside.feed-right-sidebar.mb-5.border-bottom {
 
 /* youtube.com fix dark mode */
 .ytp-gradient-bottom, .ytp-gradient-top { filter: invert(1) !important }
+/* hide recommends on watch next */
+ytd-watch-next-secondary-results-renderer {
+    display: none
+}
 
 /* docs.rs */
 /* hide header creates search field, because I want to jump to search across
