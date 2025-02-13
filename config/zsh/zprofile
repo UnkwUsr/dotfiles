@@ -1,7 +1,7 @@
 # vim: ft=zsh
 export MANPAGER='nvim +Man!'
 export EDITOR=vim
-export BROWSER=quteb
+export BROWSER=termux-open-url
 
 # path to my scripts
 export PATH="$HOME/.bin:$PATH"
