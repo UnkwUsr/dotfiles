@@ -1,5 +1,5 @@
 termux-wake-lock
 sshd
 echo sshd started
-ip a
+ifconfig
 sleep 10
