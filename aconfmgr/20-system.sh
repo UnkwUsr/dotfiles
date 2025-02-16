@@ -14,8 +14,6 @@ AddPackage pulseaudio-alsa # ALSA Configuration for PulseAudio
 AddPackage pulseaudio-bluetooth # Bluetooth support for PulseAudio
 AddPackage man-db # A utility for reading man pages
 AddPackage sudo # Give certain users the ability to run some commands as root
-## hardware dependant
-AddPackage --foreign rtl8821ce-dkms-git # rtl8821CE driver with firmware
 
 # system maintenance
 AddPackage --foreign rcm # rc file (dotfiles) management
