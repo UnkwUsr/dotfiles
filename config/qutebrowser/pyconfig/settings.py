@@ -89,6 +89,10 @@ c.url.searchengines = {
 
 c.completion.open_categories = ["history", "quickmarks"]
 
+# ozon.ru header buttons
+c.hints.selectors["all"].append('#stickyHeader > div > div[data-replace-layout-path="[0][2]"] > div')  # noqa
+c.hints.selectors["all"].append('#stickyHeader > div > div[data-replace-layout-path="[0][0][0][2]"] > div')  # noqa
+
 c.editor.command = [
     "st", "-c", "st_win", "vim", "-f", "{file}", "-c",
     "normal {line}G{column0}l"
