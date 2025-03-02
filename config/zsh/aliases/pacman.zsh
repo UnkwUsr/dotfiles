@@ -41,7 +41,7 @@ alias pqr_unneeded='pacman -Qtdtq | pqr -'
 
 #### aur section
 alias pas="auracle search"
-alias pai="auracle show"
+pai() { auracle show "$1" | less }
 alias pan="yay -S"
 alias pac="auracle clone"
 # open in browser (takes completion from auracle clone)
