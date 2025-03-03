@@ -77,7 +77,7 @@ c.url.searchengines = {
     "DEFAULT": "https://search.rhscz.eu/search?q={}",
     "g": "https://www.google.com/search?q={}",
     "ar": "https://wiki.archlinux.org/index.php/{}",
-    "yt": "http://youtube.com/results?search_query={}",
+    "yt": "http://" + redir.YOUTUBE_REDIR + "/results?search_query={}",
     "w": "https://en.wikipedia.org/wiki/{}",
     "wr": "https://ru.wikipedia.org/wiki/{}",
     "gi": "https://github.com/search?q={}",
