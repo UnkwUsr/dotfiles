@@ -17,6 +17,8 @@ for_window [class="^Blender$"] border none
 for_window [class="^feh$"] floating enable, move position center
 for_window [class="^Peek$"] floating enable, resize set 640 480, move position center
 for_window [class="^Pavucontrol$"] floating enable, sticky enable, resize set 1280 720, move position center
+# xev
+for_window [title="^Event Tester$"] floating enable, sticky enable
 
 ## custom windows
 for_window [class="^st_win$"] floating enable, sticky enable, resize set 640 480, move position center, border pixel 3
