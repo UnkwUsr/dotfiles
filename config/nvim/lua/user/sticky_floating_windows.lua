@@ -34,7 +34,6 @@ local function construct_remind_calendar_window(buf)
     local term = vim.api.nvim_open_term(buf, {})
     vim.api.nvim_chan_send(term, table.concat(output_lines, "\r\n"))
 
-    local cur_win_w = vim.fn["winwidth"](vim.api.nvim_get_current_win())
     local my_win_w = #output_lines[1] + 5
 
     return vim.api.nvim_open_win(buf, false, {
@@ -43,7 +42,7 @@ local function construct_remind_calendar_window(buf)
         border = "none",
         focusable = false,
         row = 0,
-        col = cur_win_w - my_win_w,
+        col = 999, -- setting random high value so window will appear on right border of the screen
         width = my_win_w,
         height = #output_lines,
     })
@@ -53,7 +52,6 @@ local construct_dtm_remind_window = function(buf)
     local output_lines = vim.fn["systemlist"]("rem")
     vim.api.nvim_buf_set_lines(buf, 0, -1, true, output_lines)
 
-    local cur_win_w = vim.fn["winwidth"](vim.api.nvim_get_current_win())
     local my_win_w = 55
 
     return vim.api.nvim_open_win(buf, false, {
@@ -62,7 +60,7 @@ local construct_dtm_remind_window = function(buf)
         border = "none",
         focusable = false,
         row = 0,
-        col = cur_win_w - my_win_w,
+        col = 999, -- setting random high value so window will appear on right border of the screen
         width = my_win_w,
         height = #output_lines,
     })
