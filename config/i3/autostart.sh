@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# set keyboard press repeat rate
-xset r rate 400 50 &
 
 # set screensaver timeout
 xset dpms 1200 1200 1200
