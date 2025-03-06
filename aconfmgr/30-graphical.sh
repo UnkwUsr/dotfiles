@@ -22,7 +22,7 @@ AddPackage --foreign font-lobster # Lobster font which is popular in vkontakte a
 AddPackage arc-gtk-theme # A flat theme with transparent elements for GTK 2,3,4 and Gnome-Shell
 
 ## main tools
-AddPackage --foreign st # A simple virtual terminal emulator for X.
+AddPackage --foreign st-git # A simple virtual terminal emulator for X.
 AddPackage qutebrowser # A keyboard-driven, vim-like browser based on Python and Qt
 AddPackage python-adblock # Brave's adblock library in Python
 AddPackage flameshot # Powerful yet simple to use screenshot software
@@ -55,7 +55,7 @@ AddPackage translate-shell # A command-line interface and interactive shell for 
 AddPackage --foreign light # A program to control backlights (and other hardware lights)
 AddPackage --foreign dragon-drop # Simple drag-and-drop source/sink for X or Wayland
 AddPackage --foreign ponymix # CLI PulseAudio Volume Control
-AddPackage --foreign xclip-git # Command line interface to the X11 clipboard
+AddPackage xclip # Command line interface to the X11 clipboard
 AddPackage tor # Anonymizing overlay network.
 AddPackage --foreign obfs4proxy # The obfourscator - a pluggable transport proxy written in Go
 AddPackage mesa-utils # Essential Mesa utilities

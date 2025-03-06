@@ -3,7 +3,6 @@ AddPackage base # Minimal package set to define a basic Arch Linux installation
 AddPackage base-devel # Basic tools to build Arch Linux packages
 AddPackage linux-zen # The Linux ZEN kernel and modules
 AddPackage linux-zen-headers # Headers and scripts for building modules for the Linux ZEN kernel
-AddPackage linux-headers # Headers and scripts for building modules for the Linux kernel
 AddPackage linux-firmware # Firmware files for Linux
 AddPackage amd-ucode # Microcode update image for AMD CPUs
 AddPackage bluez # Daemons for the bluetooth protocol stack
