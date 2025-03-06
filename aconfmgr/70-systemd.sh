@@ -11,6 +11,7 @@ CreateLink /etc/systemd/system/multi-user.target.wants/vnstat.service /usr/lib/s
 # CreateLink /etc/systemd/system/paths.target.wants/vmware-networks.path /usr/lib/systemd/system/vmware-networks.path
 CreateLink /etc/systemd/system/sockets.target.wants/docker.socket /usr/lib/systemd/system/docker.socket
 CreateLink /etc/systemd/system/multi-user.target.wants/dnscrypt-proxy.service /usr/lib/systemd/system/dnscrypt-proxy.service
+CreateLink /etc/systemd/system/multi-user.target.wants/keyd.service /usr/lib/systemd/system/keyd.service
 ### my custom units
 CreateLink /etc/systemd/system/timers.target.wants/iwd.timer /etc/systemd/system/iwd.timer
 CreateLink /etc/systemd/system/timers.target.wants/lm_sensors.timer /etc/systemd/system/lm_sensors.timer

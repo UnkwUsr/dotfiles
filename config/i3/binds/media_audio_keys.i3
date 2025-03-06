@@ -21,11 +21,13 @@ bindsym $alt+Next exec --no-startup-id playerctl position 30+ && $seek_show_noti
 # volume control
 ## adjust volume level
 bindsym KP_Multiply exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
+bindsym XF86AudioLowerVolume exec --no-startup-id "ponymix --sink decrease 5 > /dev/null"
 bindsym KP_Subtract exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "ponymix --sink increase 5 > /dev/null"
 ## toggle mute and pause playing media
 bindsym KP_Divide exec --no-startup-id "ponymix --sink toggle > /dev/null && playerctl -a pause"
 ## unmute and start play media
-bindsym End exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
+bindsym XF86AudioPlay exec --no-startup-id "ponymix --sink unmute > /dev/null && playerctl play"
 
 # microphone
 ## adjust volume level

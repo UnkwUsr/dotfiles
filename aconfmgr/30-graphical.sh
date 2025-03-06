@@ -11,6 +11,7 @@ AddPackage i3status-rust # Resourcefriendly and feature-rich replacement for i3s
 AddPackage upower # laptop battery stats (for i3status-rust)
 AddPackage dmenu # Generic menu for X
 AddPackage dunst # Customizable and lightweight notification-daemon
+AddPackage keyd # A key remapping daemon for linux
 
 ## fonts
 AddPackage ttf-hack # A hand groomed and optically balanced typeface based on Bitstream Vera Mono.

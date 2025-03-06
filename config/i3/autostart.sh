@@ -31,6 +31,8 @@ battery_low_monitor.sh &
 # tracks stack of last active player, so pause/play them correspondingly
 playerctld daemon &
 
+keyd-application-mapper &
+
 # auto run gather inbox
 auto_gather_inbox.sh &
 

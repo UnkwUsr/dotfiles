@@ -6,13 +6,16 @@ xkb_keymap {
 
     xkb_symbols   {
         include "pc+us+ru:2+inet(evdev)"
-        include "capslock(escape_shifted_capslock)"
-        include "compose(rctrl)"
+        // include "capslock(escape_shifted_capslock)"
+        // include "compose(rctrl)"
 
         key <RALT> {
             [ ISO_First_Group ]
         };
         key <RCTL> {
+            [ ISO_Last_Group ]
+        };
+        key <I147> {
             [ ISO_Last_Group ]
         };
         key <RTSH> {
