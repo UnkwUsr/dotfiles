@@ -9,6 +9,10 @@ select {
 /* stackoverflow */
 /* hide cookies banner that can't be closed because js is disabled*/
 .js-consent-banner{display:none}
+/* stackexchange remove background because it is bad with inverted dark colors*/
+html.html__responsive > body.question-page.unified-theme {
+    background-image: none;
+}
 
 /* ticktick */
 /* fix caret color and size */
