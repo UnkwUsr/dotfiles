@@ -28,3 +28,4 @@ bindsym $mod+s exec echo -n | dmenu -p "dtm inbox:" \
             | ifne sh -c '(echo -n "* " && cat) >> ~/txts/dtm/inbox/00_inboxed.md'
 # voice record inbox (this is *those key fn under F1*. idk why so)
 bindsym $mod+F1 exec $st_win_with "inb_rec_mic"
+bindsym $mod+Tab exec $st_win_with "inb_rec_mic"
