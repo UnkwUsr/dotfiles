@@ -15,3 +15,7 @@ wget -nv -P ~/.config/mpv/scripts/ -x -nH --cut-dirs=3 \
 # lldb plugins
 wget -nv -O ~/.config/lldb_write.py \
     'https://raw.githubusercontent.com/4iar/lldb-write/1baf24f9a524bbb967708307059d54b39943a9c3/write.py'
+
+# python tools
+# used in bin/gather-inbox.sh
+uv tool install whisper-ctranslate2
