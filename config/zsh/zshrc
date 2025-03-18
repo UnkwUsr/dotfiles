@@ -1,7 +1,7 @@
-# load plugins from antibody plugins manager
-source ~/.local/share/zsh_plugins.sh
-# Note: after changing plugins.txt you need to run:
-# `antibody bundle < ~/.config/zsh/plugins.txt > ~/.local/share/zsh_plugins.sh`
+# load plugins (they are installed via install-deps.sh)
+source ~/.config/zsh/plugins-cloned/fzf-tab/fzf-tab.plugin.zsh
+fpath+=( ~/.config/zsh/plugins-cloned/fzf-tab/ )
+# end load plugins
 
 source ~/.config/zsh/settings.zsh
 source ~/.config/zsh/aliases/_main.zsh

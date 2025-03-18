@@ -2,7 +2,6 @@
 AddPackage zsh # A very advanced and programmable command interpreter (shell) for UNIX
 AddPackage zsh-completions # Additional completion definitions for Zsh
 AddPackage --foreign zsh-syntax-highlighting-git # Fish shell like syntax highlighting for Zsh (from git)
-AddPackage --foreign antibody # A shell plugin manager.
 AddPackage tmux # Terminal multiplexer
 AddPackage ripgrep # A search tool that combines the usability of ag with the raw speed of grep
 AddPackage fd # Simple, fast and user-friendly alternative to find

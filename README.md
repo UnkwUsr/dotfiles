@@ -92,10 +92,6 @@ interesting for passers-by.
 
 ## zsh
 
-* Install plugin manager
-  [antibody](https://aur.archlinux.org/packages/antibody) (aur package)
-* Install plugins: `antibody bundle < ~/.config/zsh/plugins.txt >
-  ~/.local/share/zsh_plugins.sh`
 * Workaround to store zsh configs outside of home directory: `echo
   "ZDOTDIR=\$HOME/.config/zsh" >> ~/.zshenv`
 

@@ -16,6 +16,12 @@ wget -nv -P ~/.config/mpv/scripts/ -x -nH --cut-dirs=3 \
 wget -nv -O ~/.config/lldb_write.py \
     'https://raw.githubusercontent.com/4iar/lldb-write/1baf24f9a524bbb967708307059d54b39943a9c3/write.py'
 
+# zsh plugins
+mkdir -p ~/.config/zsh/plugins-cloned/
+git clown 'https://github.com/Aloxaf/fzf-tab' \
+    --revision 01dad759c4466600b639b442ca24aebd5178e799 \
+    ~/.config/zsh/plugins-cloned/fzf-tab
+
 # python tools
 # used in bin/gather-inbox.sh
 uv tool install whisper-ctranslate2
