@@ -10,6 +10,7 @@ c.qt.args = [
     "enable-gpu-rasterization", "enable-oop-rasterization",
     "ignore-gpu-blacklist", "enable-accelerated-video-decode"
 ]
+c.qt.workarounds.disable_hangouts_extension = True
 
 c.session.lazy_restore = True
 c.auto_save.session = True
