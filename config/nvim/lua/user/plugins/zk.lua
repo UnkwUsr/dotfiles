@@ -44,6 +44,7 @@ local function map_keys(bufnr)
 
     -- backlinks
     keymap("n", "<leader>zb", "<Cmd>ZkMyBacklinks<CR>")
+    keymap("n", "_", "<Cmd>ZkMyBacklinks<CR>")
 
     -- orphans
     keymap("n", "<leader>zo", "<Cmd>ZkOrphans<CR>")
