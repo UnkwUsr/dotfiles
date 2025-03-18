@@ -2,9 +2,6 @@
 set -euo pipefail
 shopt -s nullglob
 
-cd ~/txts/synced-inbox || exit 1
-git pull
-
 TARGET_TO="$HOME/txts/dtm/plans.md"
 
 me_whisper() {
@@ -42,7 +39,14 @@ copy_into_target() {
     [ -f voices-res.md ] && cat <(echo -e "\n## voices\n") voices-res.md >> "$TARGET_TO"
     [ -f laptop-voices-res.md ] && cat <(echo -e "\n## laptop\n") laptop-voices-res.md >> "$TARGET_TO"
 
-    fd . -HI -tf --exclude=voices-res.md --exclude=laptop-voices-res.md --exclude=voices/ --exclude=voices-laptop/ --exclude='inbox_*.md' --exclude=buy.md --exclude=.git/ \
+    fd . -HI -tf \
+        --exclude=voices-res.md \
+        --exclude=laptop-voices-res.md \
+        --exclude=voices/ \
+        --exclude=voices-laptop/ \
+        --exclude='inbox_*.md' \
+        --exclude=buy.md \
+        --exclude=.git/ \
         | ifne cat <(echo -e "\n## WARNING: other files also\n") - >> "$TARGET_TO"
 }
 
@@ -75,6 +79,8 @@ final_clean() {
     fi
 }
 
+cd ~/txts/synced-inbox || exit 1
+git pull
 voice_recognise
 copy_into_target
 final_clean
