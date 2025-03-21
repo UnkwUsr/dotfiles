@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# noise repeated. This script originally forked from msb script
+#
+# play all music in shuffled order TODO: maybe remove this? I can shuffle manually if need. Hm
+
+search_term="$1"
+
+run_cmd="fd \"$search_term\" -tl -tf --exec-batch \
+    mpv --force-window=no \
+    --loop-playlist=inf \
+    --prefetch-playlist=yes \
+    --script-opts-add=log-history-custom-file=noised_dont_care \
+    --vid=no \
+    --profile=noise \
+    --script-opt=noise-repeatedly-enable=yes \
+    --input-commands=playlist-shuffle,playlist-next"
+
+
+ST_TMUX_WINDOW_CLASS="st_tmux_noise"
+TMUX_SESSION="noise"
+
+# tmux new-window -adt "$TMUX_SESSION" "$run_cmd" || tmux new-session -ds "$TMUX_SESSION" "$run_cmd"
+# $run_cmd
+tmux split-window -dt "$TMUX_SESSION" "$run_cmd" || tmux new-session -ds "$TMUX_SESSION" "$run_cmd"
+tmux select-layout -t "$TMUX_SESSION" tiled
+
+# this is copied from st-tm
+xdotool search --class "^${ST_TMUX_WINDOW_CLASS}$" > /dev/null \
+    || (st -c $ST_TMUX_WINDOW_CLASS -e tmux new-session -As $TMUX_SESSION &)
