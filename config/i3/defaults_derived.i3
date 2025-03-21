@@ -38,6 +38,7 @@ bindsym $mod+Shift+q kill
 ## change windows display style
 # change container layout (stacking (useless, removed), tabbed, toggle split)
 bindsym $mod+w layout tabbed
+bindsym $mod+shift+w layout stacking
 bindsym $mod+e layout toggle split
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
