@@ -5,4 +5,5 @@
 cd "${1:-$HOME/Files/music/}" || exit 1
 fd -tl -tf --exec-batch \
     mpv --force-window=yes --x11-name=music-mpv \
+    --loop-playlist=inf \
     --input-commands=playlist-shuffle,playlist-next & disown
