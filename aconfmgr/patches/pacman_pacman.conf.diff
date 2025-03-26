@@ -23,8 +23,8 @@
  #IgnoreGroup =
  
  #NoUpgrade   =
-@@ -30,11 +30,11 @@
-
+@@ -30,10 +44,10 @@
+ 
  # Misc options
  #UseSyslog
 -#Color
@@ -32,14 +32,12 @@
  #NoProgressBar
 -CheckSpace
 -#VerbosePkgLists
--#ParallelDownloads = 5
 +#CheckSpace
 +VerbosePkgLists
-+ParallelDownloads = 5
+ ParallelDownloads = 5
  DownloadUser = alpm
  #DisableSandbox
-
-@@ -87,8 +104,8 @@
+@@ -89,8 +103,8 @@
  #[multilib-testing]
  #Include = /etc/pacman.d/mirrorlist
  
