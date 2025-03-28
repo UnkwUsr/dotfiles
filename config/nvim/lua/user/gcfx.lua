@@ -7,7 +7,7 @@ local async_create = require("gitsigns.async").create
 
 -- git-blame line under cursor and extract commit hash, then pass it to
 -- callback
-local bm_api = async_create(function(callback)
+local bm_api = async_create(1, function(callback)
     local bufnr = vim.api.nvim_get_current_buf()
     local bcache = cache[bufnr]
     if not bcache then
