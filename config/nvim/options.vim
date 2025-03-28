@@ -113,6 +113,9 @@ set colorcolumn=80
 " highlight whole line under cursor
 set cursorline
 
+" floating windows border
+set winborder=rounded
+
 " allow to set cursor to non-symbol place in visual block mode
 set virtualedit=block
 
