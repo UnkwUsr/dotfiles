@@ -39,7 +39,7 @@ Plug 'zk-org/zk-nvim'
 " for neovim's lua api (providing completion)
 Plug 'folke/neodev.nvim'
 " for many languages
-Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'nvimtools/none-ls.nvim'
 Plug 'Olical/conjure'
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/vista.vim'

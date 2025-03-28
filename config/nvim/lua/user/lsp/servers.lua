@@ -9,6 +9,7 @@ local servers = {
         },
         autostart = false,
     },
+    -- haskell
     hls = {
         autostart = false,
         settings = {
@@ -17,6 +18,7 @@ local servers = {
             },
         },
     },
+    -- python
     pylsp = {
         settings = {
             pylsp = {
@@ -53,7 +55,20 @@ local servers = {
     },
     -- php
     intelephense = {},
-    ts_ls = {},
+    -- javascript/typescript
+    -- ts_ls = {
+    --     single_file_support = false,
+    --     root_dir = require("lspconfig").util.root_pattern("package.json"),
+    -- },
+    -- javascript/typescript, and formatting json
+    denols = {
+        filetypes = {
+            "json",
+            unpack(
+                require("lspconfig.configs.denols").default_config.filetypes
+            ),
+        },
+    },
     html = {},
     cssls = {},
     bashls = {},
