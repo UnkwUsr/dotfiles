@@ -37,6 +37,8 @@ alias sd='cd ~/.dotfiles && fzf \
 alias sdd='cd ~/.dotfiles && cd "$(dirname "$(fzf)")" && pwd'
 # fv over dotfiles (files full-text search)
 alias sdf='cd ~/.dotfiles && fv'
+# cd to dotfiles
+alias cds='cd ~/.dotfiles && ll && pwd && git s'
 
 
 #### misc
