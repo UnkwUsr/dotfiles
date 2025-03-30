@@ -28,6 +28,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
                 :gsub("^nvim/lua/user/", "nvim/")
                 :gsub("^nvim/init.lua", "nvim")
 
+                :gsub("^aconfmgr/patches", "aconfmgr")
+                :gsub("/shortcuts_for_dmenu/", "/")
+
                 -- remove extensions
                 :gsub("%..+$", "")
 
