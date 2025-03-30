@@ -42,6 +42,8 @@ AddPackage python-mutagen # An audio metadata tag reader and writer (python libr
 ## tier2
 AddPackage tokei # A blazingly fast CLOC (Count Lines Of Code) program
 AddPackage imagemagick # An image viewing/manipulation program
+# dependency to support pdf
+AddPackage ghostscript # An interpreter for the PostScript language
 AddPackage rclone # Sync files to and from Google Drive, S3, Swift, Cloudfiles, Dropbox and Google Cloud Storage
     # for rclone mount
     AddPackage fuse3 # Interface for userspace programs to export a filesystem to the Linux kernel
