@@ -19,3 +19,5 @@ sign("DiagnosticSignError", "X")
 sign("DiagnosticSignWarn", "▲")
 sign("DiagnosticSignHint", "?")
 sign("DiagnosticSignInfo", "!")
+
+vim.diagnostic.config({ virtual_text = true })
