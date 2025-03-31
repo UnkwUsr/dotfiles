@@ -68,6 +68,8 @@ c.window.hide_decoration = True
 # c.qt.highdpi = True
 
 c.downloads.location.suggestion = "filename"
+# set downloads path explicitly, because this is not default in custom basedirs
+c.downloads.location.directory = "~/Downloads/"
 
 c.search.wrap = False
 
