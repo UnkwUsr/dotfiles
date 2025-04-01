@@ -26,7 +26,7 @@
     # this format looks close to 'fuller' but here I have date printed on line
     # with "commiter" and "author". Also colorize author and commiter (colors
     # inspired by vim-fugitive)
-    sh = show --stat --patch --pretty='format:%C(bold)%C(cyan)commit %H%n%CredAuthor: %C(brightgreen)%an %C(202)<%ae> %C(brightmagenta)%ad%n%CredCommit: %C(brightgreen)%cn %C(202)<%ce> %C(brightmagenta)%cd%n%n%w(152,4,8)%s%n%n%w(76,4,4)%b'
+    sh = show --stat --patch --pretty='format:%C(bold)%C(cyan)commit %H%nAuthor: %C(brightgreen)%an %C(202)<%ae> %C(brightmagenta)%ad%nCommit: %C(brightgreen)%cn %C(202)<%ce> %C(brightmagenta)%cd%n%n%w(152,4,8)%s%n%n%w(76,4,4)%b'
     l = log
     ll = log --all
     lp = log -p
