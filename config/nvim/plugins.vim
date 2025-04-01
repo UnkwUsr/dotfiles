@@ -198,8 +198,10 @@ autocmd FileType GV nnoremap <silent> <buffer> O :call <sid>mygvopen()<cr>
 function! s:mygvopen()
   let sha = gv#sha()
   if !empty(sha)
-      execute 'tab Git show --stat --patch --pretty="format:tree %T%nparent %P%nauthor %an <%ae> %ad%ncommitter %cn <%ce> %cd%n%n%s%n%n%b" ' . sha
-      execute 'file git show ' . sha
+      execute 'tab term git sh ' . sha . ' | diff-so-fancy'
+      setfiletype git
+      " exit terminal insert mode
+      call feedkeys("\<C-\>\<C-n>")
   endif
 endfunction
 
