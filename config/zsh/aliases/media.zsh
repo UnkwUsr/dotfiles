@@ -48,7 +48,7 @@ ytaf() {
     done
 }
 # download album/playlist, puts album tracks in separate folder
-alias ytalbum='yt-dlp -o "%(artist)s - %(playlist)s/%(video_autonumber)s. %(title)s [%(id)s].%(ext)s"'
+alias ytalbum='yt-dlp -o "%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s"'
 
 
 #### yt-dlp download playlists
