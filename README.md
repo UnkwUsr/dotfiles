@@ -12,7 +12,8 @@ directory).
 * file manager: [vifm](https://github.com/vifm/vifm)
 * graphical window manager (X11): [i3](https://i3wm.org)
 * web browser: [qutebrowser](https://www.qutebrowser.org)
-* media player: [mpv](https://mpv.io)
+* media player: [mpv](https://mpv.io) for video and
+  [feh](https://github.com/derf/feh) for images
 * email: [aerc](https://git.sr.ht/~rjarry/aerc)
 
 List of all installed packages (sorted by categories): [aconfmgr/](aconfmgr/)
