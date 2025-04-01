@@ -47,8 +47,8 @@ ytaf() {
         yta -- "$(sed 's/^.*\[\(.*\)\]\..*/\1/g' <<<"$filename")"
     done
 }
-# download album/playlist, puts album tracks in separate folder
-alias ytalbum='yt-dlp -o "%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s"'
+# download audio album/playlist, puts album tracks in separate folder
+alias ytalbum='yta -o "%(uploader)s - %(playlist)s/%(playlist_index)s. %(title)s [%(id)s].%(ext)s"'
 
 
 #### yt-dlp download playlists
