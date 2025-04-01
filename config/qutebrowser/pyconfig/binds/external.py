@@ -10,17 +10,17 @@ config.bind(",M", "hint links spawn -vd mpv {hint-url} --profile=quteb")
 config.bind(",n", "spawn -vd mpv {url} --profile=quteb --no-vid")
 config.bind(",N", "hint links spawn -vd mpv {hint-url} --profile=quteb --no-vid")
 
-# download video from current page
+# why to use tmux here? Because I want to see progress and be able stop
+# downloading and/or modify command if something goes wrong (like use proxy)
 #
-# why to use tmux here? I want to see progress and be able to stop downloading
-# and/or modify command if something goes wrong (like use proxy)
+# download video from current page
 config.bind(",z", "spawn -vd st-tm \
     'cd \"$HOME/Files/Media/yt/\"' \
     'yt-dlp \"" + redir.yt_url_replaced + "\" || echo \"{url}\" >> bad_urls'")
-# download page as music album or youtube playlist. Put all in separate folder
+# download page as music album
 config.bind(",a", "spawn -vd st-tm \
     'cd \"$HOME/Files/Media/yt/\"' \
-    'yt-dlp -o \"%(album)s/%(artist)s - %(title)s.%(ext)s\" \"{url}\" || echo \"" + redir.yt_url_replaced + "\" >> bad_urls'")
+    'ytalbum \"" + redir.yt_url_replaced + "\" || echo \"{url}\" >> bad_urls'")
 
 
 # #### misc
