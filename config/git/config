@@ -23,7 +23,9 @@
     # P.S. hacking with stash because `--show-stash` not work with `--short``
     s = "!cd \"$GIT_PREFIX\" && git status -sb $@ && (git stash list | cut -d: -f1) #"
     st = status
-    sh = show --stat --patch
+    # this format looks close to 'fuller' but here I have date printed on line
+    # with "commiter" and "author"
+    sh = show --stat --patch --pretty='format:%C(bold)%C(cyan)commit %H%nAuthor: %an <%ae> %ad%nCommit: %cn <%ce> %cd%n%n%w(152,4,8)%s%n%n%w(76,4,4)%b'
     l = log
     ll = log --all
     lp = log -p
