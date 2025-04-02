@@ -82,3 +82,4 @@
 [diff]
     colorMoved = plain
     colorMovedWS = allow-indentation-change
+    algorithm = histogram
