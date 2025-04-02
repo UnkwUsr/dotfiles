@@ -40,18 +40,20 @@ alias yta="yt-dlp --embed-thumbnail --extract-audio --format=bestaudio"
 # download with tor proxy
 alias yttor="yt-dlp --proxy 'socks://localhost:9050/'"
 alias ytator="yta --proxy 'socks://localhost:9050/'"
+# helper for extracting youtube video id from file name
+_yt_id_from_filename() { sed 's/^.*\[\(.*\)\]\..*/\1/g' <<<"$1" }
 # apply yta on files already downloaded as videos
 ytaf() {
     for filename in "$@"
     do
-        yta -- "$(sed 's/^.*\[\(.*\)\]\..*/\1/g' <<<"$filename")"
+        yta -- "$(_yt_id_from_filename "$filename")"
     done
 }
 # download subs for file
 ytsf() {
     for filename in "$@"
     do
-        yt-dlp --embed-subs --sub-langs=en,ja --write-auto-subs -- "$(sed 's/^.*\[\(.*\)\]\..*/\1/g' <<<"$filename")"
+        yt-dlp --embed-subs --sub-langs=en,ja --write-auto-subs -- "$(_yt_id_from_filename "$filename")"
     done
 }
 # download audio album/playlist, puts album tracks in separate folder
