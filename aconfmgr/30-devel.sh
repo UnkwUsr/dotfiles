@@ -15,6 +15,7 @@ AddPackage --foreign rust-pseudo-package # Rust pseudo package that provides rus
 
 ## utils
 AddPackage diff-so-fancy # Good-looking diffs with diff-highlight and more
+AddPackage difftastic # An experimental diff tool that compares files based on their syntax
 AddPackage binutils # A set of programs to assemble and manipulate binary and object files
 AddPackage --foreign detect-it-easy-bin # Detect It Easy, or abbreviated "DIE" is a program for determining types of files
 AddPackage --foreign xxd-standalone # Hexdump utility from vim

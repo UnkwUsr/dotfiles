@@ -48,6 +48,10 @@ export WINEDLLOVERRIDES='mscoree=d'
 # is over
 export AURDEST="/tmp/yay-build"
 
+# difftastic
+# disably language syntax highlight
+export DFT_SYNTAX_HIGHLIGHT=off
+
 # automatic startx on tty1
 if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
       exec startx "$XDG_CONFIG_HOME/X11/xinitrc" -- -keeptty &> ~/.local/share/startx.log

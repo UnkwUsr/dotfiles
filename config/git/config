@@ -46,6 +46,14 @@
     refb = "!git -c color.ui=always ref | rg -v 'rebase \\(pick\\)' | rg -v 'rebase: fast-forward' | less #"
     unstage = restore --staged
 
+    # trying difftastic (with tree-sitter)
+    # difft settings see in zprofile via env variables (cuz git does not
+    # support passing arguments to diff.external command)
+    td = -c diff.external=difft d
+    tds = -c diff.external=difft ds
+    tlp = -c diff.external=difft lp --ext-diff
+    tsh = -c diff.external=difft sh --ext-diff
+
     # to unshallow: git fetch --unshallow
     # to restore branches: git remote set-branches origin '*'
     clown = clone --depth 1
