@@ -18,3 +18,9 @@ precmd() {
     # fortune -s
     unfunction precmd
 }
+
+# dirty hack. Fixes to problem of using tmux on server connected to via ssh.
+# Problem is in that tmux resets locale settings, so we have to reset it again
+# (and it is defintely tmux and not ssh, because if you connect to ssh, you
+# have LANG, but then start tmux and inside it we have no LANG)
+export LANG=en_US.UTF-8
