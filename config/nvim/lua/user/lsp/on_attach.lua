@@ -6,7 +6,6 @@ local function map_keys(client, bufnr)
 
     -- stylua: ignore start
     keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
-    keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
     keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
     keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
     keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
@@ -20,6 +19,12 @@ local function map_keys(client, bufnr)
     keymap("n", "<space>c", "<cmd>lua vim.lsp.buf.code_action()<CR>")
     keymap("v", "<space>c", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
     -- stylua: ignore end
+
+    if client.server_capabilities.definitionProvider then
+        -- map conditionally because I want to fallback to default `gd` if it
+        -- is not accesible
+        keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
+    end
 
     if client.server_capabilities.documentFormattingProvider then
         -- stylua: ignore
