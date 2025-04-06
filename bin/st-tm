@@ -26,12 +26,12 @@ do
     tmux send-keys -t $TMUX_SESSION " $cmd" C-m
 done
 
-xdotool search --class $ST_TMUX_WINDOW_CLASS > /dev/null \
+xdotool search --class "^${ST_TMUX_WINDOW_CLASS}$" > /dev/null \
     || (st -c $ST_TMUX_WINDOW_CLASS -e tmux new-session -As $TMUX_SESSION &)
 
 if [ "$should_focus" = "true" ]; then
     # TODO: can eliminate sleep with xdotool-search --sync flag, but now it
     # have no customizable sleep time. Probably will send PR
     sleep 0.05
-    xdotool search --class $ST_TMUX_WINDOW_CLASS windowactivate
+    xdotool search --class "^${ST_TMUX_WINDOW_CLASS}$" windowactivate
 fi
