@@ -80,5 +80,5 @@
     whitespace = red reverse
 
 [diff]
-    colorMoved = default
+    colorMoved = plain
     colorMovedWS = allow-indentation-change
