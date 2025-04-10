@@ -1,4 +1,5 @@
---format="bestvideo[height<=?1080]+bestaudio/best"
+# avoiding av01 codec because current hardware does not support it
+--format="bestvideo[height<=?1080][vcodec!^=av01]+bestaudio/best"
 --embed-chapters
 --no-playlist
 -N 8
