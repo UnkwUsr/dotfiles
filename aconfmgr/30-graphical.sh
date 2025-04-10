@@ -19,7 +19,7 @@ AddPackage ttf-droid # General-purpose fonts released by Google as part of Andro
 AddPackage noto-fonts-emoji # Google Noto emoji fonts
 AddPackage ttf-font-awesome # Iconic font designed for Bootstrap
 AddPackage --foreign font-lobster # Lobster font which is popular in vkontakte and russian memes
-AddPackage arc-gtk-theme # A flat theme with transparent elements for GTK 2,3,4 and Gnome-Shell
+AddPackage --foreign arc-gtk-theme # A flat theme with transparent elements for GTK 2,3,4 and Gnome-Shell
 
 ## main tools
 AddPackage --foreign st-git # A simple virtual terminal emulator for X.
