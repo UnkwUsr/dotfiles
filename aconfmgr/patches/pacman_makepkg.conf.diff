@@ -1,13 +1,5 @@
 --- 
 +++ 
-@@ -46,6 +46,7 @@
-         -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer"
- CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
- LDFLAGS="-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
-+         -fuse-ld=mold
-          -Wl,-z,pack-relative-relocs"
- LTOFLAGS="-flto=auto"
- #-- Make Flags: change this for DistCC/SMP systems
 @@ -95,7 +96,7 @@
  #-- lto:        Add compile flags for building with link time optimization
  #-- autodeps:   Automatically add depends/provides
