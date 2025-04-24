@@ -33,8 +33,6 @@ autocmd FileType gnuplot setlocal commentstring=#\ %s
 " set colorcolumn
 autocmd FileType rust setlocal colorcolumn=100
 autocmd FileType python setlocal colorcolumn=88
-" set colorscheme
-autocmd FileType json colorscheme default
 
 " auto enter insert mode on term open
 autocmd TermOpen * startinsert

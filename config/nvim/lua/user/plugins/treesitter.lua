@@ -3,7 +3,7 @@ local disabled_parsers =
     { "markdown", "markdown_inline", "bash", "c", "python", "vimdoc" }
 
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "comment", "regex" },
+    ensure_installed = { "comment", "regex", "json" },
 
     highlight = {
         enable = true,
