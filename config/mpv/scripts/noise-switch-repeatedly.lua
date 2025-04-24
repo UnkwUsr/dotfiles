@@ -1,3 +1,6 @@
+local LOOP_DUR_RANGE = { 0.1, 4 }
+local SESSION_DUR_RANGE = { 5, 10 }
+
 local function random_float(lower, greater)
     return lower + math.random() * (greater - lower)
 end
@@ -8,7 +11,7 @@ end
 local function on_file_loaded()
     clear_terminal_output()
 
-    local this_session_dur = random_float(5, 10)
+    local this_session_dur = random_float(unpack(SESSION_DUR_RANGE))
     print("session_dur:", this_session_dur)
 
     local full_time = mp.get_property("time-remaining/full")
@@ -20,7 +23,7 @@ local function on_file_loaded()
     local seek_point = random_float(0, full_time)
     mp.command("seek " .. seek_point)
     -- local loop_dur = random_float((this_session_dur / 50), this_session_dur / 10)
-    local loop_dur = random_float(0.1, 4)
+    local loop_dur = random_float(unpack(LOOP_DUR_RANGE))
     print("loop_dur:", loop_dur)
     mp.set_property("ab-loop-a", seek_point)
     mp.set_property("ab-loop-b", seek_point + loop_dur)
