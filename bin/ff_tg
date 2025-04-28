@@ -1,0 +1,4 @@
+#!/bin/bash
+# convert video to format that works in telegram
+# based on https://stackoverflow.com/a/77255128
+ffmpeg -i "$1" -max_muxing_queue_size 9999 -c:v libx264 -crf 23 -maxrate 4.5M -preset faster -flags +global_header -pix_fmt yuv420p -profile:v baseline -movflags +faststart -c:a aac -ac 2 "$2"
