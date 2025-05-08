@@ -1,0 +1,1 @@
+QT_LOGGING_RULES='*=false' /bin/telegram-desktop
