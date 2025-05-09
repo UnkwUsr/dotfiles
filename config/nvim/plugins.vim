@@ -40,7 +40,7 @@ Plug 'zk-org/zk-nvim'
 Plug 'folke/neodev.nvim'
 " for many languages
 Plug 'nvimtools/none-ls.nvim'
-Plug 'Olical/conjure'
+Plug 'michaelb/sniprun', {'do': 'sh install.sh'}
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/vista.vim'
 " detect indent style (tab vs space) and set appropriate options
@@ -272,17 +272,3 @@ command! -nargs=0 Sw SudaWrite
 " for lspconfig config see ~/.config/nvim/lua/user/lsp
 " just shorter alias
 cabbrev LS LspStart
-
-" conjure
-" disable lsp diagnostics for log buffer
-autocmd BufNewFile conjure-log-* lua vim.diagnostic.disable(0)
-" disable log window
-"let g:conjure#log#hud#enabled = v:false
-" disable for some filetypes
-" UPD: better to fix collision with lsp maps and use it everywhere. Cuz even
-" rust works with it
-let g:conjure#filetypes = ["clojure", "fennel", "scheme", "lua", "lisp", "python"]
-" default: ["clojure", "fennel", "janet", "hy", "julia", "racket", "scheme", "lua", "lisp", "python", "rust", "sql"]
-
-" TODO: we can check for lsp and disable it only if lsp runs
-let g:conjure#mapping#doc_word = v:false
