@@ -16,6 +16,8 @@ alias an="git annex"
 alias myip='curl -s https://api.ip.sb/geoip -A Mozilla | jq'
 # list current open connections
 alias cons='lsof -i'
+# list listening ports
+alias consp='ss -lntu'
 # show files with matches
 alias rgf='rg --files-with-matches'
 # cd to root of git repo
