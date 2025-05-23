@@ -1,0 +1,4 @@
+WLR_BACKENDS=headless WLR_LIBINPUT_NO_DEVICES=1 cage alacritty &
+sleep 2
+WAYLAND_DISPLAY=wayland-0 wayvnc &
+ssh -N -R 4895:localhost:5900 mys
