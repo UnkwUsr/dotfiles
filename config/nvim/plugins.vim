@@ -32,6 +32,7 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'akinsho/flutter-tools.nvim'
 Plug 'udalov/kotlin-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'davidgranstrom/scnvim'
 " for lisp-like syntax languages (parenthesis guesser)
 Plug 'gpanders/nvim-parinfer'
 " for note taking, in markdown
@@ -54,6 +55,7 @@ Plug 'nvim-treesitter/nvim-treesitter-refactor'
 " completion stuff
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'quangnguyen30192/cmp-nvim-tags'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 

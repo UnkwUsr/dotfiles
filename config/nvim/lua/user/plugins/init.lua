@@ -6,6 +6,7 @@ require("user.plugins.lsp_status")
 require("user.plugins.treesitter")
 require("user.plugins.gx")
 require("user.plugins.sniprun")
+require("user.plugins.scnvim")
 
 require("neodev").setup({})
 
