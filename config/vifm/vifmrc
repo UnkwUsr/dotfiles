@@ -25,6 +25,7 @@ only
 
 " play mpv here
 nmap m :!zsh -ic 'mpb . &>/dev/null'<CR>
+nmap M :!fd -tf -tl -0 | shuf -z | xargs -0 mpv --force-window=yes --vid=no &>/dev/null & disown<CR>
 
 
 """" maps
