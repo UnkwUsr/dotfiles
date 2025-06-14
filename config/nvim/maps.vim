@@ -61,3 +61,6 @@ command! -nargs=0 Sd cd ~/.dotfiles/ | FZF
 " natural navigating, instead of crapped view window
 " Source: https://vi.stackexchange.com/a/8379/46823
 command! -nargs=+ -complete=command Redir let s:reg = @@ | redir @"> | silent execute <q-args> | redir END | new | pu | 1,2d_ | let @@ = s:reg
+
+" shell execute line under the cursor
+nmap <leader>el "lyy:!<C-r>l<CR>
