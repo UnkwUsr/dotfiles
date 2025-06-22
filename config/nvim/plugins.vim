@@ -33,6 +33,7 @@ Plug 'akinsho/flutter-tools.nvim'
 Plug 'udalov/kotlin-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'davidgranstrom/scnvim'
+Plug 'mcfiredrill/vim-liquidsoap'
 " for lisp-like syntax languages (parenthesis guesser)
 Plug 'gpanders/nvim-parinfer'
 " for note taking, in markdown

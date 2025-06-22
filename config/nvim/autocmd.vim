@@ -30,6 +30,7 @@ autocmd FileType mysql,plsql setlocal commentstring=--\ %s
 autocmd FileType tidal setlocal commentstring=--\ %s
 autocmd FileType remind setlocal commentstring=#\ %s
 autocmd FileType gnuplot setlocal commentstring=#\ %s
+autocmd FileType liquidsoap setlocal commentstring=#\ %s
 " set colorcolumn
 autocmd FileType rust setlocal colorcolumn=100
 autocmd FileType python setlocal colorcolumn=88
