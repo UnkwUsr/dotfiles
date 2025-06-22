@@ -4,11 +4,9 @@ config = config; redir = redir  # noqa
 # #### media
 
 # open in mpv (video player)
-config.bind(",m", "spawn -vd mpv {url} --profile=quteb")
-config.bind(",M", "hint links spawn -vd mpv {hint-url} --profile=quteb")
-# open in mpv but play only audio
-config.bind(",n", "spawn -vd mpv {url} --profile=quteb --no-vid")
-config.bind(",N", "hint links spawn -vd mpv {hint-url} --profile=quteb --no-vid")
+# TODO: make this shortcut safe in the way that it write erroneus urls to file,
+# similar to download shortcut
+config.bind(",m", "spawn -vd sh -c 'mpv --profile=quteb " + redir.yt_url_replaced + "'")  # noqa
 
 # why to use tmux here? Because I want to see progress and be able stop
 # downloading and/or modify command if something goes wrong (like use proxy)
