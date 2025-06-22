@@ -90,7 +90,8 @@ alias dtd="cd ~/txts/diary && pwd"
 # open today diary file
 # -3 hours offset for the case when now is "2022-01-02 01:15" and I want to
 # write diary for "2022-01-01"
-alias dt='cd ~/txts/diary/$(date +"%m" -d "-3 hours") && \
+alias dt='v="$HOME/txts/diary/$(date +"%m" -d "-3 hours")" && \
+    mkdir -p "$v" && cd "$v" && \
     vim $(date +"%Y_%m_%d" -d "-3 hours") && cd - > /dev/null'
 
 # get week day name and months name
