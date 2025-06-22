@@ -1,8 +1,10 @@
 --- 
 +++ 
-@@ -1,2 +1,5 @@
+@@ -1,2 +1,7 @@
  # Static table lookup for hostnames.
  # See hosts(5) for details.
++
++127.0.0.1 localhost
 +
 +127.0.0.150      my.libreddit
 +127.0.0.160      my.invidiousyt
