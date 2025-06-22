@@ -7,11 +7,10 @@ TARGET_TO="$HOME/txts/dtm/plans.md"
 me_whisper() {
     src_dir="$1"
     dest_file="$2"
-    # have to instal with `uv tool install whisper-ctranslate2`
-    whisper-ctranslate2 -f txt -o "$src_dir" --language ru "$src_dir/"*.wav
+    whisper-cli -otxt --language ru -m ~/.local/share/ggml_models/whisper/ggml-small.bin "$src_dir/"*.wav
     for x in "$src_dir"/*.txt; do
-        (tr '\n' ' ' < "$x" | sed -e 's/^/* /' \
-            && echo "${x//.txt/.wav}") \
+        (tr '\n' ' ' < "$x" | sed -e 's/^/*/' \
+            && echo "${x//.txt/}") \
             >> "$dest_file"
         rm "$x"
     done

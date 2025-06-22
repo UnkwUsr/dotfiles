@@ -22,6 +22,7 @@ git clown 'https://github.com/Aloxaf/fzf-tab' \
     --revision 01dad759c4466600b639b442ca24aebd5178e799 \
     ~/.config/zsh/plugins-cloned/fzf-tab
 
-# python tools
-# used in bin/gather-inbox.sh
-uv tool install whisper-ctranslate2
+# whisper model for speech transcribe. Used in gather-inbox.sh
+mkdir -p ~/.local/share/ggml_models/whisper/
+wget -nv -nc -P ~/.local/share/ggml_models/whisper/ \
+    'https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin'

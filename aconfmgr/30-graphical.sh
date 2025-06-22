@@ -82,6 +82,7 @@ AddPackage --foreign anki-bin # Helps you remember facts (like words/phrases in 
 AddPackage --foreign sunshine-bin # A self-hosted game stream host for Moonlight.
 AddPackage --foreign waydroid # A container-based approach to boot a full Android system on a regular Linux system
 AddPackage --foreign immersed # Immersed Desktop Agent
+AddPackage --foreign whisper.cpp-vulkan # Port of OpenAI's Whisper model in C/C++ (with Vulkan optimizations)
 
 ## other stuff
 AddPackage vulkan-radeon # Open-source Vulkan driver for AMD GPUs
