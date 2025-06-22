@@ -35,7 +35,3 @@ assign [class="^csgo_linux64$"] 5
 assign [class="steam$"] 9
 for_window [class="^Minecraft"] floating enable, move container to workspace 5
 for_window [class="^ru-turikhay-tlauncher-bootstrap-Bootstrap$"] floating enable, move container to workspace 5
-
-
-## shortcuts to run programs
-bindsym $mod+equal workspace "10" ; exec telegram-desktop
