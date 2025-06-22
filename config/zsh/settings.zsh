@@ -4,7 +4,7 @@
 
 HISTFILE=~/.local/share/zsh_history
 HISTSIZE=1000
-SAVEHIST=100000
+SAVEHIST=1000000
 
 # append new history entries to file immediately
 setopt INC_APPEND_HISTORY
