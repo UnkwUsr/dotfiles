@@ -149,3 +149,6 @@ ytd-watch-next-secondary-results-renderer {
 body.rustdoc-page #search-input-nav {
     display: none !important;
 }
+
+/* gitlab hide annoying overwhelming too much buttons */
+ul[data-testid="non-static-items-section"] { display: none !important; }
