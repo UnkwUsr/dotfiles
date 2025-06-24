@@ -50,6 +50,9 @@ nmap - gh
 nmap !! :! %f<left><left><left>
 vmap ! :! %f<left><left><left>
 
+" move files to music folder with number
+nmap xd :!movemusic.sh %f<CR>
+vmap xd :!movemusic.sh %f<CR>
 " copy files (itself, not content of them) to X11 clipboard
 nmap yl :!cpfiles.sh %f<CR>
 vmap gl :!cpfiles.sh %f<CR>
