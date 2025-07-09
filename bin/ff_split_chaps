@@ -29,5 +29,5 @@ ffprobe \
             -c copy \
             -map 0 \
             -map_chapters -1 \
-            "${i}_${input%.*}-$chapter.${input##*.}"
+            "${i}. ${input%.*}-$chapter.${input##*.}"
     done
