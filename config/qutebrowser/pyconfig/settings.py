@@ -79,14 +79,23 @@ c.spellcheck.languages = ["en-US", "ru-RU"]
 c.url.searchengines = {
     "DEFAULT": "https://html.duckduckgo.com/html?kd=-1&q={}",
     "g": "https://www.google.com/search?q={}",
-    "ar": "https://wiki.archlinux.org/index.php/{}",
     "yt": "http://" + redir.YOUTUBE_REDIR + "/results?search_query={}",
     "w": "https://en.wikipedia.org/wiki/{}",
     "wr": "https://ru.wikipedia.org/wiki/{}",
     "gi": "https://github.com/search?q={}",
+    # archlinux
+    "ar": "https://wiki.archlinux.org/index.php/{}",
     "aur": "https://aur.archlinux.org/packages/?K={}&SB=v&SO=d",
-    "dc": "https://docs.rs/{}",
-    "dr": "https://doc.rust-lang.org/std/index.html?search={}",
+    # # rust
+    # Rust Doc Crate
+    "rdc": "https://docs.rs/{}",
+    # Rust Doc (hence lang doc)
+    "rd": "https://doc.rust-lang.org/std/index.html?search={}",
+    # Rust Crate
+    "rc": "https://lib.rs/crates/{}",
+    # Rust Crate Documentation
+    "rcd": "https://docs.rs/{}/",
+    # haskell
     "hg": "https://hoogle.haskell.org/?hoogle={}",
 }
 
