@@ -1,11 +1,12 @@
 --- 
 +++ 
-@@ -252,3 +252,9 @@
+@@ -252,3 +252,10 @@
  ## The %include option can be used recursively.
  #%include /etc/torrc.d/*.conf
  
 +UseBridges 1
 +ClientTransportPlugin obfs4 exec /usr/bin/obfs4proxy
++UpdateBridgesFromAuthority 1
 +
 +# ExitNodes {US}, {JP}
 +# ExitNodes {JP}
