@@ -27,7 +27,6 @@ ffprobe \
             -ss "$start" -to "$end" \
             -i "$input" \
             -c copy \
-            -map 0 \
             -map_chapters -1 \
             "${i}. ${input%.*}-$chapter.${input##*.}"
     done
