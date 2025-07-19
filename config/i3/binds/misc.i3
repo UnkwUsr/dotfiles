@@ -19,8 +19,10 @@ bindsym $mod+i exec --no-startup-id "sleep 0.25 && xset dpms force suspend"
 bindsym $mod+shift+i exec --no-startup-id "sleep 0.25 && systemctl suspend"
 
 # clipboard manager
-bindsym $mod+o exec $st_win_with 'rclip_copy'
-bindsym $mod+shift+o exec $st_win_with 'rclip_rm'
+bindsym $mod+o exec $st_win_with '~/Projects/rclip/usr/share/rclip/fzf_pick.sh pick 1000'
+bindsym $mod+p exec $st_win_with '~/Projects/rclip/usr/share/rclip/fzf_pick.sh pick'
+bindsym $mod+shift+o exec $st_win_with '~/Projects/rclip/usr/share/rclip/fzf_pick.sh rm'
+bindsym $mod+ctrl+o exec ~/Projects/rclip/usr/bin/copy.sh image
 
 # rofi calc
 bindsym $mod+c exec rofi -dpi 1 -show calc -modi calc -no-show-match -no-sort -no-history -hint-welcome '' | awk -F "= " '{printf $NF}' | xclip -selection clipboard

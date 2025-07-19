@@ -13,7 +13,8 @@ feh --no-fehbg --bg-scale ~/.config/i3/wallpapers/04_Miku_v2.png
 dunst &
 
 # clipboard daemon
-rclip daemon > /dev/null &
+~/Projects/rclip/target/release/rclipd daemon > /dev/null &
+{ cd ~/Projects/clipt/ && ./target/release/clipt server > /dev/null & }
 
 # set initial monitor brightness
 light -S 40 &
