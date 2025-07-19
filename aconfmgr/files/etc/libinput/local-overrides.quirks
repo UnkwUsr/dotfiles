@@ -1,0 +1,7 @@
+# fix to make touchpad lock on type with keyd running
+
+[Fix keyd touchpad]
+
+MatchUdevType=keyboard
+MatchName=keyd*keyboard
+AttrKeyboardIntegration=internal

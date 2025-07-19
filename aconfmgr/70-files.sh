@@ -20,3 +20,4 @@ CopyFile /etc/systemd/system/powertop.service
 CopyFile /etc/systemd/system/powertop.timer
 CopyFile /etc/systemd/system/tor.timer
 CopyFile /etc/keyd/default.conf
+CopyFile /etc/libinput/local-overrides.quirks
