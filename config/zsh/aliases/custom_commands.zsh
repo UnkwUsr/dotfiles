@@ -24,6 +24,8 @@ alias rgf='rg --files-with-matches'
 alias cdg='_t=$(git rev-parse --show-toplevel) && cd "$_t" && pwd'
 # cd to parent git repo (for case when in nested git repos)
 alias cdgg='cdg && cd ../ && cdg'
+# cd to root of rust project
+alias cdr='_t=$(cargo locate-project --message-format=plain) && cd "$(dirname "$_t")" && pwd'
 
 # open lisp repl
 alias sbcl="rlwrap sbcl --noinform"
