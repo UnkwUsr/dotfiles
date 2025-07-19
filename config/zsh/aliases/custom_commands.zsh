@@ -22,6 +22,8 @@ alias consp='ss -lntu'
 alias rgf='rg --files-with-matches'
 # cd to root of git repo
 alias cdg='_t=$(git rev-parse --show-toplevel) && cd "$_t" && pwd'
+# cd to parent git repo (for case when in nested git repos)
+alias cdgg='cdg && cd ../ && cdg'
 
 # open lisp repl
 alias sbcl="rlwrap sbcl --noinform"
