@@ -103,3 +103,8 @@ dats() {
         | gawk '{printf "%s\n", strftime("%Y-%m-%d %A %B", $1 + 60 * 60 * 24 * NR)}' \
         | fzf +s
 }
+
+
+### utils
+# list status of txts git repos and exec passed commands on them
+txts_status() { gts ~/.reminders "$@" && gts ~/txts/ "$@" }
