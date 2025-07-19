@@ -27,7 +27,7 @@ AddPackage ncdu # Disk usage analyzer with an ncurses interface
 AddPackage --foreign ps_mem # List processes by memory usage
 AddPackage progress # Shows running coreutils basic commands and displays stats
 AddPackage hyperfine # A command-line benchmarking tool
-AddPackage neofetch # A CLI system information tool written in BASH that supports displaying images.
+AddPackage fastfetch # A feature-rich and performance oriented neofetch like system information tool
 
 ## home setup
 AddPackage git-annex # Manage files with git, without checking their contents into git

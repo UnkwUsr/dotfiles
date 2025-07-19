@@ -32,7 +32,6 @@ AddPackage wmctrl # Control your EWMH compliant window manager from command line
 AddPackage --foreign rclip-git # Clipboard manager written in rust with ability to save different entry types (text, images, etc.)
 AddPackage pavucontrol # PulseAudio Volume Control
 AddPackage qbittorrent # An advanced BitTorrent client programmed in C++, based on Qt toolkit and libtorrent-rasterbar
-AddPackage tigervnc # Suite of VNC servers and clients. Based on the VNC 4 branch of TightVNC.
 AddPackage --foreign redshift-minimal # Adjusts the color temperature of your screen according to your surroundings, with minimal dependencies.
 AddPackage --foreign xbanish-git # Banish the mouse cursor when typing, show it again when the mouse moves.
 
