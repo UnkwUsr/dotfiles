@@ -7,7 +7,7 @@ local servers = {
                 },
             },
         },
-        autostart = false,
+        autostart = true,
     },
     -- haskell
     hls = {
