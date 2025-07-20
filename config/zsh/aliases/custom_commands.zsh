@@ -59,8 +59,10 @@ flatdir() {
         return 1
     fi
 
-    mv "$1"/* ./
-    rmdir "$1"
+    for dir in "$@"; do
+        mv "$dir"/* ./
+        rmdir "$dir"
+    done
 }
 
 # paste image from x-clipboard to a file
