@@ -1,0 +1,19 @@
+buttons: m . ,
+
+top: i
+middle: h
+bottom: k
+start: j
+end: l
+
+left: a
+down: s
+up: w
+right: d
+
+accelerator_acceleration: 5000
+accelerator: space
+
+grid_keys: q e z c
+
+exit: esc Return

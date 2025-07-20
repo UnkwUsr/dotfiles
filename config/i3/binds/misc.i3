@@ -40,3 +40,8 @@ bindsym ctrl+shift+space exec "dunstctl close-all"
 # when wanting to see video and do other things simultaneously
 # P.S. size for vim for 80 width lines: 900 600
 bindsym $mod+shift+p floating enable, sticky enable, resize set 640 480, move position center
+
+# bindsym $mod+$alt+c exec warpd --normal
+# bindsym $alt+x exec warpd --grid
+bindsym $alt+x exec warpd --normal
+# bindsym $alt+z exec warpd --hint

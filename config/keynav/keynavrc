@@ -1,0 +1,49 @@
+# comment
+
+alt+z start
+alt+v start,cursorzoom 300 300
+
+# z history-back
+
+w cut-up
+a cut-left
+s cut-down
+d cut-right
+
+shift+w move-up
+shift+a move-left
+shift+s move-down
+shift+d move-right
+
+q cut-left,cut-up
+e cut-right,cut-up
+z cut-left,cut-down
+c cut-right,cut-down
+
+shift+q move-left,move-up
+shift+e move-right,move-up
+shift+z move-left,move-down
+shift+c move-right,move-down
+
+# h cut-left,cut-up
+# l cut-right,cut-up
+# j cut-left,cut-down
+# k cut-right,cut-down
+
+ctrl+h cut-left,cut-up
+ctrl+l cut-right,cut-up
+ctrl+j cut-left,cut-down
+ctrl+k cut-right,cut-down
+
+g history-back
+u history-back
+
+1 warp,click 1
+2 warp,click 2
+3 warp,click 3
+# scrolling
+4 click 4
+5 click 5
+
+r warp
+t windowzoom
