@@ -10,8 +10,11 @@ AddPackage ctags # Generates an index file of language objects found in source f
 AddPackage docker # Pack, ship and run any application as a lightweight container
 AddPackage docker-compose # Fast, isolated development environments using Docker
 AddPackage distrobox # Use any linux distribution inside your terminal.
-AddPackage --foreign ida-free # Freeware version of the world's smartest and most feature-full disassembler
+# AddPackage --foreign ida-free # Freeware version of the world's smartest and most feature-full disassembler
 AddPackage --foreign rust-pseudo-package # Rust pseudo package that provides rust and cargo to build anthing from aur while you have installed rustup
+AddPackage uv # An extremely fast Python package installer and resolver written in Rust
+# seems it need to be installed cuz if clone have lfs then it will badly die
+AddPackage git-lfs # Git extension for versioning large files
 
 ## utils
 AddPackage diff-so-fancy # Good-looking diffs with diff-highlight and more
@@ -43,6 +46,7 @@ AddPackage tidy # A tool to tidy down your HTML code to a clean style
 AddPackage prettier # An opinionated code formatter
 # AddPackage pgformatter # A PostgreSQL SQL syntax beautifier
 
-# this used now for installing python package for speech recognition script (in
-# gather_inbox.sh), but also turned out it is nice tool for python
-AddPackage uv # An extremely fast Python package installer and resolver written in Rust
+# flutter
+# AddPackage --foreign flutter-bin # Cross platform widget toolkit for Dart (monolithic)
+# AddPackage --foreign android-platform # Android SDK Platform, latest API
+# AddPackage --foreign android-sdk-cmdline-tools-latest # Android SDK Command-line Tools (latest)

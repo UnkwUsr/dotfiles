@@ -78,7 +78,7 @@ AddPackage hyphen-en # English hyphenation rules
 AddPackage --foreign brave-bin # Web browser that blocks ads and trackers by default (binary release)
 AddPackage --foreign anki-bin # Helps you remember facts (like words/phrases in a foreign language) efficiently. Installed with wheel.
 # AddPackage --foreign anydesk-bin # The Fast Remote Desktop Application
-AddPackage --foreign sunshine-bin # A self-hosted game stream host for Moonlight.
+# AddPackage --foreign sunshine-bin # A self-hosted game stream host for Moonlight.
 AddPackage --foreign waydroid # A container-based approach to boot a full Android system on a regular Linux system
 AddPackage --foreign immersed # Immersed Desktop Agent
 AddPackage --foreign whisper.cpp-vulkan # Port of OpenAI's Whisper model in C/C++ (with Vulkan optimizations)
