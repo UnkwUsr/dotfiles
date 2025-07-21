@@ -5,7 +5,6 @@ ApplyPatch systemd /etc/systemd/logind.conf ./patches/systemd_logind.conf.diff
 ApplyPatch neovim /etc/xdg/nvim/sysinit.vim ./patches/neovim_sysinit.vim.diff
 ApplyPatch pam /etc/security/faillock.conf ./patches/pam_faillock.conf.diff
 ApplyPatch fuse-common /etc/fuse.conf ./patches/fuse-common_fuse.conf.diff
-ApplyPatch filesystem /etc/hosts ./patches/filesystem_hosts.diff
 ApplyPatch pam /etc/environment ./patches/pam_environment.diff
 ApplyPatch pacman /etc/pacman.conf ./patches/pacman_pacman.conf.diff
 ApplyPatch pacman /etc/makepkg.conf ./patches/pacman_makepkg.conf.diff
