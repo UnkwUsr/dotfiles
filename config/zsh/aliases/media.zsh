@@ -11,6 +11,8 @@ mpb() { mpv --loop-playlist=inf --directory-mode=recursive --force-window=immedi
 # run mpv over files searched with fd. Here we call msb under the hood, where
 # all the rest arguments are just passed to fd
 alias mfd="msb ."
+# play files in reverse order
+mpr() { fd -tl -tf -0 "$@" | sort -zr | xargs -0 mpv --loop-playlist=inf --force-window=immediate --x11-name=music-mpv & disown }
 
 
 #### mpv history
