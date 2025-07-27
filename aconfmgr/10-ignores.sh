@@ -59,9 +59,6 @@ IgnorePath '/etc/mkinitcpio.d/linux-zen.preset'
 IgnorePath '/etc/cni/*'
 IgnorePath '/etc/vconsole.conf'
 CreateDir '/etc/light/'
-CreateDir /etc/openvpn/client 750 openvpn network
-CreateDir /etc/openvpn/server 750 openvpn network
-CreateDir /etc/colord '' colord colord
 CreateDir /lost+found 700
 # idk what they do, just annoys always
 SetFileProperty /usr/bin/groupmems group groups

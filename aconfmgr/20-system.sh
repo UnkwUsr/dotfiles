@@ -25,6 +25,8 @@ AddPackage linux-firmware-other # Firmware files for Linux - Unsorted firmware f
 AddPackage linux-firmware-qcom # Firmware files for Linux - Firmware for Qualcomm SoCs
 AddPackage linux-firmware-radeon # Firmware files for Linux - Firmware for ATI Radeon GPUs
 AddPackage linux-firmware-realtek # Firmware files for Linux - Firmware for Realtek devices
+# this seems to must be here because of aconfmgr specifics. idk
+AddPackage linux-firmware # Firmware files for Linux - Default set
 
 # tier 2 (not vital)
 AddPackage powertop # A tool to diagnose issues with power consumption and power management

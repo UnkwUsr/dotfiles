@@ -47,10 +47,9 @@ AddPackage ghostscript # An interpreter for the PostScript language
 AddPackage rclone # Sync files to and from Google Drive, S3, Swift, Cloudfiles, Dropbox and Google Cloud Storage
     # for rclone mount
     AddPackage fuse3 # Interface for userspace programs to export a filesystem to the Linux kernel
-AddPackage --foreign python-myougiden-git # A command-line, Japanese/English English/Japanese dictionary
 # AddPackage torsocks # Wrapper to safely torify applications
 # AddPackage gnuplot # Plotting package which outputs to X11, PostScript, PNG, GIF, and others
-AddPackage --foreign pandoc-bin # Pandoc - executable only, without 750MB Haskell depends/makedepends
+# AddPackage --foreign pandoc-bin # Pandoc - executable only, without 750MB Haskell depends/makedepends
 AddPackage rsync # A fast and versatile file copying tool for remote and local files
 AddPackage torsocks # Wrapper to safely torify applications
 
@@ -70,3 +69,5 @@ AddPackage mtr # Combines the functionality of traceroute and ping into one tool
 AddPackage unrar # The RAR uncompression program
 AddPackage unzip # For extracting and viewing files in .zip archives
 AddPackage 7zip # File archiver for extremely high compression
+# this have util `rediff` that fixes patches in aconfmgr
+AddPackage patchutils # A small collection of programs that operate on patch files

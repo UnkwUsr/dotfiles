@@ -18,8 +18,7 @@ AddPackage ttf-hack # A hand groomed and optically balanced typeface based on Bi
 AddPackage ttf-dejavu # Font family based on the Bitstream Vera Fonts with a wider range of characters
 AddPackage ttf-droid # General-purpose fonts released by Google as part of Android
 AddPackage noto-fonts-emoji # Google Noto emoji fonts
-AddPackage ttf-font-awesome # Iconic font designed for Bootstrap
-AddPackage --foreign font-lobster # Lobster font which is popular in vkontakte and russian memes
+AddPackage otf-font-awesome # Iconic font designed for Bootstrap - otf format
 AddPackage --foreign arc-gtk-theme # A flat theme with transparent elements for GTK 2,3,4 and Gnome-Shell
 
 ## main tools
@@ -77,18 +76,16 @@ AddPackage libreoffice-still # LibreOffice maintenance branch
 AddPackage libreoffice-still-ru # Russian language pack for LibreOffice still
 AddPackage hyphen-en # English hyphenation rules
 AddPackage --foreign brave-bin # Web browser that blocks ads and trackers by default (binary release)
-AddPackage --foreign anki-bin # Helps you remember facts (like words/phrases in a foreign language) efficiently. Installed with wheel.
+# AddPackage --foreign anki-bin # Helps you remember facts (like words/phrases in a foreign language) efficiently. Installed with wheel.
 # AddPackage --foreign anydesk-bin # The Fast Remote Desktop Application
 # AddPackage --foreign sunshine-bin # A self-hosted game stream host for Moonlight.
-AddPackage --foreign waydroid # A container-based approach to boot a full Android system on a regular Linux system
-AddPackage --foreign immersed # Immersed Desktop Agent
+# AddPackage --foreign waydroid # A container-based approach to boot a full Android system on a regular Linux system
+# AddPackage --foreign immersed # Immersed Desktop Agent
 AddPackage --foreign whisper.cpp-vulkan # Port of OpenAI's Whisper model in C/C++ (with Vulkan optimizations)
 
 ## other stuff
 AddPackage vulkan-radeon # Open-source Vulkan driver for AMD GPUs
 AddPackage vkd3d # Direct3D 12 to Vulkan translation library By WineHQ
-AddPackage mesa-vdpau # Open-source VDPAU drivers
-AddPackage libva-mesa-driver # Open-source VA-API drivers
 AddPackage yad # A fork of zenity - display graphical dialogs from shell scripts or command line
 
 # mouse emulation
