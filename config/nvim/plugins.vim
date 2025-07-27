@@ -6,11 +6,11 @@ Plug 'itchyny/lightline.vim'
 
 """" utils
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'UnkwUsr/fzf.vim'
 Plug 'mbbill/undotree'
 Plug 'vifm/vifm.vim'
 " better vim defaults
-Plug 'chrishrb/gx.nvim'
+Plug 'UnkwUsr/gx.nvim'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
 Plug 'tummetott/unimpaired.nvim'
