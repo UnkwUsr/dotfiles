@@ -107,4 +107,4 @@ dats() {
 
 ### utils
 # list status of txts git repos and exec passed commands on them
-txts_status() { gts ~/.reminders "$@" && gts ~/txts/ "$@" }
+txts_status() { gts ~/.reminders "$@" && gts ~/.password-store/ "$@" && gts ~/txts/ "$@" }
