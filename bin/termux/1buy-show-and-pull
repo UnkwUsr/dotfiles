@@ -8,7 +8,7 @@ cd "$INBOX_FOLDER" || exit 1
 
 cat buy.md && echo
 
-ping -c1 -q -W1 8.8.8.8 > /dev/null && git pull && echo && cat buy.md
+ping -c1 -q -W1 8.8.8.8 > /dev/null && git pull && clear && cat buy.md
 
 if [ -t 0 ]; then
     echo
