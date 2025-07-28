@@ -60,3 +60,8 @@ export DFT_SYNTAX_HIGHLIGHT=off
 #if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 #      exec startx "$XDG_CONFIG_HOME/X11/xinitrc" -- -keeptty &> ~/.local/share/startx.log
 #fi
+
+# if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    tmux
+    exit 0
+# fi
