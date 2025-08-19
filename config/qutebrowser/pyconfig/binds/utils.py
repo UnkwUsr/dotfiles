@@ -21,3 +21,6 @@ config.bind("zs", "open -tr https://web.archive.org/web/*/{url}")
 config.bind("zS", "cmd-set-text :open -tr https://web.archive.org/web/*/")
 # save current url in web archive
 config.bind("zd", "open -tr https://web.archive.org/save/{url}")
+
+# strip url parameters
+config.bind("gs", "navigate strip")
