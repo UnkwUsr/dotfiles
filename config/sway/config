@@ -1,0 +1,12 @@
+set $mod Mod4
+set $alt Mod1
+
+include ~/.config/sway/default_sway.conf
+include ~/.config/sway/default_derived.conf
+include ~/.config/sway/specific.conf
+
+include ~/.config/i3/binds/_main.i3
+include ~/.config/i3/windows_assigns.i3
+
+# autostart
+exec ~/.config/i3/autostart.sh
