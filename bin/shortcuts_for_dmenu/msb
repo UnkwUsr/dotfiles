@@ -6,6 +6,6 @@ cd "${1:-$HOME/Files/music/}" || exit 1
 # all the rest arguments are passed to fd
 shift
 fd "$@" -tl -tf --exec-batch \
-    mpv --force-window=yes --x11-name=music-mpv \
+    mpv --force-window=yes --wayland-app-id=music-mpv \
     --loop-playlist=inf \
     --input-commands=playlist-shuffle,playlist-next & disown

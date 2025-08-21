@@ -17,7 +17,7 @@ set $trans_get_ime_input (set -o pipefail && \
     inp=$(xprompt < /dev/null) && \
     (test -z "$inp" || echo "$inp" > /tmp/trans_text))
 # take text from X11's "primary selection"
-set $trans_get_primary xclip -o -sel primary | tr '\n' ' ' > /tmp/trans_text
+set $trans_get_primary wl-paste -p | tr '\n' ' ' > /tmp/trans_text
 
 # translate text taken from dmenu
 bindsym $mod+t exec $trans_get_dmenu_input && $st_win_with '$trans_run :ru'
