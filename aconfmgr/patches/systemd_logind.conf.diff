@@ -6,8 +6,8 @@
  #HandleHibernateKeyLongPress=ignore
 -#HandleLidSwitch=suspend
 -#HandleLidSwitchExternalPower=suspend
-+HandleLidSwitch=ignore
-+HandleLidSwitchExternalPower=ignore
++HandleLidSwitch=lock
++HandleLidSwitchExternalPower=lock
  #HandleLidSwitchDocked=ignore
  #PowerKeyIgnoreInhibited=no
  #SuspendKeyIgnoreInhibited=no
