@@ -5,10 +5,10 @@ bindsym Print exec --no-startup-id exec grim -g "$(slurp -d)" - | wl-copy -t ima
 bindsym shift+Print exec swaymsg output "*" scale 1 && flameshot gui && swaymsg output "*" scale 2
 # start screen recording (video + audio)
 bindsym $mod+bracketright exec \
-    bash -c "exec -a me_screen_rec ffmpeg -video_size 1920x1080 -framerate 30 \
-        -f x11grab -i $DISPLAY -f pulse -i default -c:a aac -c:v libx264rgb -crf 0 \
-        -preset ultrafast -color_range 2 \"screen_$(date +%Y_%m_%d_%H-%M_%N).mp4\" &" \
-    && bash -c "exec -a me_screen_rec_tray yad --notification --image camera-web &"
+    bash -c "exec -a me_screen_rec wl-screenrec \
+        --audio --audio-device "@DEFAULT_MONITOR@" \
+        -f \"screen_$(date +%Y_%m_%d_%H-%M_%N).mp4\" &" \
+    && exec -a me_screen_rec_tray python <(echo -e "from PyQt5.QtWidgets import QApplication, QSystemTrayIcon \nfrom PyQt5.QtGui import QIcon \napp = QApplication([]) \nQSystemTrayIcon(QIcon(\\"/usr/share/icons/Adwaita/scalable/devices/camera-web.svg\\"), app).show() \napp.exec_()")
 bindsym $mod+ctrl+bracketright exec pkill -f me_screen_rec && pkill -f me_screen_rec_tray
 
 # lock screen
