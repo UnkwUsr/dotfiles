@@ -1,0 +1,1 @@
+/bin/mattermost-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"
