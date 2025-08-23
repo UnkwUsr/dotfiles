@@ -118,3 +118,8 @@ interesting for passers-by.
       write to path from symlink and not just to the file it symlinks to. To
       reproduce you need to also make `~/.config/rclone/` symlink to
       `~/.dotfiles/config/rclone/`
+
+## other
+
+* for `light` tool: need to add current user to group video: `sudo usermod -a
+  -G video $USER`
