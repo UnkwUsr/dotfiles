@@ -8,6 +8,17 @@
 # highlight windows that are still x11
 for_window [shell="xwayland"] title_format "%title [XWayland]"
 
+## custom windows
+# P.S. seems like it should go before other windows, because otherwise they
+# take preference
+for_window [class="^st_win$"] floating enable, sticky enable, resize set 640 480, move position center, border pixel 3
+assign [class="^st_tmux$"] 2
+assign [class="^tmux_noise_win$"] 4
+assign [title="^arad$"] 9
+assign [app_id="quteb-mpv"] 0
+assign [app_id="music-mpv"] 7
+assign [app_id="vifm-mpv"] 3
+
 assign [app_id="org.qutebrowser.qutebrowser"] 1
 assign [app_id="brave-browser"] 0
 assign [app_id="discord"] 8
@@ -24,15 +35,6 @@ for_window [class="^feh$"] floating enable, move position center
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, sticky enable, resize set 1280 720, move position center
 # xev
 for_window [title="^Event Tester$"] floating enable, sticky enable
-
-## custom windows
-for_window [class="^st_win$"] floating enable, sticky enable, resize set 640 480, move position center, border pixel 3
-assign [class="^st_tmux$"] 2
-assign [class="^tmux_noise_win$"] 4
-assign [title="^arad$"] 9
-assign [app_id="quteb-mpv"] 0
-assign [app_id="music-mpv"] 7
-assign [app_id="vifm-mpv"] 3
 
 ## games
 assign [class="^hl_linux$"] 5
