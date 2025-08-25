@@ -7,6 +7,7 @@
 ME_OLDDIR="$HOME/.local/share/qutebrowser/sessions/auto_old"
 mkdir -p "$ME_OLDDIR"
 cp --backup=numbered ~/.local/share/qutebrowser/sessions/default.yml "$ME_OLDDIR"
+cp --backup=numbered ~/.local/share/qutebrowser/sessions/_autosave.yml "$ME_OLDDIR"
 
 notify-send -t 250 quteb "opened in quteb" &
 # using --untrusted-args because now I use this script in xdg-handler for urls,
