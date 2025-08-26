@@ -197,14 +197,22 @@ function! s:mydotfiles_map_nav()
 endfunction
 
 " override bind 'O'. Enable showing root commit and add stat info
-autocmd FileType GV nnoremap <silent> <buffer> O :call <sid>mygvopen()<cr>
-function! s:mygvopen()
+autocmd FileType GV nnoremap <silent> <buffer> O :call <sid>mygvopen(0)<cr>
+" also my brand new to show semantic diff
+autocmd FileType GV nnoremap <silent> <buffer> T :call <sid>mygvopen(1)<cr>
+function! s:mygvopen(semantic_diff)
   let sha = gv#sha()
   if !empty(sha)
-      execute 'tab term git sh ' . sha . ' | diff-so-fancy'
-      setfiletype git
-      " exit terminal insert mode
-      call feedkeys("\<C-\>\<C-n>")
+      if !a:semantic_diff
+          execute 'tab term git sh ' . sha . ' | diff-so-fancy'
+          setfiletype git
+          " exit terminal insert mode
+          call feedkeys("\<C-\>\<C-n>")
+      else
+          execute 'tab term git tsh ' . sha
+          " not exiting terminal here, because difft prints colors only in
+          " when printing to less natively, so we will use it to see colors
+      endif
   endif
 endfunction
 
