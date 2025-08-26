@@ -1,7 +1,3 @@
-# fast tidal start
-alias tidalstart="jack_control start && sclang && jack_control stop"
-
-
 #### mpv for noise performance
 
 # play in mpv with noise profile
