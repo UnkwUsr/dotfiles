@@ -26,5 +26,11 @@
     {
         "command": "media_viewer_video_fullscreen",
         "keys": "alt+f"
+    },
+    // I have mapped key ctrl+f to navigation via keyd, so now remapping search
+    // to ctrl+g
+    {
+        "command": "search",
+        "keys": "ctrl+g"
     }
 ]
