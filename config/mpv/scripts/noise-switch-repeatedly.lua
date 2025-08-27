@@ -27,6 +27,8 @@ local function on_file_loaded()
     print("loop_dur:", loop_dur)
     mp.set_property("ab-loop-a", seek_point)
     mp.set_property("ab-loop-b", seek_point + loop_dur)
+    -- in case file duration is less than selected session duration
+    mp.set_property("loop-file", "inf")
 
     mp.add_timeout(this_session_dur, function()
         -- TODO: if we have plaliyst with one entry, then do this:

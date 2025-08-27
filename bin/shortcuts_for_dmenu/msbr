@@ -17,7 +17,7 @@ run_cmd="fd \"$search_term\" -tl -tf --exec-batch \
     --input-commands=playlist-shuffle,playlist-next"
 
 
-ST_TMUX_WINDOW_CLASS="st_tmux_noise"
+ST_TMUX_WINDOW_CLASS="tmux_noise_win"
 TMUX_SESSION="noise"
 
 # tmux new-window -adt "$TMUX_SESSION" "$run_cmd" || tmux new-session -ds "$TMUX_SESSION" "$run_cmd"
