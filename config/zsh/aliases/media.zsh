@@ -7,12 +7,12 @@ alias ms="cd ~/Files/annexes/music/ && pwd && ll"
 
 # run mpv in background
 mpb() { mpv --loop-playlist=inf --directory-mode=recursive --force-window=immediate --wayland-app-id=music-mpv "$@" & disown }
+# play files in reverse order
+mpbr() { fd -tl -tf -0 "$@" | sort -zr | xargs -0 mpv --loop-playlist=inf --force-window=immediate --wayland-app-id=music-mpv & disown }
 
 # run mpv over files searched with fd. Here we call msb under the hood, where
 # all the rest arguments are just passed to fd
 alias mfd="msb ."
-# play files in reverse order
-mpr() { fd -tl -tf -0 "$@" | sort -zr | xargs -0 mpv --loop-playlist=inf --force-window=immediate --wayland-app-id=music-mpv & disown }
 
 
 #### mpv history
