@@ -31,14 +31,13 @@ alias randtask='vim "$(fd . -tf ~/txts/dtm/ | shuf -n1)"'
 
 ### semi-sorted inbox repo (aka dtm pre-staging area)
 
-alias dwd="cd ~/txts/dtm/inbox"
 # saved notes from i3 bind
-alias da="cd ~/txts/dtm/inbox/ && vim +':norm G' 00_inboxed.md && cd - > /dev/null"
+alias da="cd ~/txts/dtm/ && vim +':norm G' 00_inboxed.md && cd - > /dev/null"
 # saved links from browser
-alias db="cd ~/txts/dtm/inbox && vim quteb_saved_urls.md"
+alias db="cd ~/txts/dtm && vim 00_quteb_saved_urls.md"
 
 # add to inbox right from cli. Yes
-ibn() { echo "* from ibn: $*" >> ~/txts/dtm/inbox/00_inboxed.md }
+ibn() { echo "* from ibn: $*" >> ~/txts/dtm/00_inboxed.md }
 
 # buy list
 alias bb="cd ~/txts/synced-inbox && vim buy.md && cd - > /dev/null"

@@ -35,4 +35,4 @@ config.bind(",d", "spawn -vd st-tm --focus \"vim '{url}.diff'\"")
 config.bind(",c", "spawn -vd quteb-git-clown '{url}'")
 # send current url to inbox
 config.bind(",i", "spawn -vd sh -c 'echo -e \"* {title}\\n  * <" + redir.yt_url_replaced + ">\"\
-                   >> ~/txts/inbox/quteb_saved_urls.md' ;; tab-close")
+                   >> ~/txts/dtm/00_quteb_saved_urls.md' ;; tab-close")
