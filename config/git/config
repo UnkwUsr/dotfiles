@@ -34,7 +34,7 @@
     cb = checkout -b
     b = branch
     cam = commit --amend
-    ri = rebase -i
+    ri = rebase -i --autostash
     rco = rebase --continue
     roc = rebase --continue
     rab = rebase --abort
