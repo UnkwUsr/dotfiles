@@ -26,6 +26,7 @@ assign [app_id="org.telegram.desktop"] 10
 assign [class="^chat-simplex-desktop-MainKt$"] 8
 assign [class="^Soffice$"] 3
 assign [class="^Zathura$"] 3
+assign [class="^SuperCollider$"] 3
 assign [title="^ReZound$"] 3
 assign [class="^Anki$"] 4
 for_window [app_id="org.qutebrowser.qutebrowser"] border none, layout splith
