@@ -31,5 +31,3 @@ keyd-application-mapper &
 
 # auto run gather inbox
 auto_gather_inbox.sh &
-
-keynav &

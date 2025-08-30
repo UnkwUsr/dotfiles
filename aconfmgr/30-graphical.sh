@@ -89,5 +89,4 @@ AddPackage vkd3d # Direct3D 12 to Vulkan translation library By WineHQ
 AddPackage yad # A fork of zenity - display graphical dialogs from shell scripts or command line
 
 # mouse emulation
-AddPackage --foreign keynav-git # Ingenious and fast way to move the mouse pointer on the screen with keystrokes.
 AddPackage --foreign warpd-git # A modal keyboard driven interface for mouse manipulation.
