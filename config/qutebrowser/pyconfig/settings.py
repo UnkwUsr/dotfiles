@@ -46,6 +46,7 @@ c.content.user_stylesheets.append("~/.config/qutebrowser/styles.css")
 # allow clipboard access for some sites
 config.set('content.javascript.clipboard', "access", 'github.com')
 config.set('content.javascript.clipboard', "access", 'stackoverflow.com')
+config.set('content.javascript.clipboard', "access", 'grok.com')
 
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = True
