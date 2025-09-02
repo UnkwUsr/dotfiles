@@ -35,6 +35,8 @@
     b = branch
     cam = commit --amend
     ri = rebase -i --autostash
+    riu = ri @{upstream}
+    rim = ri origin/master
     rco = rebase --continue
     roc = rebase --continue
     rab = rebase --abort
