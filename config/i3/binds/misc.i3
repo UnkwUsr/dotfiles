@@ -13,7 +13,7 @@ bindsym $mod+ctrl+bracketright exec pkill -f me_screen_rec && pkill -f me_screen
 
 # lock screen
 bindsym $mod+i exec swayidle -w \
-            timeout 1 'swaylock -f -c 000000 && swaymsg "output * power off"' \
+            timeout 1 '$lock && swaymsg "output * power off"' \
             resume 'swaymsg "output * dpms on "; pkill -nx swayidle'
 bindsym $mod+shift+i exec --no-startup-id "sleep 0.25 && systemctl suspend"
 
