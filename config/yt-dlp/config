@@ -1,5 +1,4 @@
-# avoiding av01 codec because current hardware does not support it
---format=bestvideo[height<=?1080][vcodec!^=av01]+bestaudio
+--format=bestvideo[height<=?1080]+bestaudio
 --embed-chapters
 --no-playlist
 --concurrent-fragments=8
