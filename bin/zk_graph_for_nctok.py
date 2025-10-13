@@ -15,8 +15,12 @@ def scan_file(filename, parents):
     for child in childs:
         scan_file(child, parents.copy())
 
-    number = 1
+    # # by number of children
+    # number = 1
+    # # by number of lines in each note
     # number = lines_count(filename)
+    # # by number of words in each note
+    number = words_count(filename)
     print(str(number) + " " + "|".join(parents))
 
 
@@ -39,6 +43,13 @@ def get_childs(filename):
 
 def lines_count(filename):
     return sum(1 for _ in open(filename))
+
+
+def words_count(filename):
+    with open(filename, "r") as file:
+        text = file.read()
+        words = text.split()
+        return len(words)
 
 
 root = sys.argv[1]
