@@ -2,7 +2,7 @@
 
 # input text that will be copied to clipboard
 ## with dmenu
-bindsym $mod+n exec --no-startup-id set -o pipefail && echo -n | dmenu -fn "Hack-11" -p "Note:" | head -c -1 > /tmp/text_to_copy && \
+bindsym $mod+n exec --no-startup-id set -o pipefail && echo -n | wmenu -p "Note:" | head -c -1 > /tmp/text_to_copy && \
             (echo -n "* from dmenu copy: " && cat /tmp/text_to_copy && echo) >> ~/txts/dtm/00_inboxed.md && \
             [ -s /tmp/text_to_copy ] && \
             (xclip -sel c /tmp/text_to_copy && \
@@ -20,11 +20,11 @@ bindsym $mod+$alt+n exec --no-startup-id (xclip -sel c -o > /tmp/text_to_copy ||
             rm /tmp/text_to_copy
 
 # buy list
-bindsym $mod+b exec echo -n | dmenu -p "buy:" | cat <(echo -n "* ") - >> ~/txts/synced-inbox/buy.md \
+bindsym $mod+b exec echo -n | wmenu -p "buy:" | cat <(echo -n "* ") - >> ~/txts/synced-inbox/buy.md \
                 && notify-send "buy" -t 1000 "created" \
                 || notify-send "buy" -u critical -t 2000 "can't create"
 # dtm inbox
-bindsym $mod+s exec (echo -n | dmenu -p "dtm inbox:" \
+bindsym $mod+s exec (echo -n | wmenu -p "dtm inbox:" \
                 && notify-send -t 500 dtm-inbox "saved in dtm inbox" \
                 || notify-send "dtm-inbox" -u critical -t 5000 "not sent") \
             | ifne sh -c '(echo -n "* " && cat) >> ~/txts/dtm/00_inboxed.md' \

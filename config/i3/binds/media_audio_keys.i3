@@ -36,7 +36,7 @@ bindsym XF86KbdLightOnOff exec --no-startup-id "ponymix --source unmute > /dev/n
 # dbvolume control
 bindsym KP_Home exec --no-startup-id "dbvolume default"
 bindsym Mod2+KP_7 exec --no-startup-id "dbvolume default"
-bindsym KP_Up exec --no-startup-id "cat /tmp/dbvolume_level | dmenu | xargs dbvolume"
+bindsym KP_Up exec --no-startup-id "cat /tmp/dbvolume_level | wmenu | xargs dbvolume"
 bindsym KP_Begin mode "dbvolume!"
 mode "dbvolume!" {
     bindsym KP_Home exec --no-startup-id "dbvolume default"

@@ -10,7 +10,7 @@ set $trans_run trans -i /tmp/trans_text -view -show-original=no \
 # input with dmenu
 # to repeat last translate just leave dmenu prompt empty and press enter
 set $trans_get_dmenu_input (set -o pipefail && \
-    inp=$(echo -n | dmenu -fn "Hack-11" -p "trans:" | head -c -1) && \
+    inp=$(echo -n | wmenu -p "trans:" | head -c -1) && \
     (test -z "$inp" || echo "$inp" > /tmp/trans_text))
 # input with xprompt which supports IME (for Japanese)
 set $trans_get_ime_input (set -o pipefail && \
