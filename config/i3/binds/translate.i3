@@ -3,7 +3,8 @@
 # my binds for fast translating
 
 # default options for `trans` (translate-shell)
-set $trans_run trans -i /tmp/trans_text -view -show-original=no \
+set $trans_put_history cat /tmp/trans_text >> ~/.local/share/trans_history
+set $trans_run $trans_put_history && trans -i /tmp/trans_text -view -show-original=no \
     -show-translation-phonetics=yes -show-prompt-message=no \
     -show-languages=no -show-alternatives=yes -show-original-dictionary=yes
 
