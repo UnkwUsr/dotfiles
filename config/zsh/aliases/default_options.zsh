@@ -16,6 +16,7 @@ alias ls='LC_COLLATE=C ls --color=auto -h --group-directories-first'
 # verbose
 alias rm='rm -v'
 alias chmod='chmod -v'
+alias rsync="rsync --info=progress2 --verbose"
 # verbose and prompt on overwrite
 alias cp='cp -vi'
 alias mv='mv -vi'
