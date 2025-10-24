@@ -61,6 +61,7 @@ redirs = {
     # nitter instances: https://status.d420.de/
     # https://twiiit.com/
     "x.com": "xcancel.com",
+    "twitter.com": "xcancel.com",
     # instances list: https://github.com/realaravinth/libmedium#instances
     # "medium.com": "medium.hostux.net",
 
