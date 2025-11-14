@@ -47,8 +47,8 @@ nmap s :shell<cr>
 nmap - gh
 
 " run command over selected files
-nmap !! :! %f<left><left><left>
-vmap ! :! %f<left><left><left>
+nmap !! :!zsh -ic " %f"<left><left><left><left>
+vmap ! :!zsh -ic " %f"<left><left><left><left>
 
 " move files to music folder with number
 nmap xd :!movemusic.sh %f<CR>
