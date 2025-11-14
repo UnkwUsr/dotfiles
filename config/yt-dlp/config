@@ -1,4 +1,4 @@
---format=bestvideo[height<=?1080]+bestaudio/best
+--format=bestvideo[height<=?1800]+bestaudio/best
 --embed-chapters
 --no-playlist
 --concurrent-fragments=8
