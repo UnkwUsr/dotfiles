@@ -5,6 +5,7 @@ YOUTUBE_REDIR = "inv.nadeko.net"
 # instances list: https://api.invidious.io
 
 yt_url_replaced = '$(echo "{url}" | sed "s/' + YOUTUBE_REDIR + '/youtube.com/")'
+yt_hint_url_replaced = '$(echo "{hint-url}" | sed "s/' + YOUTUBE_REDIR + '/youtube.com/")'  # noqa
 
 
 def try_redirects(info: qutebrowser.api.interceptor.Request):
