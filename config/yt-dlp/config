@@ -2,3 +2,8 @@
 --embed-chapters
 --no-playlist
 --concurrent-fragments=8
+
+# always add subs. They weight low, so don't care
+--embed-subs
+--sub-langs=en,ja,ru
+--write-auto-subs
