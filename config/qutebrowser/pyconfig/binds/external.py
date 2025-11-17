@@ -6,8 +6,8 @@ config = config; redir = redir  # noqa
 # open in mpv (video player)
 # TODO: make this shortcut safe in the way that it write erroneus urls to file,
 # similar to download shortcut
-config.bind(",m", "spawn -vd sh -c 'mpv-with-yt-dlp.sh --profile=quteb \"" + redir.yt_url_replaced + "\"'")  # noqa
-config.bind(",M", "hint links spawn -vd sh -c 'mpv-with-yt-dlp.sh --profile=quteb \"" + redir.yt_hint_url_replaced + "\"'")
+config.bind(",m", "spawn -vd sh -c 'mpv --profile=quteb \"" + redir.yt_url_replaced + "\"'")  # noqa
+config.bind(",M", "hint links spawn -vd sh -c 'mpv --profile=quteb \"" + redir.yt_hint_url_replaced + "\"'")
 
 # why to use tmux here? Because I want to see progress and be able stop
 # downloading and/or modify command if something goes wrong (like use proxy)
