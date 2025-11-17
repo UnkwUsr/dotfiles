@@ -47,6 +47,9 @@ config.set('content.javascript.clipboard', "access", 'github.com')
 config.set('content.javascript.clipboard', "access", 'stackoverflow.com')
 config.set('content.javascript.clipboard', "access", 'grok.com')
 
+# fix this site because it yells when js enabled
+config.set('content.javascript.enabled', False, 'マリウス.com')
+
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.bg = "black"
