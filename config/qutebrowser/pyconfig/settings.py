@@ -50,6 +50,10 @@ config.set('content.javascript.clipboard', "access", 'grok.com')
 # fix this site because it yells when js enabled
 config.set('content.javascript.enabled', False, 'マリウス.com')
 
+# disable useless. Save resources and enhance privacy
+config.set('content.canvas_reading', False)
+config.set('content.webgl', False)
+
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.bg = "black"
