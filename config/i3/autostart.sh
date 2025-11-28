@@ -9,7 +9,9 @@ xset dpms 1200 0 0
 dunst &
 
 # clipboard daemon
-~/Projects/rclip/target/release/rclipd daemon > /dev/null &
+wl-paste --type text --watch sh -c "$HOME/Projects/clipt/target/release/clipt put" &
+# shellcheck disable=2016
+wl-paste --type image --watch sh -c 'cat > ~/.local/share/rclip/image/png/"$(date +%s%N)"' &
 { cd ~/Projects/clipt/ && ./target/release/clipt server > /dev/null & }
 
 # set initial monitor brightness
