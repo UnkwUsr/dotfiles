@@ -11,8 +11,9 @@ day_shift="${1:-0}"
 # 05:00, not earlier
 day_start_offset="5 hours"
 
+# setting XDG_CONFIG_HOME to force not loading sqliterc config
 nvim +'setlocal nowrap' +'set noreadonly' <( \
-    sqlite3 -column ~/.local/share/qutebrowser/history.sqlite \
+    XDG_CONFIG_HOME=/dev/null sqlite3 -column ~/.local/share/qutebrowser/history.sqlite \
     "SELECT
         strftime('%Y/%m/%d %H:%M', datetime(atime, 'unixepoch', 'localtime')) as date_time,
         title,
