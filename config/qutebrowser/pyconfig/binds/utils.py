@@ -7,13 +7,16 @@ config.bind("<Ctrl+r>", "config-source")
 # toggle dark mode
 config.bind("\\w", "config-cycle colors.webpage.darkmode.enabled false true")
 
-# toggle Tor proxy
+# toggle Tor/proxy
 config.bind(
     "st", "set content.proxy socks://localhost:9050/ ;; \
     set colors.statusbar.normal.bg #000090")
 config.bind(
     "sT", "set content.proxy system ;; \
     set colors.statusbar.normal.bg black")
+config.bind(
+    "se", "set content.proxy socks://localhost:45230/ ;; \
+    set colors.statusbar.normal.bg #900090")
 
 # search site in web archive
 config.bind("zs", "open -tr https://web.archive.org/web/*/{url}")
