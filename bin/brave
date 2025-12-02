@@ -1,1 +1,1 @@
-/bin/brave --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"
+/bin/brave --enable-features=UseOzonePlatform --ozone-platform=wayland --password-store=libsecret "$@"
