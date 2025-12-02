@@ -9,6 +9,24 @@ local function reload_handler()
         -- stream
         mp.commandv("loadfile", path, "replace")
     end
+    -- mp.osd_message("Reloaded")
+end
+
+local function reload_handler_yt_high()
+    -- leaving empty makes use of yt-dlp own config file
+    mp.set_property("ytdl-format", "")
+    mp.osd_message("Reloading to yt high quality")
+    reload_handler()
+end
+
+local function reload_handler_yt_low()
+    -- setting "best" will select stream that have both video and audio in one
+    -- file
+    mp.set_property("ytdl-format", "best")
+    mp.osd_message("Reloading to yt low quality")
+    reload_handler()
 end
 
 mp.add_key_binding(nil, "reload", reload_handler)
+mp.add_key_binding(nil, "reload-to-yt-high", reload_handler_yt_high)
+mp.add_key_binding(nil, "reload-to-yt-low", reload_handler_yt_low)
