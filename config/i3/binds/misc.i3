@@ -1,8 +1,7 @@
 # vim: ft=i3config
 
 # make screenshot
-bindsym Print exec --no-startup-id exec grim -g "$(slurp -d)" - | wl-copy -t image/png
-bindsym shift+Print exec swaymsg output "*" scale 1 && flameshot gui && swaymsg output "*" scale 2
+bindsym Print exec QT_SCALE_FACTOR=0.5 flameshot gui
 # start screen recording (video + audio)
 bindsym $mod+bracketright exec \
     bash -c "exec -a me_screen_rec wl-screenrec \
