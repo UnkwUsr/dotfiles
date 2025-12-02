@@ -34,4 +34,4 @@ alias auracle='auracle --sort=votes'
 alias readelf='readelf --wide --demangle'
 
 # fix error that permissions are too lax
-alias aerc='chmod 600 ~/.config/aerc/accounts.conf && /bin/aerc'
+alias aerc='/bin/chmod 600 ~/.config/aerc/accounts.conf && /bin/aerc'
