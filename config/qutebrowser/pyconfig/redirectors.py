@@ -1,7 +1,7 @@
 import qutebrowser.api.interceptor
 from qutebrowser.utils import message
 
-YOUTUBE_REDIR = "inv.nadeko.net"
+YOUTUBE_REDIR = "yewtu.be"
 # instances list: https://api.invidious.io
 
 yt_url_replaced = '$(echo "{url}" | sed "s/' + YOUTUBE_REDIR + '/youtube.com/")'
