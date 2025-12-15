@@ -32,7 +32,7 @@ copy_into_target() {
     for d in ./inbox_*.md ; do
         echo -e "\n## from $d" >> "$TARGET_TO"
         echo "$d"
-        cat <(echo) "$d" >> "$TARGET_TO"
+        cat <(echo) "$d" | sed -E "s/ (aa|AA|фф|ФФ) /\n  * /g" >> "$TARGET_TO"
     done
 
     [ -f voices-res.md ] && cat <(echo -e "\n## voices\n") voices-res.md >> "$TARGET_TO"

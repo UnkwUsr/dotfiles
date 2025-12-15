@@ -27,7 +27,7 @@ bindsym $mod+b exec echo -n | wmenu -p "buy:" | cat <(echo -n "* ") - >> ~/txts/
 bindsym $mod+s exec (echo -n | wmenu -p "dtm inbox:" \
                 && notify-send -t 500 dtm-inbox "saved in dtm inbox" \
                 || notify-send "dtm-inbox" -u critical -t 5000 "not sent") \
-            | ifne sh -c '(echo -n "* " && cat) >> ~/txts/dtm/00_inboxed.md' \
+            | ifne sh -c '(echo -n "* " && cat | sed -E "s/ (aa|фф) /\\n  * /g") >> ~/txts/dtm/00_inboxed.md' \
 
 # voice record inbox (this is *those key fn under F1*. idk why so)
 bindsym $mod+F1 exec $st_win_with "inb_rec_mic"
