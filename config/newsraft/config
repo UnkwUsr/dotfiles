@@ -1,0 +1,19 @@
+menu-feed-sorting unread-desc
+menu-feed-entry-format "%5.0u │ %t | %l"
+# hide special "global" section which contains feeds across all sections
+global-section-hide true
+# disable notifications
+notification-command ""
+# display all items across all feeds instead of list of feeds (can change by
+# pressing TAB key)
+feeds-menu-paramount-explore true
+
+# trying to limit number of items database
+# P.S. not using item-limit setting because it is buggy
+#
+# use download_date because not all feeds have update_date or publication_date
+item-rule "download_date >= strftime('%s', 'now', '-7 day')"
+
+# open in browser and mark as read
+open-in-browser-command "disabled_for_the_sake_of_bind"
+bind o mark-read; exec setsid quteb "%l" >/dev/null 2>&1 &; jump-to-next-unread
