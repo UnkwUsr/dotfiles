@@ -8,7 +8,8 @@ def exec_config_subfiles(files):
     # change dir to config directory
     os.chdir(Path(__file__).parent)
     for f in files:
-        exec(open(f).read())
+        with open(f) as fo:
+            exec(fo.read())
     # restore after change dir
     os.chdir(Path.home())
 
