@@ -13,7 +13,7 @@ alias pql='pacman -Ql'
 # fzf over files owned by installed packages
 pqlf() {
     pacman -Ql $1 | grep -v "/$" \
-        | fzf -m --preview="less {2}" \
+        | fzf -m --preview="bat {2}" \
         | cut -d" " -f2 | tr '\n' ' ' \
         | xargs -r vim
 }
