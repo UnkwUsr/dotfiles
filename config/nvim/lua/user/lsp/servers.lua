@@ -54,7 +54,7 @@ local servers = {
         autostart = false,
     },
     -- php
-    intelephense = {},
+    -- intelephense = {},
     -- javascript/typescript
     -- ts_ls = {
     --     single_file_support = false,
