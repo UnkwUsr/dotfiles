@@ -27,7 +27,8 @@ local servers = {
                     flake8 = {
                         enabled = true,
                         maxLineLength = 88,
-                        extendIgnore = { "E203" },
+                        -- ignore long lines
+                        extendIgnore = { "E501" },
                     },
                     pyflakes = { enabled = false },
                     pycodestyle = { enabled = false },
