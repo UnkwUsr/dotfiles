@@ -31,10 +31,12 @@ c.content.webrtc_ip_handling_policy = "disable-non-proxied-udp"
 
 c.content.blocking.method = "both"
 config_hack.unset("content.blocking.adblock.lists")
-c.content.blocking.adblock.lists.append(
-    "https://easylist-downloads.adblockplus.org/advblock.txt")
-c.content.blocking.adblock.lists.append(
-    "https://easylist-downloads.adblockplus.org/cntblock.txt")
+c.content.blocking.adblock.lists.extend([
+    "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+    "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+    "https://raw.githubusercontent.com/dimisa-RUAdList/RUAdListCDN/refs/heads/main/lists/ruadlist.ubo.min.txt",  # noqa
+    "https://easylist.to/easylist/fanboy-social.txt"])
+c.content.blocking.hosts.lists = ["https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts"]  # noqa
 
 config_hack.unset("content.user_stylesheets")
 c.content.user_stylesheets.append("~/.config/qutebrowser/styles.css")
