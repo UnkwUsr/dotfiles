@@ -2,9 +2,6 @@
 
 # NOTE: get windows info with `swaymsg -t get_tree` and for x11 `xprop`
 
-# NOTE: in sway to actually hide border we also need to set layout to splith,
-# because in sway tabbed layout windows always have borders
-
 # highlight windows that are still x11
 for_window [shell="xwayland"] title_format "%title [XWayland]"
 
@@ -30,8 +27,8 @@ assign [app_id="org.pwmt.zathura"] 3
 assign [class="^SuperCollider$"] 3
 assign [title="^ReZound$"] 3
 assign [class="^Anki$"] 4
-for_window [app_id="org.qutebrowser.qutebrowser"] border none, layout splith
-for_window [app_id="brave-browser"] border none, layout splith
+for_window [app_id="org.qutebrowser.qutebrowser"] border none
+for_window [app_id="brave-browser"] border none
 for_window [class="^Blender$"] border none
 for_window [class="^feh$"] floating enable, move position center
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, sticky enable, resize set 1280 720, move position center
