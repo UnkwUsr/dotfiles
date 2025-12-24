@@ -1,0 +1,12 @@
+[Unit]
+Description=Set custom sysrq key in absence of hardware key
+
+[Service]
+Type=oneshot
+# first argument is scan code from `showkey -s` of the key you want to remap.
+# 99 is keycode of sysrq. Read more: https://unix.stackexchange.com/a/225982
+# in my case, 58 is key f12. I dont want to map it to del key cuz I use it
+ExecStart=/usr/bin/setkeycodes 58 99
+
+[Install]
+WantedBy=multi-user.target

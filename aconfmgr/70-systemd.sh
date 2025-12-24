@@ -17,6 +17,7 @@ CreateLink /etc/systemd/system/timers.target.wants/iwd.timer /etc/systemd/system
 CreateLink /etc/systemd/system/timers.target.wants/lm_sensors.timer /etc/systemd/system/lm_sensors.timer
 CreateLink /etc/systemd/system/timers.target.wants/log-smartctl.timer /etc/systemd/system/log-smartctl.timer
 CreateLink /etc/systemd/system/timers.target.wants/tor.timer /etc/systemd/system/tor.timer
+CreateLink /etc/systemd/system/multi-user.target.wants/set_sysrq_key.service /etc/systemd/system/set_sysrq_key.service
 
 ## mask units
 function SystemdMask() { CreateLink "/etc/systemd/system/$1" /dev/null; }
