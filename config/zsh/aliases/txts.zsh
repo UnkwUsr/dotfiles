@@ -64,7 +64,7 @@ alias anid="cd ~/txts/manylists && pwd"
 ### remind/calendar ("tasks on time")
 
 # view today
-alias rem='rem -m -@'
+alias rem='rem -m -@ -b1'
 # view current week
 alias rem1='clear; rem -cl+1 -w,3,0'
 # view current and next week
