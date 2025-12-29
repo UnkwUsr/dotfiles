@@ -11,6 +11,7 @@ yt_hint_url_replaced = '$(echo "{hint-url}" | sed "s/' + YOUTUBE_REDIR + '/youtu
 def try_redirects(info: qutebrowser.api.interceptor.Request):
     host = info.request_url.host()
     if host not in redirs:
+        try_handle_telegram(info)
         return
 
     redir_to = redirs[host]
@@ -47,6 +48,33 @@ def special_handle_short_youtube(info):
     vid_id = info.request_url.path()[1:]
     info.request_url.setPath("/watch")
     info.request_url.setQuery("v=" + vid_id)
+
+
+# add ?embed=true to load lightweight page
+def try_handle_telegram(info: qutebrowser.api.interceptor.Request):
+    host = info.request_url.host()
+    if host != "t.me":
+        return
+
+    if info.request_url.path().count("/") != 2:
+        return
+    if info._webengine_info.requestMethod() != b"GET":
+        return
+
+    good_query = "embed=true&mode=tme"
+    query = info.request_url.query()
+    if query == good_query:
+        return
+
+    message.info("tg redirect")
+
+    info.request_url.setQuery(good_query)
+    try:
+        info.redirect(info.request_url)
+    except Exception as e:
+        message.error("Exception in tg redir: " + str(e))
+        info.block()
+        pass
 
 
 # more services: https://github.com/pluja/awesome-privacy
