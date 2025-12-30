@@ -79,7 +79,11 @@ interesting for passers-by.
 
 # Installation (not for passers-by)
 
-* Symlink all config files with rcm: `rcup -v`
+* rcm setup:
+  * first do `cp .rcrc ~/`
+  * then `rcup -v`
+  * why? Because otherwise rcm does not know of its own config and copy wrong
+    things
 * Run [./install_deps.sh](./install_deps.sh) to install plugins for some
   programs
 * Apply aconfmgr: `aconfmgr -c ~/.dotfiles/aconfmgr/ --paranoid apply`
