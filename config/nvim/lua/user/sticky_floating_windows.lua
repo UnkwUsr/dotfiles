@@ -20,6 +20,7 @@ local make_window = function(constructor_function, _)
     local buf = vim.api.nvim_create_buf(false, true)
     win = constructor_function(buf)
     vim.api.nvim_win_set_option(win, "winhighlight", "Normal:Normal")
+    vim.api.nvim_win_set_option(win, "wrap", true)
 end
 
 --- constructor functions:
@@ -52,7 +53,7 @@ local construct_dtm_remind_window = function(buf)
     local output_lines = vim.fn["systemlist"]("rem")
     vim.api.nvim_buf_set_lines(buf, 0, -1, true, output_lines)
 
-    local my_win_w = 55
+    local my_win_w = 45
 
     return vim.api.nvim_open_win(buf, false, {
         relative = "editor",
@@ -62,7 +63,7 @@ local construct_dtm_remind_window = function(buf)
         row = 0,
         col = 999, -- setting random high value so window will appear on right border of the screen
         width = my_win_w,
-        height = #output_lines,
+        height = math.ceil(#output_lines * 1.5), -- multiplier in case there will be wrap
     })
 end
 
