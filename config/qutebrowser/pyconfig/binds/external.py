@@ -16,6 +16,9 @@ config.bind(",M", "hint links spawn -vd sh -c 'mpv-with-yt-dlp.sh --profile=qute
 config.bind(",z", "spawn -vd st-tm \
     'cd \"$HOME/Files/Media/yt/\"' \
     'yt-dlp \"" + redir.yt_url_replaced + "\" || echo \"{url}\" >> bad_urls'")
+config.bind(",Z", "spawn -vd st-tm \
+    'cd \"$HOME/Files/Media/yt/\"' \
+    'yt-dlp \"" + redir.yt_hint_url_replaced + "\" || echo \"{hint-url}\" >> bad_urls'")
 # download page as music album
 config.bind(",a", "spawn -vd st-tm \
     'cd \"$HOME/Files/Media/yt/\"' \
