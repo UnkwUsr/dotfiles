@@ -26,12 +26,14 @@ local servers = {
                 plugins = {
                     flake8 = {
                         enabled = true,
-                        maxLineLength = 88,
                         -- ignore long lines
                         extendIgnore = { "E501" },
                     },
                     pyflakes = { enabled = false },
                     pycodestyle = { enabled = false },
+                    black = {
+                        line_length = 110,
+                    },
                 },
             },
         },
