@@ -43,7 +43,7 @@ alias pqr_unneeded='pacman -Qtdtq | pqr -'
 alias pas="auracle search"
 pai() { auracle show "$1" | bat -l sh }
 compdef -e 'words[1]=(auracle clone); service=auracle; (( CURRENT+=1 )); _auracle' pai
-alias pan="yay -S"
+pan() { paru --aur -S $@ }
 compdef -e 'words[1]=(auracle clone); service=auracle; (( CURRENT+=1 )); _auracle' pan
 alias pac="auracle clone"
 # open in browser (takes completion from auracle clone)

@@ -47,10 +47,6 @@ export RCLONE_PASSWORD_COMMAND="pass show rclone_config_pass"
 # make wine do not prompt for installing mono
 export WINEDLLOVERRIDES='mscoree=d'
 
-# set yay (aur helper) build folder. P.S. but note that it can mess up if RAM
-# is over
-export AURDEST="/tmp/yay-build"
-
 # difftastic
 # disably language syntax highlight
 export DFT_SYNTAX_HIGHLIGHT=off
