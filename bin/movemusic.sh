@@ -2,7 +2,7 @@
 cur_playlist="${HOME}/Files/annexes/music/.current_playlist"
 last_num="$(cd "$cur_playlist" || exit && fd -tf -tl -d1 . | sort -n | tail -n1 | cut -d. -f1)"
 for i in "$@"; do
-    if [[ "$i" =~ ^.*\.(webm|mkv|mp4)$ ]]; then
+    if [[ ! "$i" =~ ^.*\.(mp3|opus|m4a|flac)$ ]]; then
         echo "error: you're trying to move non-music file"
         exit 2
     fi
