@@ -11,6 +11,8 @@ alias vf='fzf -m | all_open_in_vim'
 vfd() { fd -tf "$@" | all_open_in_vim }
 # rg full-text search for files and open them in vim
 vrg() { rgf "$@" | all_open_in_vim +"/$1" }
+## lil alias because I usually use vrg after rgf anyway
+alias vrgf="vrg"
 
 
 #### with a spice of git
