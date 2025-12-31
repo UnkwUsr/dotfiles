@@ -44,6 +44,10 @@ autocmd TermOpen * setlocal nonumber norelativenumber
 autocmd BufReadCmd *.mp4,*.wav call jobstart('mpv --force-window=immediate ' .. shellescape(expand("%")), {'detach':1}) | bw
 autocmd BufReadCmd *.png,*.jpg call jobstart('feh --start-at ' .. shellescape(expand("%")), {'detach':1}) | bw
 
+" remove annoying warning about "this file is read only" which blocks cursor
+" for few seconds
+autocmd FileType * setlocal noreadonly
+
 " fix reporting cwd on :cd (https://github.com/neovim/neovim/issues/21771)
 autocmd DirChanged * call chansend(v:stderr, printf("\033]7;%s\033\\", v:event.cwd))
 autocmd VimLeave * call chansend(v:stderr, "\033]7;\033\\")
