@@ -63,5 +63,5 @@ fi
 if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
     # this breaks gamescope
     # export WLR_RENDERER=vulkan
-    exec sway > ~/.local/share/sway.log
+    exec sway > ~/.local/share/sway.log 2> ~/.local/share/sway.log.err
 fi
