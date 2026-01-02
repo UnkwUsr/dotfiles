@@ -10,7 +10,7 @@ config.bind("ym", "yank inline '* {title}: {url}'")
 
 config.bind("<Ctrl+w>", "rl-backward-kill-word", mode="command")
 config.bind("<Alt+Backspace>", "rl-rubout ' '", mode="command")
-config.bind("<Ctrl+shift+e>", "cmd-edit", mode="command")
+config.bind("<alt+e>", "cmd-edit", mode="command")
 
 config.unbind("<Ctrl-v>", mode="normal")
 config.unbind(".", mode="normal")
