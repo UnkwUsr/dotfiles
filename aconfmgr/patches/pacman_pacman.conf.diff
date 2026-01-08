@@ -1,29 +1,26 @@
 --- 
 +++ 
-@@ -22,7 +22,21 @@
+@@ -22,7 +22,18 @@
  Architecture = auto
  
  # Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
 -#IgnorePkg   =
 +# yes, they are treated separately
-+IgnorePkg   = linux-zen
-+IgnorePkg   = linux-zen-headers
-+IgnorePkg   = linux-headers
-+IgnorePkg   = linux-firmware
-+
 +IgnorePkg   = wine
++IgnorePkg   = go
++
++# this poisons system and its hard to get rid of it. Really
++IgnorePkg   = kwallet
 +
 +IgnorePkg   = jdk-openjdk
 +IgnorePkg   = jre-openjdk
 +IgnorePkg   = jre-openjdk-headless
 +IgnorePkg   = jdk17-openjdk
 +
-+IgnorePkg   = go
-+
  #IgnoreGroup =
  
  #NoUpgrade   =
-@@ -30,10 +44,10 @@
+@@ -30,10 +41,10 @@
  
  # Misc options
  #UseSyslog
@@ -36,8 +33,8 @@
 +VerbosePkgLists
  ParallelDownloads = 5
  DownloadUser = alpm
- #DisableSandbox
-@@ -89,8 +103,8 @@
+ #DisableSandboxFilesystem
+@@ -90,8 +100,8 @@
  #[multilib-testing]
  #Include = /etc/pacman.d/mirrorlist
  
