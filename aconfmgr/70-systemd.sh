@@ -5,7 +5,7 @@ CreateLink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service /u
 CreateLink /etc/systemd/user/default.target.wants/xdg-user-dirs-update.service /usr/lib/systemd/user/xdg-user-dirs-update.service
 CreateLink /etc/systemd/user/sockets.target.wants/p11-kit-server.socket /usr/lib/systemd/user/p11-kit-server.socket
 CreateLink /etc/systemd/user/sockets.target.wants/pipewire.socket /usr/lib/systemd/user/pipewire.socket
-CreateLink /etc/systemd/user/sockets.target.wants/pulseaudio.socket /usr/lib/systemd/user/pulseaudio.socket
+CreateLink /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket /usr/lib/systemd/user/pipewire-pulse.socket
 ### my
 CreateLink /etc/systemd/system/multi-user.target.wants/vnstat.service /usr/lib/systemd/system/vnstat.service
 # CreateLink /etc/systemd/system/paths.target.wants/vmware-networks.path /usr/lib/systemd/system/vmware-networks.path

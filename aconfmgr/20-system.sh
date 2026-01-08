@@ -7,9 +7,8 @@ AddPackage amd-ucode # Microcode update image for AMD CPUs
 AddPackage bluez # Daemons for the bluetooth protocol stack
 AddPackage bluez-utils # Development and debugging utilities for the bluetooth protocol stack
 AddPackage iwd # Internet Wireless Daemon
-AddPackage pulseaudio # A featureful, general-purpose sound server
-AddPackage pulseaudio-alsa # ALSA Configuration for PulseAudio
-AddPackage pulseaudio-bluetooth # Bluetooth support for PulseAudio
+AddPackage pipewire-alsa # Low-latency audio/video router and processor - ALSA configuration
+AddPackage pipewire-pulse # Low-latency audio/video router and processor - PulseAudio replacement
 AddPackage man-db # A utility for reading man pages
 AddPackage sudo # Give certain users the ability to run some commands as root
 
