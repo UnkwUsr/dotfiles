@@ -7,7 +7,7 @@ bindsym $mod+bracketright exec \
     bash -c "exec -a me_screen_rec wl-screenrec \
         --audio --audio-device "@DEFAULT_MONITOR@" \
         -f \"screen_$(date +%Y_%m_%d_%H-%M_%N).mp4\" &" \
-    && exec -a me_screen_rec_tray python <(echo -e "from PyQt5.QtWidgets import QApplication, QSystemTrayIcon \nfrom PyQt5.QtGui import QIcon \napp = QApplication([]) \nQSystemTrayIcon(QIcon(\\"/usr/share/icons/Adwaita/scalable/devices/camera-web.svg\\"), app).show() \napp.exec_()")
+    && exec -a me_screen_rec_tray python <(echo -e "from PyQt6.QtWidgets import QApplication, QSystemTrayIcon \nfrom PyQt6.QtGui import QIcon \napp = QApplication([]) \nQSystemTrayIcon(QIcon(\\"/usr/share/icons/Adwaita/scalable/devices/camera-web.svg\\"), app).show() \napp.exec()")
 bindsym $mod+ctrl+bracketright exec pkill -f me_screen_rec && pkill -f me_screen_rec_tray
 
 # lock screen
