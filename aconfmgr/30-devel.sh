@@ -15,6 +15,7 @@ AddPackage --foreign rust-stub-pseudo-package # Rust pseudo package that provide
 AddPackage uv # An extremely fast Python package installer and resolver written in Rust
 # seems it need to be installed cuz if clone have lfs then it will badly die
 AddPackage git-lfs # Git extension for versioning large files
+AddPackage bacon # A background rust code checker
 
 ## utils
 AddPackage diff-so-fancy # Good-looking diffs with diff-highlight and more

@@ -11,7 +11,7 @@ AddPackage bat # Cat clone with syntax highlighting and git integration
 AddPackage git # the fast distributed version control system
 AddPackage wget # Network utility to retrieve files from the Web
 AddPackage jq # Command-line JSON processor
-AddPackage aerc # Email Client for your Terminal
+AddPackage openssh # SSH protocol implementation for remote login, command execution and file transfer
 ### text editor
 AddPackage neovim # Fork of Vim aiming to improve user experience, plugins, and GUIs
 AddPackage --foreign neovim-symlinks # Runs neovim if vi or vim is called
@@ -35,7 +35,13 @@ AddPackage zk # A command-line tool helping you to maintain a Zettelkasten or pe
 AddPackage remind # A sophisticated calendar and alarm program.
 AddPackage pass # Stores, retrieves, generates, and synchronizes passwords securely
 AddPackage pass-otp # A pass extension for managing one-time-password (OTP) tokens.
+AddPackage aerc # Email Client for your Terminal
+AddPackage w3m # Text-based Web browser as well as pager
+AddPackage --foreign newsraft # Feed reader with text-based user interface
+AddPackage --foreign qrcp # Transfer files over WiFi from computer to mobile by scanning a QR code at the terminal
+AddPackage --foreign nctok-git # TUI utility for interactive exploring weighted hierarchical structured data
 AddPackage yt-dlp # A youtube-dl fork with additional features and fixes
+AddPackage yt-dlp-ejs # External JavaScript for yt-dlp supporting many runtimes
 # dependency for yt-dlp extract audio
 AddPackage python-mutagen # An audio metadata tag reader and writer (python library)
 
@@ -52,10 +58,14 @@ AddPackage rclone # Sync files to and from Google Drive, S3, Swift, Cloudfiles, 
 # AddPackage --foreign pandoc-bin # Pandoc - executable only, without 750MB Haskell depends/makedepends
 AddPackage rsync # A fast and versatile file copying tool for remote and local files
 AddPackage torsocks # Wrapper to safely torify applications
+AddPackage proxychains-ng # A hook preloader that allows to redirect TCP traffic of existing dynamically linked programs through one or more SOCKS or HTTP proxies
 
 ## utils
 AddPackage patch # A utility to apply patch files to original sources
 AddPackage which # A utility to show the full path of commands
+AddPackage iperf3 # TCP, UDP, and SCTP network bandwidth measurement tool
+AddPackage bind # A complete, highly portable implementation of the DNS protocol
+AddPackage bc # An arbitrary precision calculator language
 # AddPackage dos2unix # Text file format converter
 AddPackage libfaketime # Report fake dates and times to programs without having to change the system-wide time.
 AddPackage moreutils # A growing collection of the unix tools that nobody thought to write thirty years ago

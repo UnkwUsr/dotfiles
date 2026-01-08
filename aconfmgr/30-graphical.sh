@@ -69,6 +69,7 @@ AddPackage alacritty # A cross-platform, GPU-accelerated terminal emulator
 
 ## apps
 AddPackage telegram-desktop # Official Telegram Desktop client
+AddPackage --foreign simplex-desktop-bin # SimpleX Chat, the first messaging network operating without user identifiers of any kind (pre-compiled)
 AddPackage steam # Valve's digital software delivery system
 AddPackage songrec # An open-source, unofficial Shazam client for Linux
 AddPackage nicotine+ # Soulseek music-sharing client, written in python
@@ -81,7 +82,7 @@ AddPackage --foreign brave-bin # Web browser that blocks ads and trackers by def
 # AddPackage --foreign sunshine-bin # A self-hosted game stream host for Moonlight.
 # AddPackage --foreign waydroid # A container-based approach to boot a full Android system on a regular Linux system
 # AddPackage --foreign immersed # Immersed Desktop Agent
-AddPackage --foreign whisper.cpp-vulkan # Port of OpenAI's Whisper model in C/C++ (with Vulkan optimizations)
+AddPackage --foreign whisper.cpp # Port of OpenAI's Whisper model in C/C++ (with OpenBLAS + Vulkan optimizations)
 
 ## other stuff
 AddPackage vulkan-radeon # Open-source Vulkan driver for AMD GPUs

@@ -10,13 +10,14 @@ AddPackage iwd # Internet Wireless Daemon
 AddPackage pipewire-alsa # Low-latency audio/video router and processor - ALSA configuration
 AddPackage pipewire-pulse # Low-latency audio/video router and processor - PulseAudio replacement
 AddPackage man-db # A utility for reading man pages
+AddPackage man-pages # Linux man pages
 AddPackage sudo # Give certain users the ability to run some commands as root
 
 # system maintenance
 AddPackage --foreign rcm # rc file (dotfiles) management
 AddPackage --foreign aconfmgr-git # A configuration manager for Arch Linux
 AddPackage --foreign auracle-git # A flexible client for the AUR
-AddPackage --foreign yay-bin # Yet another yogurt. Pacman wrapper and AUR helper written in go. Pre-compiled.
+AddPackage --foreign paru # Feature packed AUR helper
 
 # hardware dependant
 AddPackage linux-firmware-amdgpu # Firmware files for Linux - Firmware for AMD Radeon GPUs
@@ -29,7 +30,6 @@ AddPackage linux-firmware # Firmware files for Linux - Default set
 
 # tier 2 (not vital)
 AddPackage powertop # A tool to diagnose issues with power consumption and power management
-AddPackage --foreign powertop-auto-tune # A systemd service for powertop that sets all tunable options to their GOOD setting.
 AddPackage dnscrypt-proxy # A flexible DNS proxy, with support for encrypted DNS protocols
 AddPackage smartmontools # Control and monitor S.M.A.R.T. enabled ATA and SCSI Hard Drives
 AddPackage vnstat # A console-based network traffic monitor
