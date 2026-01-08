@@ -11,6 +11,7 @@ ApplyPatch pacman /etc/makepkg.conf ./patches/pacman_makepkg.conf.diff
 ApplyPatch sudo /etc/sudoers ./patches/sudo_sudoers.diff
 ApplyPatch pambase /etc/pam.d/system-auth ./patches/pambase_system-auth.diff
 ApplyPatch dnscrypt-proxy /etc/dnscrypt-proxy/dnscrypt-proxy.toml ./patches/dnscrypt-proxy_dnscrypt-proxy.toml.diff
+ApplyPatch proxychains-ng /etc/proxychains.conf ./patches/proxychains-ng_proxychains.conf.diff
 
 ApplyPatch tor /etc/tor/torrc ./patches/tor_torrc.diff
 function torrc_filter() { grep -v '^Bridge obfs4'; }

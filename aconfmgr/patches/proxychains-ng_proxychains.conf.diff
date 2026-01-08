@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -158,5 +158,7 @@
+ # add proxy here ...
+ # meanwile
+ # defaults set to "tor"
+-socks4 	127.0.0.1 9050
++# socks4 	127.0.0.1 9050
++
++socks5 	127.0.0.1 45230
+ 
