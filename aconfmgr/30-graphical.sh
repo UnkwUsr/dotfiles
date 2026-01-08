@@ -1,17 +1,21 @@
 # packages providing graphical stuff or those used only in such environment
 
 ## base (graphical server, wm, etc.)
-AddPackage xorg-server # Xorg X server
-AddPackage xorg-xinit # X.Org initialisation program
-AddPackage xf86-video-amdgpu # X.org amdgpu video driver
-AddPackage xss-lock # Use external locker as X screen saver
-AddPackage i3-wm # Improved dynamic tiling window manager
-AddPackage i3lock # Improved screenlocker based upon XCB and PAM
+AddPackage sway # Tiling Wayland compositor and replacement for the i3 window manager
+AddPackage xorg-xwayland # run X clients under wayland
+AddPackage wmenu # Efficient dynamic menu for Wayland and wlroots based Wayland compositors
 AddPackage i3status-rust # Resourcefriendly and feature-rich replacement for i3status, written in pure Rust
-AddPackage upower # laptop battery stats (for i3status-rust)
-AddPackage dmenu # Generic menu for X
 AddPackage dunst # Customizable and lightweight notification-daemon
 AddPackage keyd # A key remapping daemon for linux
+
+## other little tools, but necessary
+AddPackage swaybg # Wallpaper tool for Wayland compositors
+AddPackage swayidle # Idle management daemon for Wayland
+AddPackage swaylock # Screen locker for Wayland
+AddPackage wl-clipboard # Command-line copy/paste utilities for Wayland
+AddPackage --foreign wl-screenrec-git # High performance hardware accelerated wlroots screen recorder
+AddPackage xdg-desktop-portal-wlr # xdg-desktop-portal backend for wlroots
+AddPackage upower # laptop battery stats (for i3status-rust)
 
 ## fonts
 AddPackage ttf-hack # A hand groomed and optically balanced typeface based on Bitstream Vera Mono.
